@@ -1,0 +1,27 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  fig04_14.cpp
+ *
+ *    Description:  Fig. 4.14: Create GradeBook object and invoke its
+ *                  determineClassAverage function.
+ *
+ *        Version:  1.0
+ *        Created:  24/03/16 17:44:49
+ *       Revision:  none
+ *       Compiler:  g++
+ *
+ *         Author:  Siidney Watson - siidney.watson@gmail.com
+ *   Organization:  LolaDog Studio
+ *
+ * =====================================================================================
+ */
+#include "GradeBook.h"
+
+int main(int argc, const char *argv[]){
+    GradeBook myGradeBook("CS101 C++ Programming");
+
+    myGradeBook.displayMessage();
+    myGradeBook.determineClassAverage();
+    return 0;
+}
