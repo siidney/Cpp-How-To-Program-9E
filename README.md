@@ -8,4 +8,5 @@
 > - **Chapter 1** - Introduction to Computers and C++
 > - **Chapter 2** - [Introduction to C++ Programming](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter02)
 > - **Chapter 3** - [Introduction to Classes, Objects and Strings](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter03)
-> - **Chapter 4** - [Control Statements: Part I](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter04) *in progress*
+> - **Chapter 4** - [Control Statements: Part I](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter04)
+> - **Chapter 5** - [Control Statements: Part II](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter05) *in progress*
