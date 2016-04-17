@@ -10,4 +10,5 @@
 > - **Chapter 3** - [Introduction to Classes, Objects and Strings](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter03)
 > - **Chapter 4** - [Control Statements: Part I](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter04)
 > - **Chapter 5** - [Control Statements: Part II](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter05)
-> - **Chapter 6** - [Functions and an Introduction to Recursion](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter06) *in progress*
+> - **Chapter 6** - [Functions and an Introduction to Recursion](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter06)
+> - **Chapter 7** - [Arrays and Vectors](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter07) *in progress*
