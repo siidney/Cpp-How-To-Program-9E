@@ -1,9 +1,9 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ex_556.cpp
+ *       Filename:  ex_656.cpp
  *
- *    Description:  Exercise 5.56-60 - Computer-Assisted Instruction
+ *    Description:  Exercise 6.56-60 - Computer-Assisted Instruction
  *
  *        Version:  1.0
  *        Created:  16/04/16 15:26:05
