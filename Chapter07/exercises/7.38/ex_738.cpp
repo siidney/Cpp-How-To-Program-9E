@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ex_710.cpp
+ *       Filename:  ex_738.cpp
  *
- *    Description:  Exercise 7.10 - Salesperson Salary Ranges
+ *    Description:  Exercise 7.38 - Salesperson Salary Range with Vector
  *
  *        Version:  1.0
- *        Created:  21/04/16 16:52:52
+ *        Created:  26/04/16 15:59:10
  *       Revision:  none
  *       Compiler:  g++
  *
@@ -16,11 +16,12 @@
  * =====================================================================================
  */
 #include <iostream>
+#include <vector>
 
 const size_t salaryRange = 9;
 
 int main(int argc, const char *argv[]){
-    int arrSalaries[salaryRange] = {};
+    std::vector<int> arrSalaries(salaryRange);
 
     int choice = 0;
 

@@ -1,0 +1,60 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  ex_733.cpp
+ *
+ *    Description:  Exercise 7.33 - Linear Search
+ *
+ *        Version:  1.0
+ *        Created:  20/04/16 13:32:02
+ *       Revision:  none
+ *       Compiler:  g++
+ *
+ *         Author:  Siidney Watson - siidney.watson@gmail.com
+ *   Organization:  LolaDog Studio
+ *
+ * =====================================================================================
+ */
+#include <iostream>
+
+int linearSearch(int [], int, int);
+
+int main(int argc, const char *argv[]){
+    const int arraySize = 100;
+
+    int a[arraySize];
+    int searchKey;
+
+    for(int i=0; i<arraySize; ++i){
+        a[i] = 2 * i;
+    }
+
+    std::cout << "Enter integer search key: ";
+    std::cin >> searchKey;
+
+    // attempt to locate searchKey in array a
+    int element = linearSearch(a, searchKey, arraySize);
+
+    // display results
+    if(element != -1)
+        std::cout << "Found value in element " << element << std::endl;
+    else
+        std::cout << "Value not found" << std::endl;
+
+    return 0;
+}
+// compare key to every element of array until location is found or until end of
+// array is reached; return subscript of element if key is found or -1 if key is
+// not found
+int linearSearch(int array[], int key, int sizeOfArray){
+    --sizeOfArray;
+
+    // not found
+    if(sizeOfArray < 0)
+        return -1;
+
+    if(array[sizeOfArray] == key)
+        return sizeOfArray;
+
+    return linearSearch(array, key, sizeOfArray);
+}
