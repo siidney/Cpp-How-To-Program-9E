@@ -12,4 +12,5 @@
 > - **Chapter 5** - [Control Statements: Part II](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter05)
 > - **Chapter 6** - [Functions and an Introduction to Recursion](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter06)
 > - **Chapter 7** - [Arrays and Vectors](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter07)
-> - **Chapter 8** - [Pointers](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter08) *in progress*
+> - **Chapter 8** - [Pointers](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter08)
+> - **Chapter 9** - [Classes: A Deeper Look, Part I](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter09)*in progress*
