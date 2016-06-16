@@ -127,7 +127,7 @@ void Simpletron::processInstruction(){
 
             printf("%c", *(ptrRegS++) % 100); // print first char
 
-            for(int i=operand+1; i<=operand+(len/2); ++i, ptrRegS++){
+            for(int i=operand+1; i<=operand+(len/2) && *ptrRegS != '\0'; ++i, ptrRegS++){
                 printf("%c%c", *ptrRegS / 100 , *ptrRegS % 100);
             }
             std::cout << std::endl;
@@ -236,7 +236,7 @@ void Simpletron::processString(int operand){
         // ensure don't exceed bounds of string
         if(i + 1 <= len){
             ascii = (simpleString[i] * 100) +  simpleString[i+1];
-        }else{  // last char
+        }else{  // last char (add null terminator)
             ascii = simpleString[i] * 100;
         }
 
