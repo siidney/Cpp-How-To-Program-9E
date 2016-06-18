@@ -18,6 +18,8 @@
  */
 #include "TicTacToe.h"
 
+#include <vector>
+
 // Initialise board and players to default values
 bool TicTacToe::initialise(){
     int choice = printMenu();
@@ -87,7 +89,6 @@ int TicTacToe::printMenu(){
     std::cin >> choice;
 
     return choice;
-
 }
 // Processes player turn
 // returns win condition (if any)
@@ -122,14 +123,10 @@ bool TicTacToe::playerTurn(Player& pl){
 
         move(pl, x, y);
     }else{
-        aiMove(pl);
+        // computer move
     }
 
     return isWinner(pl);
-}
-// handles ai move
-void TicTacToe::aiMove(Player& pl){
-
 }
 // adds the specified token to the game board
 // position needs validating before function call
@@ -161,13 +158,13 @@ std::ostream& TicTacToe::printBoard(std::ostream& out){
     out << "\n   " << std::setfill('-') << std::setw(COLS*2) << "" ;
     out << std::setw(0) << "\n";
 
-    for(unsigned int row=0; row<ROWS; ++row){
-        out << row << "| ";
-        for(unsigned int col=0; col<COLS; ++col){
-            if(_board[col + COLS*row] == 0){
+    for(unsigned int y=0; y<ROWS; ++y){
+        out << y << "| ";
+        for(unsigned int x=0; x<COLS; ++x){
+            if(_board[x + COLS*y] == 0){
                 out << "  ";
             }else{
-                out << ((_board[col + COLS*row] == 1) ? "X " : "O ");
+                out << ((_board[x + COLS*y] == 1) ? "X " : "O ");
             }
         }
         out << "\n";
@@ -189,59 +186,49 @@ bool TicTacToe::isValidMove(unsigned int x, unsigned int y){
     return false;
 }
 // checks for win condition
-// col + WIDTH*row
+// x + WIDTH*y
 bool TicTacToe::isWinner(Player& pl){
     // ROWS AND COLS
-    // row count counts rows[col]
-    // col count counts cols[row]
-    for(unsigned int row=0, rCount=0; row<ROWS; ++row, rCount=0){
-        for(unsigned int col=0; col<COLS; ++col){
-            if(_board[col + COLS*row] == pl.token){
-                ++rCount;
+    // y count counts row[x]
+    // x count counts col[y]
+    int dX = COLS-1;    // diagonal cols (need decrementing for right to left)
 
+    // === ROWS === //
+    for(unsigned int y=0, rCount=0, lrCount=0, rlCount=0; y<ROWS; ++y, rCount=0){
+        // DIAGONAL WIN
+        // left to right
+        if(_board[0 + COLS*0] == pl.token && _board[y + COLS*y] == pl.token){
+            if(++lrCount == COLS){
+                return true;
+            }
+        }
+        // right to left
+        if(_board[COLS-1 + COLS*0] == pl.token && _board[dX + COLS*y] == pl.token){
+            if(++rlCount == COLS){
+                return true;
+            }
+            --dX;   // decrement diagonal columns
+        }
+        // === COLS === //
+        for(unsigned int x=0; x<COLS; ++x){
+            // ROW WIN
+            if(_board[x + COLS*y] == pl.token){
+                if(++rCount == COLS){
+                    return true;
+                }
+                // COL WIN
                 // only iterate if token is present on first row
-                // iterate rows for col win
-                if(row == 0){
+                if(y == 0){
                     for(unsigned int wRow=1, cCount=1; wRow<ROWS; ++wRow){
-                        if(_board[col + COLS*wRow] == pl.token){
-                            ++cCount;
-                        }
-                        if(cCount == ROWS){
-                            return true;
+                        if(_board[x + COLS*wRow] == pl.token){
+                            if(++cCount == ROWS){
+                                return true;
+                            }
+                        }else{  // no need to continue
+                            break;
                         }
                     }
                 }
-            }
-        }
-        if(rCount == COLS){
-            return true;
-        }
-    }
-    // DIAGONALS
-    // left to right
-    if(_board[0 + COLS*0] == pl.token){
-        for(unsigned int row=0, dCount=0; row<ROWS; ++row){
-            if(_board[row + COLS*row] == pl.token){
-                ++dCount;
-            }else{
-                break;
-            }
-            if(dCount == COLS){
-                return true;
-            }
-        }
-    }
-    // right to left
-    if(_board[COLS-1 + COLS*0] == pl.token){
-        // increment row whilst decrementing col
-        for(unsigned int col=COLS-1, dCount=0, row=0; col>=0; --col, ++row){
-            if(_board[col + COLS*row] == pl.token){
-                ++dCount;
-            }else{
-                break;
-            }
-            if(dCount == COLS){
-                return true;
             }
         }
     }

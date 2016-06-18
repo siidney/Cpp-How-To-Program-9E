@@ -41,7 +41,6 @@ class TicTacToe{
 
         void go();
 
-
         // IO OPERATIONS
         friend std::ostream& operator<<(std::ostream& out, TicTacToe ttt){
             return ttt.printBoard(out);
@@ -49,12 +48,11 @@ class TicTacToe{
 
         std::ostream& printBoard(std::ostream&);
 
-    private:
-
+    protected:
         static const size_t ROWS = 3;
         static const size_t COLS = 3;
 
-        int _board[ROWS * COLS];    // _board[col + width*row]
+        int _board[ROWS * COLS];    // _board[x + width*y]
         unsigned int _moves;
 
         GameState _gameState;
@@ -66,7 +64,6 @@ class TicTacToe{
         int printMenu();
         void gameLoop();
         bool playerTurn(Player&);       // handles player move
-        void aiMove(Player&);           // handles ai move
         void move(Player&, int, int);   // moves player
         void printSummary();
 
