@@ -1,12 +1,13 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ex_915.cpp
+ *       Filename:  fig10_12.cpp
  *
- *    Description:  Exercise 9.15 - TicTacToe Class
+ *    Description:  Fig. 10.12: Demonstrating composition--an object with member
+ *                  objects.
  *
  *        Version:  1.0
- *        Created:  15/06/16 12:43:28
+ *        Created:  18/06/16 00:48:39
  *       Revision:  none
  *       Compiler:  g++
  *
@@ -17,12 +18,16 @@
  */
 #include <iostream>
 
-#include "TicTacToe.h"
+#include "Employee.h"
 
 int main(int argc, const char *argv[]){
-    TicTacToe ttt(3,3);
+    Date birth(7, 24, 1949);
+    Date hire(3, 12, 1988);
+    Employee manager("Bob", "Blue", birth, hire);
 
-    ttt.go();
+    std::cout << std::endl;
+
+    manager.print();
 
     return 0;
 }

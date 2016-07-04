@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ex_915.cpp
+ *       Filename:  fig10_06.cpp
  *
- *    Description:  Exercise 9.15 - TicTacToe Class
+ *    Description:  Fig. 10.6: Program to test class Increment
  *
  *        Version:  1.0
- *        Created:  15/06/16 12:43:28
+ *        Created:  17/06/16 22:51:56
  *       Revision:  none
  *       Compiler:  g++
  *
@@ -15,14 +15,21 @@
  *
  * =====================================================================================
  */
+#include "Increment.h"
+
 #include <iostream>
 
-#include "TicTacToe.h"
-
 int main(int argc, const char *argv[]){
-    TicTacToe ttt(3,3);
+    Increment value(10, 5);
 
-    ttt.go();
+    std::cout << "Before incrementing: ";
+    value.print();
 
+    for(int j=1; j<=3; ++j){
+        value.addIncrement();
+
+        std::cout << "After increment " << j << ": ";
+        value.print();
+    }
     return 0;
 }

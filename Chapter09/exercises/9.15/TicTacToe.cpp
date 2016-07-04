@@ -49,6 +49,10 @@ void TicTacToe::go(){
     while(initialise()){
         gameLoop();
     }
+
+    if(_board != nullptr){
+        delete[] _board;
+    }
 }
 void TicTacToe::gameLoop(){
     while(_gameState == GameState::RUN && movesRemaining()){

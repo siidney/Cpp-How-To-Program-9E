@@ -34,7 +34,7 @@ struct Player{
 
 class TicTacToe{
     public:
-        TicTacToe(){
+        TicTacToe(size_t cols = 3, size_t rows = 3) : ROWS(rows), COLS(cols){
             _gameState = GameState::INIT;
         }
         ~TicTacToe(){}
@@ -49,10 +49,11 @@ class TicTacToe{
         std::ostream& printBoard(std::ostream&);
 
     protected:
-        static const size_t ROWS = 3;
-        static const size_t COLS = 3;
+        const size_t ROWS;
+        const size_t COLS;
 
-        int _board[ROWS * COLS];    // _board[x + width*y]
+        int* _board = new int[ROWS * COLS];    // _board[x + width*y]
+
         unsigned int _moves;
 
         GameState _gameState;
