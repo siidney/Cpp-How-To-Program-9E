@@ -14,4 +14,5 @@
 > - **Chapter 7** - [Arrays and Vectors](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter07)
 > - **Chapter 8** - [Pointers](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter08)
 > - **Chapter 9** - [Classes: A Deeper Look, Part I](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter09)
-> - **Chapter 10** . [Classes: A Deeper Look, Part II](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter10)*in progress*
+> - **Chapter 10** . [Classes: A Deeper Look, Part II](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter10)
+> - **Chapter 11** - [Operator Overloading: Class String](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter11)*in progress*
