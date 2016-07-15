@@ -1,0 +1,3 @@
+Need to complete 11.11 (Polynomial Class).
+I have no idea what a polynomial is or any conception of how to go about this.
+Will return at a later date...Maybe...

@@ -11,3 +11,6 @@
 *.un~
 /src
 *.un~
+
+# compiled executables
+main
