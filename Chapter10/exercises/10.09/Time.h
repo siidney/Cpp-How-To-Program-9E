@@ -10,7 +10,7 @@
  *       Revision:  04/07/16 14:01:48
  *       Compiler:  gcc
  *
- *         Author:  Siidney Watson - siidney.watson@gmail.com
+ *         Author:  Siidney Watson - siidney.watson.work@gmail.com
  *   Organization:  LolaDog Studio
  *
  * =====================================================================================

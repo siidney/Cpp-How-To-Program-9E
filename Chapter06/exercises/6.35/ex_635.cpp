@@ -10,7 +10,7 @@
  *       Revision:  15/04/16 14:53:09
  *       Compiler:  g++
  *
- *         Author:  Siidney Watson - siidney.watson@gmail.com
+ *         Author:  Siidney Watson - siidney.watson.work@gmail.com
  *   Organization:  LolaDog Studio
  *
  * =====================================================================================
