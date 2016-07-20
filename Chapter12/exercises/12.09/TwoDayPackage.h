@@ -1,0 +1,28 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  TwoDayPackage.h
+ *
+ *    Description:  Exercise 12.9: Package Inheritance Hierarchy
+ *
+ *        Version:  1.0
+ *        Created:  19/07/16 17:59:57
+ *       Revision:  none
+ *       Compiler:  g++
+ *
+ *         Author:  Siidney Watson - siidney.watson.work@gmail.com
+ *   Organization:  LolaDog Studio
+ *
+ * =====================================================================================
+ */
+#pragma once
+
+#include "Package.h"
+
+class TwoDayPackage : public Package{
+    public:
+        TwoDayPackage();
+        ~TwoDayPackage();
+
+    private:
+};
