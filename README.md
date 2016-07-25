@@ -16,5 +16,5 @@
 > - **Chapter 9** - [Classes: A Deeper Look, Part I](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter09)
 > - **Chapter 10** . [Classes: A Deeper Look, Part II](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter10)
 > - **Chapter 11** - [Operator Overloading: Class String](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter11)
-> - **Chapter 12** - [Object-Oriented Programming: Inheritance](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter12)*in progress*
-
+> - **Chapter 12** - [Object-Oriented Programming: Inheritance](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter12)
+> - **Chapter 13** - [Object-Oriented Programming: Polymorphism](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter13)*in progress*

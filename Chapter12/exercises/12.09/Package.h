@@ -17,12 +17,35 @@
  */
 #pragma once
 
+#include "Utility.h"
+
+#include <iostream>
 #include <string>
 
 class Package{
     public:
-        Package();
-        ~Package();
+        Package(const Person&, const Person&, double, double);
+
+        double calculateCost(){
+            return getWeight() * getCostPerOunce();
+        }
+
+        double getWeight() const{
+            return weight;
+        }
+        double getCostPerOunce() const{
+            return costPerOunce;
+        }
+
+        void printDetails() const;
 
     private:
+        Person sender;
+        Person recipient;
+
+        double weight;
+        double costPerOunce;
+
+        void setWeight(double);
+        void setCostPerOunce(double);
 };

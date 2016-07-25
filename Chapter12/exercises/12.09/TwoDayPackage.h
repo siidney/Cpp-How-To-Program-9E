@@ -21,8 +21,16 @@
 
 class TwoDayPackage : public Package{
     public:
-        TwoDayPackage();
-        ~TwoDayPackage();
+        TwoDayPackage(const Person&, const Person&, double, double, double);
+
+        double calculateCost(){
+            return Package::calculateCost() + flatFee;
+        }
+
+        void printDetails();
 
     private:
+        double flatFee;
+
+        void setFee(double);
 };
