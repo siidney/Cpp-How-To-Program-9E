@@ -29,7 +29,7 @@ void CheckingAccount::credit(double c){
 // debit
 void CheckingAccount::debit(double d){
     if(Account::debit(d)){
-        Account::debit(feePerTransaction);
+        Account::debit(fpt);
     }else{
         std::cout << "Error insufficient funds in checking account";
     }

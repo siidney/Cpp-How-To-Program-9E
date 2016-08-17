@@ -17,4 +17,15 @@
 > - **Chapter 10** . [Classes: A Deeper Look, Part II](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter10)
 > - **Chapter 11** - [Operator Overloading: Class String](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter11)
 > - **Chapter 12** - [Object-Oriented Programming: Inheritance](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter12)
-> - **Chapter 13** - [Object-Oriented Programming: Polymorphism](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter13)*in progress*
+> - **Chapter 13** - [Object-Oriented Programming: Polymorphism](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter13)
+> - **Chapter 14** - Templates
+> - **Chapter 15** - Stream Input/Output
+> - **Chapter 16** - Exception Handling: A Deeper Look
+> - **Chapter 17** - File Processing
+> - **Chapter 18** - Class *string* and String Stream Processing
+> - **Chapter 19** - Searching and Sorting
+> - **Chapter 20** - Custom Templatized Data Structures
+> - **Chapter 21** - Bits, Characters, C String and *structs*
+> - **Chapter 22** - Standard Template Library (STL)
+> - **Chapter 23** - Boost Libraries, Technical Report I and C++0x
+> - **Chapter 24** - Other Topics
