@@ -6,11 +6,10 @@
 *.swp
 
 # vim extended undo files
-*.un~
-/include
-*.un~
-/src
-*.un~
+*~
 
 # compiled executables
 main
+
+# ctags files
+tags

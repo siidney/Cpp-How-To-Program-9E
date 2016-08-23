@@ -38,7 +38,6 @@ int main(int argc, const char *argv[]){
 
     return 0;
 }
-
 void printCircle(double r){
     std::cout << "Radius: " << r << std::endl;
     std::cout << "Diameter: " << getDiameter(r) << std::endl;
