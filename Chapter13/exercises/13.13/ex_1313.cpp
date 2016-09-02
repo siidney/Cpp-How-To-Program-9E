@@ -42,15 +42,15 @@ int main(int argc, const char *argv[]){
     Cuboid cuboid(5, 4, 10);
     Sphere sphere(10);
 
-    std::vector<Shape*>shapes(7);
+    std::vector<Shape*>shapes;
 
-    shapes[0] = &square;
-    shapes[1] = &rectangle;
-    shapes[2] = &circle;
-    shapes[3] = &triangle;
-    shapes[4] = &cube;
-    shapes[5] = &cuboid;
-    shapes[6] = &sphere;
+    shapes.push_back(&square);
+    shapes.push_back(&rectangle);
+    shapes.push_back(&circle);
+    shapes.push_back(&triangle);
+    shapes.push_back(&cube);
+    shapes.push_back(&cuboid);
+    shapes.push_back(&sphere);
 
     for(size_t i=0; i<shapes.size(); ++i){
         shapes[i]->print();
