@@ -18,7 +18,7 @@
 > - **Chapter 11** - [Operator Overloading: Class String](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter11)
 > - **Chapter 12** - [Object-Oriented Programming: Inheritance](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter12)
 > - **Chapter 13** - [Object-Oriented Programming: Polymorphism](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter13)
-> - **Chapter 14** - Templates
+> - **Chapter 14** - [Templates](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter14)
 > - **Chapter 15** - Stream Input/Output
 > - **Chapter 16** - Exception Handling: A Deeper Look
 > - **Chapter 17** - File Processing
