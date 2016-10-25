@@ -5,11 +5,5 @@
 *.swo
 *.swp
 
-# vim extended undo files
-*~
-
 # compiled executables
 main
-
-# ctags files
-tags

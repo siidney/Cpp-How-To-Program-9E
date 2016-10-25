@@ -20,7 +20,7 @@
 > - **Chapter 13** - [Object-Oriented Programming: Polymorphism](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter13)
 > - **Chapter 14** - [Templates](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter14)
 > - **Chapter 15** - [Stream Input/Output](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter15)
-> - **Chapter 16** - Exception Handling: A Deeper Look
+> - **Chapter 16** - [Exception Handling: A Deeper Look](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter16)
 > - **Chapter 17** - File Processing
 > - **Chapter 18** - Class *string* and String Stream Processing
 > - **Chapter 19** - Searching and Sorting
