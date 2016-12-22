@@ -239,6 +239,6 @@ bool TicTacToe::isWinner(Player& pl){
     return false;
 }
 // check for remaining moves
-bool TicTacToe::movesRemaining(){
+inline bool TicTacToe::movesRemaining(){
     return (_moves < (ROWS * COLS));
 }
