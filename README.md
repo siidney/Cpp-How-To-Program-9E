@@ -22,7 +22,7 @@
 > - **Chapter 15** - [Stream Input/Output](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter15)
 > - **Chapter 16** - [Exception Handling: A Deeper Look](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter16)
 > - **Chapter 17** - [File Processing](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter17)
-> - **Chapter 18** - Class *string* and String Stream Processing
+> - **Chapter 18** - [Class *string* and String Stream Processing](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter18)
 > - **Chapter 19** - Searching and Sorting
 > - **Chapter 20** - Custom Templatized Data Structures
 > - **Chapter 21** - Bits, Characters, C String and *structs*
