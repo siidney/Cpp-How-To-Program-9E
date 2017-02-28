@@ -3,13 +3,12 @@
  *
  *       Filename:  Employee.cpp
  *
- *    Description:  Fig. 13.10: Abstract-base-class Employee member-function
- *                  definitions.
+ *    Description:  Exercise 18.27 - Enhanced Employee Class
  *                  Note: No definitions are given for pure virtual functions.
  *
  *        Version:  1.0
  *        Created:  12/08/16 19:23:10
- *       Revision:  none
+ *       Revision:  28/02/17 14:17:15
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -63,4 +62,16 @@ void Employee::print() const{
     std::cout << getFirstName() << ' ' << getLastName()
               << "\nDate of birth: " << birthDate
               << "\nsocial security number: " << getSocialSecurityNumber();
+}
+// utility functions
+bool Employee::isValidSocialSecurityNumber(const std::string& base) const{
+    for(size_t i=0; i<base.size(); ++i){
+        if(i == 3 || i == 6)
+            continue;
+
+        if(!isdigit(base[i]))
+            return false;
+    }
+
+    return true;
 }

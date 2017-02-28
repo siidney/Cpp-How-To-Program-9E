@@ -28,7 +28,6 @@ int main(int argc, const char *argv[]){
     const int arraySize = 10;
 
     int order;  // 1 = ascending 2 = descending
-    int counter;
     int a[arraySize] = {2, 6, 4, 8, 10, 12, 89, 68, 45, 37};
 
     std::cout << "Enter 1 to sort in ascending order.\n"

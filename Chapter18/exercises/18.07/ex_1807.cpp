@@ -19,8 +19,6 @@
 #include <string>
 
 int getChoice();
-const std::string encrypt(const std::string&);
-const std::string decrypt(const std::string&);
 const std::string rot13(const std::string&);
 
 int main(int argc, const char* argv[]){
