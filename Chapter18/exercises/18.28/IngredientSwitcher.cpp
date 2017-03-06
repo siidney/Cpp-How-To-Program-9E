@@ -145,9 +145,7 @@ void IngredientSwitcher::search(){
 }
 // check if alternatives exist in map
 bool IngredientSwitcher::hasAlternatives(const std::string& ingredient){
-    std::map<std::string, struct Node>::iterator it;
-
-    it = alternativesMap.find(ingredient);
+    std::map<std::string, struct Node>::iterator it = alternativesMap.find(ingredient);
 
     return (it != alternativesMap.end());
 }

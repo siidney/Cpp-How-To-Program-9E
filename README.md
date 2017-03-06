@@ -23,7 +23,7 @@
 > - **Chapter 16** - [Exception Handling: A Deeper Look](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter16)
 > - **Chapter 17** - [File Processing](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter17)
 > - **Chapter 18** - [Class *string* and String Stream Processing](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter18)
-> - **Chapter 19** - Searching and Sorting
+> - **Chapter 19** - [Searching and Sorting](https://github.com/siidney/Cpp-How-To-Program-9E/tree/master/Chapter19)
 > - **Chapter 20** - Custom Templatized Data Structures
 > - **Chapter 21** - Bits, Characters, C String and *structs*
 > - **Chapter 22** - Standard Template Library (STL)
