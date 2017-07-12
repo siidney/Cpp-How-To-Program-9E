@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::string fName, lName, gender;
     int month, day, year;
     double weight, height;

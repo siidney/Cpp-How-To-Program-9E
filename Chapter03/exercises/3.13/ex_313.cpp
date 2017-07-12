@@ -19,12 +19,15 @@
 
 #include "Invoice.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Invoice invoice1("12345", "Hammer", 12, 6);
 
     std::cout << "Part Number: " << invoice1.getPartNumber();
     std::cout << "\nPart Description: " << invoice1.getPartDescription();
-    std::cout << "\n" << invoice1.getItemQuantity() << " x " << invoice1.getPricePerItem();
-    std::cout << " = " << invoice1.getInvoiceAmount() << std::endl;;
+    std::cout << "\n"
+              << invoice1.getItemQuantity() << " x "
+              << invoice1.getPricePerItem();
+    std::cout << " = " << invoice1.getInvoiceAmount() << std::endl;
+
     return 0;
 }

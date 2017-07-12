@@ -20,46 +20,47 @@
 #include <iostream>
 #include <string>
 
-class HealthProfile{
-    private:
-        std::string firstName;
-        std::string lastName;
-        std::string gender;
-        int month, day, year;
-        double height, weight;
-        int ageInYears = 0;
+class HealthProfile {
+ private:
+    std::string firstName;
+    std::string lastName;
+    std::string gender;
+    int month, day, year;
+    double height, weight;
+    int ageInYears = 0;
 
-    public:
-        HealthProfile(std::string, std::string, std::string, int, int, int, double, double);
+ public:
+    HealthProfile(std::string, std::string, std::string, int, int, int, double,
+                  double);
 
-        // SETTERS
-        void setFirstName(std::string);
-        void setLastName(std::string);
-        void setGender(std::string);
-        void setDOB(int, int, int);
-        void setMonth(int);
-        void setDay(int);
-        void setYear(int);
-        void setAge();
-        void setHeight(int);
-        void setWeight(int);
+    // SETTERS
+    void setFirstName(std::string);
+    void setLastName(std::string);
+    void setGender(std::string);
+    void setDOB(int, int, int);
+    void setMonth(int);
+    void setDay(int);
+    void setYear(int);
+    void setAge();
+    void setHeight(int);
+    void setWeight(int);
 
-        // GETTERS
-        std::string getFirstName();
-        std::string getLastName();
-        std::string getGender();
-        int getMonth();
-        int getDay();
-        int getYear();
-        void getDOB();
-        int getAge();
-        double getHeight();
-        double getWeight();
+    // GETTERS
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getGender();
+    int getMonth();
+    int getDay();
+    int getYear();
+    void getDOB();
+    int getAge();
+    double getHeight();
+    double getWeight();
 
-        double getBMI();
-        void getTargetHeartRate();
-        int getMaxHeartRate();
+    double getBMI();
+    void getTargetHeartRate();
+    int getMaxHeartRate();
 
-        void showHealthProfile();
-        void printBMIInfo();
+    void showHealthProfile();
+    void printBMIInfo();
 };

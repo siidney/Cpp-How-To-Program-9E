@@ -17,16 +17,16 @@
  */
 #pragma once
 
-class Account{
-    private:
-        int accountBalance;
+class Account {
+ private:
+    int accountBalance;
 
-    public:
-        Account(int);
+ public:
+    explicit Account(int);
 
-        // GETTERS
-        int getBalance();
+    // GETTERS
+    int getBalance();
 
-        void credit(int);   // credit account
-        void debit(int);    // debit account
+    void credit(int);  // credit account
+    void debit(int);   // debit account
 };

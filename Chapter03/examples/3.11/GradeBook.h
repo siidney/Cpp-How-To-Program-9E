@@ -22,18 +22,18 @@
 
 #include <string>
 
-class GradeBook{
-    private:
-        std::string courseName;
+class GradeBook {
+ private:
+    std::string courseName;
 
-    public:
-        GradeBook(std::string);
+ public:
+    GradeBook(std::string);
 
-        // SETTERS
-        void setCourseName(std::string);
+    // SETTERS
+    void setCourseName(std::string);
 
-        // GETTERS
-        std::string getCourseName();
+    // GETTERS
+    std::string getCourseName();
 
-        void displayMessage();
+    void displayMessage();
 };

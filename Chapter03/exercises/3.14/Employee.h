@@ -20,27 +20,27 @@
 #include <iostream>
 #include <string>
 
-class Employee{
-    private:
-        std::string firstName;
-        std::string lastName;
-        int monthlySalary;
+class Employee {
+ private:
+    std::string firstName;
+    std::string lastName;
+    int monthlySalary;
 
-    public:
-        Employee(std::string, std::string, int);
+ public:
+    Employee(std::string, std::string, int);
 
-        // SETTERS
-        void setFirstName(std::string);
-        void setLastName(std::string);
-        void setMonthlySalary(int);
+    // SETTERS
+    void setFirstName(std::string);
+    void setLastName(std::string);
+    void setMonthlySalary(int);
 
-        // GETTERS
-        std::string getFirstName();
-        std::string getLastName();
-        int getMonthlySalary();
-        int calculateSalary(int);
+    // GETTERS
+    std::string getFirstName();
+    std::string getLastName();
+    int getMonthlySalary();
+    int calculateSalary(int);
 
-        void giveRaise(int);
+    void giveRaise(int);
 
-        void showEmployee();
+    void showEmployee();
 };

@@ -17,7 +17,7 @@
  */
 #include "Date.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Date date1(12, 7, 1983);
     Date date2(14, 23, 1255);
 

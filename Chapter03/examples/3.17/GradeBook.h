@@ -20,17 +20,18 @@
 #pragma once
 #include <string>
 
-class GradeBook{
-    private:
-        std::string courseName;
-    public:
-        GradeBook(std::string);
+class GradeBook {
+ private:
+    std::string courseName;
 
-        // SETTERS
-        void setCourseName(std::string);
+ public:
+    GradeBook(std::string);
 
-        // GETTERS
-        std::string getCourseName();
+    // SETTERS
+    void setCourseName(std::string);
 
-        void displayMessage();
+    // GETTERS
+    std::string getCourseName();
+
+    void displayMessage();
 };

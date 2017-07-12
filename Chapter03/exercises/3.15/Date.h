@@ -19,24 +19,24 @@
 
 #include <iostream>
 
-class Date{
-    private:
-        int month = 1;
-        int day = 1;
-        int year = 1900;
+class Date {
+ private:
+    int month = 1;
+    int day = 1;
+    int year = 1900;
 
-    public:
-        Date(int, int, int);
+ public:
+    Date(int, int, int);
 
-        // SETTERS
-        void setMonth(int);
-        void setDay(int);
-        void setYear(int);
+    // SETTERS
+    void setMonth(int);
+    void setDay(int);
+    void setYear(int);
 
-        // GETTERS
-        int getMonth();
-        int getDay();
-        int getYear();
+    // GETTERS
+    int getMonth();
+    int getDay();
+    int getYear();
 
-        void displayDate();
+    void displayDate();
 };

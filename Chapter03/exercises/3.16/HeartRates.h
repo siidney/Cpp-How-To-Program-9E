@@ -19,36 +19,36 @@
 
 #include <string>
 
-class HeartRates{
-    private:
-        std::string firstName;
-        std::string lastName;
-        int month = 1;
-        int day = 1;
-        int year = 1900;
-        int ageInYears = 0;
+class HeartRates {
+ private:
+    std::string firstName;
+    std::string lastName;
+    int month = 1;
+    int day = 1;
+    int year = 1900;
+    int ageInYears = 0;
 
-    public:
-        HeartRates(std::string, std::string, int, int, int);
+ public:
+    HeartRates(std::string, std::string, int, int, int);
 
-        // SETTERS
-        void setFirstName(std::string);
-        void setLastName(std::string);
-        void setDOB(int, int, int);
-        void setMonth(int);
-        void setDay(int);
-        void setYear(int);
-        void setAge();
+    // SETTERS
+    void setFirstName(std::string);
+    void setLastName(std::string);
+    void setDOB(int, int, int);
+    void setMonth(int);
+    void setDay(int);
+    void setYear(int);
+    void setAge();
 
-        // GETTERS
-        std::string getFirstName();
-        std::string getLastName();
-        int getMonth();
-        int getDay();
-        int getYear();
-        int getAge();
-        int getMaximumHeartRate();
-        void getTargetHeartRate();
+    // GETTERS
+    std::string getFirstName();
+    std::string getLastName();
+    int getMonth();
+    int getDay();
+    int getYear();
+    int getAge();
+    int getMaximumHeartRate();
+    void getTargetHeartRate();
 
-        void displayInformation();
+    void displayInformation();
 };

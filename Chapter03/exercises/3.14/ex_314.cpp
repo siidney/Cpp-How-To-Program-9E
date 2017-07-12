@@ -19,7 +19,7 @@
 
 #include "Employee.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Employee emp1("Bob", "Bobson", 1200);
     Employee emp2("Sue", "Sueson", 2000);
 

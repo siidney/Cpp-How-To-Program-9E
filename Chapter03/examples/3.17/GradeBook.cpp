@@ -16,31 +16,27 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include "GradeBook.h"
+#include <iostream>
 
-GradeBook::GradeBook(std::string name){
-    setCourseName(name);
-}
+GradeBook::GradeBook(std::string name) { setCourseName(name); }
 // SETTERS
 // ensure coursename does not exceed 25 chars
-void GradeBook::setCourseName(std::string name){
-    if(name.length() <= 25)
-        courseName = name;
+void GradeBook::setCourseName(std::string name) {
+    if (name.length() <= 25) courseName = name;
 
-    if(name.length() > 25){
+    if (name.length() > 25) {
         courseName = name.substr(0, 25);
 
         std::cout << "Name \"" << name << "\" exceeds maximum length (25).\n";
-        std::cout << "Limiting courseName to first 25 characters.\n" << std::endl;
-
+        std::cout << "Limiting courseName to first 25 characters.\n"
+                  << std::endl;
     }
 }
 // GETTERS
-std::string GradeBook::getCourseName(){
-    return courseName;
-}
+std::string GradeBook::getCourseName() { return courseName; }
 // display a welcome message to the GradeBook user
-void GradeBook::displayMessage(){
-    std::cout << "Welcome to the grade book for\n" << getCourseName() << "!" << std::endl;
+void GradeBook::displayMessage() {
+    std::cout << "Welcome to the grade book for\n"
+              << getCourseName() << "!" << std::endl;
 }

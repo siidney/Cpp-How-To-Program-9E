@@ -22,21 +22,21 @@
 
 #include <string>
 
-class GradeBook{
-    private:
-        std::string courseName;
-        std::string instructorName;
+class GradeBook {
+ private:
+    std::string courseName;
+    std::string instructorName;
 
-    public:
-        GradeBook(std::string, std::string);
+ public:
+    GradeBook(std::string, std::string);
 
-        // SETTERS
-        void setCourseName(std::string);
-        void setInstructorName(std::string);
+    // SETTERS
+    void setCourseName(std::string);
+    void setInstructorName(std::string);
 
-        // GETTERS
-        std::string getCourseName();
-        std::string getInstructorName();
+    // GETTERS
+    std::string getCourseName();
+    std::string getInstructorName();
 
-        void displayMessage();
+    void displayMessage();
 };

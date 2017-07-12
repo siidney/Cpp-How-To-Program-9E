@@ -19,28 +19,28 @@
 
 #include <string>
 
-class Invoice{
-    private:
-        std::string partNumber;
-        std::string partDescription;
+class Invoice {
+ private:
+    std::string partNumber;
+    std::string partDescription;
 
-        int itemQuantity;
-        int pricePerItem;
+    int itemQuantity;
+    int pricePerItem;
 
-    public:
-        Invoice(std::string, std::string, int, int);
+ public:
+    Invoice(std::string, std::string, int, int);
 
-        // SETTERS
-        void setPartNumber(std::string);
-        void setPartDescription(std::string);
-        void setItemQuantity(int);
-        void setPricePerItem(int);
+    // SETTERS
+    void setPartNumber(std::string);
+    void setPartDescription(std::string);
+    void setItemQuantity(int);
+    void setPricePerItem(int);
 
-        // GETTERS
-        std::string getPartNumber();
-        std::string getPartDescription();
-        int getItemQuantity();
-        int getPricePerItem();
+    // GETTERS
+    std::string getPartNumber();
+    std::string getPartDescription();
+    int getItemQuantity();
+    int getPricePerItem();
 
-        int getInvoiceAmount();
+    int getInvoiceAmount();
 };

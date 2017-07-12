@@ -17,22 +17,17 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include "GradeBook.h"
+#include <iostream>
 
 // Constructor
-GradeBook::GradeBook(std::string name){
-    setCourseName(name);
-}
+GradeBook::GradeBook(std::string name) { setCourseName(name); }
 // SETTERS
-void GradeBook::setCourseName(std::string name){
-    courseName = name;
-}
+void GradeBook::setCourseName(std::string name) { courseName = name; }
 // GETTERS
-std::string GradeBook::getCourseName(){
-    return courseName;
-}
+std::string GradeBook::getCourseName() { return courseName; }
 // display a welcome message to the GradeBook user
-void GradeBook::displayMessage(){
-    std::cout << "Welcome to the grade book for\n" << getCourseName() << "!" << std::endl;
+void GradeBook::displayMessage() {
+    std::cout << "Welcome to the grade book for\n"
+              << getCourseName() << "!" << std::endl;
 }

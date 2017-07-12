@@ -19,7 +19,7 @@
 
 #include "Account.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Account acc1(500);
     Account acc2(1500);
 

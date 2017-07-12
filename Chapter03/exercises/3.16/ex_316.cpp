@@ -17,7 +17,7 @@
  */
 #include "HeartRates.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     HeartRates heartRates1("Billy", "Bunson", 11, 23, 1956);
     HeartRates heartRates2("Sue", "Sueson", 5, 13, 1983);
 
