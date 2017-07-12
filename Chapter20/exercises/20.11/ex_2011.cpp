@@ -17,8 +17,8 @@
  */
 #include <ctype.h>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
 
 int main(int argc, const char* argv[]) {
     std::string cData;
@@ -31,8 +31,7 @@ int main(int argc, const char* argv[]) {
 
     // sanitise data - remove spaces and punctuation
     for (char& c : cData) {
-        if (isspace(c) || ispunct(c))
-            continue;
+        if (isspace(c) || ispunct(c)) continue;
 
         cSanitised += tolower(c);
         cStack.push(tolower(c));

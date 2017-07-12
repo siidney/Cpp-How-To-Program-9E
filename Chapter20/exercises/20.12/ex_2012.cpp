@@ -34,10 +34,10 @@ bool isOperator(const char& c) {
         case '^':
         case '%':
             return true;
-        break;
+            break;
         default:
             return false;
-        break;
+            break;
     }
 }
 
@@ -55,8 +55,9 @@ bool precedence(const char& operator1, const char& operator2) {
         case '*':
         case '/':
         case '%':
-            return ((operator2 == '*') || (operator2 == '/') || (operator2 == '%')
-                   || (operator2 == '+') || (operator2 == '-'));
+            return ((operator2 == '*') || (operator2 == '/') ||
+                    (operator2 == '%') || (operator2 == '+') ||
+                    (operator2 == '-'));
         case '^':
             return true;
         default:
@@ -69,9 +70,7 @@ bool precedence(const char& operator1, const char& operator2) {
  * @param c.
  * @return result.
  */
-bool isParenthesis(const char& c) {
-    return (c == '(');
-}
+bool isParenthesis(const char& c) { return (c == '('); }
 int main(int argc, const char* argv[]) {
     std::string infix;
     Stack<char> postfixStack;

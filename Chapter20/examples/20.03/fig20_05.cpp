@@ -21,7 +21,7 @@
 #include <string>
 
 // display program instructions to user
-void instructions(){
+void instructions() {
     std::cout << "Enter one of the following:\n"
               << " 1 to insert at beginning of list\n"
               << " 2 to insert at end of list\n"
@@ -30,49 +30,49 @@ void instructions(){
               << " 5 to end list processing\n";
 }
 // function to test a list
-template<typename T>
-void testList(List<T> &listObject, const std::string &typeName){
+template <typename T>
+void testList(List<T> &listObject, const std::string &typeName) {
     std::cout << "Testing a List of " << typeName << " values\n";
     instructions();
 
     int choice;
     T value;
 
-    do{
+    do {
         std::cout << "? ";
         std::cin >> choice;
 
-        switch(choice){
+        switch (choice) {
             case 1:
                 std::cout << "Enter " << typeName << ": ";
                 std::cin >> value;
                 listObject.insertAtFront(value);
                 listObject.print();
-            break;
+                break;
             case 2:
                 std::cout << "Enter " << typeName << ": ";
                 std::cin >> value;
                 listObject.insertAtBack(value);
                 listObject.print();
-            break;
+                break;
             case 3:
-                if(listObject.removeFromFront(value))
+                if (listObject.removeFromFront(value))
                     std::cout << value << " removed from list\n";
 
                 listObject.print();
-            break;
+                break;
             case 4:
-                if(listObject.removeFromBack(value))
+                if (listObject.removeFromBack(value))
                     std::cout << value << " removed from list\n";
 
                 listObject.print();
-            break;
+                break;
         }
-    }while(choice < 5);
+    } while (choice < 5);
 
     std::cout << "End list test\n\n";
 }
-int main(int argc, const char* argv[]){
+int main(int argc, const char *argv[]) {
     List<int> integerList;
     testList(integerList, "integer");
 

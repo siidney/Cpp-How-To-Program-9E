@@ -18,25 +18,22 @@
 #pragma once
 
 // forward declaration of class Tree
-template<typename NODETYPE> class Tree;
+template <typename NODETYPE>
+class Tree;
 
 // TreeNode class-template definition
-template<typename NODETYPE>
-class TreeNode{
-
+template <typename NODETYPE>
+class TreeNode {
     friend class Tree<NODETYPE>;
 
-    public:
-        explicit TreeNode(const NODETYPE &d)
-            :leftPtr(0), data(d), rightPtr(0)
-        {}
+ public:
+    explicit TreeNode(const NODETYPE &d) : leftPtr(0), data(d), rightPtr(0) {}
 
-        // return copy of node's data
-        NODETYPE getData() const{
-            return data;
-        }
-    private:
-        TreeNode<NODETYPE> *leftPtr;
-        NODETYPE data;
-        TreeNode<NODETYPE> *rightPtr;
+    // return copy of node's data
+    NODETYPE getData() const { return data; }
+
+ private:
+    TreeNode<NODETYPE> *leftPtr;
+    NODETYPE data;
+    TreeNode<NODETYPE> *rightPtr;
 };

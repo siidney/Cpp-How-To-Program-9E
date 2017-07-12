@@ -17,40 +17,39 @@
  */
 #pragma once
 
-#include "ListNode.h"
 #include <iostream>
+#include "ListNode.h"
 
-template<typename NODETYPE>
-class List{
-    public:
-        List();
-        ~List();
+template <typename NODETYPE>
+class List {
+ public:
+    List();
+    ~List();
 
-        void insertAtFront(const NODETYPE &);
-        void insertAtBack(const NODETYPE &);
-        bool removeFromFront(NODETYPE &);
-        bool removeFromBack(NODETYPE &);
-        void concatenate(List<NODETYPE>&);
-        bool isEmpty() const;
-        void print() const;
-        int size() const;
+    void insertAtFront(const NODETYPE &);
+    void insertAtBack(const NODETYPE &);
+    bool removeFromFront(NODETYPE &);
+    bool removeFromBack(NODETYPE &);
+    void concatenate(List<NODETYPE> &);
+    List<NODETYPE> merge(List<NODETYPE>&);
+    bool isEmpty() const;
+    void print() const;
+    int size() const;
 
-    private:
-        ListNode<NODETYPE> *firstPtr;   // pointer to first node
-        ListNode<NODETYPE> *lastPtr;    // pointer to last node
+ private:
+    ListNode<NODETYPE> *firstPtr;  // pointer to first node
+    ListNode<NODETYPE> *lastPtr;   // pointer to last node
 
-        int sz;
+    int sz;
 
-        // utility function to allocate new node
-        ListNode<NODETYPE> *getNewNode(const NODETYPE &);
+    // utility function to allocate new node
+    ListNode<NODETYPE> *getNewNode(const NODETYPE &);
 };
 // default constructor
-template<typename NODETYPE>
-List<NODETYPE>::List()
-    : firstPtr(0), lastPtr(0), sz(0)
-{}
+template <typename NODETYPE>
+List<NODETYPE>::List() : firstPtr(0), lastPtr(0), sz(0) {}
 // destructor
-template<typename NODETYPE>
+template <typename NODETYPE>
 List<NODETYPE>::~List() {
     if (!isEmpty()) {
         ListNode<NODETYPE> *currentPtr = firstPtr;
@@ -64,25 +63,25 @@ List<NODETYPE>::~List() {
     }
 }
 // insert Node at front of list
-template<typename NODETYPE>
+template <typename NODETYPE>
 void List<NODETYPE>::insertAtFront(const NODETYPE &value) {
     ListNode<NODETYPE> *newPtr = getNewNode(value);
 
     if (isEmpty()) {
-        firstPtr = lastPtr = newPtr;    // new list only has one node
+        firstPtr = lastPtr = newPtr;  // new list only has one node
     } else {
-        newPtr->nextPtr = firstPtr;     // point new node to previous list node
+        newPtr->nextPtr = firstPtr;  // point new node to previous list node
         firstPtr = newPtr;
     }
     ++sz;
 }
 // insert node at back of list
-template<typename NODETYPE>
+template <typename NODETYPE>
 void List<NODETYPE>::insertAtBack(const NODETYPE &value) {
     ListNode<NODETYPE> *newPtr = getNewNode(value);
 
     if (isEmpty()) {
-        firstPtr = lastPtr = newPtr;    // new list has only one node
+        firstPtr = lastPtr = newPtr;  // new list has only one node
     } else {
         lastPtr->nextPtr = newPtr;
         lastPtr = newPtr;
@@ -90,9 +89,9 @@ void List<NODETYPE>::insertAtBack(const NODETYPE &value) {
     ++sz;
 }
 // delete node from front of list
-template<typename NODETYPE>
+template <typename NODETYPE>
 bool List<NODETYPE>::removeFromFront(NODETYPE &value) {
-    if (isEmpty()) {   // list is empty
+    if (isEmpty()) {  // list is empty
         return false;
     } else {
         ListNode<NODETYPE> *tempPtr = firstPtr;
@@ -100,7 +99,7 @@ bool List<NODETYPE>::removeFromFront(NODETYPE &value) {
         if (firstPtr == lastPtr)
             firstPtr = lastPtr = 0;  // no nodes remain after removal
         else
-            firstPtr = firstPtr->nextPtr;   // point to previous 2nd node
+            firstPtr = firstPtr->nextPtr;  // point to previous 2nd node
 
         value = tempPtr->data;
         delete tempPtr;
@@ -111,9 +110,9 @@ bool List<NODETYPE>::removeFromFront(NODETYPE &value) {
     }
 }
 // delete node from back of list
-template<typename NODETYPE>
+template <typename NODETYPE>
 bool List<NODETYPE>::removeFromBack(NODETYPE &value) {
-    if (isEmpty()) {   // list is empty
+    if (isEmpty()) {  // list is empty
         return false;
     } else {
         ListNode<NODETYPE> *tempPtr = lastPtr;
@@ -125,10 +124,10 @@ bool List<NODETYPE>::removeFromBack(NODETYPE &value) {
 
             // locate second to last element
             while (currentPtr->nextPtr != lastPtr)
-                currentPtr = currentPtr->nextPtr;   // move to next node
+                currentPtr = currentPtr->nextPtr;  // move to next node
 
-            lastPtr = currentPtr;   // remove last node
-            currentPtr->nextPtr = 0;    // this is now the last node
+            lastPtr = currentPtr;     // remove last node
+            currentPtr->nextPtr = 0;  // this is now the last node
         }
 
         value = tempPtr->data;
@@ -139,27 +138,66 @@ bool List<NODETYPE>::removeFromBack(NODETYPE &value) {
     }
 }
 // concatenate new list to end of list
-template<typename NODETYPE>
+template <typename NODETYPE>
 void List<NODETYPE>::concatenate(List<NODETYPE> &listSecond) {
-    ListNode<NODETYPE>* currentPtr = listSecond.firstPtr;
+    ListNode<NODETYPE> *currentPtr = listSecond.firstPtr;
 
     while (currentPtr != 0) {
         insertAtBack(currentPtr->getData());
         currentPtr = currentPtr->nextPtr;
     }
 }
-// is List empty
+// merge two ordered lists into a new ordered list and return
 template<typename NODETYPE>
+List<NODETYPE> List<NODETYPE>::merge(List<NODETYPE>& list2){
+    List<NODETYPE> mergeList;
+
+    ListNode<NODETYPE>* ptr1 = firstPtr;
+    ListNode<NODETYPE>* ptr2 = list2.firstPtr;
+
+    while (ptr1 != 0 && ptr2 != 0) {
+        // values equal
+        if (ptr1->getData() == ptr2->getData()) {
+            mergeList.insertAtBack(ptr1->getData());
+            mergeList.insertAtBack(ptr2->getData());
+            ptr1 = ptr1->nextPtr;
+            ptr2 = ptr2->nextPtr;
+        }
+        // second bigger
+        if (ptr1->getData() < ptr2->getData()) {
+            mergeList.insertAtBack(ptr1->getData());
+            ptr1 = ptr1->nextPtr;
+        // bigger
+        } else {
+            mergeList.insertAtBack(ptr2->getData());
+            ptr2 = ptr2->nextPtr;
+        }
+
+        // end of lists
+        if (ptr1 == 0) {
+            mergeList.insertAtBack(ptr2->getData());
+            ptr2 = ptr2->nextPtr;
+        }
+        if (ptr2 == 0) {
+            mergeList.insertAtBack(ptr1->getData());
+            ptr1 = ptr1->nextPtr;
+        }
+    }
+
+    return mergeList;
+}
+// is List empty
+template <typename NODETYPE>
 bool List<NODETYPE>::isEmpty() const {
     return firstPtr == 0;
 }
 // return pointer to newly allocated node
-template<typename NODETYPE>
+template <typename NODETYPE>
 ListNode<NODETYPE> *List<NODETYPE>::getNewNode(const NODETYPE &value) {
     return new ListNode<NODETYPE>(value);
 }
 // display contents of List
-template<typename NODETYPE>
+template <typename NODETYPE>
 void List<NODETYPE>::print() const {
     if (isEmpty()) {
         std::cout << "The list is empty\n\n";
@@ -174,7 +212,7 @@ void List<NODETYPE>::print() const {
     }
 }
 // print sz of list
-template<typename NODETYPE>
+template <typename NODETYPE>
 int List<NODETYPE>::size() const {
     return sz;
 }

@@ -17,11 +17,11 @@
  */
 #include "List.h"
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <vector>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+#include <vector>
 
 int main(int argc, const char* argv[]) {
     List<int> intList;
@@ -34,7 +34,7 @@ int main(int argc, const char* argv[]) {
 
     // generate the random numbers
     for (int i = 0; i < LIST_SIZE; ++i) {
-        data.push_back((rand_r() % RAND_LIMIT));
+        data.push_back((rand() % RAND_LIMIT));
     }
 
     // sort the data
@@ -54,11 +54,11 @@ int main(int argc, const char* argv[]) {
         sum += iter->getData();
         iter = iter->next();
 
-        if (iter->getData() == intList.end()->getData())
-            sum += iter->getData();
+        if (iter->getData() == intList.end()->getData()) sum += iter->getData();
     } while (iter != intList.end());
 
-    std::cout << "sum: " << sum << " average: " << (sum / LIST_SIZE) << std::endl;
+    std::cout << "sum: " << sum << " average: " << (sum / LIST_SIZE)
+              << std::endl;
 
     intList.print();
     std::cout << std::endl;

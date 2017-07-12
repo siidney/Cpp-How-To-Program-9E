@@ -20,23 +20,15 @@
 
 #include "List.h"
 
-template<typename QUEUETYPE>
-class Queue : private List<QUEUETYPE>{
-    public:
-        // enqueue class List member function insertAtBack
-        void enqueue(const QUEUETYPE &data){
-            this->insertAtBack(data);
-        }
-        // dequeue calls List member function removeFromFront
-        bool dequeue(QUEUETYPE &data){
-            return this->removeFromFront(data);
-        }
-        // isQueueEmpty calls List member function isEmpty
-        bool isQueueEmpty() const{
-            return this->isEmpty();
-        }
-        // printQueue calls List member function print
-        void printQueue() const{
-            this->print();
-        }
+template <typename QUEUETYPE>
+class Queue : private List<QUEUETYPE> {
+ public:
+    // enqueue class List member function insertAtBack
+    void enqueue(const QUEUETYPE &data) { this->insertAtBack(data); }
+    // dequeue calls List member function removeFromFront
+    bool dequeue(QUEUETYPE &data) { return this->removeFromFront(data); }
+    // isQueueEmpty calls List member function isEmpty
+    bool isQueueEmpty() const { return this->isEmpty(); }
+    // printQueue calls List member function print
+    void printQueue() const { this->print(); }
 };

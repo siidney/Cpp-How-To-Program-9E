@@ -17,10 +17,10 @@
  */
 #include "Tree.h"
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     Tree<int> intTree;
 
     int intValue;
@@ -28,7 +28,7 @@ int main(int argc, const char* argv[]){
     std::cout << "Enter 10 integer values:\n";
 
     // insert 10 integers to intTree
-    for(int i=0; i<10; ++i){
+    for (int i = 0; i < 10; ++i) {
         std::cin >> intValue;
         intTree.insertNode(intValue);
     }
@@ -50,7 +50,7 @@ int main(int argc, const char* argv[]){
               << "\n\n\nEnter 10 double valus:\n";
 
     // insert 10 doubleegers to doubleTree
-    for(int i=0; i<10; ++i){
+    for (int i = 0; i < 10; ++i) {
         std::cin >> doubleValue;
         doubleTree.insertNode(doubleValue);
     }

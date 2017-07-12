@@ -19,21 +19,21 @@
 
 #include <iostream>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     Queue<int> intQueue;
 
     std::cout << "processing an integer Queue" << std::endl;
 
     // enqueue integers onto intQueue
-    for(int i=0; i<3; ++i){
+    for (int i = 0; i < 3; ++i) {
         intQueue.enqueue(i);
         intQueue.printQueue();
     }
 
-    int dequeueInteger; // store dequeued integer
+    int dequeueInteger;  // store dequeued integer
 
     // dequeue integers from intQueue
-    while(!intQueue.isQueueEmpty()){
+    while (!intQueue.isQueueEmpty()) {
         intQueue.dequeue(dequeueInteger);
         std::cout << dequeueInteger << " dequeued" << std::endl;
         intQueue.printQueue();
@@ -46,16 +46,16 @@ int main(int argc, const char* argv[]){
     std::cout << "processing a double queue" << std::endl;
 
     // enqueue floating-point values onto doubleQueue
-    for(int i=0; i<3; ++i){
+    for (int i = 0; i < 3; ++i) {
         doubleQueue.enqueue(value);
         doubleQueue.printQueue();
         value += 1.1f;
     }
 
-    double dequeueDouble;   // store dequeued double
+    double dequeueDouble;  // store dequeued double
 
     // dequeue floating-point values from doubleQueue
-    while(!doubleQueue.isQueueEmpty()){
+    while (!doubleQueue.isQueueEmpty()) {
         doubleQueue.dequeue(dequeueDouble);
         std::cout << dequeueDouble << " dequeued" << std::endl;
         doubleQueue.printQueue();

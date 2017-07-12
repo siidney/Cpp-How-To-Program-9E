@@ -19,21 +19,21 @@
 
 #include <iostream>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     Stack<int> intStack;
 
     std::cout << "Processing an integer stack" << std::endl;
 
     // push integers onto intStack
-    for(int i=0; i<3; ++i){
+    for (int i = 0; i < 3; ++i) {
         intStack.push(i);
         intStack.printStack();
     }
 
-    int popInteger; // store int popped from stack
+    int popInteger;  // store int popped from stack
 
     // pop integers from intStack
-    while(!intStack.isStackEmpty()){
+    while (!intStack.isStackEmpty()) {
         intStack.pop(popInteger);
         std::cout << popInteger << " popped from stack" << std::endl;
         intStack.printStack();
@@ -45,17 +45,16 @@ int main(int argc, const char* argv[]){
     std::cout << "Processing a double stack" << std::endl;
 
     // push floating-point values onto doubleStack
-    for(int i=0; i<3; ++i){
+    for (int i = 0; i < 3; ++i) {
         doubleStack.push(value);
         doubleStack.printStack();
         value += 1.1f;
     }
 
-    double popDouble;   // store double popped from stack
-
+    double popDouble;  // store double popped from stack
 
     // pop floating-point values from doubleStack
-    while(!doubleStack.isStackEmpty()){
+    while (!doubleStack.isStackEmpty()) {
         doubleStack.pop(popDouble);
         std::cout << popDouble << " popped from stack." << std::endl;
         doubleStack.printStack();
