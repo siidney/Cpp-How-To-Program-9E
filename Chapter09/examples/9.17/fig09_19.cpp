@@ -20,9 +20,9 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Date date1(7, 4, 2004);
-    Date date2; // defaults to 1/1/200
+    Date date2;  // defaults to 1/1/200
 
     std::cout << "date1 = ";
     date1.print();

@@ -17,21 +17,21 @@
  */
 #pragma once
 
-class Rectangle{
-    public:
-        Rectangle(double = 1.0f, double = 1.0f);
+class Rectangle {
+ public:
+    explicit Rectangle(double = 1.0f, double = 1.0f);
 
-        // SETTERS
-        void setLength(double);
-        void setWidth(double);
+    // SETTERS
+    void setLength(double);
+    void setWidth(double);
 
-        // GETTERS
-        double getLength(){return length;}
-        double getWidth(){return width;}
-        double getPerimeter();
-        double getArea();
+    // GETTERS
+    double getLength() { return length; }
+    double getWidth() { return width; }
+    double getPerimeter();
+    double getArea();
 
-    private:
-        double length;
-        double width;
+ private:
+    double length;
+    double width;
 };

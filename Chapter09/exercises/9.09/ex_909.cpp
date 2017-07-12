@@ -19,12 +19,12 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     DateAndTime dt(1, 1, 2000, 23, 59, 59);
 
     std::cout << dt << std::endl;
 
-    for(int i=0; i<10000; ++i){
+    for (int i = 0; i < 10000; ++i) {
         dt.tick();
 
         std::cout << dt << std::endl;

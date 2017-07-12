@@ -19,8 +19,8 @@
 
 #include "TicTacToe.h"
 
-int main(int argc, const char *argv[]){
-    TicTacToe ttt(3,3);
+int main(int argc, const char *argv[]) {
+    TicTacToe ttt(3, 3);
 
     ttt.go();
 

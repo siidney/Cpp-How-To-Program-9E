@@ -17,28 +17,28 @@
  */
 #pragma once
 
-class Time{
-    public:
-        Time(int = 0, int = 0, int = 0);
+class Time {
+ public:
+    explicit Time(int = 0, int = 0, int = 0);
 
-        // SETTERS
-        void setTime(int, int, int);
-        void setHour(int);
-        void setMinute(int);
-        void setSecond(int);
+    // SETTERS
+    void setTime(int, int, int);
+    void setHour(int);
+    void setMinute(int);
+    void setSecond(int);
 
-        // GETTERS
-        int getHour();
-        int getMinute();
-        int getSecond();
+    // GETTERS
+    int getHour();
+    int getMinute();
+    int getSecond();
 
-        void tick(); // increment time by 1 second
+    void tick();  // increment time by 1 second
 
-        void printUniversal();
-        void printStandard();
+    void printUniversal();
+    void printStandard();
 
-    private:
-        int hour;
-        int minute;
-        int second;
+ private:
+    int hour;
+    int minute;
+    int second;
 };

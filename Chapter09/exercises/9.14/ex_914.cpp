@@ -17,7 +17,7 @@
  */
 #include "HugeInteger.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     HugeInteger h1("123456");
     HugeInteger h2("123456");
     HugeInteger h3p = (h1 + h2);
@@ -62,7 +62,8 @@ int main(int argc, const char *argv[]){
 
     HugeInteger h10;
 
-    std::cout << "h10.isZero(): " << ((h10.isZero()) ? "True" : "False") << "\n";
+    std::cout << "h10.isZero(): " << ((h10.isZero()) ? "True" : "False")
+              << "\n";
 
     HugeInteger h11("12345");
     HugeInteger h12("11726");

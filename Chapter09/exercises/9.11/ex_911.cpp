@@ -19,10 +19,11 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Rectangle r1(19, 19);
 
-    std::cout << "Area: " << r1.getArea() << "\nPerimeter: " << r1.getPerimeter() << std::endl;
+    std::cout << "Area: " << r1.getArea()
+              << "\nPerimeter: " << r1.getPerimeter() << std::endl;
 
     return 0;
 }

@@ -17,14 +17,14 @@
  */
 #pragma once
 
-class Date{
-    public:
-        Date(int = 1, int = 1, int = 2000);
+class Date {
+ public:
+    Date(int = 1, int = 1, int = 2000);
 
-        void print();
+    void print();
 
-    private:
-        int month;
-        int day;
-        int year;
+ private:
+    int month;
+    int day;
+    int year;
 };

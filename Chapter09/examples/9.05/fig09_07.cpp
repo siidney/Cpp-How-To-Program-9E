@@ -17,7 +17,7 @@
  */
 #include "SalesPerson.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     SalesPerson s;
 
     s.getSalesFromUser();

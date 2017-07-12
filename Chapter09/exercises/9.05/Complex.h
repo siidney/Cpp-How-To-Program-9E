@@ -20,26 +20,26 @@
 
 #include <iostream>
 
-class Complex{
-    public:
-        Complex(double = 1, double = 1);
-        ~Complex();
+class Complex {
+ public:
+    explicit Complex(double = 1, double = 1);
+    ~Complex();
 
-        // overloaded operators
-        Complex operator+(Complex c) const{
-            return Complex(real + c.real, imaginary + c.imaginary);
-        }
-        Complex operator-(Complex c) const{
-            return Complex(real - c.real, imaginary - c.imaginary);
-        }
+    // overloaded operators
+    Complex operator+(Complex c) const {
+        return Complex(real + c.real, imaginary + c.imaginary);
+    }
+    Complex operator-(Complex c) const {
+        return Complex(real - c.real, imaginary - c.imaginary);
+    }
 
-        friend std::ostream& operator<<(std::ostream& out, Complex& c){
-            return c.printComplex(out);
-        }
+    friend std::ostream& operator<<(std::ostream& out, Complex& c) {
+        return c.printComplex(out);
+    }
 
-    private:
-        double real;
-        double imaginary;
+ private:
+    double real;
+    double imaginary;
 
-        std::ostream& printComplex(std::ostream&);
+    std::ostream& printComplex(std::ostream&);
 };

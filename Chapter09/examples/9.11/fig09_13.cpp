@@ -18,16 +18,16 @@
  */
 #include "CreateAndDestroy.h"
 
-void create(void);  // prototype
+void create(void);                                  // prototype
 CreateAndDestroy first(1, "(global before main)");  // global object
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "\nMAIN FUNCTION: EXECUTION BEGINS" << std::endl;
 
     CreateAndDestroy second(2, "(local automatic in main)");
     static CreateAndDestroy third(3, "(local static in main)");
 
-    create();   // call function to create objects
+    create();  // call function to create objects
 
     std::cout << "\nMAIN FUNCTION: EXECUTION RESUMES" << std::endl;
     CreateAndDestroy fourth(4, "(local automatic in main)");
@@ -35,7 +35,7 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // function to create objects
-void create(void){
+void create(void) {
     std::cout << "\nCREATE FUNCTION: EXECUTION BEGINS" << std::endl;
 
     CreateAndDestroy fifth(5, "(local automatic in create)");

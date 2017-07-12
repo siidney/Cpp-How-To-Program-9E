@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Coord2D tl(1, 1);
     Coord2D bl(1, 4);
     Coord2D tr(3, 1);
@@ -27,8 +27,7 @@ int main(int argc, const char *argv[]){
 
     Rectangle r1(tl, bl, tr, br);
 
-    std::cout << "Width: " << r1.getWidth()
-              << "\nLength: " << r1.getLength()
+    std::cout << "Width: " << r1.getWidth() << "\nLength: " << r1.getLength()
               << "\nArea: " << r1.getArea()
               << "\nPerimeter: " << r1.getPerimeter() << std::endl;
     return 0;

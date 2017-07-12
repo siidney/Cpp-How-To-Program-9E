@@ -20,12 +20,12 @@
 #include <iostream>
 #include <string>
 
-class CreateAndDestroy{
-    private:
-        int objectID;
-        std::string message;
+class CreateAndDestroy {
+ private:
+    int objectID;
+    std::string message;
 
-    public:
-        CreateAndDestroy(int, std::string);
-        ~CreateAndDestroy();
+ public:
+    CreateAndDestroy(int, std::string);
+    ~CreateAndDestroy();
 };

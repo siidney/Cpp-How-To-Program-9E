@@ -19,39 +19,41 @@
 
 #include <iostream>
 
-class DateAndTime{
-    public:
-        DateAndTime(int = 1, int = 1, int = 2000, int = 0, int = 0, int = 0);
+class DateAndTime {
+ public:
+    explicit DateAndTime(unsigned int = 1, unsigned int = 1,
+                         unsigned int = 2000, unsigned int = 0,
+                         unsigned int = 0, unsigned int = 0);
 
-        // SETTERS
-        void setTime(int, int, int);
-        void setDate(int, int, int);
+    // SETTERS
+    void setTime(unsigned int, unsigned int, unsigned int);
+    void setDate(unsigned int, unsigned int, unsigned int);
 
-        void tick(); // increment time by 1 second
+    void tick();  // increment time by 1 second
 
-        friend std::ostream& operator<<(std::ostream& out, DateAndTime& dt){
-            dt.printUniversal();
-        }
+    friend std::ostream& operator<<(std::ostream& out, DateAndTime& dt) {
+        dt.printUniversal();
+    }
 
-        void printUniversal();
-        void printStandard();
+    void printUniversal();
+    void printStandard();
 
-    private:
-        const static size_t MONTHS_IN_YEAR = 12;
-        const static size_t NO_LEAP = 28;
-        const static size_t LEAP = 29;
+ private:
+    static const size_t MONTHS_IN_YEAR = 12;
+    static const size_t NO_LEAP = 28;
+    static const size_t LEAP = 29;
 
-        int DAYS_IN_MONTH[MONTHS_IN_YEAR + 1] = {
-            0, 31, NO_LEAP, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    unsigned int DAYS_IN_MONTH[MONTHS_IN_YEAR + 1] =
+                    {0,  31, NO_LEAP, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        int month;
-        int day;
-        int year;
-        int hour;
-        int minute;
-        int second;
+    unsigned int month;
+    unsigned int day;
+    unsigned int year;
+    unsigned int hour;
+    unsigned int minute;
+    unsigned int second;
 
-        bool isLeapYear(int);
+    bool isLeapYear(unsigned int);
 
-        void nextDay(); // increment date by 1
+    void nextDay();  // increment date by 1
 };

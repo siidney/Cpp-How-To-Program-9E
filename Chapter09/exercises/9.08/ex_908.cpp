@@ -19,10 +19,10 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Date d1(11, 30, 2015);
 
-    for(int i=0; i<365; ++i){
+    for (int i = 0; i < 365; ++i) {
         d1.nextDay();
 
         std::cout << d1 << std::endl;

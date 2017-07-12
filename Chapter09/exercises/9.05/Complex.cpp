@@ -18,12 +18,12 @@
  */
 #include "Complex.h"
 
-Complex::Complex(double r, double i){
+Complex::Complex(double r, double i) {
     real = r;
     imaginary = i;
 }
-Complex::~Complex(){}
+Complex::~Complex() {}
 // print complex number
-std::ostream& Complex::printComplex(std::ostream& out){
+std::ostream& Complex::printComplex(std::ostream& out) {
     out << "(" << real << "," << imaginary << ")";
 }

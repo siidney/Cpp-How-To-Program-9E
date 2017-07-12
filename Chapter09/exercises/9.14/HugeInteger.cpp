@@ -21,14 +21,12 @@
 
 #include <string>
 
-HugeInteger::HugeInteger(const std::string& s){
-    input(s);
-}
-HugeInteger::HugeInteger(int hi[]){
-    for(unsigned int i=0; i<MAX_INTEGER; ++i){
+HugeInteger::HugeInteger(const std::string& s) { input(s); }
+HugeInteger::HugeInteger(int hi[]) {
+    for (unsigned int i = 0; i < MAX_INTEGER; ++i) {
         _hugeInteger[i] = hi[i];
 
-        if(hi[i] == TERMINATOR){
+        if (hi[i] == TERMINATOR) {
             break;
         }
         ++_hiSize;
@@ -36,30 +34,31 @@ HugeInteger::HugeInteger(int hi[]){
 }
 // === ARITHMETIC OPERATIONS === //
 // add two HugeIntegers - result as new HugeInteger
-HugeInteger HugeInteger::operator+(const HugeInteger& hi){
+HugeInteger HugeInteger::operator+(const HugeInteger& hi) {
     // result + carry over values
     int newHuge[MAX_INTEGER] = {0};
 
     int* ptrNewHuge = &newHuge[0];
 
     int sum = 0;
-    int addend1 = _hiSize-1;
-    int addend2 = hi._hiSize-1;
+    int addend1 = _hiSize - 1;
+    int addend2 = hi._hiSize - 1;
     unsigned int count = 0;
 
     // iterate both and add each value
-    while((addend1 >= 0 || addend2 >= 0) && count < MAX_INTEGER){
-        if(addend1 < 0){
+    while ((addend1 >= 0 || addend2 >= 0) && count < MAX_INTEGER) {
+        if (addend1 < 0) {
             sum = *ptrNewHuge + hi._hugeInteger[addend2];
-        }else if(addend2 < 0){
+        } else if (addend2 < 0) {
             sum = *ptrNewHuge + _hugeInteger[addend1];
-        }else{
-            sum = *ptrNewHuge + _hugeInteger[addend1] + hi._hugeInteger[addend2];
+        } else {
+            sum =
+                *ptrNewHuge + _hugeInteger[addend1] + hi._hugeInteger[addend2];
         }
-        if(sum >= 10){
+        if (sum >= 10) {
             *(ptrNewHuge++) = sum % 10;
             *ptrNewHuge = sum / 10;
-        }else{
+        } else {
             *(ptrNewHuge++) = sum;
         }
         --addend1;
@@ -67,13 +66,13 @@ HugeInteger HugeInteger::operator+(const HugeInteger& hi){
         ++count;
     }
     // decrease pointer if limit is reached
-    if(count == MAX_INTEGER-1){
+    if (count == MAX_INTEGER - 1) {
         --ptrNewHuge;
-    // carry over value is present - increase counters
-    // result array is reversed so no trailing zeros
-    }else if(*ptrNewHuge != 0){
+        // carry over value is present - increase counters
+        // result array is reversed so no trailing zeros
+    } else if (*ptrNewHuge != 0) {
         ++ptrNewHuge;
-       count++;
+        count++;
     }
 
     reverse(newHuge, count);
@@ -86,30 +85,32 @@ HugeInteger HugeInteger::operator+(const HugeInteger& hi){
 }
 // subtract hi from _hugeInteger result as new HugeInteger
 // uses quick subtraction
-HugeInteger HugeInteger::operator-(const HugeInteger& hi){
+HugeInteger HugeInteger::operator-(const HugeInteger& hi) {
     // result + carry over values
     int newHuge[MAX_INTEGER] = {0};
 
     int* ptrNewHuge = &newHuge[0];
 
-    int minuend = _hiSize-1;
-    int subtrahend = hi._hiSize-1;
+    int minuend = _hiSize - 1;
+    int subtrahend = hi._hiSize - 1;
     int difference = 0;
     unsigned int count = 0;
 
-    while((minuend >= 0 || subtrahend >= 0) && (count < MAX_INTEGER)){
-        if(minuend < 0){
+    while ((minuend >= 0 || subtrahend >= 0) && (count < MAX_INTEGER)) {
+        if (minuend < 0) {
             difference = 0 - (*ptrNewHuge + hi._hugeInteger[subtrahend]);
-        }else if(subtrahend < 0){
+        } else if (subtrahend < 0) {
             difference = _hugeInteger[minuend] - *ptrNewHuge;
-        }else{
-            difference = _hugeInteger[minuend] - (hi._hugeInteger[subtrahend] + *ptrNewHuge);
+        } else {
+            difference = _hugeInteger[minuend] -
+                         (hi._hugeInteger[subtrahend] + *ptrNewHuge);
         }
-        if(difference < 0){
-            *ptrNewHuge = 10 - ((hi._hugeInteger[subtrahend] + *ptrNewHuge) - _hugeInteger[minuend]);
+        if (difference < 0) {
+            *ptrNewHuge = 10 - ((hi._hugeInteger[subtrahend] + *ptrNewHuge) -
+                                _hugeInteger[minuend]);
 
             *(++ptrNewHuge) = 1;
-        }else{
+        } else {
             *(ptrNewHuge++) = difference;
         }
         --minuend;
@@ -119,76 +120,74 @@ HugeInteger HugeInteger::operator-(const HugeInteger& hi){
 
     ptrNewHuge = nullptr;
 
-    count = MAX_INTEGER-1;
+    count = MAX_INTEGER - 1;
 
     // remove trailing zeros
-    while(newHuge[count] == 0 && count > 0){
+    while (newHuge[count] == 0 && count > 0) {
         --count;
     }
 
-    reverse(newHuge, count+1);
+    reverse(newHuge, count + 1);
 
-    newHuge[count+1] = TERMINATOR;
+    newHuge[count + 1] = TERMINATOR;
 
     return HugeInteger(newHuge);
 }
 // ===== PREDICATE OPERATIONS ===== //
-bool HugeInteger::isZero(){
-    return (_hiSize == 0);
-}
-bool HugeInteger::operator==(const HugeInteger& hi) const{
-    for(unsigned int i=0; i<MAX_INTEGER; ++i){
-        if(_hugeInteger[i] != hi._hugeInteger[i]){
+bool HugeInteger::isZero() { return (_hiSize == 0); }
+bool HugeInteger::operator==(const HugeInteger& hi) const {
+    for (unsigned int i = 0; i < MAX_INTEGER; ++i) {
+        if (_hugeInteger[i] != hi._hugeInteger[i]) {
             return false;
         }
     }
     return true;
 }
-bool HugeInteger::operator!=(const HugeInteger& hi) const{
+bool HugeInteger::operator!=(const HugeInteger& hi) const {
     return !(*this == hi);
 }
-bool HugeInteger::operator>(const HugeInteger& hi) const{
-    if(_hiSize > hi._hiSize){
+bool HugeInteger::operator>(const HugeInteger& hi) const {
+    if (_hiSize > hi._hiSize) {
         return true;
     }
     // counts equal compare digits
-    if(_hiSize == hi._hiSize){
-        for(int i=0; i<_hiSize; ++i){
-            if(_hugeInteger[i] > hi._hugeInteger[i]){
+    if (_hiSize == hi._hiSize) {
+        for (int i = 0; i < _hiSize; ++i) {
+            if (_hugeInteger[i] > hi._hugeInteger[i]) {
                 return true;
             }
         }
     }
     return false;
 }
-bool HugeInteger::operator>=(const HugeInteger& hi) const{
+bool HugeInteger::operator>=(const HugeInteger& hi) const {
     return (*this == hi || *this > hi);
 }
-bool HugeInteger::operator<(const HugeInteger& hi) const{
-    if(_hiSize < hi._hiSize){
+bool HugeInteger::operator<(const HugeInteger& hi) const {
+    if (_hiSize < hi._hiSize) {
         return true;
     }
     // counts equal compare digits
-    if(_hiSize == hi._hiSize){
-        for(int i=0; i<_hiSize; ++i){
-            if(_hugeInteger[i] < hi._hugeInteger[i]){
+    if (_hiSize == hi._hiSize) {
+        for (int i = 0; i < _hiSize; ++i) {
+            if (_hugeInteger[i] < hi._hugeInteger[i]) {
                 return true;
             }
         }
     }
     return false;
 }
-bool HugeInteger::operator<=(const HugeInteger& hi) const{
+bool HugeInteger::operator<=(const HugeInteger& hi) const {
     return (*this == hi || *this < hi);
 }
 // ===== I/O OPERATIONS ===== //
-void HugeInteger::input(const std::string& digit){
+void HugeInteger::input(const std::string& digit) {
     int* ptrHugeInteger = &_hugeInteger[0];
 
-    for(unsigned int i=0; i<digit.size(); ++i){
-        if(i<MAX_INTEGER){
-            *(ptrHugeInteger++) = (int)digit[i] - 48;
-        }else{
+    for (unsigned int i = 0; i < digit.size(); ++i) {
+        if (i < MAX_INTEGER) {
+            *(ptrHugeInteger++) = static_cast<int>(digit[i]) - 48;
+        } else {
             break;
         }
         ++_hiSize;
@@ -198,9 +197,9 @@ void HugeInteger::input(const std::string& digit){
 
     ptrHugeInteger = nullptr;
 }
-std::ostream& HugeInteger::output(std::ostream& out){
-    for(int i=0; i<_hiSize; ++i){
-        if(_hugeInteger[i] == TERMINATOR){
+std::ostream& HugeInteger::output(std::ostream& out) {
+    for (int i = 0; i < _hiSize; ++i) {
+        if (_hugeInteger[i] == TERMINATOR) {
             break;
         }
         out << _hugeInteger[i];
@@ -209,21 +208,19 @@ std::ostream& HugeInteger::output(std::ostream& out){
 }
 // ===== UTILITY FUNCTIONS ===== //
 // reverses a given int array
-void HugeInteger::reverse(int* arr, int count){
-    int temp = 0;
-
+void HugeInteger::reverse(int* arr, int count) {
     // reverse the final value
-    for(int i=0; i<count/2; ++i){
-        temp = arr[count-i-1];
-        arr[count-i-1] = arr[i];
+    for (int i = 0; i < count / 2; ++i) {
+        int temp = arr[count - i - 1];
+        arr[count - i - 1] = arr[i];
         arr[i] = temp;
     }
 }
 // print every element in array
-void HugeInteger::quickPrint(int* a){
+void HugeInteger::quickPrint(int* a) {
     printf("\n");
 
-    for(unsigned int i=0; i<MAX_INTEGER; ++i){
+    for (unsigned int i = 0; i < MAX_INTEGER; ++i) {
         std::cout << a[i];
     }
     std::cout << std::endl;

@@ -18,28 +18,24 @@
  */
 #include "Rational.h"
 
-Rational::Rational(int n, int d) : num(n), den(d){
-    reduce();
-}
-Rational::~Rational(){}
+Rational::Rational(int n, int d) : num(n), den(d) { reduce(); }
+Rational::~Rational() {}
 // reduce fractions
-void Rational::reduce(){
+void Rational::reduce() {
     int GCD = gcd(num, den);
 
     num /= GCD;
     den /= GCD;
 }
-int Rational::gcd(int a, int b){
-    if(b == 0){
+int Rational::gcd(int a, int b) {
+    if (b == 0) {
         return a;
     }
 
-    gcd(b, a % b);
+    return gcd(b, a % b);
 }
 // print rational number
-std::ostream& Rational::printFloating(std::ostream& out){
-    out << num << "." << den;
+std::ostream& Rational::printFloating(std::ostream& out) {
+    return out << num << "." << den;
 }
-void Rational::print(){
-    std::cout << num << "/" << den;
-}
+void Rational::print() { std::cout << num << "/" << den; }

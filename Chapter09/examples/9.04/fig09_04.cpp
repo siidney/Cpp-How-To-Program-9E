@@ -19,20 +19,16 @@
 #include <iostream>
 
 // class Count definition
-class Count{
-    private:
-        int x;
+class Count {
+ private:
+    int x;
 
-    public:
-        void setX(int value){
-            x = value;
-        }
-        void print(){
-            std::cout << x << std::endl;
-        }
+ public:
+    void setX(int value) { x = value; }
+    void print() { std::cout << x << std::endl; }
 };
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Count counter;
     Count *counterPtr = &counter;
     Count &counterRef = counter;

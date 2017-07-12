@@ -21,7 +21,7 @@
 #include <iostream>
 #include <stdexcept>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Time t1;
     Time t2(2);
     Time t3(21, 34);
@@ -48,10 +48,11 @@ int main(int argc, const char *argv[]){
     t4.printStandard();
 
     // attempt to initialise t5 with invalid values
-    try{
+    try {
         Time t5(27, 74, 99);
-    }catch(std::invalid_argument &e){
-        std::cout << "\n\nException while initialising t5: " << e.what() << std::endl;
+    } catch (std::invalid_argument &e) {
+        std::cout << "\n\nException while initialising t5: " << e.what()
+                  << std::endl;
     }
 
     return 0;

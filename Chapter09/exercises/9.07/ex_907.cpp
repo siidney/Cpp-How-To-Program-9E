@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Time t1(23, 59, 58);
 
     std::cout << "t1: ";
@@ -28,10 +28,10 @@ int main(int argc, const char *argv[]){
 
     std::cout << std::endl;
 
-    for(int i=0; i<100; ++i){
+    for (int i = 0; i < 100; ++i) {
         t1.tick();
 
-        if(i % 10 == 0){
+        if (i % 10 == 0) {
             t1.printUniversal();
 
             std::cout << " ";
@@ -40,6 +40,6 @@ int main(int argc, const char *argv[]){
 
             std::cout << std::endl;
         }
-}
+    }
     return 0;
 }

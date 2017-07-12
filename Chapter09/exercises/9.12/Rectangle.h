@@ -19,25 +19,24 @@
 
 #include "Coord2D.h"
 
-class Rectangle{
-    public:
-        Rectangle(Coord2D, Coord2D, Coord2D, Coord2D);
+class Rectangle {
+ public:
+    Rectangle(Coord2D, Coord2D, Coord2D, Coord2D);
 
-        // SETTERS
-        void setRectangle(Coord2D, Coord2D, Coord2D, Coord2D);
+    // SETTERS
+    void setRectangle(Coord2D, Coord2D, Coord2D, Coord2D);
 
-        // GETTERS
-        double getWidth();
-        double getLength();
-        double getPerimeter();
-        double getArea();
+    // GETTERS
+    double getWidth();
+    double getLength();
+    double getPerimeter();
+    double getArea();
 
-        bool isRectangle();
+    bool isRectangle();
 
-    private:
-        Coord2D topLeft;
-        Coord2D topRight;
-        Coord2D bottomLeft;
-        Coord2D bottomRight;
-
+ private:
+    Coord2D topLeft;
+    Coord2D topRight;
+    Coord2D bottomLeft;
+    Coord2D bottomRight;
 };

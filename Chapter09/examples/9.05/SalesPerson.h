@@ -17,17 +17,17 @@
  */
 #pragma once
 
-class SalesPerson{
-    public:
-        static const int monthsPerYear = 12;
+class SalesPerson {
+ public:
+    static const int monthsPerYear = 12;
 
-        SalesPerson();
+    SalesPerson();
 
-        void getSalesFromUser();
-        void setSales(int, double);
-        void printAnnualSales();
+    void getSalesFromUser();
+    void setSales(int, double);
+    void printAnnualSales();
 
-    private:
-        double totalAnnualSales();
-        double sales[monthsPerYear];
+ private:
+    double totalAnnualSales();
+    double sales[monthsPerYear];
 };

@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Time t;
 
     std::cout << "The initial universal time is ";
@@ -35,11 +35,10 @@ int main(int argc, const char *argv[]){
     std::cout << "\nStandard time after setTime is: ";
     t.printStandard();
 
-
     // set time with invalid values
-    try{
+    try {
         t.setTime(99, 99, 99);
-    }catch(std::invalid_argument e){
+    } catch (std::invalid_argument e) {
         std::cout << "\n\nException: " << e.what() << std::endl << std::endl;
     }
 

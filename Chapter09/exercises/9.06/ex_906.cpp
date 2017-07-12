@@ -17,12 +17,11 @@
  */
 #include "Rational.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Rational r1;
     Rational r2(25, 50);
 
-    std::cout << "r1: " << r1
-              << "\nr2: " << r2 << std::endl;
+    std::cout << "r1: " << r1 << "\nr2: " << r2 << std::endl;
 
     Rational r3 = (r1 + r2);
 
