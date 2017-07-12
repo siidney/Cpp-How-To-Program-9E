@@ -17,21 +17,22 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int counter = 0;
     int sum = 0;
 
-    std::cout << "Enter a list of space separated integers for average calculation"
+    std::cout
+        << "Enter a list of space separated integers for average calculation"
         << "9999 ends input: " << std::endl;
     std::cin >> sum;
 
     // set i as input to ensure exit condition
     // increment counter as opposed i
-    for(int i=0; i != 9999; counter++){
+    for (int i = 0; i != 9999; counter++) {
         sum += i;
         std::cin >> i;
     }
 
-    std::cout << "Average: " << sum/counter << std::endl;
+    std::cout << "Average: " << sum / counter << std::endl;
     return 0;
 }

@@ -17,12 +17,12 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int product = 1;
 
     std::cout << "Product of odd integers 1 to 15: ";
 
-    for(int i=1; i<=15; i+=2){
+    for (int i = 1; i <= 15; i += 2) {
         product *= i;
     }
 

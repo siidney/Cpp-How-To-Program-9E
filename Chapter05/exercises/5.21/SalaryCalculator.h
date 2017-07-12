@@ -19,43 +19,43 @@
 
 #include <iostream>
 
-class SalaryCalculator{
-    private:
-        const double COMMISSION_BASE = 250.0f;
-        const double COMMISSION_RATE = 0.057f;
-        const double HOURLY_OVERTIME = 1.5f;
-        const double PIECE_RATE = 10.0f;
+class SalaryCalculator {
+ private:
+    const double COMMISSION_BASE = 250.0f;
+    const double COMMISSION_RATE = 0.057f;
+    const double HOURLY_OVERTIME = 1.5f;
+    const double PIECE_RATE = 10.0f;
 
-        double managerRate  = 0.0f;
-        double hourlyRate   = 0.0f;
-        double weeklySales  = 0.0f;
-        double hoursWorked  = 0.0f;
+    double managerRate = 0.0f;
+    double hourlyRate = 0.0f;
+    double weeklySales = 0.0f;
+    double hoursWorked = 0.0f;
 
-        int employeeCode    = 0;
-        int piecesProduced  = 0;
+    int employeeCode = 0;
+    int piecesProduced = 0;
 
-    public:
-        SalaryCalculator();
+ public:
+    SalaryCalculator();
 
-        // SETTERS
-        void setManagerRate(double);
-        void setHourlyRate(double);
-        void setWeeklySales(double);
-        void setHoursWorked(double);
-        void setEmployeeCode(int);
-        void setPiecesProduced(int);
+    // SETTERS
+    void setManagerRate(double);
+    void setHourlyRate(double);
+    void setWeeklySales(double);
+    void setHoursWorked(double);
+    void setEmployeeCode(int);
+    void setPiecesProduced(int);
 
-        // GETTERS
-        double getManagerRate(){return managerRate;};
-        double getHourlyRate(){return hourlyRate;};
-        double getWeeklySales(){return weeklySales;};
-        double getHoursWorked(){return hoursWorked;};
-        int getEmployeeCode(){return employeeCode;};
-        int getPiecesProduced(){return piecesProduced;};
+    // GETTERS
+    double getManagerRate() { return managerRate; }
+    double getHourlyRate() { return hourlyRate; }
+    double getWeeklySales() { return weeklySales; }
+    double getHoursWorked() { return hoursWorked; }
+    int getEmployeeCode() { return employeeCode; }
+    int getPiecesProduced() { return piecesProduced; }
 
-        void inputSalaries();
+    void inputSalaries();
 
-        double calculateSalary();
+    double calculateSalary();
 
-        void reset();
+    void reset();
 };

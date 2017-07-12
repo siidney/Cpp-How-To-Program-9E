@@ -17,7 +17,7 @@
  */
 #include "SalaryCalculator.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     SalaryCalculator sc;
 
     sc.inputSalaries();

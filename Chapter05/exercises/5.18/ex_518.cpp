@@ -17,13 +17,12 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "Binary\tOctal\tHexadecimal\n";
 
-    for(int i=1; i<=256; i++){
-        std::cout << std::dec << i << "\t"
-            << std::oct << i << "\t"
-            << std::hex << i << std::endl;
+    for (int i = 1; i <= 256; i++) {
+        std::cout << std::dec << i << "\t" << std::oct << i << "\t" << std::hex
+                  << i << std::endl;
     }
     return 0;
 }

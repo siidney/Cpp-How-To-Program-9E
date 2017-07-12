@@ -21,19 +21,17 @@ const double FAIR_TAX = 0.23f;
 
 double calculateTax(double);
 
-int main(int argc, const char *argv[]){
-    double dAmount      = 0.0f;
+int main(int argc, const char *argv[]) {
+    double dAmount = 0.0f;
     double dAmountTotal = 0.0f;
-    double dTaxTotal    = 0.0f;
 
     std::cout << "Program to calculate tax rate of 23%" << std::endl;
 
-    while(dAmount != -1){
+    while (dAmount != -1) {
         std::cout << "Enter expenses (-1 to quit): ";
         std::cin >> dAmount;
 
-        if(dAmount > 0)
-            dAmountTotal += dAmount;
+        if (dAmount > 0) dAmountTotal += dAmount;
     }
 
     std::cout << "Total amount: " << dAmountTotal << std::endl;
@@ -42,6 +40,4 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // returns the tax rate
-double calculateTax(double baseAmount){
-    return baseAmount * FAIR_TAX;
-}
+double calculateTax(double baseAmount) { return baseAmount * FAIR_TAX; }

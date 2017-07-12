@@ -17,13 +17,13 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int limit, num, total = 0;
 
     std::cout << "Enter number of values to be summed followed by values: ";
     std::cin >> limit;
 
-    for(int i=1; i<=limit; i++){
+    for (int i = 1; i <= limit; i++) {
         std::cin >> num;
         total += num;
     }

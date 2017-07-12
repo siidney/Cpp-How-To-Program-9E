@@ -17,10 +17,10 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int counter = 1;
 
-    do{
+    do {
         std::cout << counter << " ";
         ++counter;
     } while (counter <= 10);

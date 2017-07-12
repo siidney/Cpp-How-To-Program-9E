@@ -17,74 +17,73 @@
  */
 #include "SalaryCalculator.h"
 
-
-SalaryCalculator::SalaryCalculator(){
-
-}
+SalaryCalculator::SalaryCalculator() {}
 // SETTERS
-void SalaryCalculator::setManagerRate(double rate){
-    if(rate > 0.0f){
+void SalaryCalculator::setManagerRate(double rate) {
+    if (rate > 0.0f) {
         managerRate = rate;
-    }else{
+    } else {
         std::cout << "Manager rate must be > 0.0" << std::endl;
     }
 }
-void SalaryCalculator::setHourlyRate(double rate){
-    if(rate > 0.0f){
+void SalaryCalculator::setHourlyRate(double rate) {
+    if (rate > 0.0f) {
         hourlyRate = rate;
-    }else{
+    } else {
         std::cout << "Hourly rate must be > 0.0" << std::endl;
     }
 }
-void SalaryCalculator::setWeeklySales(double sales){
+void SalaryCalculator::setWeeklySales(double sales) {
     weeklySales = sales;
 
-    if(sales == 0.0f)
-        std::cout << "\nPoor thing. You sold nothing all week :(\n" << std::endl;
+    if (sales == 0.0f)
+        std::cout << "\nPoor thing. You sold nothing all week :(\n"
+                  << std::endl;
 }
-void SalaryCalculator::setHoursWorked(double hw){
-    if(hw >= 0.0f){
+void SalaryCalculator::setHoursWorked(double hw) {
+    if (hw >= 0.0f) {
         hoursWorked = hw;
-    }else{
+    } else {
         std::cout << "Hours worked must be >= 0.0" << std::endl;
     }
 }
-void SalaryCalculator::setEmployeeCode(int emp){
-    if(emp >= 1 && emp <= 4){
+void SalaryCalculator::setEmployeeCode(int emp) {
+    if (emp >= 1 && emp <= 4) {
         employeeCode = emp;
-    }else{
+    } else {
         std::cout << "Invalid employee code (1-4)" << std::endl;
     }
 }
-void SalaryCalculator::setPiecesProduced(int pieces){
+void SalaryCalculator::setPiecesProduced(int pieces) {
     piecesProduced = pieces;
 
-    if(pieces == 0.0f)
-        std::cout << "\nPoor little fella made nothing this week :(\n" << std::endl;
+    if (pieces == 0.0f)
+        std::cout << "\nPoor little fella made nothing this week :(\n"
+                  << std::endl;
 }
-void SalaryCalculator::inputSalaries(){
-    int iValue;
+void SalaryCalculator::inputSalaries() {
+    int iValue = 0;
 
     std::cout << "Salary Calculator" << std::endl;
 
-    while(iValue != -1){
+    while (iValue != -1) {
         std::cout << "Enter an employee number (1-4). -1 to quit: ";
         std::cin >> iValue;
 
-        if(iValue != -1){
+        if (iValue != -1) {
             setEmployeeCode(iValue);
         }
 
-        if(iValue >= 1 && iValue <= 4){
+        if (iValue >= 1 && iValue <= 4) {
             calculateSalary();
             reset();
         }
     }
 }
-double SalaryCalculator::calculateSalary(){
+double SalaryCalculator::calculateSalary() {
     double dValue = 0.0f;
 
-    switch(getEmployeeCode()){
+    switch (getEmployeeCode()) {
         // MANAGER
         case 1:
             std::cout << "\nEnter manager weekly salary: ";
@@ -92,8 +91,7 @@ double SalaryCalculator::calculateSalary(){
 
             setManagerRate(dValue);
 
-            printf("Manager Salary: $%.2f\n\n",
-                    getManagerRate());
+            printf("Manager Salary: $%.2f\n\n", getManagerRate());
 
             break;
         // HOURLY PAY
@@ -101,7 +99,7 @@ double SalaryCalculator::calculateSalary(){
             std::cout << "\nEnter hourly rate: ";
             std::cin >> dValue;
 
-            if(dValue > 0.0f){
+            if (dValue > 0.0f) {
                 setHourlyRate(dValue);
 
                 std::cout << "Enter hours worked: ";
@@ -111,14 +109,15 @@ double SalaryCalculator::calculateSalary(){
 
                 dValue = getHourlyRate();
 
-                dValue *= (getHoursWorked() <= 40.0f) ? getHoursWorked() : 40.0f;
+                dValue *=
+                    (getHoursWorked() <= 40.0f) ? getHoursWorked() : 40.0f;
 
-                if(getHoursWorked() > 40.0f){
-                    dValue += ((getHoursWorked() - 40.0f) * (getHourlyRate() * HOURLY_OVERTIME));
+                if (getHoursWorked() > 40.0f) {
+                    dValue += ((getHoursWorked() - 40.0f) *
+                               (getHourlyRate() * HOURLY_OVERTIME));
                 }
 
-                printf("Hourly Worker Salary: $%.2f\n\n",
-                        dValue);
+                printf("Hourly Worker Salary: $%.2f\n\n", dValue);
             }
             break;
         // COMMISSION
@@ -130,8 +129,7 @@ double SalaryCalculator::calculateSalary(){
 
             dValue = COMMISSION_BASE + (getWeeklySales() * COMMISSION_RATE);
 
-            printf("Commission Worker Salary: $%.2f\n\n",
-                    dValue);
+            printf("Commission Worker Salary: $%.2f\n\n", dValue);
             break;
         // PIECE WORK
         case 4:
@@ -141,20 +139,20 @@ double SalaryCalculator::calculateSalary(){
             setPiecesProduced(dValue);
 
             printf("Piece Worker Salary: $%.2f\n\n",
-                    getPiecesProduced() * PIECE_RATE);
+                   getPiecesProduced() * PIECE_RATE);
             break;
         default:
             std::cout << "Incorrect employee code entered" << std::endl;
             break;
     }
-
+    return dValue;
 }
-void SalaryCalculator::reset(){
+void SalaryCalculator::reset() {
     managerRate = 0.0f;
-    hourlyRate  = 0.0f;
+    hourlyRate = 0.0f;
     weeklySales = 0.0f;
     hoursWorked = 0.0f;
 
-    employeeCode    = 0;
-    piecesProduced  = 0;
+    employeeCode = 0;
+    piecesProduced = 0;
 }

@@ -17,7 +17,7 @@
  */
 #include "GradeBook.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     GradeBook myGradeBook("Course Name");
 
     myGradeBook.displayMessage();

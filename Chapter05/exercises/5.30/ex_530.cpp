@@ -17,7 +17,7 @@
  */
 #include "Quiz.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Quiz q;
 
     q.run();

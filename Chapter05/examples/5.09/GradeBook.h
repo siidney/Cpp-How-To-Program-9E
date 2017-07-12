@@ -22,26 +22,25 @@
 #include <iostream>
 #include <string>
 
-class GradeBook{
-    private:
-        std::string courseName;
-        int aCount;
-        int bCount;
-        int cCount;
-        int dCount;
-        int fCount;
+class GradeBook {
+ private:
+    std::string courseName;
+    int aCount;
+    int bCount;
+    int cCount;
+    int dCount;
+    int fCount;
 
-    public:
-        GradeBook(std::string);
+ public:
+    GradeBook(std::string);
 
-        // SETTERS
-        void setCourseName(std::string);
+    // SETTERS
+    void setCourseName(std::string);
 
-        // GETTERS
-        std::string getCourseName();
+    // GETTERS
+    std::string getCourseName();
 
-        void displayMessage();
-        void inputGrades();
-        void displayGradeReport();
-
+    void displayMessage();
+    void inputGrades();
+    void displayGradeReport();
 };

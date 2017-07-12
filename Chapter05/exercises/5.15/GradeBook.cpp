@@ -19,7 +19,7 @@
  */
 #include "GradeBook.h"
 
-GradeBook::GradeBook(std::string name){
+GradeBook::GradeBook(std::string name) {
     setCourseName(name);
 
     aCount = 0;
@@ -29,30 +29,31 @@ GradeBook::GradeBook(std::string name){
     fCount = 0;
 }
 // SETTERS
-void GradeBook::setCourseName(std::string name){
-    if(name.length() <= 25){
+void GradeBook::setCourseName(std::string name) {
+    if (name.length() <= 25) {
         courseName = name;
-    }else{
+    } else {
         courseName = name.substr(0, 25);
         std::cout << "Name \"" << name << "\" exceeds maximum length (25).\n"
-            << "Limiting courseName to first 25 characters.\n" << std::endl;
+                  << "Limiting courseName to first 25 characters.\n"
+                  << std::endl;
     }
 }
 // GETTERS
-std::string GradeBook::getCourseName(){
-    return courseName;
+std::string GradeBook::getCourseName() { return courseName; }
+void GradeBook::displayMessage() {
+    std::cout << "Welcome to the grade book for\n"
+              << getCourseName() << "!\n"
+              << std::endl;
 }
-void GradeBook::displayMessage(){
-    std::cout << "Welcome to the grade book for\n" << getCourseName() << "!\n" << std::endl;
-}
-void GradeBook::inputGrades(){
+void GradeBook::inputGrades() {
     int grade;
 
     std::cout << "Enter the letter grades.\n"
-        << "Enter the EOF character to end input." << std::endl;
+              << "Enter the EOF character to end input." << std::endl;
 
-    while((grade = std::cin.get()) != EOF){
-        switch(grade){
+    while ((grade = std::cin.get()) != EOF) {
+        switch (grade) {
             case 'A':
             case 'a':
                 ++aCount;
@@ -79,18 +80,18 @@ void GradeBook::inputGrades(){
                 break;
 
             default:
-                std::cout << "Incorrect letter grade entered. Enter a new grade." << std::endl;
+                std::cout
+                    << "Incorrect letter grade entered. Enter a new grade."
+                    << std::endl;
         }
     }
 }
-void GradeBook::displayGradeReport(){
+void GradeBook::displayGradeReport() {
     std::cout << "\n\nNumber of students who received each letter grade:"
-        << "\nA: " << aCount
-        << "\nB: " << bCount
-        << "\nC: " << cCount
-        << "\nD: " << dCount
-        << "\nF: " << fCount << std::endl;
+              << "\nA: " << aCount << "\nB: " << bCount << "\nC: " << cCount
+              << "\nD: " << dCount << "\nF: " << fCount << std::endl;
 
     printf("Grade Point Average: %d\n",
-            (aCount * 4 + bCount * 3 + cCount * 2 + dCount * 1 + fCount * 0) / (aCount + bCount + cCount + dCount + fCount));
+           (aCount * 4 + bCount * 3 + cCount * 2 + dCount * 1 + fCount * 0) /
+               (aCount + bCount + cCount + dCount + fCount));
 }

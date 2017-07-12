@@ -24,36 +24,31 @@
 
 #include "Question.h"
 
-enum class GameStates{INIT, PLAY, EXIT};
+enum class GameStates { INIT, PLAY, EXIT };
 
-const int NUM_QUESTIONS = 5;
+class Quiz {
+ private:
+    std::vector<Question> _questions;
 
-class Quiz{
-    private:
-        std::vector<Question>       _questions;
+    GameStates _currentState;
 
-        GameStates                  _currentState;
+    int _correctAnswers;
 
-        int _correctAnswers;
+ public:
+    Quiz() : _currentState(GameStates::INIT), _correctAnswers(0) {}
 
-    public:
-        Quiz() :
-            _currentState(GameStates::INIT),
-            _correctAnswers(0)
-        {};
+    ~Quiz() { cleanup(); }
 
-        ~Quiz(){cleanup();}
+    void run();
 
-        void run();
+    bool initialise();
+    bool setQuestions();
 
-        bool initialise();
-        bool setQuestions();
+    void gameLoop();
 
-        void gameLoop();
+    void askQuestion();
 
-        void askQuestion();
+    int checkScore();
 
-        int checkScore();
-
-        void cleanup();
+    void cleanup();
 };
