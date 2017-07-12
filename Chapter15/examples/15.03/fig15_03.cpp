@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char* argv[]) {
     const char* const word = "again";
 
     // display value of char *, then display value of char *

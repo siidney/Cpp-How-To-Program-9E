@@ -17,11 +17,8 @@
  */
 #include "Complex.h"
 
-std::ostream& operator<<(std::ostream& out, const Complex& complex){
+std::ostream& operator<<(std::ostream& out, const Complex& complex) {
     return out;
 }
 
-std::istream& operator>>(std::istream& in, Complex& complex){
-    
-    return in;
-}
+std::istream& operator>>(std::istream& in, Complex& complex) { return in; }

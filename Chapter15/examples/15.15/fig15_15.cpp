@@ -16,11 +16,12 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // display value with internal spacing and plus sign
-    std::cout << std::internal << std::showpos << std::setw(10) << 123 << std::endl;
+    std::cout << std::internal << std::showpos << std::setw(10) << 123
+              << std::endl;
     return 0;
 }

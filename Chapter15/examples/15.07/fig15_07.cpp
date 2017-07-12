@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     const int SIZE = 80;
     char buffer[SIZE];
 

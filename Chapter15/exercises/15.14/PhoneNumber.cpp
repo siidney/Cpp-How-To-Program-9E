@@ -18,39 +18,39 @@
  */
 #include "PhoneNumber.h"
 
-#include <iomanip>
 #include <algorithm>
+#include <iomanip>
 
 // overloaded stream insertion operator; cannot be
 // a member function if we would like to invoke it with
 // std::cout << somePhoneNumber;
-std::ostream& operator<<(std::ostream& out, const PhoneNumber& number){
-    out << "(" << number.areaCode << ") "
-        << number.exchange << "-" << number.line;
+std::ostream& operator<<(std::ostream& out, const PhoneNumber& number) {
+    out << "(" << number.areaCode << ") " << number.exchange << "-"
+        << number.line;
 
     return out;
 }
 // overloaded stream extraction operator; cannot be
 // a member function if we would like to invoke it with
 // std::cin >> somePhoneNumber;
-std::istream& operator>>(std::istream& in, PhoneNumber& number){
+std::istream& operator>>(std::istream& in, PhoneNumber& number) {
     in.read(&number.pNumber[0], 14);
 
     // validate pNumber
     // length of 14
     // area code and exchange do not begin with 0 or 1
     // middle digit of area code == 0 or 1
-    if(in.gcount() != 14 ||
+    if (in.gcount() != 14 ||
         (number.pNumber[1] == '0' || number.pNumber[1] == '1') ||
         (number.pNumber[2] != '0' && number.pNumber[2] != '1') ||
-        (number.pNumber[6] == '0' || number.pNumber[6] == '1')){
+        (number.pNumber[6] == '0' || number.pNumber[6] == '1')) {
         // set failbit
         in.setstate(std::ios::failbit);
-    }else{
+    } else {
         char* ptrNumber = &number.pNumber[0];
 
         // area code
-        while(*++ptrNumber != ')'){
+        while (*++ptrNumber != ')') {
             number.areaCode += *ptrNumber;
         }
 
@@ -58,12 +58,12 @@ std::istream& operator>>(std::istream& in, PhoneNumber& number){
         ++ptrNumber;
 
         // exchange
-        while(*++ptrNumber != '-'){
+        while (*++ptrNumber != '-') {
             number.exchange += *ptrNumber;
         }
 
         // line
-        while(*ptrNumber++ != '\0'){
+        while (*ptrNumber++ != '\0') {
             number.line += *ptrNumber;
         }
 

@@ -19,12 +19,12 @@
 
 #include <iostream>
 
-class Point{
-    public:
-        friend std::ostream& operator<<(std::ostream&, const Point&);
-        friend std::istream& operator>>(std::istream&, Point&);
+class Point {
+ public:
+    friend std::ostream& operator<<(std::ostream&, const Point&);
+    friend std::istream& operator>>(std::istream&, Point&);
 
-    private:
-        int xCoordinate;
-        int yCoordinate;
+ private:
+    int xCoordinate;
+    int yCoordinate;
 };

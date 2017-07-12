@@ -16,10 +16,10 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int x = 12345;
 
     // display x right justified (default)

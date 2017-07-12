@@ -15,18 +15,17 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
-    std::cout << std::setw(5) << "dec" << std::setw(5) << "oct"
-              << std::setw(5) << "hex" << std::setw(5) << "char" << std::endl;
+int main(int argc, const char *argv[]) {
+    std::cout << std::setw(5) << "dec" << std::setw(5) << "oct" << std::setw(5)
+              << "hex" << std::setw(5) << "char" << std::endl;
 
-    for(int i=33; i<=126; ++i){
-        std::cout << std::setw(5) << i
-                  << std::setw(5) << std::oct << i
-                  << std::setw(5) << std::hex << i
-                  << std::setw(5) << std::dec << (char)i << std::endl;
+    for (int i = 33; i <= 126; ++i) {
+        std::cout << std::setw(5) << i << std::setw(5) << std::oct << i
+                  << std::setw(5) << std::hex << i << std::setw(5) << std::dec
+                  << static_cast<char>(i) << std::endl;
     }
     return 0;
 }

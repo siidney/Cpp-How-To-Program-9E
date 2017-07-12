@@ -20,7 +20,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     char c = 'X';
     char *cp = &c;
 

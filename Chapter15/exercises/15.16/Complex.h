@@ -19,12 +19,12 @@
 
 #include <iostream>
 
-class Complex{
-    public:
-        friend std::ostream& operator<<(std::ostream&, const Complex&);
-        friend std::istream& operator>>(std::istream&, Complex&);
+class Complex {
+ public:
+    friend std::ostream& operator<<(std::ostream&, const Complex&);
+    friend std::istream& operator>>(std::istream&, Complex&);
 
-    private:
-        int real;
-        int imaginary;
+ private:
+    int real;
+    int imaginary;
 };

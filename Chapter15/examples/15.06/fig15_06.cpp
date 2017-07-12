@@ -18,7 +18,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     const int SIZE = 80;
     char buffer[SIZE];
 
@@ -27,7 +27,8 @@ int main(int argc, const char *argv[]){
     std::cin.getline(buffer, SIZE);
 
     // display buffer contents
-    std::cout << "\nThe sentence entered is:" << std::endl << buffer << std::endl;
+    std::cout << "\nThe sentence entered is:" << std::endl
+              << buffer << std::endl;
 
     return 0;
 }

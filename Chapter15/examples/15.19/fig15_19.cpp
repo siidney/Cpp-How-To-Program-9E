@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "Printing uppercase letters in scientific" << std::endl
               << "notation exponents and hexadecimal values:" << std::endl;
 

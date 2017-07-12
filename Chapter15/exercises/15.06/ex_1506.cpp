@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <limits>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // a) Print integer 40000 left justified in a 15-digit field
     std::cout << std::setw(15) << std::left << 40000 << std::endl;
 
@@ -35,25 +35,26 @@ int main(int argc, const char *argv[]){
     std::cout << state << std::endl;
 
     // c) Print 200 with and without a sign
-    std::cout << std::showpos << 200 << "\n" << std::noshowpos << 200 << std::endl;
+    std::cout << std::showpos << 200 << "\n"
+              << std::noshowpos << 200 << std::endl;
 
     // d) Print the decimal value 100 in hexidecimal form preceded by 0x
     std::cout << "0x" << std::hex << 100 << std::endl;
 
     // e) Read characters into array charArray until the character 'p' is
-    // encountered, up to a limit of 10 characters (including the terminating
-    // null character). Extract the delimiter from the input stream and discard
+    // encountered, up to a LIMIT of 10 characters (including the terminating
+    // null character). Extract the deLIMITer from the input stream and discard
     // it.
 
-    const int limit = 11;
+    const int LIMIT = 11;
 
-    char charArray[limit];
+    char charArray[LIMIT];
     int i = 0;
 
     std::cout << "Enter up to 10 chars 'p' to end input:\n";
 
-    while(i < limit){
-        if(std::cin.peek() == 'p'){
+    while (i < LIMIT) {
+        if (std::cin.peek() == 'p') {
             i++;
             break;
         }
@@ -65,7 +66,8 @@ int main(int argc, const char *argv[]){
     std::cout << charArray;
 
     // f) Print 1.234 in a 9-digit field with preceeding zeros
-    std::cout << std::right << std::setw(9) << std::setfill('0') << 1.234 << std::endl;
+    std::cout << std::right << std::setw(9) << std::setfill('0') << 1.234
+              << std::endl;
 
     return 0;
 }

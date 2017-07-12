@@ -20,14 +20,14 @@
 #include <iostream>
 #include <string>
 
-class PhoneNumber{
-    public:
-        friend std::ostream& operator<<(std::ostream&, const PhoneNumber&);
-        friend std::istream& operator>>(std::istream&, PhoneNumber&);
+class PhoneNumber {
+ public:
+    friend std::ostream& operator<<(std::ostream&, const PhoneNumber&);
+    friend std::istream& operator>>(std::istream&, PhoneNumber&);
 
-    private:
-        char pNumber[15] = {};
-        std::string areaCode;
-        std::string exchange;
-        std::string line;
+ private:
+    char pNumber[15] = {};
+    std::string areaCode;
+    std::string exchange;
+    std::string line;
 };

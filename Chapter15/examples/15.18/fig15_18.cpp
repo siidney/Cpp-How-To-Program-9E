@@ -18,7 +18,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     double x = 0.001234567;
     double y = 1.946e9;
 

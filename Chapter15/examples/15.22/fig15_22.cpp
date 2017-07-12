@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int integerValue;
 
     // display results of cin functions
@@ -38,12 +38,14 @@ int main(int argc, const char *argv[]){
               << "\n    cin.eof(): " << std::cin.eof()
               << "\n   cin.fail(): " << std::cin.fail()
               << "\n    cin.bad(): " << std::cin.bad()
-              << "\n   cin.good(): " << std::cin.good() << std::endl << std::endl;
+              << "\n   cin.good(): " << std::cin.good() << std::endl
+              << std::endl;
 
     std::cin.clear();
 
     // display results of cin function after clearing cin
-    std::cout << "After cin.clear()" << "\ncin.fail(): " << std::cin.fail()
+    std::cout << "After cin.clear()"
+              << "\ncin.fail(): " << std::cin.fail()
               << "\ncin.good(): " << std::cin.good() << std::endl;
 
     return 0;

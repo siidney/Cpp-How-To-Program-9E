@@ -17,19 +17,19 @@
  */
 #include "Point.h"
 
-std::ostream& operator<<(std::ostream& out, const Point& point){
-    if(!std::cin.fail()){
+std::ostream& operator<<(std::ostream& out, const Point& point) {
+    if (!std::cin.fail()) {
         out << point.xCoordinate << ',' << point.yCoordinate;
     }
 
     return out;
 }
 
-std::istream& operator>>(std::istream& in, Point& point){
+std::istream& operator>>(std::istream& in, Point& point) {
     in >> point.xCoordinate >> point.yCoordinate;
 
-    if((point.xCoordinate < 0 || point.xCoordinate > 9) ||
-            (point.yCoordinate < 0 || point.yCoordinate > 9)){
+    if ((point.xCoordinate < 0 || point.xCoordinate > 9) ||
+        (point.yCoordinate < 0 || point.yCoordinate > 9)) {
         in.setstate(std::ios::failbit);
 
         point.xCoordinate = 0;

@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Point point;
 
     std::cout << "Enter space separated x y coordinates: ";

@@ -18,7 +18,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // create two char arrays, each with 80 elements
     const int SIZE = 80;
     char buffer1[SIZE];
@@ -30,7 +30,8 @@ int main(int argc, const char *argv[]){
 
     // display buffer1 contents
     std::cout << "\nThe string read with cin was:" << std::endl
-              << buffer1 << std::endl << std::endl;
+              << buffer1 << std::endl
+              << std::endl;
 
     // use cin.get to input character into buffer2
     std::cin.get(buffer2, SIZE);

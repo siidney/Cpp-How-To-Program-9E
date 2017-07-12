@@ -18,15 +18,16 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     bool booleanValue = true;
 
     // display default true booleanValue
     std::cout << "booleanValue is " << booleanValue << std::endl;
 
     // display booleanValue after using boolalpha
-    std::cout << "booleanValue (after using boolalpha) is "
-              << std::boolalpha << booleanValue << std::endl << std::endl;
+    std::cout << "booleanValue (after using boolalpha) is " << std::boolalpha
+              << booleanValue << std::endl
+              << std::endl;
 
     std::cout << "switch booleanValue and use noboolalpha" << std::endl;
     booleanValue = false;
@@ -36,8 +37,8 @@ int main(int argc, const char *argv[]){
     std::cout << "booleanValue is " << booleanValue << std::endl;
 
     // display booleanValue after using boolalpha again
-    std::cout << "booleanValue (after using boolalpha) is "
-              << std::boolalpha << booleanValue << std::endl;
+    std::cout << "booleanValue (after using boolalpha) is " << std::boolalpha
+              << booleanValue << std::endl;
 
     return 0;
 }
