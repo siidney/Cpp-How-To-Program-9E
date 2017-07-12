@@ -15,22 +15,22 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
 
-void printArray(int [], int);
+void printArray(int[], int);
 
 const int limit = 10;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "Optimised bubble sort to for an integer array" << std::endl;
 
-//    srand(time(0));
+    //    srand(time(0));
 
     int n[limit] = {};
 
     // randomise elements of n
-    for(int i=0; i<limit; ++i){
+    for (int i = 0; i < limit; ++i) {
         n[i] = rand() % 100;
     }
 
@@ -39,12 +39,12 @@ int main(int argc, const char *argv[]){
     printArray(n, limit);
 
     // BUBBLE SORT
-    for(int i=0, swaps=0; i<limit; swaps=0, ++i){
+    for (int i = 0, swaps = 0; i < limit; swaps = 0, ++i) {
         // inner loop limit can decrease by i as the last value on each pass
         // will be in the correct order
-        for(int j=0; j<limit - i; ++j){
+        for (int j = 0; j < limit - i; ++j) {
             // swap values if needed
-            if(n[j] > n[j + 1]){
+            if (n[j] > n[j + 1]) {
                 int temp = n[j];
 
                 n[j] = n[j + 1];
@@ -54,7 +54,7 @@ int main(int argc, const char *argv[]){
             }
         }
         // if no swaps made no need to make another pass
-        if(swaps == 0){
+        if (swaps == 0) {
             break;
         }
     }
@@ -67,8 +67,8 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // prints array
-void printArray(int n[], int sizeOfN){
-    for(int i=0; i<sizeOfN; ++i){
+void printArray(int n[], int sizeOfN) {
+    for (int i = 0; i < sizeOfN; ++i) {
         std::cout << n[i] << std::endl;
     }
 }

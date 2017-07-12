@@ -22,7 +22,7 @@ void printArray(const int[][3]);
 const int rows = 2;
 const int cols = 3;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int array1[rows][cols] = {{1, 2, 3}, {4, 5, 6}};
     int array2[rows][cols] = {1, 2, 3, 4, 5};
     int array3[rows][cols] = {{1, 2}, {4}};
@@ -39,11 +39,11 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // output array with two rows and three columns
-void printArray(const int a[][cols]){
+void printArray(const int a[][cols]) {
     // loop through array's rows
-    for(int i=0; i<rows; ++i){
+    for (int i = 0; i < rows; ++i) {
         // loop through array's cols
-        for(int j=0; j<cols; ++j){
+        for (int j = 0; j < cols; ++j) {
             std::cout << a[i][j] << ' ';
         }
         std::cout << std::endl;

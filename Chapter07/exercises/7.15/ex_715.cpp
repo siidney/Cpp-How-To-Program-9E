@@ -17,46 +17,45 @@
  */
 #include <iostream>
 
-void addToArray(int [], int);
+void addToArray(int[], int);
 
 const int limit = 20;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int n[limit] = {};
     int value;
 
-    for(int i=0; i<limit; ++i){
-        std::cout << "(" << i+1 << "/20) Enter value between 10 and 100: ";
+    for (int i = 0; i < limit; ++i) {
+        std::cout << "(" << i + 1 << "/20) Enter value between 10 and 100: ";
         std::cin >> value;
 
-        if(value >= 10 && value <= 100)
+        if (value >= 10 && value <= 100)
             addToArray(n, value);
         else
             i--;
     }
 
-    for(int i=0; i<limit; ++i){
-        if(n[i] != 0)
-            std::cout << n[i] << std::endl;
+    for (int i = 0; i < limit; ++i) {
+        if (n[i] != 0) std::cout << n[i] << std::endl;
     }
     return 0;
 }
 // adds v to array if unique
-void addToArray(int n[], int v){
+void addToArray(int n[], int v) {
     static int limit = 0;
 
     bool duplicate = false;
 
     // no duplicates already in list so only need to compare to v not each other
-    for(int i=0; i<=limit; ++i){
-        if(n[i] == v){
+    for (int i = 0; i <= limit; ++i) {
+        if (n[i] == v) {
             duplicate = true;
             break;
         }
     }
 
     // no duplicate - add unique value and increase limit counter
-    if(!duplicate){
+    if (!duplicate) {
         n[limit] = v;
         ++limit;
     }

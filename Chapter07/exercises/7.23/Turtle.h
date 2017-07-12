@@ -22,16 +22,16 @@
 static const int ROWS = 20;
 static const int COLS = 20;
 
-enum class PENSTATE{UP, DOWN, ERASE};
-enum class PENDIR{UP, DOWN, RIGHT, LEFT};
+enum class PENSTATE { UP, DOWN, ERASE };
+enum class PENDIR { UP, DOWN, RIGHT, LEFT };
 
-struct pen{
+struct pen {
     PENSTATE state;
-    PENDIR   dir;
+    PENDIR dir;
     int x;
     int y;
 
-    pen(PENSTATE S, PENDIR D, int X, int Y){
+    pen(PENSTATE S, PENDIR D, int X, int Y) {
         state = S;
         dir = D;
         x = X;
@@ -39,26 +39,23 @@ struct pen{
     }
 };
 
-class Turtle{
-    private:
-        bool _floor[ROWS][COLS] = {{}};
-        bool _running;
+class Turtle {
+ private:
+    bool _floor[ROWS][COLS] = {{}};
+    bool _running;
 
-        pen _pen;
+    pen _pen;
 
-    public:
-        Turtle() :
-            _pen(PENSTATE::UP, PENDIR::RIGHT, 0, 0),
-            _running(true)
-        {}
-        ~Turtle(){}
+ public:
+    Turtle() :  _running(true), _pen(PENSTATE::UP, PENDIR::RIGHT, 0, 0) {}
+    ~Turtle() {}
 
-        void go();
-        void printMenu();
-        void printPen();
-        int getInput();
-        void process(int);
-        void draw();
-        void printArray();
-        void reset();
+    void go();
+    void printMenu();
+    void printPen();
+    int getInput();
+    void process(int);
+    void draw();
+    void printArray();
+    void reset();
 };

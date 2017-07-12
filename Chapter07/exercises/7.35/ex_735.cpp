@@ -15,32 +15,31 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <ctime>
+#include <iostream>
 
 void printArray(const int[], int, int);
 
-static const int limit = 20;
+static const int LIMIT = 20;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "Program to recursively print an array" << std::endl;
 
     srand(time(0));
 
-    int n[limit];
+    int n[LIMIT];
 
-    for(int i=0; i<limit; ++i){
+    for (int i = 0; i < LIMIT; ++i) {
         n[i] = rand() % 100 + 1;
     }
 
-    printArray(n, 0, limit);
+    printArray(n, 0, LIMIT);
 
     return 0;
 }
 // recursively print an array
-void printArray(const int n[], int start, int end){
-    if(start >= end)
-        return;
+void printArray(const int n[], int start, int end) {
+    if (start >= end) return;
 
     std::cout << n[start] << std::endl;
 

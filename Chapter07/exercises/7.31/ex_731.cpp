@@ -15,53 +15,51 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <ctime>
+#include <iostream>
 
 void selectionSort(int[], int);
 
-static const int limit = 10;
+static const int LIMIT = 10;
 
-int main(int argc, const char *argv[]){
-    int n[limit];
+int main(int argc, const char *argv[]) {
+    int n[LIMIT];
 
     srand(time(0));
 
-    for(int i=0; i<limit; ++i){
+    for (int i = 0; i < LIMIT; ++i) {
         n[i] = rand() % 100 + 1;
     }
 
     // print unsorted array
     std::cout << "Before selectionSort: " << std::endl;
 
-    for(int i=0; i<limit; ++i){
+    for (int i = 0; i < LIMIT; ++i) {
         std::cout << n[i] << std::endl;
     }
 
-    selectionSort(n, limit);
+    selectionSort(n, LIMIT);
 
     // print sorted array
     std::cout << "\nAfter selectionSort: " << std::endl;
 
-    for(int i=0; i<limit; ++i){
+    for (int i = 0; i < LIMIT; ++i) {
         std::cout << n[i] << std::endl;
     }
 
     return 0;
 }
 // selection sort recursive algorithm
-void selectionSort(int n[], int limit){
+void selectionSort(int n[], int LIMIT) {
     static int startIndex = 0;
     int minIndex = startIndex;
 
     // exit condition
-    if(startIndex >= limit -1)
-        return;
+    if (startIndex >= LIMIT - 1) return;
 
     // get the index of the smallest value
-    for(int i=startIndex+1; i<limit; ++i){
-        if(n[i] < n[minIndex])
-            minIndex = i;
+    for (int i = startIndex + 1; i < LIMIT; ++i) {
+        if (n[i] < n[minIndex]) minIndex = i;
     }
 
     // swap with n[startIndex]
@@ -72,5 +70,5 @@ void selectionSort(int n[], int limit){
     // increment startIndex
     ++startIndex;
 
-    selectionSort(n, limit);
+    selectionSort(n, LIMIT);
 }

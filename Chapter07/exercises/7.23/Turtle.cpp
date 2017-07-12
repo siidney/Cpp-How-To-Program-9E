@@ -17,16 +17,17 @@
  */
 #include "Turtle.h"
 
-void Turtle::go(){
-    std::cout << "\n*** Welcome to the Turtle Graphics Program ***\n" << std::endl;
+void Turtle::go() {
+    std::cout << "\n*** Welcome to the Turtle Graphics Program ***\n"
+              << std::endl;
 
-    while(_running){
+    while (_running) {
         printMenu();
         process(getInput());
     }
 }
 // prints the selection menu
-void Turtle::printMenu(){
+void Turtle::printMenu() {
     std::cout << "1   - Pen Up" << std::endl;
     std::cout << "2   - Pen Down" << std::endl;
     std::cout << "3   - Pen Erase" << std::endl;
@@ -38,9 +39,9 @@ void Turtle::printMenu(){
     std::cout << "13  - Reset and Redraw" << std::endl;
 }
 // prints the current pen metrics
-void Turtle::printPen(){
+void Turtle::printPen() {
     std::cout << "\nState:";
-    switch(_pen.state){
+    switch (_pen.state) {
         case PENSTATE::UP:
             std::cout << " UP ";
             break;
@@ -53,7 +54,7 @@ void Turtle::printPen(){
     }
     std::cout << "\nDirection:";
 
-    switch(_pen.dir){
+    switch (_pen.dir) {
         case PENDIR::RIGHT:
             std::cout << " RIGHT ";
             break;
@@ -66,30 +67,28 @@ void Turtle::printPen(){
         case PENDIR::DOWN:
             std::cout << " DOWN ";
             break;
-
     }
     std::cout << "\n(" << _pen.x << "," << _pen.y << ")\n" << std::endl;
 }
 // fetches the input
-int Turtle::getInput(){
+int Turtle::getInput() {
     int choice = 0;
 
-    while(true){
+    while (true) {
         std::cout << "> ";
         std::cin >> choice;
 
-        if((choice >= 1 && choice <= 9) || choice == 13)
+        if ((choice >= 1 && choice <= 9) || choice == 13)
             return choice;
         else
             std::cout << "Incorrect Input" << std::endl;
     }
 }
 // processes the input - updates pen or sets exit condition
-void Turtle::process(int choice){
-    if(choice == 9)
-        _running = !_running;
+void Turtle::process(int choice) {
+    if (choice == 9) _running = !_running;
 
-    switch(choice){
+    switch (choice) {
         case 1:
             _pen.state = PENSTATE::UP;
             break;
@@ -100,23 +99,23 @@ void Turtle::process(int choice){
             _pen.state = PENSTATE::ERASE;
             break;
         case 4:
-            if(_pen.dir == PENDIR::RIGHT)
+            if (_pen.dir == PENDIR::RIGHT)
                 _pen.dir = PENDIR::DOWN;
-            else if(_pen.dir == PENDIR::DOWN)
+            else if (_pen.dir == PENDIR::DOWN)
                 _pen.dir = PENDIR::LEFT;
-            else if(_pen.dir == PENDIR::LEFT)
+            else if (_pen.dir == PENDIR::LEFT)
                 _pen.dir = PENDIR::UP;
-            else if(_pen.dir == PENDIR::UP)
+            else if (_pen.dir == PENDIR::UP)
                 _pen.dir = PENDIR::RIGHT;
             break;
         case 5:
-            if(_pen.dir == PENDIR::RIGHT)
+            if (_pen.dir == PENDIR::RIGHT)
                 _pen.dir = PENDIR::UP;
-            else if(_pen.dir == PENDIR::UP)
+            else if (_pen.dir == PENDIR::UP)
                 _pen.dir = PENDIR::LEFT;
-            else if(_pen.dir == PENDIR::LEFT)
+            else if (_pen.dir == PENDIR::LEFT)
                 _pen.dir = PENDIR::DOWN;
-            else if(_pen.dir == PENDIR::DOWN)
+            else if (_pen.dir == PENDIR::DOWN)
                 _pen.dir = PENDIR::RIGHT;
             break;
         case 6:
@@ -126,67 +125,67 @@ void Turtle::process(int choice){
 
             // increment position considering direction and prevent out of
             // bounds
-            if(_pen.dir == PENDIR::RIGHT){
+            if (_pen.dir == PENDIR::RIGHT) {
                 limit = COLS - 1;
 
                 // if pen is up just update pen coords
-                if(_pen.state == PENSTATE::UP){
-                    _pen.x = ((_pen.x + steps) > limit) ? limit : (_pen.x + steps);
-                // pen is down so draw
-                }else{
-                    for(steps; steps>=0; ++_pen.x, --steps){
+                if (_pen.state == PENSTATE::UP) {
+                    _pen.x =
+                        ((_pen.x + steps) > limit) ? limit : (_pen.x + steps);
+                    // pen is down so draw
+                } else {
+                    for (; steps >= 0; ++_pen.x, --steps) {
                         draw();
                         // prevent out of bounds
-                        if(_pen.x == limit)
-                            break;
+                        if (_pen.x == limit) break;
                     }
                 }
             }
-            if(_pen.dir == PENDIR::LEFT){
+            if (_pen.dir == PENDIR::LEFT) {
                 limit = 0;
 
                 // pen is up update coords
-                if(_pen.state == PENSTATE::UP){
-                    _pen.x = ((_pen.x - steps) > limit) ? (_pen.x - steps) : limit;
-                // pen is down draw
-                }else{
-                    for(steps; steps>=0; --_pen.x, --steps){
+                if (_pen.state == PENSTATE::UP) {
+                    _pen.x =
+                        ((_pen.x - steps) > limit) ? (_pen.x - steps) : limit;
+                    // pen is down draw
+                } else {
+                    for (; steps >= 0; --_pen.x, --steps) {
                         draw();
                         // prevent out of bounds
-                        if(_pen.x == limit)
-                            break;
+                        if (_pen.x == limit) break;
                     }
                 }
             }
-            if(_pen.dir == PENDIR::UP){
+            if (_pen.dir == PENDIR::UP) {
                 limit = 0;
 
                 // pen is up update coords
-                if(_pen.state == PENSTATE::UP){
-                    _pen.y = ((_pen.y - steps) > limit) ? (_pen.y - steps) : limit;
-                // pen is down draw
-                }else{
-                    for(steps; steps>=0; --_pen.y, --steps){
+                if (_pen.state == PENSTATE::UP) {
+                    _pen.y =
+                        ((_pen.y - steps) > limit) ? (_pen.y - steps) : limit;
+                    // pen is down draw
+                } else {
+                    for (; steps >= 0; --_pen.y, --steps) {
                         draw();
                         // prevent out of bounds
-                        if(_pen.y == limit)
-                            break;
+                        if (_pen.y == limit) break;
                     }
                 }
             }
-            if(_pen.dir == PENDIR::DOWN){
+            if (_pen.dir == PENDIR::DOWN) {
                 limit = ROWS - 1;
 
                 // pen is up update coords
-                if(_pen.state == PENSTATE::UP){
-                    _pen.y = ((_pen.y + steps) < limit) ? (_pen.y + steps) : limit;
-                // pen is down draw
-                }else{
-                    for(steps; steps>=0; ++_pen.y, --steps){
+                if (_pen.state == PENSTATE::UP) {
+                    _pen.y =
+                        ((_pen.y + steps) < limit) ? (_pen.y + steps) : limit;
+                    // pen is down draw
+                } else {
+                    for (; steps >= 0; ++_pen.y, --steps) {
                         draw();
                         // prevent out of bounds
-                        if(_pen.y == limit)
-                            break;
+                        if (_pen.y == limit) break;
                     }
                 }
             }
@@ -202,20 +201,20 @@ void Turtle::process(int choice){
     printPen();
 }
 // updates the array
-void Turtle::draw(){
+void Turtle::draw() {
     // only draw if pen is down
-    if(_pen.state == PENSTATE::DOWN){
+    if (_pen.state == PENSTATE::DOWN) {
         _floor[_pen.y][_pen.x] = true;
     }
-    if(_pen.state == PENSTATE::ERASE){
+    if (_pen.state == PENSTATE::ERASE) {
         _floor[_pen.y][_pen.x] = false;
     }
 }
 // prints the current array
-void Turtle::printArray(){
-    for(int row=0; row<ROWS; ++row){
-        for(int col=0; col<COLS; ++col){
-            if(_floor[row][col])
+void Turtle::printArray() {
+    for (int row = 0; row < ROWS; ++row) {
+        for (int col = 0; col < COLS; ++col) {
+            if (_floor[row][col])
                 std::cout << '*';
             else
                 std::cout << ' ';
@@ -224,9 +223,9 @@ void Turtle::printArray(){
     }
 }
 // resets program to draw again
-void Turtle::reset(){
-    for(int row=0; row<ROWS; ++row){
-        for(int col=0; col<COLS; ++col){
+void Turtle::reset() {
+    for (int row = 0; row < ROWS; ++row) {
+        for (int col = 0; col < COLS; ++col) {
             _floor[row][col] = false;
         }
     }

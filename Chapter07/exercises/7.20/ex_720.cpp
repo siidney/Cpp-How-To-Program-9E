@@ -17,7 +17,7 @@
  */
 #include "ReservationSystem.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     ReservationSystem res;
 
     res.go();

@@ -15,44 +15,45 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <ctime>
+#include <iostream>
 #include <vector>
 
 int recursiveMinimum(const std::vector<int>&, int, int);
 
-static const int limit = 10;
+static const int LIMIT = 10;
 
-int main(int argc, const char *argv[]){
-    std::cout << "Program to recursively find mimimum value in an array\n" << std::endl;
+int main(int argc, const char* argv[]) {
+    std::cout << "Program to recursively find mimimum value in an array\n"
+              << std::endl;
 
-    std::vector<int> n(limit);
+    std::vector<int> n(LIMIT);
 
     srand(time(0));
 
-    for(int i=0; i<limit; ++i){
-        n[i] = rand() % limit + 1;
+    for (int i = 0; i < LIMIT; ++i) {
+        n[i] = rand() % LIMIT + 1;
 
         std::cout << n[i] << std::endl;
     }
 
-    std::cout << "\nMinimum : " << recursiveMinimum(n, 0, limit - 1) << std::endl;
+    std::cout << "\nMinimum : " << recursiveMinimum(n, 0, LIMIT - 1)
+              << std::endl;
 
     return 0;
 }
 // Returns the minimum value from an array recursively
-int recursiveMinimum(const std::vector<int>& n, int start, int end){
+int recursiveMinimum(const std::vector<int>& n, int start, int end) {
     static int minimum = n[start];
 
     std::cout << minimum << std::endl;
 
-    if(start == end)
+    if (start == end)
         return minimum;
 
-    if(minimum < n[start +1]){
-        recursiveMinimum(n, ++start, end);
-    }else{
-        minimum = n[start +1];
-        recursiveMinimum(n, ++start, end);
+    if (minimum < n[start + 1]) {
+        return recursiveMinimum(n, ++start, end);
     }
+    minimum = n[start + 1];
+    return recursiveMinimum(n, ++start, end);
 }

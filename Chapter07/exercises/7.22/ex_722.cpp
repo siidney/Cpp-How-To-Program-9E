@@ -27,16 +27,14 @@ struct ticket {
 const int salesPeople = 4;
 const int totalProducts = 5;
 
-void processTicket(int [][totalProducts], ticket);
+void processTicket(int[][totalProducts], ticket);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int arrSales[salesPeople][totalProducts] = {{}};
-    int productNumber;
-    int value;
 
     // change the loop to enter multiples for each salesperson
     // I personally cannot be bothered to spend hours inputting data
-    for(int sp=0; sp<salesPeople; ++sp){
+    for (int sp = 0; sp < salesPeople; ++sp) {
         ticket salesTicket;
 
         salesTicket.salesPerson = sp;
@@ -53,15 +51,16 @@ int main(int argc, const char *argv[]){
     }
 
     // print totals
-    for(int sp=0; sp<salesPeople; ++sp){
-        std::cout << "\nSales Person: " << sp+1 << std::endl;
-        for(int pr=0; pr<totalProducts; ++pr){
-            std::cout << "Product: " << pr+1 << ": " << arrSales[sp][pr] << std::endl;
+    for (int sp = 0; sp < salesPeople; ++sp) {
+        std::cout << "\nSales Person: " << sp + 1 << std::endl;
+        for (int pr = 0; pr < totalProducts; ++pr) {
+            std::cout << "Product: " << pr + 1 << ": " << arrSales[sp][pr]
+                      << std::endl;
         }
     }
     return 0;
 }
 // process a single sales persons sales
-void processTicket(int arrSales[][totalProducts], ticket tck){
+void processTicket(int arrSales[][totalProducts], ticket tck) {
     arrSales[tck.salesPerson][tck.productNumber] += tck.value;
 }

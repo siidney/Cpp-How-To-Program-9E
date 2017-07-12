@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include <iostream>
-#include <iomanip>
 #include <cstdlib>
+#include <iomanip>
+#include <iostream>
 #include <vector>
 
 int rollDie();
@@ -25,24 +25,23 @@ int rollDie();
 static int totalRolls = 36000;
 static size_t total = 13;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::vector<int> tally(total);
 
     srand(time(0));
 
-    std::cout << "Program to print the totals of 2 dice rolls 36000 times\n" << std::endl;
+    std::cout << "Program to print the totals of 2 dice rolls 36000 times\n"
+              << std::endl;
 
-    for(int i=0; i<totalRolls; ++i){
+    for (int i = 0; i < totalRolls; ++i) {
         ++tally[rollDie() + rollDie()];
     }
 
-    for(int i=2; i<total; ++i){
+    for (unsigned int i = 2; i < total; ++i) {
         std::cout << std::setw(2) << i << ": " << tally[i] << std::endl;
     }
 
     return 0;
 }
 // roll a single die
-int rollDie(){
-    return rand() % 6 + 1;
-}
+int rollDie() { return rand() % 6 + 1; }

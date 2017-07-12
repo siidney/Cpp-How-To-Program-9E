@@ -17,7 +17,7 @@
  */
 #include "Poll.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Poll poll;
 
     poll.go();

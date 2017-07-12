@@ -20,31 +20,30 @@
 
 #include <string>
 
-class GradeBook{
-    public:
-        static const int students = 10;
+class GradeBook {
+ public:
+    static const int students = 10;
 
-        GradeBook(std::string, const int []);
+    GradeBook(std::string, const int[]);
 
-        // SETTERS
-        void setCourseName(std::string);
+    // SETTERS
+    void setCourseName(std::string);
 
-        // GETTERS
-        std::string getCourseName();
+    // GETTERS
+    std::string getCourseName();
 
-        int getMinimum();
-        int getMaximum();
+    int getMinimum();
+    int getMaximum();
 
-        double getAverage();
+    double getAverage();
 
-        void displayMessage();
-        void processGrades();
-        void outputBarChart();
-        void outputGrades();
+    void displayMessage();
+    void processGrades();
+    void outputBarChart();
+    void outputGrades();
 
-    private:
-        std::string courseName;
+ private:
+    std::string courseName;
 
-        int grades[students];
-
+    int grades[students];
 };

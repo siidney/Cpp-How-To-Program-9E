@@ -17,9 +17,9 @@
  */
 #include <iostream>
 
-void tryToModifyArray(const int []);
+void tryToModifyArray(const int[]);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int a[] = {10, 20, 30};
 
     tryToModifyArray(a);
@@ -30,6 +30,6 @@ int main(int argc, const char *argv[]){
 }
 // In function tryToModifyArray, "b" cannot be used to modify the original array
 // "a" in main
-void tryToModifyArray(const int b[]){
-    b[0] /= 2; // compilation error
+void tryToModifyArray(const int b[]) {
+    b[0] /= 2;  // compilation error
 }

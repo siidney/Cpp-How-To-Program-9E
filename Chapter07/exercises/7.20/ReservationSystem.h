@@ -21,22 +21,22 @@
 
 const int capacity = 11;
 
-enum class Availability{BOTH, FIRST, SECOND, FULL};
+enum class Availability { BOTH, FIRST, SECOND, FULL };
 
-class ReservationSystem{
-    private:
-        bool _plane[capacity] = {};
+class ReservationSystem {
+ private:
+    bool _plane[capacity] = {};
 
-        Availability _availability;
+    Availability _availability;
 
-    public:
-        ReservationSystem();
+ public:
+    ReservationSystem();
 
-        void go();
-        void printMenu();
-        void printSeatingPlan();
-        bool isSeatAvailable(int);
-        int bookSeat(int);
-        void checkCapacity();
-        void printBoardingPass(int);
+    void go();
+    void printMenu();
+    void printSeatingPlan();
+    bool isSeatAvailable(int);
+    int bookSeat(int);
+    void checkCapacity();
+    void printBoardingPass(int);
 };

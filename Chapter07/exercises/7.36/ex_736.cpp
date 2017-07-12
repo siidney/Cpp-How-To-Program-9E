@@ -20,7 +20,7 @@
 
 void stringReverse(const std::string&, int start = -1);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char* argv[]) {
     std::cout << "Program to recursively print a string backwards" << std::endl;
 
     std::string string1 = "This is a string1";
@@ -37,14 +37,12 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // recursively prints a string in reverse
-void stringReverse(const std::string& st, int start){
-
+void stringReverse(const std::string& st, int start) {
     // account for lack of start index
-    if(start == -1)
-        start = st.length();
+    if (start == -1) start = st.length();
 
     // base case
-    if(start == 0){
+    if (start == 0) {
         std::cout << st[start] << std::endl;
         return;
     }
