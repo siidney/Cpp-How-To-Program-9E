@@ -19,12 +19,12 @@
 
 #include "Account.h"
 
-class SavingsAccount : public Account{
-    public:
-        SavingsAccount(double, double);
+class SavingsAccount : public Account {
+ public:
+    SavingsAccount(double, double);
 
-        double calculateInterest() const;
+    double calculateInterest() const;
 
-    private:
-        double interestRate;
+ private:
+    double interestRate;
 };

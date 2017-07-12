@@ -17,9 +17,9 @@
  */
 #include "SavingsAccount.h"
 
-SavingsAccount::SavingsAccount(double b, double ir) : Account(b), interestRate(ir)
-{}
+SavingsAccount::SavingsAccount(double b, double ir)
+    : Account(b), interestRate(ir) {}
 // calculate interest
-double SavingsAccount::calculateInterest() const{
+double SavingsAccount::calculateInterest() const {
     return Account::getBalance() * interestRate;
 }

@@ -16,12 +16,12 @@
  * =====================================================================================
  */
 #include "Account.h"
-#include "SavingsAccount.h"
 #include "CheckingAccount.h"
+#include "SavingsAccount.h"
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     SavingsAccount sa(1000, .5);
     CheckingAccount ca(1000, 1.5);
 

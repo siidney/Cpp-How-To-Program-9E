@@ -19,28 +19,28 @@
 
 #include <iostream>
 
-Account::Account(double b) : balance(0){
-    if(b >= 0.0f){
+Account::Account(double b) : balance(0) {
+    if (b >= 0.0f) {
         balance = b;
-    }else{
+    } else {
         std::cout << "ERROR: invalid balance. Defaulting to zero.";
     }
 }
 // credit
-void Account::credit(double c){
-    if(c >= 0.0f){
+void Account::credit(double c) {
+    if (c >= 0.0f) {
         balance += c;
-    }else{
+    } else {
         std::cout << "ERROR: Cannot credit negative amount. Balance unchanged.";
     }
 }
 // debit
-bool Account::debit(double d){
-    if(d >= 0.0f){
-        if(d <= balance){
+bool Account::debit(double d) {
+    if (d >= 0.0f) {
+        if (d <= balance) {
             balance -= d;
             return true;
-        }else{
+        } else {
             return false;
         }
     }

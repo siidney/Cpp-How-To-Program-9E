@@ -22,30 +22,24 @@
 #include <iostream>
 #include <string>
 
-class Package{
-    public:
-        Package(const Person&, const Person&, double, double);
+class Package {
+ public:
+    Package(const Person&, const Person&, double, double);
 
-        double calculateCost(){
-            return getWeight() * getCostPerOunce();
-        }
+    double calculateCost() { return getWeight() * getCostPerOunce(); }
 
-        double getWeight() const{
-            return weight;
-        }
-        double getCostPerOunce() const{
-            return costPerOunce;
-        }
+    double getWeight() const { return weight; }
+    double getCostPerOunce() const { return costPerOunce; }
 
-        void printDetails() const;
+    void printDetails() const;
 
-    private:
-        Person sender;
-        Person recipient;
+ private:
+    Person sender;
+    Person recipient;
 
-        double weight;
-        double costPerOunce;
+    double weight;
+    double costPerOunce;
 
-        void setWeight(double);
-        void setCostPerOunce(double);
+    void setWeight(double);
+    void setCostPerOunce(double);
 };

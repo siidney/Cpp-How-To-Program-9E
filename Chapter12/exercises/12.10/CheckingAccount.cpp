@@ -19,18 +19,17 @@
 
 #include <iostream>
 
-CheckingAccount::CheckingAccount(double b, double fpt) :
-        Account(b), feePerTransaction(fpt)
-{}
+CheckingAccount::CheckingAccount(double b, double fpt)
+    : Account(b), feePerTransaction(fpt) {}
 // credit
-void CheckingAccount::credit(double c){
+void CheckingAccount::credit(double c) {
     Account::credit(c + feePerTransaction);
 }
 // debit
-void CheckingAccount::debit(double d){
-    if(Account::debit(d)){
+void CheckingAccount::debit(double d) {
+    if (Account::debit(d)) {
         Account::debit(feePerTransaction);
-    }else{
+    } else {
         std::cout << "Error insufficient funds in checking account";
     }
 }

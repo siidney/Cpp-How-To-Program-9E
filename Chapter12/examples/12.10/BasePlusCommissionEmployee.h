@@ -22,17 +22,18 @@
 
 #include <string>
 
-class BasePlusCommissionEmployee : public CommissionEmployee{
-    public:
-        BasePlusCommissionEmployee(const std::string&, const std::string&,
-                const std::string&, double = 0.0f, double = 0.0f, double = 0.0f);
+class BasePlusCommissionEmployee : public CommissionEmployee {
+ public:
+    BasePlusCommissionEmployee(const std::string&, const std::string&,
+                               const std::string&, double = 0.0f, double = 0.0f,
+                               double = 0.0f);
 
-        void setBaseSalary(double);
-        double getBaseSalary() const;
+    void setBaseSalary(double);
+    double getBaseSalary() const;
 
-        double earnings() const;
-        void print() const;
+    double earnings() const;
+    void print() const;
 
-    private:
-        double baseSalary;
+ private:
+    double baseSalary;
 };

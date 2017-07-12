@@ -17,16 +17,14 @@
  */
 #pragma once
 
-class Account{
-    public:
-        Account(double);
+class Account {
+ public:
+    explicit Account(double);
 
-        void credit(double);
-        bool debit(double);
-        double getBalance() const{
-            return balance;
-        }
+    void credit(double);
+    bool debit(double);
+    double getBalance() const { return balance; }
 
-    private:
-        double balance;
+ private:
+    double balance;
 };

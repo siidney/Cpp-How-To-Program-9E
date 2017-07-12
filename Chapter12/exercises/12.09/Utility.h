@@ -21,7 +21,7 @@
 
 #include <string>
 
-struct Person{
+struct Person {
     std::string firstName;
     std::string lastName;
     std::string address;
@@ -30,7 +30,11 @@ struct Person{
     std::string zipCode;
 
     Person(const std::string& fn, const std::string& ln, const std::string& add,
-            const std::string& ct, const std::string& st, const std::string& zc) :
-        firstName(fn), lastName(ln), address(add), city(ct), state(st), zipCode(zc)
-    {}
+           const std::string& ct, const std::string& st, const std::string& zc)
+        : firstName(fn),
+          lastName(ln),
+          address(add),
+          city(ct),
+          state(st),
+          zipCode(zc) {}
 };
