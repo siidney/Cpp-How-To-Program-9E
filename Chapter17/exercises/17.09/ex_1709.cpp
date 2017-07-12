@@ -15,29 +15,29 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     // open oldmast.dat for input
     std::ifstream inOldMaster("oldmast.dat", std::ios::in);
 
-    if(!inOldMaster){
+    if (!inOldMaster) {
         std::cerr << "oldmast.dat could not be opened" << std::endl;
         return 0;
     }
     // open transaction file for input
     std::ifstream inTransaction("trans.dat", std::ios::in);
 
-    if(!inTransaction){
+    if (!inTransaction) {
         std::cerr << "trans.dat could not be opened" << std::endl;
         return 0;
     }
     // open newmast.dat for output (and creation)
     std::ofstream outNewMaster("newmast.dat", std::ios::out);
 
-    if(!outNewMaster){
+    if (!outNewMaster) {
         std::cerr << "newmast.dat could not be created" << std::endl;
         return 0;
     }
@@ -50,27 +50,31 @@ int main(int argc, const char* argv[]){
     std::string lName;
 
     // process changes
-    while(!inOldMaster.eof() && !inTransaction.eof()){
+    while (!inOldMaster.eof() && !inTransaction.eof()) {
         inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
         // ensure mastAccountNum !exceed transAccountNum
-        if(transAccountNum < mastAccountNum)
+        if (transAccountNum < mastAccountNum)
             inTransaction >> transAccountNum >> transDollarAmount;
 
         // update total on account number match
-        while((mastAccountNum == transAccountNum) && !inTransaction.eof()){
+        while ((mastAccountNum == transAccountNum) && !inTransaction.eof()) {
             mastDollarAmount += transDollarAmount;
 
             inTransaction >> transAccountNum >> transDollarAmount;
         }
-        if(((mastAccountNum > transAccountNum) && !inTransaction.eof()) || inOldMaster.eof()){
-            std::cout << "Unmatched transaction record for account number: " << transAccountNum << std::endl;
+        if (((mastAccountNum > transAccountNum) && !inTransaction.eof()) ||
+            inOldMaster.eof()) {
+            std::cout << "Unmatched transaction record for account number: "
+                      << transAccountNum << std::endl;
         }
 
         // only update if not at eof
         // ensures transAccountNum's > the last record in the old master file
         // are properly logged.
-        if(!inOldMaster.eof())
-            outNewMaster << mastAccountNum << " " << fName << " " << lName << " " << mastDollarAmount << std::endl;
-    };
+        if (!inOldMaster.eof())
+            outNewMaster << mastAccountNum << " " << fName << " " << lName
+                         << " " << mastDollarAmount << std::endl;
+    }
+
     return 0;
 }

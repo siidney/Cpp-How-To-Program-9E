@@ -15,21 +15,21 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <fstream>
-#include <string>
+#include <iostream>
 #include <map>
+#include <string>
 
-int checkFile(std::istream&);    // return total phising point total
-int checkWord(std::string&);    // returns word point (0,1,2,3)
+int checkFile(std::istream&);  // return total phising point total
+int checkWord(std::string&);   // returns word point (0,1,2,3)
 
 std::map<std::string, int> PHISING_LIST;
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     // open phising list
     std::ifstream plist("phising_list.txt", std::ios::in);
 
-    if(!plist){
+    if (!plist) {
         std::cerr << "could not open phising list." << std::endl;
         return 1;
     }
@@ -38,9 +38,7 @@ int main(int argc, const char* argv[]){
     std::string key;
     int value;
 
-    while(plist >> key >> value)
-        PHISING_LIST[key] = value;
-
+    while (plist >> key >> value) PHISING_LIST[key] = value;
 
     // ask for user file to scan
     std::string fname;
@@ -49,34 +47,34 @@ int main(int argc, const char* argv[]){
 
     std::ifstream inputfile(fname, std::ios::in);
 
-    if(!inputfile){
+    if (!inputfile) {
         std::cerr << "Unable to open input file" << std::endl;
         return 1;
     }
 
-    std::cout << "The phising score for the file " << fname << " is: " << checkFile(inputfile) << std::endl;
+    std::cout << "The phising score for the file " << fname
+              << " is: " << checkFile(inputfile) << std::endl;
 
     return 0;
 }
 // return total phising points for given file
-int checkFile(std::istream& inputFile){
+int checkFile(std::istream& inputFile) {
     int score = 0;
 
     std::string word;
-    while(inputFile >> word){
+    while (inputFile >> word) {
         score += checkWord(word);
     }
 
     return score;
 }
 // return word point
-int checkWord(std::string& word){
-    for(auto it = PHISING_LIST.cbegin(); it != PHISING_LIST.cend(); ++it){
+int checkWord(std::string& word) {
+    for (auto it = PHISING_LIST.cbegin(); it != PHISING_LIST.cend(); ++it) {
         // remove trailing punctuation from word.
-        if(ispunct(word[word.length() -1]))
-            word.erase(word.length() -1, 1);
+        if (ispunct(word[word.length() - 1])) word.erase(word.length() - 1, 1);
 
-        if(it->first == word){
+        if (it->first == word) {
             return it->second;
         }
     }

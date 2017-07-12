@@ -15,23 +15,23 @@
  *
  * =====================================================================================
  */
-#include <iostream>
+#include <cstdlib>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 #include <string>
-#include <cstdlib>
 
-enum requestType{ZERO_BALANCE = 1, CREDIT_BALANCE, DEBIT_BALANCE, END};
+enum requestType { ZERO_BALANCE = 1, CREDIT_BALANCE, DEBIT_BALANCE, END };
 int getRequest();
 bool shouldDisplay(int, double);
 void outputLine(int, const std::string, double);
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     // ifstream constructor opens the file
     std::ifstream inClientFile("clients.txt", std::ios::in);
 
     // exit program if ifstream could not open file
-    if(!inClientFile){
+    if (!inClientFile) {
         std::cerr << "file could not be opened" << std::endl;
         return 1;
     }
@@ -45,8 +45,8 @@ int main(int argc, const char* argv[]){
     request = getRequest();
 
     // process user's request
-    while(request != END){
-        switch(request){
+    while (request != END) {
+        switch (request) {
             case ZERO_BALANCE:
                 std::cout << "\nAccounts with zero balances:\n";
                 break;
@@ -55,33 +55,33 @@ int main(int argc, const char* argv[]){
                 break;
             case DEBIT_BALANCE:
                 std::cout << "\nAccounts with debit balances:\n";
-            break;
-        } // end switch
+                break;
+        }  // end switch
 
         // read account, name and balance from file
         inClientFile >> account >> name >> balance;
 
         // display file contents (until eof)
-        while(!inClientFile.eof()){
+        while (!inClientFile.eof()) {
             // display record
-            if(shouldDisplay(request, balance))
+            if (shouldDisplay(request, balance))
                 outputLine(account, name, balance);
 
             // read account, name and balance from file
             inClientFile >> account >> name >> balance;
-        } // end innner while
+        }  // end innner while
 
-        inClientFile.clear(); // reset eof for next input
-        inClientFile.seekg(0); // reposition to beginning of file
+        inClientFile.clear();   // reset eof for next input
+        inClientFile.seekg(0);  // reposition to beginning of file
         request = getRequest();
-    } // end outer while
+    }  // end outer while
 
     std::cout << "End of run." << std::endl;
 
     return 0;
 }
 // obtain request from user
-int getRequest(){
+int getRequest() {
     int request;
 
     // display request options
@@ -91,31 +91,29 @@ int getRequest(){
               << " 3 - List accounts with debit balances" << std::endl
               << " 4 - End of run" << std::fixed << std::showpoint;
 
-    do{
+    do {
         std::cout << "\n? ";
         std::cin >> request;
-    }while(request < ZERO_BALANCE && request > END);
+    } while (request < ZERO_BALANCE && request > END);
 
     return request;
 }
 // determine whether to display given record
-bool shouldDisplay(int type, double balance){
+bool shouldDisplay(int type, double balance) {
     // determine whether to display zero balances
-    if(type == ZERO_BALANCE && balance == 0)
-        return true;
+    if (type == ZERO_BALANCE && balance == 0) return true;
 
     // determine whether to display credit balances
-    if(type == CREDIT_BALANCE && balance < 0)
-        return true;
+    if (type == CREDIT_BALANCE && balance < 0) return true;
 
     // determine whether to display debit balances
-    if(type == DEBIT_BALANCE && balance > 0)
-        return true;
+    if (type == DEBIT_BALANCE && balance > 0) return true;
 
     return false;
 }
 // display single record from file
-void outputLine(int account, const std::string name, double balance){
+void outputLine(int account, const std::string name, double balance) {
     std::cout << std::left << std::setw(10) << account << std::setw(13) << name
-              << std::setw(7) << std::setprecision(2) << std::right << balance << std::endl;
+              << std::setw(7) << std::setprecision(2) << std::right << balance
+              << std::endl;
 }

@@ -15,17 +15,17 @@
  *
  * =====================================================================================
  */
+#include <cstdlib>
+#include <fstream>
 #include <iostream>
 #include <string>
-#include <fstream>
-#include <cstdlib>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // ofstream constructor opens file
     std::ofstream outClientFile("clients.txt", std::ios::out);
 
     // exit program if unable to create file
-    if(!outClientFile){  // overloaded ! operator
+    if (!outClientFile) {  // overloaded ! operator
         std::cerr << "File could not be opened" << std::endl;
         return 0;
     }
@@ -38,7 +38,7 @@ int main(int argc, const char *argv[]){
     double balance;
 
     // read account, name and balance from cin, then place in file
-    while(std::cin >> account >> name >> balance){
+    while (std::cin >> account >> name >> balance) {
         outClientFile << account << ' ' << name << ' ' << balance << std::endl;
         std::cout << "? ";
     }

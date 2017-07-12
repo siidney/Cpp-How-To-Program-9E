@@ -15,20 +15,20 @@
  *
  * =====================================================================================
  */
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <string>
 #include <cstring>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <string>
 
-struct Tool{
+struct Tool {
     int id = 0;
     char name[100];
     int quantity = 0;
     double cost = 0.0f;
 
-    void setId(int ID){id = ID;}
-    void setName(std::string& NAME){
+    void setId(int ID) { id = ID; }
+    void setName(std::string& NAME) {
         std::memset(name, '\0', 100);
 
         int length = NAME.size();
@@ -38,59 +38,60 @@ struct Tool{
 
         NAME[length] = '\0';
     }
-    void setQuantity(int Q){quantity = Q;}
-    void setCost(double C){cost = C;}
+    void setQuantity(int Q) { quantity = Q; }
+    void setCost(double C) { cost = C; }
 };
 
-enum Choices {LIST = 1, UPDATE, NEW, DELETE, END};
+enum Choices { LIST = 1, UPDATE, NEW, DELETE, END };
 
-void initialiseEmpty(std::fstream&);
+void initialiseEmpty(std::fstream &);
 int enterChoice();
-void listRecords(std::fstream&);
-void updateRecord(std::fstream&);
-void newRecord(std::fstream&);
-void deleteRecord(std::fstream&);
+void listRecords(std::fstream &);
+void updateRecord(std::fstream &);
+void newRecord(std::fstream &);
+void deleteRecord(std::fstream &);
 void printHeader();
-void outputLine(std::ostream&, const Tool&);
-int getToolId(const char * const);
+void outputLine(std::ostream &, const Tool &);
+int getToolId(const char *const);
 
-int main(int argc, const char* argv[]){
-    std::fstream inOutHardware("hardware.dat", std::ios::in | std::ios::out | std::ios::binary);
+int main(int argc, const char *argv[]) {
+    std::fstream inOutHardware("hardware.dat",
+                               std::ios::in | std::ios::out | std::ios::binary);
 
     // exit program if fstream cannot open file
-    if(!inOutHardware){
+    if (!inOutHardware) {
         std::cerr << "File could not be opened." << std::endl;
         return 1;
     }
 
-    //initialiseEmpty(inOutHardware);
+    // initialiseEmpty(inOutHardware);
 
     int choice;
 
-    while((choice = enterChoice()) != END){
-        switch(choice){
+    while ((choice = enterChoice()) != END) {
+        switch (choice) {
             case LIST:
                 listRecords(inOutHardware);
-            break;
+                break;
             case UPDATE:
                 updateRecord(inOutHardware);
-            break;
+                break;
             case NEW:
                 newRecord(inOutHardware);
-            break;
+                break;
             case DELETE:
                 deleteRecord(inOutHardware);
-            break;
+                break;
             default:
                 std::cerr << "Incorrect choice" << std::endl;
-            break;
+                break;
         }
         inOutHardware.clear();  // reset end-of-file indicator
     }
     return 0;
 }
 // main menu
-int enterChoice(){
+int enterChoice() {
     std::cout << "\nEnter your choice" << std::endl
               << "1 - List current records on file" << std::endl
               << "2 - Update a record" << std::endl
@@ -104,15 +105,15 @@ int enterChoice(){
     return menuChoice;
 }
 // initialises file to 100 empty records
-void initialiseEmpty(std::fstream& inOutHardware){
+void initialiseEmpty(std::fstream &inOutHardware) {
     Tool t;
 
-    for(int i=0; i<100; ++i){
-        inOutHardware.write(reinterpret_cast<const char*>(&t), sizeof(Tool));
+    for (int i = 0; i < 100; ++i) {
+        inOutHardware.write(reinterpret_cast<const char *>(&t), sizeof(Tool));
     }
 }
 // lists current records
-void listRecords(std::fstream& inOutHardware){
+void listRecords(std::fstream &inOutHardware) {
     printHeader();
 
     // set file-position pointer to beginning of file
@@ -124,17 +125,16 @@ void listRecords(std::fstream& inOutHardware){
     inOutHardware.read(reinterpret_cast<char *>(&t), sizeof(Tool));
 
     // read all records from file
-    while(inOutHardware && !inOutHardware.eof()){
+    while (inOutHardware && !inOutHardware.eof()) {
         // display record
-        if(t.id != 0)
-            outputLine(std::cout, t);
+        if (t.id != 0) outputLine(std::cout, t);
 
         // read next from file
         inOutHardware.read(reinterpret_cast<char *>(&t), sizeof(Tool));
     }
 }
 // update any record in file
-void updateRecord(std::fstream& inOutHardware){
+void updateRecord(std::fstream &inOutHardware) {
     // obtain record number
     int id = getToolId("Enter id of tool to update");
 
@@ -146,7 +146,7 @@ void updateRecord(std::fstream& inOutHardware){
     inOutHardware.read(reinterpret_cast<char *>(&t), sizeof(Tool));
 
     // update record
-    if(t.id != 0){
+    if (t.id != 0) {
         // display the record
         printHeader();
         outputLine(std::cout, t);
@@ -155,7 +155,7 @@ void updateRecord(std::fstream& inOutHardware){
 
         int choice = 0;
 
-        do{
+        do {
             std::cout << "\nSpecify information to change\n"
                       << "1 - Id" << std::endl
                       << "2 - Name" << std::endl
@@ -164,10 +164,10 @@ void updateRecord(std::fstream& inOutHardware){
                       << "5 - Cancel Update\n? ";
 
             std::cin >> choice;
-        }while(choice < 1 || choice > 5);
+        } while (choice < 1 || choice > 5);
 
-        switch(choice){
-            case 1:{ // id
+        switch (choice) {
+            case 1: {  // id
                 int id = getToolId("Enter new id");
 
                 // check if id is available
@@ -178,7 +178,7 @@ void updateRecord(std::fstream& inOutHardware){
                 Tool t2;
                 inOutHardware.read(reinterpret_cast<char *>(&t2), sizeof(Tool));
 
-                if(t2.id == 0){
+                if (t2.id == 0) {
                     std::cout << "update" << std::endl;
                     // delete old record of t (overrite with blank t2)
 
@@ -186,46 +186,48 @@ void updateRecord(std::fstream& inOutHardware){
                     inOutHardware.seekp((t.id - 1) * sizeof(Tool));
 
                     // write updated record over old record in file
-                    inOutHardware.write(reinterpret_cast<const char *>(&t2), sizeof(Tool));
+                    inOutHardware.write(reinterpret_cast<const char *>(&t2),
+                                        sizeof(Tool));
 
                     // change id of t
                     t.setId(id);
-                }else{
-                    std::cerr << "A record with id #" << t2.id << " already exists" << std::endl;
+                } else {
+                    std::cerr << "A record with id #" << t2.id
+                              << " already exists" << std::endl;
                     return;
                 }
-            }break;
-            case 2:{ // name
+            } break;
+            case 2: {  // name
                 std::string name;
 
                 std::cout << "Enter new Name: ";
                 std::cin >> name;
 
                 t.setName(name);
-            }break;
-            case 3:{ // quantity
+            } break;
+            case 3: {  // quantity
                 int quantity;
 
                 std::cout << "Enter updated quantity: ";
                 std::cin >> quantity;
 
                 t.setQuantity(quantity);
-            }break;
-            case 4:{ // price
+            } break;
+            case 4: {  // price
                 double cost;
 
                 std::cout << "Enter updated price: ";
                 std::cin >> cost;
 
                 t.setCost(cost);
-            }break;
-            case 5: // exit
+            } break;
+            case 5:  // exit
                 return;
-            break;
+                break;
             default:
                 std::cout << "Incorrect choice" << std::endl;
                 return;
-            break;
+                break;
         }
 
         printHeader();
@@ -236,12 +238,12 @@ void updateRecord(std::fstream& inOutHardware){
 
         // write updated record over old record in file
         inOutHardware.write(reinterpret_cast<const char *>(&t), sizeof(Tool));
-    }else{
+    } else {
         std::cout << "\nRecord #" << id << " does not exist" << std::endl;
     }
 }
 // inserts a new record into the file
-void newRecord(std::fstream& inOutHardware){
+void newRecord(std::fstream &inOutHardware) {
     Tool t;
 
     int id = getToolId("Enter new tool id");
@@ -253,7 +255,7 @@ void newRecord(std::fstream& inOutHardware){
     inOutHardware.read(reinterpret_cast<char *>(&t), sizeof(Tool));
 
     // create record if does not exist
-    if(t.id == 0){
+    if (t.id == 0) {
         std::string name;
         int quantity;
         double cost;
@@ -277,12 +279,12 @@ void newRecord(std::fstream& inOutHardware){
 
         // write user specified information to file
         inOutHardware.write(reinterpret_cast<const char *>(&t), sizeof(Tool));
-    }else{
+    } else {
         std::cerr << "Tool with id #" << id << " already exists." << std::endl;
     }
 }
 // delete record
-void deleteRecord(std::fstream& inOutHardware){
+void deleteRecord(std::fstream &inOutHardware) {
     // obtain account number to delte
     int id = getToolId("Enter tool id to delete");
 
@@ -294,44 +296,44 @@ void deleteRecord(std::fstream& inOutHardware){
     inOutHardware.read(reinterpret_cast<char *>(&t), sizeof(Tool));
 
     // delete record if exists
-    if(t.id != 0){
+    if (t.id != 0) {
         Tool tBlank;
 
         inOutHardware.seekp((id - 1) * sizeof(Tool));
 
         // replace existing record with blank
-        inOutHardware.write(reinterpret_cast<const char*>(&tBlank), sizeof(Tool));
+        inOutHardware.write(reinterpret_cast<const char *>(&tBlank),
+                            sizeof(Tool));
 
         std::cout << "Id #" << id << " deleted" << std::endl;
-    }else{
-        std::cerr << "Record with id #" << id << " does not exist." << std::endl;
+    } else {
+        std::cerr << "Record with id #" << id << " does not exist."
+                  << std::endl;
     }
 }
 // print list header
-void printHeader(){
+void printHeader() {
     std::cout << std::string(41, '-') << std::endl
-              << std::left << std::setw(5) << "Id"
-              << std::setw(16) << "Name"
-              << std::setw(10) << "Quantity"
-              << std::setw(10) << std::right << "Price" << std::endl
+              << std::left << std::setw(5) << "Id" << std::setw(16) << "Name"
+              << std::setw(10) << "Quantity" << std::setw(10) << std::right
+              << "Price" << std::endl
               << std::string(41, '-') << std::endl;
 }
 // display single record
-void outputLine(std::ostream &output, const Tool &t){
-    output << std::left << std::setw(5) << t.id
-           << std::setw(16) << t.name
-           << std::setw(10) << t.quantity
-           << std::setw(10) << std::setprecision(2) << std::right
-           << std::fixed << std::showpoint << t.cost << std::endl;
+void outputLine(std::ostream &output, const Tool &t) {
+    output << std::left << std::setw(5) << t.id << std::setw(16) << t.name
+           << std::setw(10) << t.quantity << std::setw(10)
+           << std::setprecision(2) << std::right << std::fixed << std::showpoint
+           << t.cost << std::endl;
 }
 // obtain record number from user
-int getToolId(const char * const prompt){
+int getToolId(const char *const prompt) {
     int id;
 
-    do{
+    do {
         std::cout << prompt << " (1-100): ";
         std::cin >> id;
-    }while(id < 1 || id > 100);
+    } while (id < 1 || id > 100);
 
     return id;
 }

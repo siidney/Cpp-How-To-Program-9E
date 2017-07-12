@@ -15,18 +15,34 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     // open oldmast.dat for output (and creation)
     std::ofstream outOldMaster("oldmast.dat", std::ios::out);
 
-    outOldMaster << 100 << " " << "Alan" << " " << "Jones" << " " << 348.17 << std::endl;
-    outOldMaster << 300 << " " << "Mary" << " " << "Smith" << " " << 27.19 << std::endl;
-    outOldMaster << 500 << " " << "Sam" << " " << "Sharp" << " " << 0.00 << std::endl;
-    outOldMaster << 700 << " " << "Suzy" << " " << "Green" << " " << -14.22 << std::endl;
+    outOldMaster << 100 << " "
+                 << "Alan"
+                 << " "
+                 << "Jones"
+                 << " " << 348.17 << std::endl;
+    outOldMaster << 300 << " "
+                 << "Mary"
+                 << " "
+                 << "Smith"
+                 << " " << 27.19 << std::endl;
+    outOldMaster << 500 << " "
+                 << "Sam"
+                 << " "
+                 << "Sharp"
+                 << " " << 0.00 << std::endl;
+    outOldMaster << 700 << " "
+                 << "Suzy"
+                 << " "
+                 << "Green"
+                 << " " << -14.22 << std::endl;
 
     // open trans.dat for output (and creation)
     std::ofstream outTransaction("trans.dat", std::ios::out);

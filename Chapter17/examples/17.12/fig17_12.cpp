@@ -17,20 +17,21 @@
  */
 #include "ClientData.h"
 
-#include <iostream>
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     int accountNumber;
     std::string lastName;
     std::string firstName;
     double balance;
 
-    std::fstream outCredit("credit.dat", std::ios::in | std::ios::out | std::ios::binary);
+    std::fstream outCredit("credit.dat",
+                           std::ios::in | std::ios::out | std::ios::binary);
 
     // exit program if fstream cannot open file
-    if(!outCredit){
+    if (!outCredit) {
         std::cerr << "File could not be opened." << std::endl;
         return 1;
     }
@@ -42,7 +43,7 @@ int main(int argc, const char* argv[]){
     std::cin >> accountNumber;
 
     // user enters information, which is copied into file
-    while(accountNumber > 0 && accountNumber <= 100){
+    while (accountNumber > 0 && accountNumber <= 100) {
         // user enters last name, first name and balance
         std::cout << "Enter lastname, firstname, balance\n? ";
         std::cin >> lastName;
@@ -59,7 +60,8 @@ int main(int argc, const char* argv[]){
         outCredit.seekp((client.getAccountNumber() - 1) * sizeof(ClientData));
 
         // write user-specified information in file
-        outCredit.write(reinterpret_cast<const char *>(&client), sizeof(ClientData));
+        outCredit.write(reinterpret_cast<const char*>(&client),
+                        sizeof(ClientData));
 
         // enable user to enter another account
         std::cout << "Enter account number\n? ";
