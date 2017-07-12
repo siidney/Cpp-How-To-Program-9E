@@ -18,12 +18,13 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string string1("noon is 12pm; midnight is not.");
     int location;
 
     // find "is" at location 5 and 24
-    std::cout << "Original string:\n" << string1
+    std::cout << "Original string:\n"
+              << string1
               << "\n\n(find) \"is\" was found at: " << string1.find("is")
               << "\n(rfind) \"is\" was found at: " << string1.rfind("is");
 

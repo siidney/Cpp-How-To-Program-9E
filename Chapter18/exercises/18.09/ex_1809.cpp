@@ -20,8 +20,7 @@
 
 bool validate(const std::string&);
 
-int main(int argc, const char* argv[]){
-
+int main(int argc, const char* argv[]) {
     std::string string1 = "Not a correct string";
     std::string string2 = "I am a worker";
     std::string string3 = "What is the date today";
@@ -35,6 +34,7 @@ int main(int argc, const char* argv[]){
     return 0;
 }
 // tests whether given string ends in "r" or "ay"
-bool validate(const std::string& base){
-    return ((base.substr(base.length() - 2) == "ay") || (base.substr(base.length() - 1) == "r"));
+bool validate(const std::string& base) {
+    return ((base.substr(base.length() - 2) == "ay") ||
+            (base.substr(base.length() - 1) == "r"));
 }

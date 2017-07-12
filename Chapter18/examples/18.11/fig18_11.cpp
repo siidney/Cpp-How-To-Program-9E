@@ -16,10 +16,10 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::ostringstream outputString;
 
     std::string string1("Output of several data types ");
@@ -32,8 +32,8 @@ int main(int argc, const char* argv[]){
     int integer = 22;
 
     // output strings, double and int to ostringstream outputString
-    outputString << string1 << string2 << string3 << double1
-                 << string4 << integer << string5 << &integer;
+    outputString << string1 << string2 << string3 << double1 << string4
+                 << integer << string5 << &integer;
 
     // call str to obtain string contents of the ostringstream
     std::cout << "outputString contains:\n" << outputString.str();
@@ -42,7 +42,8 @@ int main(int argc, const char* argv[]){
     outputString << "\nmore characters added";
 
     std::cout << "\n\nafter additional stream insertions,\n"
-              << "outputString contains:\n" << outputString.str() << std::endl;
+              << "outputString contains:\n"
+              << outputString.str() << std::endl;
 
     return 0;
 }

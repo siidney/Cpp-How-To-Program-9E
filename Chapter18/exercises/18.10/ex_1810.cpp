@@ -20,8 +20,7 @@
 
 std::string getInput(const std::string&);
 
-int main(int argc, const char* argv[]){
-
+int main(int argc, const char* argv[]) {
     std::string fName = getInput("Enter first name");
     std::string lName = getInput("Enter last name");
 
@@ -39,7 +38,7 @@ int main(int argc, const char* argv[]){
     return 0;
 }
 // gets input from user
-std::string getInput(const std::string& prompt){
+std::string getInput(const std::string& prompt) {
     std::string input;
 
     std::cout << prompt << ": ";

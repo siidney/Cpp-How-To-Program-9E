@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string first("one");
     std::string second("two");
 
@@ -27,8 +27,8 @@ int main(int argc, const char* argv[]){
 
     first.swap(second);
 
-    std::cout << "\n\nAfter swap:\n first: " << first
-              << "\nsecond: " << second << std::endl;
+    std::cout << "\n\nAfter swap:\n first: " << first << "\nsecond: " << second
+              << std::endl;
 
     return 0;
 }

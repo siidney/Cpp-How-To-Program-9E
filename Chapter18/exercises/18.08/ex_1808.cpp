@@ -18,12 +18,12 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string str = "now step live...";
 
     std::string::reverse_iterator rit = str.rbegin();
 
-    while(rit != str.rend()){
+    while (rit != str.rend()) {
         std::cout << *(rit++);
     }
     std::cout << std::endl;

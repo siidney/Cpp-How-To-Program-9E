@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string string1("Testing iterators");
     std::string::const_iterator iterator1 = string1.begin();
 
@@ -26,9 +26,9 @@ int main(int argc, const char* argv[]){
               << "\n(using iterator iterator1) string1 is: ";
 
     // iterate through string
-    while(iterator1 != string1.end()){
-        std::cout << *iterator1; // dereference iterator to get char
-        ++iterator1;    // advance iterator to next char
+    while (iterator1 != string1.end()) {
+        std::cout << *iterator1;  // dereference iterator to get char
+        ++iterator1;              // advance iterator to next char
     }
 
     std::cout << std::endl;

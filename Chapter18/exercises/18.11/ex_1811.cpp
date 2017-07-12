@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
-#include <iostream>
-#include <string>
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
+#include <iostream>
+#include <string>
 #include <vector>
 
 void readWordList(std::vector<std::string>&, std::istream&);
@@ -30,13 +30,13 @@ char getGuess();
 void hangman(int);
 void printGuesses(std::vector<char>&);
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     srand((int)time(0));
 
     std::vector<std::string> wordList;
     std::ifstream wordFile("words.txt", std::ios::in);
 
-    if(!wordFile){
+    if (!wordFile) {
         std::cerr << "ERROR: Wordlist not found." << std::endl;
         return 1;
     }
@@ -47,30 +47,29 @@ int main(int argc, const char* argv[]){
 
     int choice;
 
-    while((choice = getChoice()) != 9){
-        switch(choice){
+    while ((choice = getChoice()) != 9) {
+        switch (choice) {
             case 1:
                 play(wordList);
-            break;
+                break;
             default:
                 std::cerr << "Incorrect input" << std::endl;
-            break;
+                break;
         }
     }
 
     return 0;
 }
 // read word list into vector
-void readWordList(std::vector<std::string>& wordList, std::istream& wordFile){
+void readWordList(std::vector<std::string>& wordList, std::istream& wordFile) {
     wordFile.seekg(0, std::ios::beg);
 
     std::string word;
 
-    while(std::getline(wordFile, word))
-        wordList.push_back(word);
+    while (std::getline(wordFile, word)) wordList.push_back(word);
 }
 // menu option
-int getChoice(){
+int getChoice() {
     std::cout << "\n*** Hangman ****"
               << "\n1 - New Game"
               << "\n9 - Exit\n> ";
@@ -80,30 +79,29 @@ int getChoice(){
     return choice;
 }
 // begin a new game
-void play(std::vector<std::string>& wordList){
+void play(std::vector<std::string>& wordList) {
     std::vector<char> guessList;
     int incorrect = 7;
     std::string word = getNewWord(wordList);
     std::string obscuredWord(word.length(), 'X');
 
-    while(incorrect > 0){
+    while (incorrect > 0) {
         std::cout << obscuredWord << std::endl;
 
         guessList.push_back(getGuess());
 
         size_t pos = word.find(guessList.back());
 
-        if(pos == std::string::npos)
-            hangman(incorrect--);
+        if (pos == std::string::npos) hangman(incorrect--);
 
-        while(pos != std::string::npos){
+        while (pos != std::string::npos) {
             obscuredWord[pos] = guessList.back();
             pos = word.find(guessList.back(), pos + 1);
         }
 
         printGuesses(guessList);
 
-        if(obscuredWord == word){
+        if (obscuredWord == word) {
             std::cout << "Congratulations. You guessed my word." << std::endl;
             break;
         }
@@ -112,13 +110,13 @@ void play(std::vector<std::string>& wordList){
     std::cout << word << std::endl;
 }
 // generate random word from the file
-std::string getNewWord(std::vector<std::string>& wordList){
+std::string getNewWord(const std::vector<std::string>& wordList) {
     int word = (rand() % wordList.size()) + 1;
 
     return wordList[word];
 }
 // get user guess
-char getGuess(){
+char getGuess() {
     char c;
 
     std::cout << "Enter guess: ";
@@ -127,35 +125,35 @@ char getGuess(){
     return c;
 }
 // print the hangman
-// TODO: find a more efficient way of doing this (remove the repetition)
-void hangman(int incorrect){
-    switch(incorrect){
+// TODO(me): find a more efficient way of doing this (remove the repetition)
+void hangman(int incorrect) {
+    switch (incorrect) {
         case 7:
             std::cout << " O" << std::endl;
-        break;
+            break;
         case 6:
             std::cout << " O" << std::endl;
             std::cout << "/";
-        break;
+            break;
         case 5:
             std::cout << " O" << std::endl;
             std::cout << "/|";
-        break;
+            break;
         case 4:
             std::cout << " O" << std::endl;
             std::cout << "/|\\";
-        break;
+            break;
         case 3:
             std::cout << " O" << std::endl;
             std::cout << "/|\\" << std::endl;
             std::cout << " |" << std::endl;
-        break;
+            break;
         case 2:
             std::cout << " O" << std::endl;
             std::cout << "/|\\" << std::endl;
             std::cout << " |" << std::endl;
             std::cout << "/";
-        break;
+            break;
         case 1:
             std::cout << " O" << std::endl;
             std::cout << "/|\\" << std::endl;
@@ -166,8 +164,8 @@ void hangman(int incorrect){
     std::cout << std::endl;
 }
 // print guessList
-void printGuesses(std::vector<char>& guessList){
-    for(unsigned int i=0; i<guessList.size(); ++i){
+void printGuesses(const std::vector<char>& guessList) {
+    for (unsigned int i = 0; i < guessList.size(); ++i) {
         std::cout << guessList[i];
     }
 

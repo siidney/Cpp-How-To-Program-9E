@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::cout << "Enter a string: ";
 
     std::string base;
@@ -28,8 +28,7 @@ int main(int argc, const char* argv[]){
 
     base.insert((base.length() / 2), insertStr);
 
-    std::cout << "\nNew String:\n"
-              << base << std::endl;
+    std::cout << "\nNew String:\n" << base << std::endl;
 
     return 0;
 }

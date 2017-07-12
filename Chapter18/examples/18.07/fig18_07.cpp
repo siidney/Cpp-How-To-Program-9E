@@ -19,13 +19,14 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     // compiler concatenates all parts into one string
-    std::string string1("The values in any left subtree"
-            "\nare less than the value in the"
-            "\nparent node and the values in"
-            "\nany right subtree are greater"
-            "\nthan the value in the parent node");
+    std::string string1(
+        "The values in any left subtree"
+        "\nare less than the value in the"
+        "\nparent node and the values in"
+        "\nany right subtree are greater"
+        "\nthan the value in the parent node");
 
     std::cout << "Original string is:\n" << string1 << std::endl << std::endl;
 
@@ -34,24 +35,24 @@ int main(int argc, const char* argv[]){
     string1.erase(62);
 
     // output new string
-    std::cout << "Original string after erase:\n" << string1
-              << "\n\nAfter first replacement:\n";
+    std::cout << "Original string after erase:\n"
+              << string1 << "\n\nAfter first replacement:\n";
 
-    unsigned int position = string1.find(" ");   // find first space
+    unsigned int position = string1.find(" ");  // find first space
 
     // replace all spaces with periods
-    while(position != std::string::npos){
+    while (position != std::string::npos) {
         string1.replace(position, 1, ".");
         position = string1.find(" ", position + 1);
     }
 
     std::cout << string1 << "\n\nAfter second replacement:\n";
 
-    position = string1.find(".");   // find first period
+    position = string1.find(".");  // find first period
 
     // replace all period with two semicolons
     // NOTE: this will overwrite characters
-    while(position != std::string::npos){
+    while (position != std::string::npos) {
         string1.replace(position, 2, "xxxxx;;yyy", 5, 2);
         position = string1.find(".", position + 1);
     }

@@ -18,17 +18,16 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string base = "abcdefghijklmnopqrstuvwxyz";
 
-    for(size_t i=0, j=1; i<14; ++i, j+=2){
+    for (size_t i = 0, j = 1; i < 14; ++i, j += 2) {
         std::cout << std::string(14 - i, ' ');
 
-        for(size_t k=0, l=i; k<j; ++k){
+        for (size_t k = 0, l = i; k < j; ++k) {
             std::cout << base[l];
 
-            if(l == base.length())
-                std::cout << '{';
+            if (l == base.length()) std::cout << '{';
 
             ((k >= i) ? --l : ++l);
         }

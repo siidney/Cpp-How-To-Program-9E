@@ -16,11 +16,11 @@
  *
  * =====================================================================================
  */
+#include <cstring>
 #include <iostream>
 #include <string>
-#include <cstring>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char *argv[]) {
     const char char1 = '!';
     const char char2 = ' ';
 
@@ -31,7 +31,7 @@ int main(int argc, const char* argv[]){
 
     size_t pos = base.find(char1, 0);
 
-    while(pos != std::string::npos){
+    while (pos != std::string::npos) {
         base[pos] = char2;
         pos = base.find(char1, pos + 1);
     }
@@ -40,7 +40,7 @@ int main(int argc, const char* argv[]){
     char *dup = strdup(base.c_str());
     char *pch = strtok(dup, " ");
 
-    while(pch != nullptr){
+    while (pch != nullptr) {
         std::cout << pch << std::endl;
         pch = strtok(nullptr, " ");
     }

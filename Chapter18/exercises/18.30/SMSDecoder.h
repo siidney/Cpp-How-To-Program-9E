@@ -17,35 +17,35 @@
  */
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <map>
-#include <fstream>
-#include <sstream>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
+#include <map>
+#include <sstream>
+#include <string>
 
-enum MENU {DECODE = 1, EXIT = 9};
+enum MENU { DECODE = 1, EXIT = 9 };
 
-class SMSDecoder{
-    public:
-        SMSDecoder();
+class SMSDecoder {
+ public:
+    SMSDecoder();
 
-        void run();
+    void run();
 
-    private:
-        std::map<std::string, std::string> abrvMap;
-        std::string baseMsg;
-        std::string decodedMsg;
+ private:
+    std::map<std::string, std::string> abrvMap;
+    std::string baseMsg;
+    std::string decodedMsg;
 
-        bool initialise();
-        bool mapAbbreviations();
+    bool initialise();
+    bool mapAbbreviations();
 
-        void printMenu();
-        int getInput(const std::string&);
+    void printMenu();
+    int getInput(const std::string&);
 
-        void decode();
-        std::string getBase(const std::string&);
-        std::string toUpperWord(const std::string&);
-        std::string fixCase(const std::string&);
-        std::string getTranslation(const std::string&);
+    void decode();
+    std::string getBase(const std::string&);
+    std::string toUpperWord(const std::string&);
+    std::string fixCase(const std::string&);
+    std::string getTranslation(const std::string&);
 };

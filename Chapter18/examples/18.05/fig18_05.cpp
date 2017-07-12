@@ -21,7 +21,7 @@
 
 void printStatistics(const std::string&);
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string string1;
 
     std::cout << "Statistics before input:\n" << std::boolalpha;
@@ -54,9 +54,10 @@ int main(int argc, const char* argv[]){
     return 0;
 }
 // display string statistics
-void printStatistics(const std::string& stringRef){
-    std::cout << "capacity: " << stringRef.capacity() << "\nmax size: "
-              << stringRef.max_size() << "\nsize: " << stringRef.size()
+void printStatistics(const std::string& stringRef) {
+    std::cout << "capacity: " << stringRef.capacity()
+              << "\nmax size: " << stringRef.max_size()
+              << "\nsize: " << stringRef.size()
               << "\nlength: " << stringRef.length()
               << "\nempty: " << stringRef.empty();
 }

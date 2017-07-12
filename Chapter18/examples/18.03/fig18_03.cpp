@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string string1("The airplane landed on time.");
 
     // retrieve substring "plane" which begins at

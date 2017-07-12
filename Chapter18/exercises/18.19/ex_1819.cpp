@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     const std::string STR1 = "by";
     const std::string STR2 = "BY";
 
@@ -29,14 +29,14 @@ int main(int argc, const char* argv[]){
 
     size_t pos = base.find(STR1, 0);
 
-    while(pos != std::string::npos){
+    while (pos != std::string::npos) {
         base.erase(pos, 2);
         pos = base.find(STR1, pos + 1);
     }
 
     pos = base.find(STR2, 0);
 
-    while(pos != std::string::npos){
+    while (pos != std::string::npos) {
         base.erase(pos, 2);
         pos = base.find(STR2, pos + 1);
     }

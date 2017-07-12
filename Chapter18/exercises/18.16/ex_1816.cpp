@@ -16,13 +16,13 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 int totalPalindromes(const std::string&);
 bool isPalindrome(std::string&);
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::cout << "Enter a sentence: ";
     std::string base;
 
@@ -34,25 +34,25 @@ int main(int argc, const char* argv[]){
     return 0;
 }
 // count and return total palindromes in given sentence
-int totalPalindromes(const std::string& base){
+int totalPalindromes(const std::string& base) {
     std::stringstream ss(base);
     std::string word;
     int total = 0;
 
-    while(std::getline(ss, word, ' ')){
+    while (std::getline(ss, word, ' ')) {
         total += ((isPalindrome(word)) ? 1 : 0);
     }
 
     return total;
 }
 // test if word is palindrome
-bool isPalindrome(std::string& word){
+bool isPalindrome(std::string& word) {
     std::string test = "";
 
-    if(word.length() != 1){
+    if (word.length() != 1) {
         std::string::reverse_iterator rit = word.rbegin();
 
-        while(rit != word.rend()){
+        while (rit != word.rend()) {
             test += *(rit++);
         }
     }

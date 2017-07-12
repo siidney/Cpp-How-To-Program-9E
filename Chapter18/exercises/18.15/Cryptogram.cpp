@@ -17,21 +17,21 @@
  */
 #include "Cryptogram.h"
 
-Cryptogram::Cryptogram() : userState(STATE::PLAY){
+Cryptogram::Cryptogram() : userState(STATE::PLAY) {
     srand((int)time(0));
 
-    if(!initialise()){
+    if (!initialise()) {
         std::cerr << "Initialisation error." << std::endl;
         return;
     }
 }
 // initialises cryptogram
 // opens phrase file populates phraseList
-bool Cryptogram::initialise(){
+bool Cryptogram::initialise() {
     // open phrase file
     std::ifstream phraseFile(LIST_FILE.c_str(), std::ios::out);
 
-    if(!phraseFile){
+    if (!phraseFile) {
         std::cerr << "Error could not open phraseFile" << std::endl;
         return false;
     }
@@ -42,50 +42,49 @@ bool Cryptogram::initialise(){
     return true;
 }
 // populate phraseList
-void Cryptogram::readPhraseList(std::ifstream& phraseFile){
+void Cryptogram::readPhraseList(std::ifstream& phraseFile) {
     phraseFile.seekg(0, std::ios::beg);
 
     std::string phrase;
 
-    while(std::getline(phraseFile, phrase))
-        phraseList.push_back(phrase);
+    while (std::getline(phraseFile, phrase)) phraseList.push_back(phrase);
 }
 // Entry Point
-void Cryptogram::run(){
-    while(userState != STATE::EXIT){
+void Cryptogram::run() {
+    while (userState != STATE::EXIT) {
         printMenu();
         int choice;
         std::cin >> choice;
 
-        switch(choice){
+        switch (choice) {
             case 1:
                 userState = STATE::PLAY;
                 newGame();
-            break;
+                break;
             case 9:
                 userState = STATE::EXIT;
-            break;
+                break;
             default:
                 std::cout << "Incorrect Input" << std::endl;
-            break;
+                break;
         }
     }
 }
 // prints main menu
-void Cryptogram::printMenu(){
+void Cryptogram::printMenu() {
     std::cout << "*** Let's Play Cryptograms ***"
               << "\n1 - New Game"
               << "\n9 - Exit\n> ";
 }
 // Game Loop
-void Cryptogram::newGame(){
+void Cryptogram::newGame() {
     createCypher();
     encPhrase = getPhrase();
     // print unecrypted cryptogram
-    //std::cout << encPhrase << std::endl;
+    // std::cout << encPhrase << std::endl;
     encrypt(encPhrase);
 
-    while(userState != STATE::WIN){
+    while (userState != STATE::WIN) {
         printMessage("\n" + encPhrase);
         printMessage("\n\nEnter Character in cryptogram to replace: ");
         char value = getInput();
@@ -93,20 +92,20 @@ void Cryptogram::newGame(){
         printMessage("Enter Replacement Guess: ");
         char key = getInput();
 
-        if(makeGuess(key, value)){
-            if(isSolved()){
+        if (makeGuess(key, value)) {
+            if (isSolved()) {
                 printMessage("\nCongratulations you solved the cryptogram\n");
                 printMessage("\n" + encPhrase + "\n\n");
                 userState = STATE::WIN;
             }
-        }else{
+        } else {
             printMessage("\nIncorrect Guess\n");
         }
     }
 }
 // create the cryptogram cypher
 // randomises alphabet and maps to original letters
-void Cryptogram::createCypher(){
+void Cryptogram::createCypher() {
     std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
     std::string shuffled = alphabet;
 
@@ -115,48 +114,48 @@ void Cryptogram::createCypher(){
     std::string::iterator ait = alphabet.begin();
     std::string::iterator sit = shuffled.begin();
 
-    while(ait != alphabet.end()){
+    while (ait != alphabet.end()) {
         cypher.insert(std::pair<char, char>(*(ait++), *(sit++)));
     }
 }
 // get random phrase from given text file
-std::string Cryptogram::getPhrase(){
+std::string Cryptogram::getPhrase() {
     int phrase = (rand() % phraseList.size()) + 1;
 
     return phraseList[phrase];
 }
 // cypherise the given string
-void Cryptogram::encrypt(std::string& phrase){
+void Cryptogram::encrypt(std::string& phrase) {
     std::string::iterator it = phrase.begin();
 
-    while(it != phrase.end()){
-        if(*it != ' '){
-            if(std::isupper(*it))
-                *it = std::tolower(*it);
+    while (it != phrase.end()) {
+        if (*it != ' ') {
+            if (std::isupper(*it)) *it = std::tolower(*it);
 
             *it = cypher.find(*(it++))->second;
-        }else
+        } else {
             ++it;
+        }
     }
 }
 // prints generic messages
-void Cryptogram::printMessage(const std::string& message) const{
+void Cryptogram::printMessage(const std::string& message) const {
     std::cout << message;
 }
 // get char input
-char Cryptogram::getInput(){
+char Cryptogram::getInput() {
     char input;
     std::cin >> input;
     return input;
 }
 // check if guess is correct and ammend encPhrase accordingly
 // replaces encrypted char with correct uppercase version
-bool Cryptogram::makeGuess(const char key, const char value){
+bool Cryptogram::makeGuess(const char key, const char value) {
     // guess is correct
-    if(cypher[key] == value){
+    if (cypher[key] == value) {
         size_t pos = encPhrase.find(value);
 
-        while(pos != std::string::npos){
+        while (pos != std::string::npos) {
             encPhrase[pos] = std::toupper(key);
             pos = encPhrase.find(value, pos + 1);
         }
@@ -165,12 +164,11 @@ bool Cryptogram::makeGuess(const char key, const char value){
     return false;
 }
 // check if cryptogram is solved (every char is uppercase)
-bool Cryptogram::isSolved(){
+bool Cryptogram::isSolved() {
     std::string::iterator it = encPhrase.begin();
 
-    while(it != encPhrase.end()){
-        if(std::islower(*(it++)))
-            return false;
+    while (it != encPhrase.end()) {
+        if (std::islower(*(it++))) return false;
     }
     return true;
 }

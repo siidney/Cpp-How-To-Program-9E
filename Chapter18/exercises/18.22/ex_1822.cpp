@@ -21,7 +21,7 @@
 
 void printReverse(std::string&);
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::cout << "Enter a string: ";
 
     std::string base;
@@ -33,11 +33,10 @@ int main(int argc, const char* argv[]){
     return 0;
 }
 // Recursively prints a given string in reverse using iterators
-void printReverse(std::string& base){
+void printReverse(std::string& base) {
     static std::string::reverse_iterator rit = base.rbegin();
 
-    if(rit == base.rend())
-        return;
+    if (rit == base.rend()) return;
 
     std::cout << *(rit++);
 

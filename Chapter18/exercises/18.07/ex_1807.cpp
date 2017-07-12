@@ -21,39 +21,37 @@
 int getChoice();
 const std::string rot13(const std::string&);
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     int choice = 0;
 
-    while((choice = getChoice()) != 9){
-        switch(choice){
-            case 1:{
+    while ((choice = getChoice()) != 9) {
+        switch (choice) {
+            case 1: {
                 std::cin.ignore();
                 std::cout << "Enter a string to be encrypted with rot13: ";
                 std::string base;
                 std::getline(std::cin, base);
 
                 std::cout << "ROT13 Encryption:\n" << rot13(base) << std::endl;
-            }
-            break;
-            case 2:{
+            } break;
+            case 2: {
                 std::cin.ignore();
                 std::cout << "Enter encrypted string to be decrypted: ";
                 std::string base;
                 std::getline(std::cin, base);
 
                 std::cout << "ROT13 decryption:\n" << rot13(base) << std::endl;
-            }
-            break;
+            } break;
             default:
                 std::cout << "Incorrect input" << std::endl;
-            break;
+                break;
         }
     }
 
     return 0;
 }
 // menu option
-int getChoice(){
+int getChoice() {
     std::cout << "\n*** ROT13 Encryption Program ****"
               << "\n1 - Encrypt"
               << "\n2 - Decrypt"
@@ -65,21 +63,21 @@ int getChoice(){
 }
 // encrypt/decrypt rot13
 // shift each character by 13 places (+/-)
-const std::string rot13(const std::string& base){
+const std::string rot13(const std::string& base) {
     std::string::const_iterator it = base.begin();
     std::string result = "";
 
-    while(it != base.end()){
+    while (it != base.end()) {
         int ascii = *(it++);
 
         // first half upper/lower case
-        if((ascii >= 97 && ascii < 110) || (ascii >= 65 && ascii < 78))
+        if ((ascii >= 97 && ascii < 110) || (ascii >= 65 && ascii < 78))
             ascii = (ascii + 13);
         // second half
-        else if((ascii >= 110 && ascii <= 122) || (ascii >= 78 && ascii <= 90))
+        else if ((ascii >= 110 && ascii <= 122) || (ascii >= 78 && ascii <= 90))
             ascii = (ascii - 13);
 
-         result += ascii;
+        result += ascii;
     }
     return result;
 }

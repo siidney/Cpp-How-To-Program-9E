@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::cout << "Enter a string to have it reversed: ";
     std::string input;
 
@@ -26,12 +26,12 @@ int main(int argc, const char* argv[]){
 
     std::string::reverse_iterator it = input.rbegin();
 
-    while(it != input.rend()){
+    while (it != input.rend()) {
         int ascii = *(it++);
 
-        if((ascii >= 97) && (ascii <= 122))
+        if ((ascii >= 97) && (ascii <= 122))
             ascii = (ascii - 32);
-        else if((ascii >= 65) && (ascii <= 90))
+        else if ((ascii >= 65) && (ascii <= 90))
             ascii = (ascii + 32);
 
         char c = ascii;

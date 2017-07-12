@@ -17,10 +17,10 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::string input("Input test 123 4.7 A");
     std::istringstream inputString(input);
     std::string string1;
@@ -32,16 +32,17 @@ int main(int argc, const char* argv[]){
     inputString >> string1 >> string2 >> integer >> double1 >> character;
 
     std::cout << "The following items were extracted\n"
-              << "from the istringstream object:" << "\nstring: " << string1
-              << "\nstring: " << string2 << "\n     int: " << integer
-              << "\ndouble: " << double1 << "\n    char: " << character;
+              << "from the istringstream object:"
+              << "\nstring: " << string1 << "\nstring: " << string2
+              << "\n     int: " << integer << "\ndouble: " << double1
+              << "\n    char: " << character;
 
     // attempt to read from empty stream
     long value;
     inputString >> value;
 
     // test stream results
-    if(inputString.good())
+    if (inputString.good())
         std::cout << "\n\nlong value is: " << value << std::endl;
     else
         std::cout << "\n\ninputString is empty" << std::endl;

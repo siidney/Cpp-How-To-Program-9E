@@ -17,7 +17,7 @@
  */
 #include "IngredientSwitcher.h"
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     IngredientSwitcher is;
 
     is.run();
