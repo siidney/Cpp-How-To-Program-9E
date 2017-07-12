@@ -15,18 +15,22 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-template <typename T>void printArray(T* const, const int);
-template <typename T>void selectionSort(T * const, const int);
-template <typename T>void swap(T * const, T * const);
+template <typename T>
+void printArray(T* const, const int);
+template <typename T>
+void selectionSort(T* const, const int);
+template <typename T>
+void swap(T* const, T* const);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char* argv[]) {
     const int arraySize = 10;
 
     int intArr[arraySize] = {2, 6, 4, 8, 10, 12, 89, 68, 45, 37};
-    double doubleArr[arraySize] = {1.1, 2.5, 0.5, 1.0, 2.2, 6.8, 3.7, 2.6, 2.5, 1.6};
+    double doubleArr[arraySize] = {1.1, 2.5, 0.5, 1.0, 2.2,
+                                   6.8, 3.7, 2.6, 2.5, 1.6};
 
     std::cout << "intArr:\noriginal order:\n";
     printArray(intArr, arraySize);
@@ -45,23 +49,20 @@ int main(int argc, const char *argv[]){
 }
 // print array
 template <typename T>
-void printArray(T* const a, const int size){
-    for(std::size_t i=0; i<size; ++i){
-        std::cout  << a[i] << ' ';
+void printArray(T* const a, const unsigned int size) {
+    for (std::size_t i = 0; i < size; ++i) {
+        std::cout << a[i] << ' ';
     }
 }
 // function to sort an array
 template <typename T>
-void selectionSort(T * const array, const int size){
-    int smallest;   // index of smallest element
-
-    for(int i=0; i<size - 1; ++i){
-        smallest = i;   // first index of remaining array
+void selectionSort(T* const array, const unsigned int size) {
+    for (std::size_t i = 0; i < size - 1; ++i) {
+        int smallest = i;  // first index of remaining array
 
         // loop to find index of smallest element
-        for(int index=i+1; index<size; ++index){
-            if(array[index] < array[smallest])
-                smallest = index;
+        for (int index = i + 1; index < size; ++index) {
+            if (array[index] < array[smallest]) smallest = index;
         }
 
         swap(&array[i], &array[smallest]);
@@ -69,7 +70,7 @@ void selectionSort(T * const array, const int size){
 }
 // swap values at memory locations to which element1Ptr and element2Ptr point
 template <typename T>
-void swap(T * const element1Ptr, T * const element2Ptr){
+void swap(T* const element1Ptr, T* const element2Ptr) {
     T hold = *element1Ptr;
     *element1Ptr = *element2Ptr;
     *element2Ptr = hold;

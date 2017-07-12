@@ -18,22 +18,24 @@
 #include <iostream>
 
 // function template printArray definition
-template<typename T>
-void printArray(const T * const array, int count){
-    for(int i=0; i<count; ++i){
+template <typename T>
+void printArray(const T *const array, int count) {
+    for (int i = 0; i < count; ++i) {
         std::cout << array[i] << " ";
     }
     std::cout << std::endl;
 }
 // overloaded printArray
-template<typename T>
-int printArray(const T * const array, int count, int lowSubscript, int highSubscript){
-    if(lowSubscript < 0 || highSubscript >= count || lowSubscript == highSubscript)
+template <typename T>
+int printArray(const T *const array, int count, int lowSubscript,
+               int highSubscript) {
+    if (lowSubscript < 0 || highSubscript >= count ||
+        lowSubscript == highSubscript)
         return 0;
 
     int total = 0;
 
-    for(int i=lowSubscript; i<=highSubscript; ++i, ++total){
+    for (int i = lowSubscript; i <= highSubscript; ++i, ++total) {
         std::cout << array[i] << " ";
     }
     std::cout << std::endl;
@@ -41,7 +43,7 @@ int printArray(const T * const array, int count, int lowSubscript, int highSubsc
     return total;
 }
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     const int aCount = 5;
     const int bCount = 7;
     const int cCount = 6;

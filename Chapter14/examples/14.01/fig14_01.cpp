@@ -18,14 +18,14 @@
 #include <iostream>
 
 // function template printArray definition
-template<typename T>
-void printArray(const T * const array, int count){
-    for(int i=0; i<count; ++i){
+template <typename T>
+void printArray(const T *const array, int count) {
+    for (int i = 0; i < count; ++i) {
         std::cout << array[i] << " ";
     }
     std::cout << std::endl;
 }
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     const int aCount = 5;
     const int bCount = 7;
     const int cCount = 6;

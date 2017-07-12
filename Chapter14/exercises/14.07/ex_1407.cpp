@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Array<int> integers(12);
     Array<double> doubles(50);
     Array<double> doublesTwo;
