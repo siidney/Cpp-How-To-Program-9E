@@ -18,23 +18,23 @@
 #include <iostream>
 #include <stdexcept>
 
-bool function3(){
+bool function3() {
     std::cout << "function3 called" << std::endl;
     return (true != true) ? true : throw std::runtime_error("function3");
 }
-bool function2(){
+bool function2() {
     std::cout << "function2 called" << std::endl;
     return false;
 }
-bool function1(){
+bool function1() {
     std::cout << "function1 called" << std::endl;
     return function2() == function3();
 }
 
-int main(int argc, const char *argv[]){
-    try{
+int main(int argc, const char *argv[]) {
+    try {
         function1();
-    }catch(std::runtime_error & e){
+    } catch (std::runtime_error &e) {
         std::cout << "Exception occured: " << e.what() << std::endl;
     }
 

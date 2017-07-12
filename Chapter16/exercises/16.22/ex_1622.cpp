@@ -18,22 +18,20 @@
 #include <iostream>
 #include <stdexcept>
 
-class B{};
-class D : public B, public std::runtime_error{
-    public:
-        D() :
-            std::runtime_error("runtime_error D"){}
+class B {};
+class D : public B, public std::runtime_error {
+ public:
+    D() : std::runtime_error("runtime_error D") {}
 };
 
-int main(int argc, const char *argv[]){
-
+int main(int argc, const char *argv[]) {
     D derived;
 
-    try{
+    try {
         throw derived;
-    }catch(B b){
+    } catch (B b) {
         std::cout << "Caught base class" << std::endl;
-    }catch(D d){
+    } catch (D d) {
         std::cout << "caught derived class" << std::endl;
         std::cout << d.what() << std::endl;
     }

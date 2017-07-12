@@ -15,17 +15,17 @@
  *
  * =====================================================================================
  */
+#include <cstdlib>
 #include <iostream>
 #include <new>
-#include <cstdlib>
 
 // handle memory allocation failure
-void customNewHandler(){
+void customNewHandler() {
     std::cerr << "customNewHandler was called";
     abort();
 }
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     double *ptr[50];
 
     // specify that customNewHandler should be called on
@@ -34,7 +34,7 @@ int main(int argc, const char *argv[]){
 
     // aim each ptr[i] at a big block of memory; customNewHandler will be
     // called on failed memory allocation
-    for(int i=0; i<50; ++i){
+    for (int i = 0; i < 50; ++i) {
         ptr[i] = new double[50000000];
         std::cout << "ptr[" << i << "] points to 50,000,000 new doubles\n";
     }

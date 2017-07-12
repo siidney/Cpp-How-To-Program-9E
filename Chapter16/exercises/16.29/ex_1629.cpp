@@ -18,15 +18,15 @@
 #include <iostream>
 #include <stdexcept>
 
-int main(int argc, const char *argv[]){
-    try{
-        try{
+int main(int argc, const char *argv[]) {
+    try {
+        try {
             throw std::exception();
-        }catch(std::exception){
+        } catch (std::exception) {
             std::cout << "Original throw caught" << std::endl;
             throw std::exception();
         }
-    }catch(std::exception){
+    } catch (std::exception) {
         std::cout << "Rethrow caught" << std::endl;
     }
 

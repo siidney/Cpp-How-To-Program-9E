@@ -18,17 +18,15 @@
 #include <iostream>
 #include <stdexcept>
 
-class C1{
-    public:
-        C1(){
-            throw 99;
-        }
+class C1 {
+ public:
+    C1() { throw 99; }
 };
 
-int main(int argc, const char *argv[]){
-    try{
+int main(int argc, const char *argv[]) {
+    try {
         C1 c;
-    }catch(int e){
+    } catch (int e) {
         std::cerr << "Exception: " << e << std::endl;
     }
     return 0;

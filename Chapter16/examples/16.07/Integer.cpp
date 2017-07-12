@@ -19,17 +19,13 @@
 
 #include <iostream>
 
-Integer::Integer(int i) : value(i){
+Integer::Integer(int i) : value(i) {
     std::cout << "Constructor for Integer " << value << std::endl;
 }
-Integer::~Integer(){
+Integer::~Integer() {
     std::cout << "Destructor for Integer " << value << std::endl;
 }
 // set Integer value
-void Integer::setInteger(int i){
-    value = i;
-}
+void Integer::setInteger(int i) { value = i; }
 // get Integer value
-int Integer::getInteger() const{
-    return value;
-}
+int Integer::getInteger() const { return value; }

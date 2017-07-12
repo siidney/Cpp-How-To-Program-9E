@@ -18,13 +18,12 @@
 #include <iostream>
 #include <stdexcept>
 
-int main(int argc, const char *argv[]){
-
-    try{
+int main(int argc, const char *argv[]) {
+    try {
         throw std::exception();
-    }catch(std::exception &e){
+    } catch (std::exception &e) {
         std::cout << "Executed as first: " << e.what() << std::endl;
-    }catch(std::exception &e){
+    } catch (std::exception &e) {
         std::cout << "Executed IF first" << e.what() << std::endl;
     }
 

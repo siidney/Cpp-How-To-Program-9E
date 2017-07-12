@@ -20,11 +20,11 @@
 #include <iostream>
 #include <memory>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "Creating a unique_ptr object that points to an Integer\n";
 
     // "aim" unique_ptr at Integer object
-    std::unique_ptr<Integer>ptrToInteger(new Integer(7));
+    std::unique_ptr<Integer> ptrToInteger(new Integer(7));
 
     std::cout << "\nUsing the unique_ptr to manipulate the Integer\n";
     ptrToInteger->setInteger(99);

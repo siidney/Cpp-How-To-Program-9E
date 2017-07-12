@@ -19,16 +19,15 @@
 #include <iostream>
 #include <stdexcept>
 
-int main(int argc, const char *argv[]){
-    try{
+int main(int argc, const char *argv[]) {
+    try {
         int i = 6;
         double d = 6.5;
 
         false ? throw i : throw d;  // double should throw
-
-    }catch(int i){
+    } catch (int i) {
         std::cout << "i was thrown" << std::endl;
-    }catch(double d){
+    } catch (double d) {
         std::cout << "d was thrown" << std::endl;
     }
     return 0;

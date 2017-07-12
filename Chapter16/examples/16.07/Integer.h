@@ -17,14 +17,14 @@
  */
 #pragma once
 
-class Integer{
-    public:
-        Integer(int i=0);
-        ~Integer();
+class Integer {
+ public:
+    Integer(int i = 0);
+    ~Integer();
 
-        void setInteger(int i);
-        int getInteger() const;
+    void setInteger(int i);
+    int getInteger() const;
 
-    private:
-        int value;
+ private:
+    int value;
 };

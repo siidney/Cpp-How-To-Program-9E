@@ -18,23 +18,23 @@
 #include <iostream>
 #include <stdexcept>
 
-void function(){
-    try{
-        if(false)
-            throw 9;    // caught in function
+void function() {
+    try {
+        if (false)
+            throw 9;  // caught in function
         else
-            throw 10.5; // caught in main
-    }catch(int e){
+            throw 10.5;  // caught in main
+    } catch (int e) {
         std::cout << "Caught in Function: i: " << e << std::endl;
     }
 }
 
-int main(int argc, const char *argv[]){
-    try{
+int main(int argc, const char *argv[]) {
+    try {
         function();
-    }catch(double e){
+    } catch (double e) {
         std::cout << "Caught in main: d: " << e << std::endl;
-    }catch(...){
+    } catch (...) {
         std::cout << "test" << std::endl;
     }
     return 0;
