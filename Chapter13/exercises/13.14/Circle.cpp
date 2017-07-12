@@ -24,29 +24,32 @@
 #include <iostream>
 #include <stdexcept>
 
-Circle::Circle(int w, int h, int x, int y, char f) :
-    TwoDimensionalShape(w, h, x, y, f)
-{}
+Circle::Circle(int w, int h, int x, int y, char f)
+    : TwoDimensionalShape(w, h, x, y, f) {}
 // print
-char* Circle::draw(){
+char* Circle::draw() {
     // create image if none present
-    if(img == nullptr){
-        // ensure width and height are equal and even (else circle won't be centered)
-        if(getWidth() % 2)
-            setWidth(getWidth() + 1);
-        if(getWidth() != getHeight())
-            setHeight(getWidth());
+    if (img == nullptr) {
+        // ensure width and height are equal and even (else circle won't be
+        // centered)
+        if (getWidth() % 2) setWidth(getWidth() + 1);
+        if (getWidth() != getHeight()) setHeight(getWidth());
 
         img = new char[getWidth() * getHeight()];
 
         unsigned int middle = (getWidth() / 2) - 1;
 
-        for(unsigned int row=0; row<getHeight(); ++row){
-            for(unsigned int col=0; col<getWidth(); ++col){
-                if(((row == 0 || row == getHeight() -1) && (col == middle || col == middle + 1)) ||
-                       ((row == middle || row == middle + 1) && (col == 0 || col == getWidth() -1)) ||
-                       (row < middle && (col == middle - row || col == (middle + 1) + row)) ||
-                       (row > (middle +1) && (col == row - (middle + 1) || col == (middle + (getWidth() - row)))))
+        for (unsigned int row = 0; row < getHeight(); ++row) {
+            for (unsigned int col = 0; col < getWidth(); ++col) {
+                if (((row == 0 || row == getHeight() - 1) &&
+                     (col == middle || col == middle + 1)) ||
+                    ((row == middle || row == middle + 1) &&
+                     (col == 0 || col == getWidth() - 1)) ||
+                    (row < middle &&
+                     (col == middle - row || col == (middle + 1) + row)) ||
+                    (row > (middle + 1) &&
+                     (col == row - (middle + 1) ||
+                      col == (middle + (getWidth() - row)))))
                     img[col + getWidth() * row] = fillchar;
                 else
                     img[col + getWidth() * row] = ' ';

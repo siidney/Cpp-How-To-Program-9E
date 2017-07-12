@@ -18,7 +18,7 @@
  */
 #pragma once
 
-class CarbonFootprint{
-    public:
-        virtual double getCarbonFootprint() const = 0;
+class CarbonFootprint {
+ public:
+    virtual double getCarbonFootprint() const = 0;
 };

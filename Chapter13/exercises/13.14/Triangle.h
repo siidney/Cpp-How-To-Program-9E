@@ -20,9 +20,9 @@
 
 #include "TwoDimensionalShape.h"
 
-class Triangle : public TwoDimensionalShape{
-    public:
-        Triangle(int = 0, int = 0, int = 0, int = 0, char = 'x');
+class Triangle : public TwoDimensionalShape {
+ public:
+    explicit Triangle(int = 0, int = 0, int = 0, int = 0, char = 'x');
 
-        virtual char* draw();
+    virtual char* draw();
 };

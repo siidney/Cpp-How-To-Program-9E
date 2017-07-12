@@ -18,10 +18,6 @@
  */
 #include "Building.h"
 
-Building::Building(){
-
-}
+Building::Building() {}
 // calculate buildings carbon footprint
-double Building::getCarbonFootprint() const{
-    return 1;
-}
+double Building::getCarbonFootprint() const { return 1; }

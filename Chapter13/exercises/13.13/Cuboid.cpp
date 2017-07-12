@@ -20,21 +20,19 @@
 
 #include <iostream>
 
-Cuboid::Cuboid(double w, double l, double h) :
-    ThreeDimensionalShape(w, l, h)
-{}
+Cuboid::Cuboid(double w, double l, double h) : ThreeDimensionalShape(w, l, h) {}
 // get surface area
-double Cuboid::getArea() const{
-    return (2 * getWidth() * getLength()) + (2 * getLength() * getHeight()) + (2 * getHeight() * getWidth());
+double Cuboid::getArea() const {
+    return (2 * getWidth() * getLength()) + (2 * getLength() * getHeight()) +
+           (2 * getHeight() * getWidth());
 }
 // get volume
-double Cuboid::getVolume() const{
+double Cuboid::getVolume() const {
     return getLength() * getWidth() * getHeight();
 }
 // print
-void Cuboid::print() const{
+void Cuboid::print() const {
     std::cout << "Cuboid: "
-              << "\nWidth : " << getWidth()
-              << "\nLength: " << getLength()
+              << "\nWidth : " << getWidth() << "\nLength: " << getLength()
               << "\nHeight: " << getHeight();
 }

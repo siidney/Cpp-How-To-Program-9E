@@ -16,22 +16,22 @@
  *
  * =====================================================================================
  */
-#include "CarbonFootprint.h"
+#include "Bicycle.h"
 #include "Building.h"
 #include "Car.h"
-#include "Bicycle.h"
+#include "CarbonFootprint.h"
 
 #include <iostream>
 #include <vector>
 
-int main(int argc, const char *argv[]){
-    std::vector<CarbonFootprint*>carbonFootprints;
+int main(int argc, const char *argv[]) {
+    std::vector<CarbonFootprint *> carbonFootprints;
 
     carbonFootprints.push_back(new Building());
     carbonFootprints.push_back(new Car());
     carbonFootprints.push_back(new Bicycle());
 
-    for(std::size_t i=0; i<carbonFootprints.size(); ++i){
+    for (std::size_t i = 0; i < carbonFootprints.size(); ++i) {
         std::cout << carbonFootprints[i]->getCarbonFootprint() << std::endl;
     }
     return 0;

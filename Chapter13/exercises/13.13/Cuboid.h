@@ -20,13 +20,13 @@
 
 #include "ThreeDimensionalShape.h"
 
-class Cuboid : public ThreeDimensionalShape{
-    public:
-        Cuboid(double, double, double);
+class Cuboid : public ThreeDimensionalShape {
+ public:
+    Cuboid(double, double, double);
 
-        virtual double getArea() const;
-        virtual double getVolume() const;
-        void print() const;
+    virtual double getArea() const;
+    virtual double getVolume() const;
+    void print() const;
 
-    private:
+ private:
 };

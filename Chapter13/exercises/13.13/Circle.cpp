@@ -21,26 +21,20 @@
 #include <iostream>
 #include <stdexcept>
 
-Circle::Circle(double r){
-    setRadius(r);
-}
+Circle::Circle(double r) { setRadius(r); }
 // set radius
-void Circle::setRadius(double r){
-    if(r > 0.0f)
+void Circle::setRadius(double r) {
+    if (r > 0.0f)
         radius = r;
     else
         throw std::invalid_argument("Radius must be > 0.0f");
 }
 // get radius
-double Circle::getRadius() const{
-    return radius;
-}
+double Circle::getRadius() const { return radius; }
 // get area
-double Circle::getArea() const{
-    return PI * (getRadius() * getRadius());
-}
+double Circle::getArea() const { return PI * (getRadius() * getRadius()); }
 // print
-void Circle::print() const{
+void Circle::print() const {
     std::cout << "Circle:"
               << "\nradius: " << getRadius();
 }

@@ -19,15 +19,14 @@
 
 #include "Shape.h"
 
-class TwoDimensionalShape : public Shape{
-    public:
-        TwoDimensionalShape(int = 0, int = 0, int = 0, int = 0,
-                char = 'x');
-        ~TwoDimensionalShape();
+class TwoDimensionalShape : public Shape {
+ public:
+    explicit TwoDimensionalShape(int = 0, int = 0, int = 0, int = 0, char = 'x');
+    ~TwoDimensionalShape();
 
-        virtual char* draw() = 0;
+    virtual char* draw() = 0;
 
-    protected:
-        char fillchar;
-        char* img = nullptr;
+ protected:
+    char fillchar;
+    char* img = nullptr;
 };

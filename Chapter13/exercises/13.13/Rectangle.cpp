@@ -20,16 +20,11 @@
 
 #include <iostream>
 
-Rectangle::Rectangle(double l, double w) :
-    TwoDimensionalShape(l, w)
-{}
+Rectangle::Rectangle(double l, double w) : TwoDimensionalShape(l, w) {}
 // get area
-double Rectangle::getArea() const{
-    return getLength() * getWidth();
-}
+double Rectangle::getArea() const { return getLength() * getWidth(); }
 // print
-void Rectangle::print() const{
+void Rectangle::print() const {
     std::cout << "Rectangle:"
-              << "\nLength: " << getLength()
-              << "\nWidth : " << getWidth();
+              << "\nLength: " << getLength() << "\nWidth : " << getWidth();
 }

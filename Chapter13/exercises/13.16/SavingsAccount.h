@@ -19,15 +19,15 @@
 
 #include "Account.h"
 
-class SavingsAccount : public Account{
-    public:
-        SavingsAccount(double, double);
+class SavingsAccount : public Account {
+ public:
+    SavingsAccount(double, double);
 
-        double calculateInterest() const;
+    double calculateInterest() const;
 
-        void credit(double);
-        bool debit(double);
+    void credit(double);
+    bool debit(double);
 
-    private:
-        double interestRate;
+ private:
+    double interestRate;
 };

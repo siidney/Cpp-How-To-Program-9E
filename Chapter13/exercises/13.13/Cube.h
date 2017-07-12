@@ -20,13 +20,13 @@
 
 #include "ThreeDimensionalShape.h"
 
-class Cube : public ThreeDimensionalShape{
-    public:
-        Cube(double = 0.0f, double = 0.0f, double = 0.0f);
+class Cube : public ThreeDimensionalShape {
+ public:
+    explicit Cube(double = 0.0f, double = 0.0f, double = 0.0f);
 
-        virtual double getArea() const;
-        virtual double getVolume() const;
-        virtual void print() const;
+    virtual double getArea() const;
+    virtual double getVolume() const;
+    virtual void print() const;
 
-    private:
+ private:
 };

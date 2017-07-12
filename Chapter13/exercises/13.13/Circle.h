@@ -20,18 +20,18 @@
 
 #include "TwoDimensionalShape.h"
 
-class Circle : public TwoDimensionalShape{
-    public:
-        Circle(double = 0.0f);
+class Circle : public TwoDimensionalShape {
+ public:
+    explicit Circle(double = 0.0f);
 
-        double getArea() const;
-        virtual void print() const;
+    double getArea() const;
+    virtual void print() const;
 
-        void setRadius(double);
-        double getRadius() const;
+    void setRadius(double);
+    double getRadius() const;
 
-    private:
-        const double PI = 3.14159;
+ private:
+    const double PI = 3.14159;
 
-        double radius;
+    double radius;
 };

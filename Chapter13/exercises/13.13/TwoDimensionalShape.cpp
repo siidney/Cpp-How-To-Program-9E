@@ -17,6 +17,4 @@
  */
 #include "TwoDimensionalShape.h"
 
-TwoDimensionalShape::TwoDimensionalShape(double l, double w) :
-    Shape(l, w)
-{}
+TwoDimensionalShape::TwoDimensionalShape(double l, double w) : Shape(l, w) {}

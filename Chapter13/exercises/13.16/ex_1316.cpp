@@ -17,23 +17,24 @@
  * =====================================================================================
  */
 #include "Account.h"
-#include "SavingsAccount.h"
 #include "CheckingAccount.h"
+#include "SavingsAccount.h"
 
 #include <iostream>
 #include <vector>
 
-int main(int argc, const char *argv[]){
-    std::vector<Account*>accounts;
+int main(int argc, const char *argv[]) {
+    std::vector<Account *> accounts;
 
     accounts.push_back(new SavingsAccount(1000, .5));
     accounts.push_back(new CheckingAccount(1000, 1.5));
 
-    for(std::size_t i=0; i<accounts.size(); ++i){
-        double cd=0;
+    for (std::size_t i = 0; i < accounts.size(); ++i) {
+        double cd = 0;
 
-        std::cout << "\nAccount " << i+1 << std::endl;
-        std::cout << "Initial balance: $" << accounts[i]->getBalance() << std::endl;
+        std::cout << "\nAccount " << i + 1 << std::endl;
+        std::cout << "Initial balance: $" << accounts[i]->getBalance()
+                  << std::endl;
 
         std::cout << "\nEnter credit ammount: ";
         std::cin >> cd;
@@ -45,10 +46,11 @@ int main(int argc, const char *argv[]){
 
         accounts[i]->debit(cd);
 
-        std::cout << "\nFinal balance: $" << accounts[i]->getBalance() << std::endl;
+        std::cout << "\nFinal balance: $" << accounts[i]->getBalance()
+                  << std::endl;
     }
 
-    for(std::size_t i=0; i<accounts.size(); ++i){
+    for (std::size_t i = 0; i < accounts.size(); ++i) {
         delete accounts[i];
     }
     return 0;

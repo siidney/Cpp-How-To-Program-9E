@@ -16,11 +16,12 @@
  *
  * =====================================================================================
  */
-#include "CommissionEmployee.h"
 #include "BasePlusCommissionEmployee.h"
+#include "CommissionEmployee.h"
 
-int main(int argc, const char *argv[]){
-    CommissionEmployee commissionEmployee("Sue", "Jones", "222-22-2222", 10000, .06);
+int main(int argc, const char *argv[]) {
+    CommissionEmployee commissionEmployee("Sue", "Jones", "222-22-2222", 10000,
+                                          .06);
     BasePlusCommissionEmployee *basePlusCommissionEmployeePtr = 0;
 
     // aim derived-class pointer at base-class object

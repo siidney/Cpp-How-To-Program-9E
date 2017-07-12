@@ -19,17 +19,17 @@
 
 #include "Shape.h"
 
-class ThreeDimensionalShape : public Shape{
-    public:
-        ThreeDimensionalShape(double = 0.0f, double = 0.0f, double = 0.0f);
+class ThreeDimensionalShape : public Shape {
+ public:
+    explicit ThreeDimensionalShape(double = 0.0f, double = 0.0f, double = 0.0f);
 
-        virtual double getArea() const = 0;
-        virtual double getVolume() const = 0;
-        virtual void print() const = 0;
+    virtual double getArea() const = 0;
+    virtual double getVolume() const = 0;
+    virtual void print() const = 0;
 
-        void setHeight(double);
-        double getHeight() const;
+    void setHeight(double);
+    double getHeight() const;
 
-    private:
-        double height;
+ private:
+    double height;
 };

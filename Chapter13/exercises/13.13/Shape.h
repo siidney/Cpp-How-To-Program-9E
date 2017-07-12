@@ -17,19 +17,19 @@
  */
 #pragma once
 
-class Shape{
-    public:
-        Shape(double = 0.0f, double = 0.0f);
+class Shape {
+ public:
+    explicit Shape(double = 0.0f, double = 0.0f);
 
-        void setLength(double);
-        double getLength() const;
+    void setLength(double);
+    double getLength() const;
 
-        void setWidth(double);
-        double getWidth() const;
+    void setWidth(double);
+    double getWidth() const;
 
-        virtual void print() const = 0;
+    virtual void print() const = 0;
 
-    private:
-        double length;
-        double width;
+ private:
+    double length;
+    double width;
 };

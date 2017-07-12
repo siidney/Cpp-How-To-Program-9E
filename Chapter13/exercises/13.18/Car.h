@@ -20,11 +20,11 @@
 
 #include "CarbonFootprint.h"
 
-class Car : public CarbonFootprint{
-    public:
-        Car();
+class Car : public CarbonFootprint {
+ public:
+    Car();
 
-        virtual double getCarbonFootprint() const;
+    virtual double getCarbonFootprint() const;
 
-    private:
+ private:
 };

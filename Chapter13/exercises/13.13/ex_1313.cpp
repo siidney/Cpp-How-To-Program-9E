@@ -15,22 +15,22 @@
  *
  * =====================================================================================
  */
-#include "Shape.h"
-#include "TwoDimensionalShape.h"
-#include "ThreeDimensionalShape.h"
-#include "Square.h"
-#include "Rectangle.h"
 #include "Circle.h"
-#include "Triangle.h"
 #include "Cube.h"
 #include "Cuboid.h"
+#include "Rectangle.h"
+#include "Shape.h"
 #include "Sphere.h"
+#include "Square.h"
+#include "ThreeDimensionalShape.h"
+#include "Triangle.h"
+#include "TwoDimensionalShape.h"
 
 #include <iostream>
-#include <vector>
 #include <typeinfo>
+#include <vector>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // 2D shapes
     Square square(2);
     Rectangle rectangle(3, 6);
@@ -42,7 +42,7 @@ int main(int argc, const char *argv[]){
     Cuboid cuboid(5, 4, 10);
     Sphere sphere(10);
 
-    std::vector<Shape*>shapes;
+    std::vector<Shape *> shapes;
 
     shapes.push_back(&square);
     shapes.push_back(&rectangle);
@@ -52,22 +52,25 @@ int main(int argc, const char *argv[]){
     shapes.push_back(&cuboid);
     shapes.push_back(&sphere);
 
-    for(size_t i=0; i<shapes.size(); ++i){
+    for (size_t i = 0; i < shapes.size(); ++i) {
         shapes[i]->print();
 
         // downcast pointer to TwoDimensionalShape
-        TwoDimensionalShape *twoDimDerivedPtr = dynamic_cast<TwoDimensionalShape*>(shapes[i]);
+        TwoDimensionalShape *twoDimDerivedPtr =
+            dynamic_cast<TwoDimensionalShape *>(shapes[i]);
 
-        if(twoDimDerivedPtr != 0){ // 0 if not TwoDimensionalShape
+        if (twoDimDerivedPtr != 0) {  // 0 if not TwoDimensionalShape
             std::cout << "\nArea: " << twoDimDerivedPtr->getArea() << std::endl;
-        }else{
+        } else {
             // three dimensional shape print volume
 
             // downcast pointer to ThreeDimensionalShape
-            ThreeDimensionalShape *threeDimDerivedPtr = dynamic_cast<ThreeDimensionalShape*>(shapes[i]);
-            if(threeDimDerivedPtr != 0){    // 0 if not ThreeDimensionalShape
+            ThreeDimensionalShape *threeDimDerivedPtr =
+                dynamic_cast<ThreeDimensionalShape *>(shapes[i]);
+            if (threeDimDerivedPtr != 0) {  // 0 if not ThreeDimensionalShape
                 std::cout << "\nSurface Area: " << threeDimDerivedPtr->getArea()
-                          << "\nVolume: " << threeDimDerivedPtr->getVolume() << std::endl;
+                          << "\nVolume: " << threeDimDerivedPtr->getVolume()
+                          << std::endl;
             }
         }
 

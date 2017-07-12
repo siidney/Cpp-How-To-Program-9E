@@ -18,20 +18,20 @@
  *
  * =====================================================================================
  */
+#include "Circle.h"
+#include "Rectangle.h"
 #include "ScreenManager.h"
 #include "Square.h"
-#include "Rectangle.h"
 #include "Triangle.h"
-#include "Circle.h"
 
 void processMenu(int);
 
 ScreenManager sm;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int choice = 0;
 
-    while(choice != 9){
+    while (choice != 9) {
         std::cout << "1. Add Shape"
                   << "\n2. Move Shape"
                   << "\n3. Remove Shape"
@@ -40,18 +40,17 @@ int main(int argc, const char *argv[]){
 
         std::cin >> choice;
 
-        if(choice != 9){
+        if (choice != 9) {
             processMenu(choice);
             std::cout << std::endl;
             sm.render();
         }
-
     }
 
     return 0;
 }
-void processMenu(int choice){
-    switch(choice){
+void processMenu(int choice) {
+    switch (choice) {
         case 1:
             int shape, w, h, x, y;
             char f;
@@ -70,7 +69,7 @@ void processMenu(int choice){
             std::cout << "Enter a fill char: ";
             std::cin >> f;
 
-            switch(shape){
+            switch (shape) {
                 case 1:
                     sm.add(new Square(w, h, x, y, f));
                     break;
@@ -85,7 +84,6 @@ void processMenu(int choice){
                     break;
                 default:
                     break;
-
             }
             break;
         case 2:
@@ -96,6 +94,5 @@ void processMenu(int choice){
             break;
         default:
             break;
-
     }
 }

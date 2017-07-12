@@ -16,15 +16,15 @@
  *
  * =====================================================================================
  */
-#include "CommissionEmployee.h"
 #include "BasePlusCommissionEmployee.h"
+#include "CommissionEmployee.h"
 
 #include <string>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     CommissionEmployee *commissionEmployeePtr = 0;  // base class
     BasePlusCommissionEmployee basePlusCommissionEmployee(
-            "Bob", "Lewis", "333-33-3333", 5000, .04, 300);
+        "Bob", "Lewis", "333-33-3333", 5000, .04, 300);
 
     // aim base-class pointer at derived-class object
     commissionEmployeePtr = &basePlusCommissionEmployee;

@@ -19,18 +19,19 @@
 
 #include "Package.h"
 
-class OvernightPackage : public Package{
-    public:
-        OvernightPackage(const Person&, const Person&, double, double, double);
+class OvernightPackage : public Package {
+ public:
+    OvernightPackage(const Person&, const Person&, double, double, double);
 
-        double calculateCost(){
-            return Package::getWeight() * (Package::getCostPerOunce() + feePerOunce);
-        }
+    double calculateCost() {
+        return Package::getWeight() *
+               (Package::getCostPerOunce() + feePerOunce);
+    }
 
-        void printDetails();
+    void printDetails();
 
-    private:
-        double feePerOunce;
+ private:
+    double feePerOunce;
 
-        void setFee(double);
+    void setFee(double);
 };

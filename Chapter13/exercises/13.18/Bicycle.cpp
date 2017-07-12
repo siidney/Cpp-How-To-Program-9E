@@ -18,10 +18,6 @@
  */
 #include "Bicycle.h"
 
-Bicycle::Bicycle(){
-
-}
+Bicycle::Bicycle() {}
 // get carbon footprint
-double Bicycle::getCarbonFootprint() const{
-    return 3;
-}
+double Bicycle::getCarbonFootprint() const { return 3; }

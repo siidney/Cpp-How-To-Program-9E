@@ -20,41 +20,35 @@
 #include "Utility.h"
 
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
-class Package{
-    public:
-        Package(const Person&, const Person&, double, double);
+class Package {
+ public:
+    Package(const Person&, const Person&, double, double);
 
-        double calculateCost(){
-            return getWeight() * getCostPerOunce();
-        }
+    double calculateCost() { return getWeight() * getCostPerOunce(); }
 
-        double getWeight() const{
-            return weight;
-        }
-        double getCostPerOunce() const{
-            return costPerOunce;
-        }
+    double getWeight() const { return weight; }
+    double getCostPerOunce() const { return costPerOunce; }
 
-        std::string getSender() const;
-        std::string getRecipient() const;
+    std::string getSender() const;
+    std::string getRecipient() const;
 
-        void setPackageType(std::string);
-        std::string getPackageType() const;
+    void setPackageType(std::string);
+    std::string getPackageType() const;
 
-        void printDetails() const;
+    void printDetails() const;
 
-    private:
-        Person sender;
-        Person recipient;
+ private:
+    Person sender;
+    Person recipient;
 
-        std::string packageType;
+    std::string packageType;
 
-        double weight;
-        double costPerOunce;
+    double weight;
+    double costPerOunce;
 
-        void setWeight(double);
-        void setCostPerOunce(double);
+    void setWeight(double);
+    void setCostPerOunce(double);
 };

@@ -21,30 +21,24 @@
 #include <iostream>
 #include <stdexcept>
 
-Sphere::Sphere(double r){
-    setRadius(r);
-}
+Sphere::Sphere(double r) { setRadius(r); }
 // set radius
-void Sphere::setRadius(double r){
-    if(r > 0.0f)
+void Sphere::setRadius(double r) {
+    if (r > 0.0f)
         radius = r;
     else
         throw std::invalid_argument("Radius must be > 0.0f");
 }
 // get radius
-double Sphere::getRadius() const{
-    return radius;
-}
+double Sphere::getRadius() const { return radius; }
 // get surface area
-double Sphere::getArea() const{
-    return 4 * PI * getRadius() * getRadius();
-}
+double Sphere::getArea() const { return 4 * PI * getRadius() * getRadius(); }
 // get volume
-double Sphere::getVolume() const{
-    return (4.0f/3.0f) * PI * getRadius() * getRadius() * getRadius();
+double Sphere::getVolume() const {
+    return (4.0f / 3.0f) * PI * getRadius() * getRadius() * getRadius();
 }
 // print
-void Sphere::print() const{
+void Sphere::print() const {
     std::cout << "Sphere:"
               << "\nRadius: " << getRadius();
 }

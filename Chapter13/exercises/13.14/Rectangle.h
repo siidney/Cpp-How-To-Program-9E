@@ -20,9 +20,9 @@
 
 #include "TwoDimensionalShape.h"
 
-class Rectangle : public TwoDimensionalShape{
-    public:
-        Rectangle(int = 0, int = 0, int = 0, int = 0, char = 'x');
+class Rectangle : public TwoDimensionalShape {
+ public:
+    explicit Rectangle(int = 0, int = 0, int = 0, int = 0, char = 'x');
 
-        virtual char* draw();
+    virtual char* draw();
 };

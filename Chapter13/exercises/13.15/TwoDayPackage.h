@@ -19,18 +19,16 @@
 
 #include "Package.h"
 
-class TwoDayPackage : public Package{
-    public:
-        TwoDayPackage(const Person&, const Person&, double, double, double);
+class TwoDayPackage : public Package {
+ public:
+    TwoDayPackage(const Person&, const Person&, double, double, double);
 
-        double calculateCost(){
-            return Package::calculateCost() + flatFee;
-        }
+    double calculateCost() { return Package::calculateCost() + flatFee; }
 
-        void printDetails();
+    void printDetails();
 
-    private:
-        double flatFee;
+ private:
+    double flatFee;
 
-        void setFee(double);
+    void setFee(double);
 };

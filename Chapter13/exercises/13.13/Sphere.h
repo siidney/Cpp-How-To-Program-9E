@@ -20,18 +20,18 @@
 
 #include "ThreeDimensionalShape.h"
 
-class Sphere : public ThreeDimensionalShape{
-    public:
-        Sphere(double);
+class Sphere : public ThreeDimensionalShape {
+ public:
+    explicit Sphere(double);
 
-        virtual double getArea() const;
-        virtual double getVolume() const;
-        virtual void print() const;
+    virtual double getArea() const;
+    virtual double getVolume() const;
+    virtual void print() const;
 
-        void setRadius(double);
-        double getRadius() const;
+    void setRadius(double);
+    double getRadius() const;
 
-    private:
-        const double PI = 3.14159;
-        double radius;
+ private:
+    const double PI = 3.14159;
+    double radius;
 };

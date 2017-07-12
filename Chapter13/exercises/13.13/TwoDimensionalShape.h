@@ -19,12 +19,12 @@
 
 #include "Shape.h"
 
-class TwoDimensionalShape : public Shape{
-    public:
-        TwoDimensionalShape(double = 0.0f, double = 0.0f);
+class TwoDimensionalShape : public Shape {
+ public:
+    explicit TwoDimensionalShape(double = 0.0f, double = 0.0f);
 
-        virtual double getArea() const = 0;
-        virtual void print() const = 0;
+    virtual double getArea() const = 0;
+    virtual void print() const = 0;
 
-    private:
+ private:
 };

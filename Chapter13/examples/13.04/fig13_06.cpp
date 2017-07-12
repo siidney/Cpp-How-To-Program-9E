@@ -16,23 +16,23 @@
  *
  * =====================================================================================
  */
-#include "CommissionEmployee.h"
 #include "BasePlusCommissionEmployee.h"
+#include "CommissionEmployee.h"
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // create base-class object
-    CommissionEmployee commissionEmployee(
-            "Sue", "Jones", "222-22-2222", 10000, .06);
+    CommissionEmployee commissionEmployee("Sue", "Jones", "222-22-2222", 10000,
+                                          .06);
 
     // create base-class pointer
     CommissionEmployee *commissionEmployeePtr = 0;
 
     // create derived-class object
     BasePlusCommissionEmployee basePlusCommissionEmployee(
-            "Bob", "Lewis", "333-33-3333", 5000, .04, 300);
+        "Bob", "Lewis", "333-33-3333", 5000, .04, 300);
 
     // create dervied-class pointer
     BasePlusCommissionEmployee *basePlusCommissionEmployeePtr = 0;
@@ -43,9 +43,9 @@ int main(int argc, const char *argv[]){
     // output objects using static binding
     std::cout << "Invoking print function on base-class and derived-class "
               << "\nobject with static binding\n\n";
-    commissionEmployee.print();     // static binding
+    commissionEmployee.print();  // static binding
     std::cout << "\n\n";
-    basePlusCommissionEmployee.print(); // static binding
+    basePlusCommissionEmployee.print();  // static binding
 
     // output objects with dynamic binding
     std::cout << "\n\n\nInvoking print function on base-class and "

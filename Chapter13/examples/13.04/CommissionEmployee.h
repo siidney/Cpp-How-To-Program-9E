@@ -20,33 +20,33 @@
 
 #include <string>
 
-class CommissionEmployee{
-    public:
-        CommissionEmployee(const std::string&, const std::string&, const std::string&,
-                double, double);
+class CommissionEmployee {
+ public:
+    CommissionEmployee(const std::string&, const std::string&,
+                       const std::string&, double, double);
 
-        void setFirstName(const std::string&);
-        std::string getFirstName() const;
+    void setFirstName(const std::string&);
+    std::string getFirstName() const;
 
-        void setLastName(const std::string&);
-        std::string getLastName() const;
+    void setLastName(const std::string&);
+    std::string getLastName() const;
 
-        void setSocialSecurityNumber(const std::string&);
-        std::string getSocialSecurityNumber() const;
+    void setSocialSecurityNumber(const std::string&);
+    std::string getSocialSecurityNumber() const;
 
-        void setGrossSales(double);
-        double getGrossSales();
+    void setGrossSales(double);
+    double getGrossSales();
 
-        void setCommissionRate(double);
-        double getCommissionRate() const;
+    void setCommissionRate(double);
+    double getCommissionRate() const;
 
-        virtual double earnings() const;
-        virtual void print() const;
+    virtual double earnings() const;
+    virtual void print() const;
 
-    private:
-        std::string firstName;
-        std::string lastName;
-        std::string socialSecurityNumber;
-        double grossSales;
-        double commissionRate;
+ private:
+    std::string firstName;
+    std::string lastName;
+    std::string socialSecurityNumber;
+    double grossSales;
+    double commissionRate;
 };

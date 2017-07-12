@@ -21,43 +21,37 @@
 #include <iostream>
 #include <string>
 
-ScreenManager::ScreenManager(int r, int c){
-    if(r > 0)
+ScreenManager::ScreenManager(int r, int c) {
+    if (r > 0)
         ROWS = r;
     else
         ROWS = 50;
 
-    if(c > 0)
+    if (c > 0)
         COLS = c;
     else
         COLS = 50;
 
     _canvas = new Canvas(ROWS, COLS);
 }
-ScreenManager::~ScreenManager(){
-    if(_canvas != nullptr)
-        delete[] _canvas;
+ScreenManager::~ScreenManager() {
+    if (_canvas != nullptr) delete[] _canvas;
 
-    for(unsigned int i=0; i<_shapes.size(); ++i){
+    for (unsigned int i = 0; i < _shapes.size(); ++i) {
         delete _shapes[i];
     }
 
     _shapes.clear();
 }
 // adds a new shape onto current shapes list
-void ScreenManager::add(Shape* s){
-    _shapes.push_back(s);
-}
+void ScreenManager::add(Shape* s) { _shapes.push_back(s); }
 // print the current shapes
-void ScreenManager::render() const{
+void ScreenManager::render() const {
     // draw shapes and add to canvas
-    for(unsigned int i=0; i<_shapes.size(); ++i){
-        _canvas->addToCanvas(
-                _shapes[i]->getX(),
-                _shapes[i]->getY(),
-                _shapes[i]->getWidth(),
-                _shapes[i]->getHeight(),
-                _shapes[i]->draw());
+    for (unsigned int i = 0; i < _shapes.size(); ++i) {
+        _canvas->addToCanvas(_shapes[i]->getX(), _shapes[i]->getY(),
+                             _shapes[i]->getWidth(), _shapes[i]->getHeight(),
+                             _shapes[i]->draw());
     }
     _canvas->render();
 }

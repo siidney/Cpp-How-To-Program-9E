@@ -20,27 +20,20 @@
 
 #include <iostream>
 
-Cube::Cube(double l, double w, double h) :
-    ThreeDimensionalShape(l, w, h)
-{
-    if(w == 0)
-        setWidth(l);
+Cube::Cube(double l, double w, double h) : ThreeDimensionalShape(l, w, h) {
+    if (w == 0) setWidth(l);
 
-    if(h == 0)
-        setHeight(l);
+    if (h == 0) setHeight(l);
 }
 // get surface area
-double Cube::getArea() const{
-    return 6 * (getLength() * getWidth());
-}
+double Cube::getArea() const { return 6 * (getLength() * getWidth()); }
 // get volume
-double Cube::getVolume() const{
+double Cube::getVolume() const {
     return getLength() * getWidth() * getHeight();
 }
 // print
-void Cube::print() const{
+void Cube::print() const {
     std::cout << "Cube:"
-              << "\nlength: " << getLength()
-              << "\nwidth : " << getWidth()
+              << "\nlength: " << getLength() << "\nwidth : " << getWidth()
               << "\nHeight: " << getHeight();
 }

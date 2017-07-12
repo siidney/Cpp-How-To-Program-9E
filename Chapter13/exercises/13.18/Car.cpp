@@ -18,10 +18,6 @@
  */
 #include "Car.h"
 
-Car::Car(){
-
-}
+Car::Car() {}
 // get carbon footprint
-double Car::getCarbonFootprint() const{
-    return 2;
-}
+double Car::getCarbonFootprint() const { return 2; }

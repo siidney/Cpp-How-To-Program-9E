@@ -23,19 +23,19 @@
 
 #include <vector>
 
-class ScreenManager{
-    public:
-        ScreenManager(int = 50, int = 50);
-        ~ScreenManager();
+class ScreenManager {
+ public:
+    explicit ScreenManager(int = 50, int = 50);
+    ~ScreenManager();
 
-        void add(Shape*);
-        void render() const;
+    void add(Shape*);
+    void render() const;
 
-    private:
-        unsigned int ROWS;
-        unsigned int COLS;
+ private:
+    unsigned int ROWS;
+    unsigned int COLS;
 
-        Canvas* _canvas = nullptr;
+    Canvas* _canvas = nullptr;
 
-        std::vector<Shape*> _shapes;
+    std::vector<Shape*> _shapes;
 };

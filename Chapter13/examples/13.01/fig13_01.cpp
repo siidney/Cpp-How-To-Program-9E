@@ -16,23 +16,23 @@
  *
  * =====================================================================================
  */
-#include "CommissionEmployee.h"
 #include "BasePlusCommissionEmployee.h"
+#include "CommissionEmployee.h"
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // create base class object
-    CommissionEmployee commissionEmployee(
-            "Sue", "Jones", "222-22-2222", 10000, .06);
+    CommissionEmployee commissionEmployee("Sue", "Jones", "222-22-2222", 10000,
+                                          .06);
 
     // create base class pointer
     CommissionEmployee *commissionEmployeePtr = 0;
 
     // create derived class object
     BasePlusCommissionEmployee basePlusCommissionEmployee(
-            "Bob", "Lewis", "333-33-3333", 5000, .04, 300);
+        "Bob", "Lewis", "333-33-3333", 5000, .04, 300);
 
     // create derived class pointer
     BasePlusCommissionEmployee *basePlusCommissionEmployeePtr = 0;

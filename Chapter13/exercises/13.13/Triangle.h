@@ -20,20 +20,20 @@
 
 #include "TwoDimensionalShape.h"
 
-class Triangle : public TwoDimensionalShape{
-    public:
-        Triangle(double = 0.0f, double = 0.0f);
+class Triangle : public TwoDimensionalShape {
+ public:
+    explicit Triangle(double = 0.0f, double = 0.0f);
 
-        virtual double getArea() const;
-        virtual void print() const;
+    virtual double getArea() const;
+    virtual void print() const;
 
-        void setBase(double);
-        double getBase() const;
+    void setBase(double);
+    double getBase() const;
 
-        void setHeight(double);
-        double getHeight() const;
+    void setHeight(double);
+    double getHeight() const;
 
-    private:
-        double base;
-        double height;
+ private:
+    double base;
+    double height;
 };

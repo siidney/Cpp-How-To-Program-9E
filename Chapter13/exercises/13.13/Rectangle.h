@@ -20,12 +20,12 @@
 
 #include "TwoDimensionalShape.h"
 
-class Rectangle : public TwoDimensionalShape{
-    public:
-        Rectangle(double = 0.0f, double = 0.0f);
+class Rectangle : public TwoDimensionalShape {
+ public:
+    explicit Rectangle(double = 0.0f, double = 0.0f);
 
-        virtual double getArea() const;
-        virtual void print() const;
+    virtual double getArea() const;
+    virtual void print() const;
 
-    private:
+ private:
 };

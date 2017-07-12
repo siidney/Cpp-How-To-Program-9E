@@ -20,18 +20,18 @@
 
 #include <iostream>
 
-Square::Square(int h, int w, int x, int y, char f) :
-    TwoDimensionalShape(h, w, x, y, f)
-{}
+Square::Square(int h, int w, int x, int y, char f)
+    : TwoDimensionalShape(h, w, x, y, f) {}
 // print
-char* Square::draw(){
+char* Square::draw() {
     // create image if none present
-    if(img == nullptr){
+    if (img == nullptr) {
         img = new char[getWidth() * getHeight()];
 
-        for(unsigned int row=0; row<getHeight(); ++row){
-            for(unsigned int col=0; col<getWidth(); ++col){
-                if(col == 0 || col == getWidth() - 1 || row == 0 || row == getHeight() -1)
+        for (unsigned int row = 0; row < getHeight(); ++row) {
+            for (unsigned int col = 0; col < getWidth(); ++col) {
+                if (col == 0 || col == getWidth() - 1 || row == 0 ||
+                    row == getHeight() - 1)
                     img[col + getWidth() * row] = fillchar;
                 else
                     img[col + getWidth() * row] = ' ';

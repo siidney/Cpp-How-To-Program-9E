@@ -17,30 +17,30 @@
  */
 #pragma once
 
-class Shape{
-    public:
-        Shape(int = 0, int = 0, int = 0, int = 0);
-        virtual ~Shape(){};
+class Shape {
+ public:
+    explicit Shape(int = 0, int = 0, int = 0, int = 0);
+    virtual ~Shape() {}
 
-        void setWidth(int);
-        unsigned int getWidth() const;
+    void setWidth(int);
+    unsigned int getWidth() const;
 
-        void setHeight(int);
-        unsigned int getHeight() const;
+    void setHeight(int);
+    unsigned int getHeight() const;
 
-        void setX(int);
-        unsigned int getX() const;
+    void setX(int);
+    unsigned int getX() const;
 
-        void setY(int);
-        unsigned int getY() const;
+    void setY(int);
+    unsigned int getY() const;
 
-        virtual char* draw() = 0;
+    virtual char* draw() = 0;
 
-    private:
-        // size of image
-        unsigned int width;
-        unsigned int height;
-        // top left corner coords
-        unsigned int x;
-        unsigned int y;
+ private:
+    // size of image
+    unsigned int width;
+    unsigned int height;
+    // top left corner coords
+    unsigned int x;
+    unsigned int y;
 };

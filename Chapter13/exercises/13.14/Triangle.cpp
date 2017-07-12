@@ -21,25 +21,23 @@
 #include <iostream>
 #include <stdexcept>
 
-Triangle::Triangle(int w, int h, int x, int y, char f) :
-    TwoDimensionalShape(w, h, x, y, f)
-{}
+Triangle::Triangle(int w, int h, int x, int y, char f)
+    : TwoDimensionalShape(w, h, x, y, f) {}
 // print
-char* Triangle::draw(){
+char* Triangle::draw() {
     // create image if none present
-    if(img == nullptr){
+    if (img == nullptr) {
         // ensure width is odd number (else triangle won't be centered)
-        if(!getWidth() % 2)
-            setWidth(getWidth() + 1);
+        if (!getWidth() % 2) setWidth(getWidth() + 1);
 
         img = new char[getWidth() * getHeight()];
 
-        unsigned int middle = (getWidth() -1) / 2;
+        unsigned int middle = (getWidth() - 1) / 2;
 
-        for(unsigned int row=0; row<getHeight(); ++row){
-            for(unsigned int col=0; col<getWidth(); ++col){
-                if(row == getHeight() -1 || (row == 0 && col == middle) ||
-                        (col == middle - row || col == middle + row))
+        for (unsigned int row = 0; row < getHeight(); ++row) {
+            for (unsigned int col = 0; col < getWidth(); ++col) {
+                if (row == getHeight() - 1 || (row == 0 && col == middle) ||
+                    (col == middle - row || col == middle + row))
                     img[col + getWidth() * row] = fillchar;
                 else
                     img[col + getWidth() * row] = ' ';

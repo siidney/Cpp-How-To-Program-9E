@@ -20,11 +20,11 @@
 
 #include "TwoDimensionalShape.h"
 
-class Circle : public TwoDimensionalShape{
-    public:
-        Circle(int = 0, int = 0, int = 0, int = 0, char = 'x');
+class Circle : public TwoDimensionalShape {
+ public:
+    explicit Circle(int = 0, int = 0, int = 0, int = 0, char = 'x');
 
-        virtual char* draw();
+    virtual char* draw();
 
-    private:
+ private:
 };
