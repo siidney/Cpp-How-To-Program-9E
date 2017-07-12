@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     List<int> intList1;
     List<int> intList2;
 
@@ -28,7 +28,7 @@ int main(int argc, const char* argv[]){
     int data1[ARR_SIZE] = {1, 3, 5, 7, 8, 10, 12, 15, 17, 20};
     int data2[ARR_SIZE] = {2, 4, 6, 9, 11, 13, 14, 16, 18, 19};
 
-    for(int i=0; i<ARR_SIZE; ++i){
+    for (int i = 0; i < ARR_SIZE; ++i) {
         intList1.insertAtBack(data1[i]);
         intList2.insertAtBack(data2[i]);
     }

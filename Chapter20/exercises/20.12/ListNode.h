@@ -22,8 +22,8 @@
 template <typename NODETYPE> class List;
 
 template<typename NODETYPE>
-class ListNode {
-    friend class List<NODETYPE>; // make List a friend
+class ListNode{
+    friend class List<NODETYPE>;  // make List a friend
 
     public:
         explicit ListNode(const NODETYPE&);

@@ -22,7 +22,7 @@
 template <typename NODETYPE> class List;
 
 template<typename NODETYPE>
-class ListNode{
+class ListNode {
     friend class List<NODETYPE>; // make List a friend
 
     public:
@@ -41,6 +41,6 @@ ListNode<NODETYPE>::ListNode(const NODETYPE &info)
 {}
 // return copy of data in node
 template<typename NODETYPE>
-NODETYPE ListNode<NODETYPE>::getData() const{
+NODETYPE ListNode<NODETYPE>::getData() const {
     return data;
 }

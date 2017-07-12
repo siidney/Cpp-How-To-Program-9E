@@ -19,12 +19,12 @@
 
 #include <iostream>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     List<char> charList1;
     List<char> charList2;
 
-    for(char c='a'; c<='z'; ++c){
-        if(c < 'n')
+    for (char c = 'a'; c <= 'z'; ++c) {
+        if (c < 'n')
             charList1.insertAtBack(c);
         else
             charList2.insertAtBack(c);

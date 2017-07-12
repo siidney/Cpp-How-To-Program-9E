@@ -22,17 +22,13 @@
 template <typename NODETYPE> class List;
 
 template<typename NODETYPE>
-class ListNode{
+class ListNode {
     friend class List<NODETYPE>; // make List a friend
 
     public:
         explicit ListNode(const NODETYPE&);
 
         NODETYPE getData() const;
-
-        NODETYPE operator*();
-
-        ListNode<NODETYPE>* next() const;
 
     private:
         NODETYPE data;
@@ -45,14 +41,6 @@ ListNode<NODETYPE>::ListNode(const NODETYPE &info)
 {}
 // return copy of data in node
 template<typename NODETYPE>
-NODETYPE ListNode<NODETYPE>::getData() const{
+NODETYPE ListNode<NODETYPE>::getData() const {
     return data;
-}
-template<typename NODETYPE>
-NODETYPE ListNode<NODETYPE>::operator*(){
-    return data;
-}
-template<typename NODETYPE>
-ListNode<NODETYPE>* ListNode<NODETYPE>::next() const{
-    return nextPtr;
 }

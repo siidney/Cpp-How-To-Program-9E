@@ -23,7 +23,7 @@
 #include <vector>
 #include <algorithm>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     List<int> intList;
     std::vector<int> data;  // for sorting the data
 
@@ -33,15 +33,15 @@ int main(int argc, const char* argv[]){
     std::srand(std::time(0));
 
     // generate the random numbers
-    for(int i=0; i<LIST_SIZE; ++i){
-        data.push_back((rand() % RAND_LIMIT));
+    for (int i = 0; i < LIST_SIZE; ++i) {
+        data.push_back((rand_r() % RAND_LIMIT));
     }
 
     // sort the data
     std::sort(data.begin(), data.end());
 
     // build the list
-    for(unsigned int i=0; i<data.size(); ++i){
+    for (unsigned int i = 0; i < data.size(); ++i) {
         intList.insertAtBack(data[i]);
     }
 
@@ -50,14 +50,13 @@ int main(int argc, const char* argv[]){
 
     ListNode<int>* iter = intList.begin();
 
-    do{
+    do {
         sum += iter->getData();
         iter = iter->next();
 
-        if(iter->getData() == intList.end()->getData())
+        if (iter->getData() == intList.end()->getData())
             sum += iter->getData();
-
-    }while(iter != intList.end());
+    } while (iter != intList.end());
 
     std::cout << "sum: " << sum << " average: " << (sum / LIST_SIZE) << std::endl;
 

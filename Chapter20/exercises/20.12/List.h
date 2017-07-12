@@ -3,11 +3,11 @@
  *
  *       Filename:  List.h
  *
- *    Description:  Exercise 20.06 - Concatenating Lists
+ *    Description:  Fig. 20.4 - Template List Class Definition
  *
  *        Version:  1.0
  *        Created:  13/03/17 14:02:39
- *       Revision:  17/03/17 16:22:07
+ *       Revision:  none
  *       Compiler:  gcc
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -30,16 +30,12 @@ class List{
         void insertAtBack(const NODETYPE &);
         bool removeFromFront(NODETYPE &);
         bool removeFromBack(NODETYPE &);
-        void concatenate(List<NODETYPE>&);
         bool isEmpty() const;
         void print() const;
-        int size() const;
 
     private:
         ListNode<NODETYPE> *firstPtr;   // pointer to first node
         ListNode<NODETYPE> *lastPtr;    // pointer to last node
-
-        int sz;
 
         // utility function to allocate new node
         ListNode<NODETYPE> *getNewNode(const NODETYPE &);
@@ -47,17 +43,19 @@ class List{
 // default constructor
 template<typename NODETYPE>
 List<NODETYPE>::List()
-    : firstPtr(0), lastPtr(0), sz(0)
+    : firstPtr(0), lastPtr(0)
 {}
 // destructor
 template<typename NODETYPE>
 List<NODETYPE>::~List() {
     if (!isEmpty()) {
+        std::cout << "Destroying Nodes...\n";
         ListNode<NODETYPE> *currentPtr = firstPtr;
 
         // delete remaining nodes
         while (currentPtr != 0) {
             ListNode<NODETYPE> *tempPtr = currentPtr;
+            std::cout << tempPtr->data << '\n';
             currentPtr = currentPtr->nextPtr;
             delete tempPtr;
         }
@@ -74,7 +72,6 @@ void List<NODETYPE>::insertAtFront(const NODETYPE &value) {
         newPtr->nextPtr = firstPtr;     // point new node to previous list node
         firstPtr = newPtr;
     }
-    ++sz;
 }
 // insert node at back of list
 template<typename NODETYPE>
@@ -87,7 +84,6 @@ void List<NODETYPE>::insertAtBack(const NODETYPE &value) {
         lastPtr->nextPtr = newPtr;
         lastPtr = newPtr;
     }
-    ++sz;
 }
 // delete node from front of list
 template<typename NODETYPE>
@@ -98,14 +94,12 @@ bool List<NODETYPE>::removeFromFront(NODETYPE &value) {
         ListNode<NODETYPE> *tempPtr = firstPtr;
 
         if (firstPtr == lastPtr)
-            firstPtr = lastPtr = 0;  // no nodes remain after removal
+            firstPtr = lastPtr = 0;         // no nodes remain after removal
         else
             firstPtr = firstPtr->nextPtr;   // point to previous 2nd node
 
         value = tempPtr->data;
         delete tempPtr;
-
-        --sz;
 
         return true;
     }
@@ -118,7 +112,7 @@ bool List<NODETYPE>::removeFromBack(NODETYPE &value) {
     } else {
         ListNode<NODETYPE> *tempPtr = lastPtr;
 
-        if (firstPtr == lastPtr) {   // list has one element
+        if (firstPtr == lastPtr) {  // list has one element
             firstPtr = lastPtr = 0;  // no nodes remain after removal
         } else {
             ListNode<NODETYPE> *currentPtr = firstPtr;
@@ -133,19 +127,7 @@ bool List<NODETYPE>::removeFromBack(NODETYPE &value) {
 
         value = tempPtr->data;
         delete tempPtr;
-
-        --sz;
         return true;
-    }
-}
-// concatenate new list to end of list
-template<typename NODETYPE>
-void List<NODETYPE>::concatenate(List<NODETYPE> &listSecond) {
-    ListNode<NODETYPE>* currentPtr = listSecond.firstPtr;
-
-    while (currentPtr != 0) {
-        insertAtBack(currentPtr->getData());
-        currentPtr = currentPtr->nextPtr;
     }
 }
 // is List empty
@@ -168,13 +150,12 @@ void List<NODETYPE>::print() const {
 
     ListNode<NODETYPE> *currentPtr = firstPtr;
 
+    std::cout << "The list is: ";
+
     while (currentPtr != 0) {
-        std::cout << currentPtr->getData() << ' ';
+        std::cout << currentPtr->data << ' ';
         currentPtr = currentPtr->nextPtr;
     }
-}
-// print sz of list
-template<typename NODETYPE>
-int List<NODETYPE>::size() const {
-    return sz;
+
+    std::cout << "\n\n";
 }
