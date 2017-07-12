@@ -18,15 +18,14 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::string s1("happy");
     std::string s2(" birthday");
     std::string s3;
 
     // test overloaded equality and relational operators
-    std::cout << "s1 is \"" << s1 << "\"; s2 is \"" << s2
-              << "\"; s3 is \"" << s3 << '\"'
-              << "\n\nThe results of comparing s2 and s1:"
+    std::cout << "s1 is \"" << s1 << "\"; s2 is \"" << s2 << "\"; s3 is \""
+              << s3 << '\"' << "\n\nThe results of comparing s2 and s1:"
               << "\ns2 == s1 yields " << (s2 == s1 ? "true" : "false")
               << "\ns2 != s1 yields " << (s2 != s1 ? "true" : "false")
               << "\ns2 >  s1 yields " << (s2 > s1 ? "true" : "false")
@@ -37,7 +36,7 @@ int main(int argc, const char *argv[]){
     // test string member-function empty
     std::cout << "\n\nTesting s3.empty():" << std::endl;
 
-    if(s3.empty()){
+    if (s3.empty()) {
         std::cout << "s3 is empty; assigning s1 to s3;" << std::endl;
         s3 = s1;
         std::cout << "s3 is \"" << s3 << "\"";
@@ -75,14 +74,13 @@ int main(int argc, const char *argv[]){
     // test using overloaded subscript operator to create lvalue
     s1[0] = 'H';
     s1[6] = 'B';
-    std::cout << "\ns1 after s1[0] = 'H' and s1[6] = 'B' is: "
-              << s1 << "\n\n";
+    std::cout << "\ns1 after s1[0] = 'H' and s1[6] = 'B' is: " << s1 << "\n\n";
 
     // test subscript out of range iwth string member function "at"
-    try{
+    try {
         std::cout << "Attempt to assign 'd' to s1.at(30) yields:" << std::endl;
-        s1.at(30) = 'd';    // ERROR: subscript out of range
-    }catch(std::out_of_range &ex){
+        s1.at(30) = 'd';  // ERROR: subscript out of range
+    } catch (std::out_of_range &ex) {
         std::cout << "An exception occured: " << ex.what() << std::endl;
     }
 

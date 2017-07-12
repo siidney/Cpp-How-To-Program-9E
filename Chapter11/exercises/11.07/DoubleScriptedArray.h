@@ -19,35 +19,35 @@
 
 #include <iostream>
 
-class DoubleScriptedArray{
+class DoubleScriptedArray {
     friend std::ostream& operator<<(std::ostream&, const DoubleScriptedArray&);
     friend std::istream& operator>>(std::istream&, DoubleScriptedArray&);
 
-    public:
-        DoubleScriptedArray(int = 10, int = 0);        // default constructor
-        DoubleScriptedArray(const DoubleScriptedArray&);    // copy constructor
-        ~DoubleScriptedArray();
+ public:
+    explicit DoubleScriptedArray(int = 10, int = 0);           // default constructor
+    DoubleScriptedArray(const DoubleScriptedArray&);  // copy constructor
+    ~DoubleScriptedArray();
 
-        int getSize() const;
+    int getSize() const;
 
-        const DoubleScriptedArray& operator=(const DoubleScriptedArray&);
-        bool operator==(const DoubleScriptedArray&) const;
+    DoubleScriptedArray& operator=(const DoubleScriptedArray&);
+    bool operator==(const DoubleScriptedArray&) const;
 
-        // inequality operator; returns result of == operator
-        bool operator!=(const DoubleScriptedArray& right) const{
-            return !(*this == right);   // invokes DoubleScriptedArray::operator==
-        }
+    // inequality operator; returns result of == operator
+    bool operator!=(const DoubleScriptedArray& right) const {
+        return !(*this == right);  // invokes DoubleScriptedArray::operator==
+    }
 
-        // subscript operator for non-const objects return modifiable lvalue
-        int& operator()(unsigned int, unsigned int);
+    // subscript operator for non-const objects return modifiable lvalue
+    int& operator()(unsigned int, unsigned int);
 
-        // subscript operator for const objects returns rvalue
-        int& operator()(unsigned int, unsigned int) const;
+    // subscript operator for const objects returns rvalue
+    int& operator()(unsigned int, unsigned int) const;
 
-    private:
-        size_t COLS;
-        size_t ROWS;
-        size_t size;
+ private:
+    size_t COLS;
+    size_t ROWS;
+    size_t size;
 
-        int *arrPtr;   // pointer to first element of pointer based array
+    int* arrPtr;  // pointer to first element of pointer based array
 };

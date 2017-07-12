@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     RationalNumber r1(3, 5);
     RationalNumber r2(9, 4);
 

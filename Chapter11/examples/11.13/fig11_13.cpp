@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char* argv[]) {
     Array integers1(7);
 
     outputArray(integers1);
@@ -29,7 +29,8 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // print Array contents
-void outputArray(const Array& arrayToOutput){
+void outputArray(const Array& arrayToOutput) {
     std::cout << "The Array received has " << arrayToOutput.getSize()
-              << " elements. The contents are:\n" << arrayToOutput << std::endl;
+              << " elements. The contents are:\n"
+              << arrayToOutput << std::endl;
 }

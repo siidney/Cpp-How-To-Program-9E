@@ -20,7 +20,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     PhoneNumber phone;
 
     std::cout << "Enter phone number in the form (123) 456-7890:" << std::endl;

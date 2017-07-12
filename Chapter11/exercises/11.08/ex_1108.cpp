@@ -17,7 +17,7 @@
  */
 #include "Complex.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Complex x;
     Complex y(4.3, 8.2);
     Complex z(3.3, 1.1);
