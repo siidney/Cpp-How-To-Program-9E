@@ -20,14 +20,13 @@
  */
 #include "BucketSort.h"
 
-void BucketSort::sort(std::vector<int>& intVec){
-    //std::vector<int> row;
-    //std::vector<std::vector<int>> bucket(10, row);
+void BucketSort::sort(std::vector<int>& intVec) {
+    // std::vector<int> row;
+    // std::vector<std::vector<int>> bucket(10, row);
     std::vector<int> bucket;
 
     // assign values to bucket
-        for(int elem : intVec)
-            bucket.push_back(elem);
+    for (int elem : intVec) bucket.push_back(elem);
 
     // sort individual buckets
     std::sort(bucket.begin(), bucket.end());
@@ -35,6 +34,5 @@ void BucketSort::sort(std::vector<int>& intVec){
     // reassign to original vector
     intVec.clear();
 
-    for(int value : bucket)
-        intVec.push_back(value);
+    for (int value : bucket) intVec.push_back(value);
 }

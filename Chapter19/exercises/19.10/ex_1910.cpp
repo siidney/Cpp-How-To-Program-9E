@@ -15,14 +15,13 @@
  *
  * =====================================================================================
  */
+#include <cstdlib>
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 
-template<typename T>
-void printVector(const std::vector<T>& data){
-    for(T elem : data)
-        std::cout << elem << " ";
+template <typename T>
+void printVector(const std::vector<T>& data) {
+    for (T elem : data) std::cout << elem << " ";
 
     std::cout << std::endl;
 }
@@ -30,15 +29,14 @@ void printVector(const std::vector<T>& data){
 void quickSortHelper(std::vector<int>&, int, int);
 int partition(std::vector<int>&, int, int);
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     std::srand(time(0));
 
     const int limit = 100;
     const int size = 100;
     std::vector<int> intVec;
 
-    for(int i=0; i<size; ++i)
-        intVec.push_back(((rand() % limit) + 1));
+    for (int i = 0; i < size; ++i) intVec.push_back(((rand() % limit) + 1));
 
     std::cout << "Unsorted Vector:\n";
     printVector(intVec);
@@ -51,33 +49,30 @@ int main(int argc, const char* argv[]){
     return 0;
 }
 // Recursive quick sort
-void quickSortHelper(std::vector<int>& intVec, int left, int right){
+void quickSortHelper(std::vector<int>& intVec, int left, int right) {
     int index = partition(intVec, left, right);
 
-    if(left < index - 1)
+    if (left < index - 1)
         quickSortHelper(intVec, left, index - 1);
 
-    if(index < right)
+    if (index < right)
         quickSortHelper(intVec, index, right);
-
 }
 // partition
-int partition(std::vector<int>& intVec, int left, int right){
+int partition(std::vector<int>& intVec, int left, int right) {
     // pick pivot in middle of vector
     int pivot = intVec[(left + right) / 2];
 
-    while(left <= right){
+    while (left <= right) {
         // find element on the left
         // that should be on right
-        while(intVec[left] < pivot)
-            ++left;
+        while (intVec[left] < pivot) ++left;
 
         // find element on right
         // that should be on left
-        while(intVec[right] > pivot)
-            --right;
+        while (intVec[right] > pivot) --right;
 
-        if(left <= right){
+        if (left <= right) {
             std::swap(intVec[left], intVec[right]);
             ++left;
             --right;

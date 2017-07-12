@@ -21,18 +21,18 @@
 
 #include <vector>
 
-class MergeSort{
-    public:
-        explicit MergeSort(int);
+class MergeSort {
+ public:
+    explicit MergeSort(int);
 
-        void sort();
-        void displayElements() const;
+    void sort();
+    void displayElements() const;
 
-    private:
-        int size;
-        std::vector<int> data;
+ private:
+    int size;
+    std::vector<int> data;
 
-        void sortSubVector(int, int);
-        void merge(int, int, int, int);
-        void displaySubVector(int, int) const;
+    void sortSubVector(int, int);
+    void merge(int, int, int, int);
+    void displaySubVector(int, int) const;
 };

@@ -17,22 +17,21 @@
  */
 #pragma once
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-class BucketSort{
-    public:
-        void sort(std::vector<int>&);
+class BucketSort {
+ public:
+    void sort(std::vector<int>&);
 
-        // print a vector
-        template<typename T>
-        void printVector(const std::vector<T>& data){
-            for(T elem : data)
-                std::cout << elem << " ";
+    // print a vector
+    template <typename T>
+    void printVector(const std::vector<T>& data) {
+        for (T elem : data) std::cout << elem << " ";
 
-            std::cout << std::endl;
-        }
+        std::cout << std::endl;
+    }
 
-    private:
+ private:
 };

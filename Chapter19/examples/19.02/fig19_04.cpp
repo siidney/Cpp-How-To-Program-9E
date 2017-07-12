@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char* argv[]){
+int main(int argc, const char* argv[]) {
     int searchInt;
     int position;
 
@@ -33,16 +33,16 @@ int main(int argc, const char* argv[]){
     std::cout << std::endl;
 
     // repeatedly input an integer: -1 terminates the program
-    while(searchInt != -1){
+    while (searchInt != -1) {
         // use binary search to try to find integer
         position = searchVector.binarySearch(searchInt);
 
         // return value of -1 indicates integer was not found
-        if(position == -1)
+        if (position == -1)
             std::cout << "The integer " << searchInt << " was not found.\n";
         else
-            std::cout << "The integer " << searchInt << " was found in position "
-                      << position << ".\n";
+            std::cout << "The integer " << searchInt
+                      << " was found in position " << position << ".\n";
 
         // get input from user
         std::cout << "\n\nPlease enter an integer value (-1 to quit): ";

@@ -20,15 +20,15 @@
 
 #include <vector>
 
-class BinarySearch{
-    public:
-        BinarySearch(int);              // constructor initialises vector
-        int binarySearch(int) const;    // perform a binary search on vector
-        void displayElements() const;   // display vector elements
+class BinarySearch {
+ public:
+    BinarySearch(int);             // constructor initialises vector
+    int binarySearch(int) const;   // perform a binary search on vector
+    void displayElements() const;  // display vector elements
 
-    private:
-        int size;
-        std::vector<int> data;
+ private:
+    int size;
+    std::vector<int> data;
 
-        void displaySubElements(int, int) const;    // display range of values
+    void displaySubElements(int, int) const;  // display range of values
 };
