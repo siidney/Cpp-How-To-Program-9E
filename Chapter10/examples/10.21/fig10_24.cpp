@@ -19,15 +19,15 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Interface i(5);
 
-    std::cout << "Interface contains " << i.getValue()
-              << " before setValue" << std::endl;
+    std::cout << "Interface contains " << i.getValue() << " before setValue"
+              << std::endl;
 
     i.setValue(10);
 
-    std::cout << "Interface contains " << i.getValue()
-              << " after setValue" << std::endl;
+    std::cout << "Interface contains " << i.getValue() << " after setValue"
+              << std::endl;
     return 0;
 }

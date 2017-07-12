@@ -20,7 +20,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Time t;
 
     // cascaded function calls

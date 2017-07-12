@@ -17,16 +17,16 @@
  */
 #include "IntegerSet.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     IntegerSet set1;
     IntegerSet set2;
     IntegerSet set3;
 
-    for(int i=0; i<=100; i+=3){
+    for (int i = 0; i <= 100; i += 3) {
         set1.insertElement(i);
         set3.insertElement(i);
     }
-    for(int i=0; i<=100; i+=2){
+    for (int i = 0; i <= 100; i += 2) {
         set2.insertElement(i);
     }
 
@@ -53,7 +53,8 @@ int main(int argc, const char *argv[]){
     IntegerSet set5;
 
     std::cout << "\n\nset5: " << set5;
-    std::cout << "\nset5.isEmpty() = " << ((set5.isEmpty()) ? "true" : "false") << std::endl;
+    std::cout << "\nset5.isEmpty() = " << ((set5.isEmpty()) ? "true" : "false")
+              << std::endl;
 
     return 0;
 }

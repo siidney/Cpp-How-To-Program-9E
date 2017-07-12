@@ -21,38 +21,36 @@
 
 #include <vector>
 
-class DeckOfCards{
-    public:
-        DeckOfCards();
+class DeckOfCards {
+ public:
+    DeckOfCards();
 
-        void shuffle();
-        Card dealCard();
-        void dealHand();
-        void sortHand();
+    void shuffle();
+    Card dealCard();
+    void dealHand();
+    void sortHand();
 
-        bool moreCards() const;
+    bool moreCards() const;
 
-        void showHand() const;
+    void showHand() const;
 
-        // SCORING FUNCTIONS
-        void getScore();
-        bool hasPair();
-        bool hasTwoPair();
-        bool hasThreeOfKind();
-        bool hasFourOfKind();
-        bool hasFlush();
-        bool hasStraight();
+    // SCORING FUNCTIONS
+    void getScore();
+    bool hasPair();
+    bool hasTwoPair();
+    bool hasThreeOfKind();
+    bool hasFourOfKind();
+    bool hasFlush();
+    bool hasStraight();
 
-    private:
-        const int TOTAL_CARDS = 52;
-        const int HAND_SIZE = 5;
+ private:
+    const int TOTAL_CARDS = 52;
+    const int HAND_SIZE = 5;
 
+    std::vector<Card> deck;
+    std::vector<Card> hand;
 
-        std::vector<Card> deck;
-        std::vector<Card> hand;
+    int currentCard;
 
-        int currentCard;
-
-        bool isSorted;
-
+    bool isSorted;
 };

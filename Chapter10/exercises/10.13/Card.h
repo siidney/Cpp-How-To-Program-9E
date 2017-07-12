@@ -19,24 +19,20 @@
 
 #include <string>
 
-class Card{
-    public:
-        Card(int, int);
+class Card {
+ public:
+    Card(int, int);
 
-        std::string toString() const;
+    std::string toString() const;
 
-        std::string getSuit() const{
-            return suits[suit];
-        }
+    std::string getSuit() const { return suits[suit]; }
 
-        int getFace() const{
-            return face;
-        }
+    int getFace() const { return face; }
 
-    private:
-        static std::string suits[];
-        static std::string faces[];
+ private:
+    static std::string suits[];
+    static std::string faces[];
 
-        int face;
-        int suit;
+    int face;
+    int suit;
 };

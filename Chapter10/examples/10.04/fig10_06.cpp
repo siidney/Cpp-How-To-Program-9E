@@ -19,13 +19,13 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Increment value(10, 5);
 
     std::cout << "Before incrementing: ";
     value.print();
 
-    for(int j=1; j<=3; ++j){
+    for (int j = 1; j <= 3; ++j) {
         value.addIncrement();
 
         std::cout << "After increment " << j << ": ";

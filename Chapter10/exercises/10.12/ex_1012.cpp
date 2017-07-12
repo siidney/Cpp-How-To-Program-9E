@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     DeckOfCards player1;
     DeckOfCards player2;
 
@@ -46,11 +46,11 @@ int main(int argc, const char *argv[]){
     std::cout << "\nPlayer2: ";
     player2.printScore();
 
-    if(player1Score > player2Score){
+    if (player1Score > player2Score) {
         std::cout << "\nPlayer 1 wins\n";
-    }else if(player2Score > player1Score){
+    } else if (player2Score > player1Score) {
         std::cout << "\nPlayer 2 wins\n";
-    }else{
+    } else {
         std::cout << "\nIt's a draw";
     }
 

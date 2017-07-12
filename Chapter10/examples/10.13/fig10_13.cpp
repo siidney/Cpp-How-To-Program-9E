@@ -17,28 +17,24 @@
  */
 #include <iostream>
 
-class Count{
-    friend void setX(Count&, int);
+class Count {
+    friend void setX(Count &, int);
 
-    public:
-        Count() : x(0){}
-        ~Count(){}
+ public:
+    Count() : x(0) {}
+    ~Count() {}
 
-        // output x
-        void print() const{
-            std::cout << x << std::endl;
-        }
+    // output x
+    void print() const { std::cout << x << std::endl; }
 
-    private:
-        int x;
+ private:
+    int x;
 };
 // function setX can modify private data of Count
 // because setX is declared as a friend of Count
-void setX(Count &c, int val){
-    c.x = val;
-}
+void setX(Count &c, int val) { c.x = val; }
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Count counter;
 
     std::cout << "counter.x after instantiation: ";

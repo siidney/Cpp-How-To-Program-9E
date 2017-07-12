@@ -19,17 +19,18 @@
  */
 #pragma once
 
-class Implementation; // forward class declaration require by private declaration
+class Implementation;  // forward class declaration require by private
+                       // declaration
 
-class Interface{
-    public:
-        Interface(int);
-        ~Interface();
+class Interface {
+ public:
+    Interface(int);
+    ~Interface();
 
-        void setValue(int);
-        int getValue() const;
+    void setValue(int);
+    int getValue() const;
 
-    private:
-        // requires forward declaration
-        Implementation *ptr;
+ private:
+    // requires forward declaration
+    Implementation *ptr;
 };

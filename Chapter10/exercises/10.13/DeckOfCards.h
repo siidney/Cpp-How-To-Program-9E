@@ -21,20 +21,20 @@
 
 #include <vector>
 
-class DeckOfCards{
-    public:
-        DeckOfCards();
+class DeckOfCards {
+ public:
+    DeckOfCards();
 
-        static void reset();
+    static void reset();
 
-        static void shuffle();
+    static void shuffle();
 
-        static unsigned int cardsRemaining();
+    static unsigned int cardsRemaining();
 
-    protected:
-        static const unsigned int TOTAL_CARDS = 52;
+ protected:
+    static const unsigned int TOTAL_CARDS = 52;
 
-        static std::vector<Card> deck;
+    static std::vector<Card> deck;
 
-        static unsigned int currentCard;
+    static unsigned int currentCard;
 };

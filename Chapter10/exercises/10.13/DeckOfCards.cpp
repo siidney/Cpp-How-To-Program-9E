@@ -22,22 +22,20 @@
 unsigned int DeckOfCards::currentCard = 0;
 std::vector<Card> DeckOfCards::deck;
 
-DeckOfCards::DeckOfCards(){
-    reset();
-}
-void DeckOfCards::reset(){
-    for(int i=1; i<=4; ++i){
-        for(int j=1; j<=13; ++j){
+DeckOfCards::DeckOfCards() { reset(); }
+void DeckOfCards::reset() {
+    for (int i = 1; i <= 4; ++i) {
+        for (int j = 1; j <= 13; ++j) {
             deck.push_back(Card(j, i));
         }
     }
     currentCard = 0;
     shuffle();
 }
-void DeckOfCards::shuffle(){
+void DeckOfCards::shuffle() {
     std::srand(std::time(0));
 
-    for(unsigned int i=0, r1=0, r2=0; i<TOTAL_CARDS; ++i){
+    for (unsigned int i = 0, r1 = 0, r2 = 0; i < TOTAL_CARDS; ++i) {
         r1 = rand() % TOTAL_CARDS;
         r2 = rand() % TOTAL_CARDS;
 
@@ -45,6 +43,4 @@ void DeckOfCards::shuffle(){
     }
 }
 // returns the number of cards remaning in the deck
-unsigned int DeckOfCards::cardsRemaining(){
-    return TOTAL_CARDS - currentCard;
-}
+unsigned int DeckOfCards::cardsRemaining() { return TOTAL_CARDS - currentCard; }

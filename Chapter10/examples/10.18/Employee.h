@@ -20,19 +20,19 @@
 
 #include <string>
 
-class Employee{
-    public:
-        Employee(const std::string&, const std::string&);
-        ~Employee();
+class Employee {
+ public:
+    Employee(const std::string&, const std::string&);
+    ~Employee();
 
-        std::string getFirstName() const;
-        std::string getLastName() const;
+    std::string getFirstName() const;
+    std::string getLastName() const;
 
-        static int getCount();
+    static int getCount();
 
-    private:
-        std::string firstName;
-        std::string lastName;
+ private:
+    std::string firstName;
+    std::string lastName;
 
-        static int count;
+    static int count;
 };

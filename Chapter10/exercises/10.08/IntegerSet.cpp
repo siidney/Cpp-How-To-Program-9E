@@ -19,26 +19,24 @@
 
 #include <stdexcept>
 
-IntegerSet::IntegerSet(){
-    reset();
-}
-IntegerSet::IntegerSet(int arr[], int size){
+IntegerSet::IntegerSet() { reset(); }
+IntegerSet::IntegerSet(int arr[], int size) {
     reset();
 
-    for(int i=0; i<size; ++i){
-        if(!elementExists(arr[i])){
+    for (int i = 0; i < size; ++i) {
+        if (!elementExists(arr[i])) {
             insertElement(arr[i]);
         }
     }
 }
 // creates a set-theoretic union of two existing IntegerSets
 // element is true if either existing sets is true, false otherwise
-IntegerSet IntegerSet::unionOfSets(IntegerSet& is) const{
+IntegerSet IntegerSet::unionOfSets(IntegerSet& is) const {
     std::vector<int> tmp;
     int count = 0;
 
-    for(int i=0; i<=_limit; ++i){
-        if(is.elementExists(i) || elementExists(i)){
+    for (int i = 0; i <= _limit; ++i) {
+        if (is.elementExists(i) || elementExists(i)) {
             tmp.push_back(i);
             ++count;
         }
@@ -48,14 +46,14 @@ IntegerSet IntegerSet::unionOfSets(IntegerSet& is) const{
 }
 // creates a set-theoretic intersection of two existing IntegerSets
 // element is false if either existing sets is false, true otherwise
-IntegerSet IntegerSet::intersectionOfSets(IntegerSet& is) const{
+IntegerSet IntegerSet::intersectionOfSets(IntegerSet& is) const {
     std::vector<int> tmp;
     int count = 0;
 
-    for(int i=0; i<_limit; ++i){
-        if(!is.elementExists(i) || !elementExists(i)){
+    for (int i = 0; i < _limit; ++i) {
+        if (!is.elementExists(i) || !elementExists(i)) {
             continue;
-        }else{
+        } else {
             tmp.push_back(i);
             ++count;
         }
@@ -64,29 +62,29 @@ IntegerSet IntegerSet::intersectionOfSets(IntegerSet& is) const{
     return IntegerSet(&tmp[0], count);
 }
 // COMPARISON OPERATORS
-bool IntegerSet::operator==(IntegerSet& is) const{
-    for(int i=0; i<_limit; ++i){
-        if(is.elementExists(i) != elementExists(i)){
+bool IntegerSet::operator==(const IntegerSet& is) const {
+    for (int i = 0; i < _limit; ++i) {
+        if (is.elementExists(i) != elementExists(i)) {
             return false;
         }
     }
     return true;
 }
-bool IntegerSet::operator!=(IntegerSet& is) const{
-    for(int i=0; i<_limit; ++i){
-        if(is.elementExists(i) != elementExists(i)){
+bool IntegerSet::operator!=(const IntegerSet& is) const {
+    for (int i = 0; i < _limit; ++i) {
+        if (is.elementExists(i) != elementExists(i)) {
             return true;
         }
     }
     return false;
 }
 // print IntegerSet
-std::ostream& IntegerSet::printSet(std::ostream& out) const{
-    if(isEmpty()){
+std::ostream& IntegerSet::printSet(std::ostream& out) const {
+    if (isEmpty()) {
         out << "---";
-    }else{
-        for(int i=0; i<=_limit; ++i){
-            if(elementExists(i)){
+    } else {
+        for (int i = 0; i <= _limit; ++i) {
+            if (elementExists(i)) {
                 out << i << " ";
             }
         }
@@ -95,36 +93,33 @@ std::ostream& IntegerSet::printSet(std::ostream& out) const{
 }
 // UTILITY FUNCTIONS
 // resets _integerSet to default values
-void IntegerSet::reset(){
-    for(int i=0; i<_limit; ++i){
+void IntegerSet::reset() {
+    for (int i = 0; i < _limit; ++i) {
         _integerSet.push_back(false);
     }
 }
 // inserts an element
-void IntegerSet::insertElement(int el){
-    if(!elementExists(el)){
+void IntegerSet::insertElement(int el) {
+    if (!elementExists(el)) {
         _integerSet[el] = true;
-    }else{
+    } else {
         throw std::invalid_argument("element already exists in set");
     }
-
 }
 // deletes an element
-void IntegerSet::deleteElement(int el){
-    if(elementExists(el)){
+void IntegerSet::deleteElement(int el) {
+    if (elementExists(el)) {
         _integerSet[el] = false;
-    }else{
+    } else {
         throw std::invalid_argument("element does not exist in set");
     }
 }
 // checks for existance of element in _integerSet
-bool IntegerSet::elementExists(int el) const{
-    return _integerSet[el];
-}
+bool IntegerSet::elementExists(int el) const { return _integerSet[el]; }
 // checks whether _integerSet is empty
-bool IntegerSet::isEmpty() const{
-    for(int i=0; i<_limit; ++i){
-        if(elementExists(i)){
+bool IntegerSet::isEmpty() const {
+    for (int i = 0; i < _limit; ++i) {
+        if (elementExists(i)) {
             return false;
         }
     }

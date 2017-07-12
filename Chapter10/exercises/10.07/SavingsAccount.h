@@ -19,22 +19,22 @@
 
 #include <iostream>
 
-class SavingsAccount{
-    public:
-        SavingsAccount(double, double = 0.0f);
+class SavingsAccount {
+ public:
+    explicit SavingsAccount(double, double = 0.0f);
 
-        void calculateMonthlyInterest();
+    void calculateMonthlyInterest();
 
-        static void modifyInterestRate(double);
-        static double getInterestRate();
+    static void modifyInterestRate(double);
+    static double getInterestRate();
 
-        friend std::ostream& operator<<(std::ostream& out, SavingsAccount acc){
-            return acc.printBalance(out);
-        }
+    friend std::ostream& operator<<(std::ostream& out, SavingsAccount acc) {
+        return acc.printBalance(out);
+    }
 
-        std::ostream& printBalance(std::ostream&) const;
+    std::ostream& printBalance(std::ostream&) const;
 
-    private:
-        static double annualInterestRate;
-        double savingsBalance;
+ private:
+    static double annualInterestRate;
+    double savingsBalance;
 };

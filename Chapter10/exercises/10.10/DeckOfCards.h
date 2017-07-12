@@ -21,18 +21,18 @@
 
 #include <vector>
 
-class DeckOfCards{
-    public:
-        DeckOfCards();
+class DeckOfCards {
+ public:
+    DeckOfCards();
 
-        void shuffle();
-        Card dealCard();
-        bool moreCards() const;
+    void shuffle();
+    Card dealCard();
+    bool moreCards() const;
 
-    private:
-        const int TOTAL_CARDS = 52;
+ private:
+    const int TOTAL_CARDS = 52;
 
-        std::vector<Card> deck;
+    std::vector<Card> deck;
 
-        int currentCard;
+    int currentCard;
 };

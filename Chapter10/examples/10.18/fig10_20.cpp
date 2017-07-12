@@ -20,7 +20,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // no objects exist; use class name and binary scope resolution
     // operator to access static member function getCount
     std::cout << "Number of employees before instantiation of any objects is "
@@ -37,11 +37,9 @@ int main(int argc, const char *argv[]){
         std::cout << "Number of employees after objects are instantiated is "
                   << Employee::getCount();
 
-        std::cout << "\n\nEmployee 1: "
-                  << e1.getFirstName() << " " << e1.getLastName()
-                  << "\nEmployee 2: "
-                  << e2.getFirstName() << " " << e2.getLastName() << "\n\n";
-
+        std::cout << "\n\nEmployee 1: " << e1.getFirstName() << " "
+                  << e1.getLastName() << "\nEmployee 2: " << e2.getFirstName()
+                  << " " << e2.getLastName() << "\n\n";
     }
 
     // no objects exist, so call static member function getCount again

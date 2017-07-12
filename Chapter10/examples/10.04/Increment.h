@@ -17,18 +17,16 @@
  */
 #pragma once
 
-class Increment{
-    public:
-        Increment(int c=0, int i=1);
+class Increment {
+ public:
+    Increment(int c = 0, int i = 1);
 
-        // function addIncrement definition
-        void addIncrement(){
-            count += increment;
-        }
-        void print() const;
+    // function addIncrement definition
+    void addIncrement() { count += increment; }
+    void print() const;
 
-    private:
-        int count;
+ private:
+    int count;
 
-        const int increment;
+    const int increment;
 };

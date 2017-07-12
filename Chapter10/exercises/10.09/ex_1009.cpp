@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Time t1(13, 25, 59);
     Time t2(7, 51, 12);
 

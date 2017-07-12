@@ -18,28 +18,28 @@
  */
 #pragma once
 
-class Time{
-    public:
-        Time(int = 0, int = 0, int = 0);
-        ~Time();
+class Time {
+ public:
+    Time(int = 0, int = 0, int = 0);
+    ~Time();
 
-        // SETTERS
-        void setTime(int, int, int);
-        void setHour(int);
-        void setMinute(int);
-        void setSecond(int);
+    // SETTERS
+    void setTime(int, int, int);
+    void setHour(int);
+    void setMinute(int);
+    void setSecond(int);
 
-        // GETTERS
-        int getHour() const;
-        int getMinute() const;
-        int getSecond() const;
+    // GETTERS
+    int getHour() const;
+    int getMinute() const;
+    int getSecond() const;
 
-        // print functions
-        void printUniversal() const;
-        void printStandard() const;
+    // print functions
+    void printUniversal() const;
+    void printStandard() const;
 
-    private:
-        int hour;
-        int minute;
-        int second;
+ private:
+    int hour;
+    int minute;
+    int second;
 };

@@ -17,7 +17,7 @@
  */
 #include "SavingsAccount.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char* argv[]) {
     SavingsAccount saver1(2000.00f);
     SavingsAccount saver2(3000.00f, 0.03f);
     SavingsAccount saver3(5000.00f, -0.12f);
@@ -42,10 +42,10 @@ int main(int argc, const char *argv[]){
     saver2.calculateMonthlyInterest();
     std::cout << "after calculateInterestRate " << saver2 << std::endl;
 
-    try{
+    try {
         SavingsAccount::modifyInterestRate(-0.12f);
-    }catch(std::invalid_argument& e){
-        std::cout << e.what() << std::endl;;
+    } catch (std::invalid_argument& e) {
+        std::cout << e.what() << std::endl;
     }
 
     return 0;

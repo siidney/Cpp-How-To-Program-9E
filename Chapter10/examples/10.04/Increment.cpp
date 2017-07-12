@@ -21,8 +21,9 @@
 
 #include <iostream>
 
-Increment::Increment(int c, int i) : count(c), increment(i){}
+Increment::Increment(int c, int i) : count(c), increment(i) {}
 // print count and increment values
-void Increment::print() const{
-    std::cout << "count = " << count << ", increment = " << increment << std::endl;
+void Increment::print() const {
+    std::cout << "count = " << count << ", increment = " << increment
+              << std::endl;
 }

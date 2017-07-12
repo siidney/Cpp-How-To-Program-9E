@@ -17,62 +17,57 @@
  */
 #pragma once
 
-#include "DeckOfCards.h"
 #include "Card.h"
+#include "DeckOfCards.h"
 
 #include <string>
+#include <vector>
 
-class Hand : public DeckOfCards{
-    public:
-        Hand(bool = false, std::string = "player");
+class Hand : public DeckOfCards {
+ public:
+    explicit Hand(bool = false, std::string = "player");
 
-        void dealHand();
-        Card dealCard();
-        bool moreCards() const;
-        void showHand() const;
-        void sortHand();
+    void dealHand();
+    Card dealCard();
+    bool moreCards() const;
+    void showHand() const;
+    void sortHand();
 
-        void turn();
-        void dealerMove();
-        void playerMove();
+    void turn();
+    void dealerMove();
+    void playerMove();
 
-        bool discard(unsigned int);
-        bool draw(unsigned int);
+    bool discard(unsigned int);
+    bool draw(unsigned int);
 
-        // SCORING FUNCTIONS
-        int scoreHand();
-        std::string getScore();
-        bool hasPair() const;
-        bool hasTwoPair() const;
-        bool hasThreeOfKind() const;
-        bool hasFourOfKind() const;
-        bool hasFlush() const;
-        bool hasStraight();
+    // SCORING FUNCTIONS
+    int scoreHand();
+    std::string getScore();
+    bool hasPair() const;
+    bool hasTwoPair() const;
+    bool hasThreeOfKind() const;
+    bool hasFourOfKind() const;
+    bool hasFlush() const;
+    bool hasStraight();
 
-        bool isDealer() const{
-            return dealer;
-        }
+    bool isDealer() const { return dealer; }
 
-        std::string getName() const{
-            return name;
-        }
+    std::string getName() const { return name; }
 
-        int getNumScore(){
-            return score;
-        }
-        void reset();
+    int getNumScore() { return score; }
+    void reset();
 
-    private:
-        const unsigned int MAX_DISCARD = 3;
-        const unsigned int HAND_SIZE = 5;
+ private:
+    const unsigned int MAX_DISCARD = 3;
+    const unsigned int HAND_SIZE = 5;
 
-        std::string name;
+    std::string name;
 
-        std::vector<Card> hand;
+    std::vector<Card> hand;
 
-        int score;
+    int score;
 
-        bool isSorted;
-        bool dealer;
-        bool handScored;
+    bool isSorted;
+    bool dealer;
+    bool handScored;
 };

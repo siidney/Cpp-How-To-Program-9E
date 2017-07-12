@@ -18,20 +18,20 @@
  */
 #include <iostream>
 
-class Test{
-    public:
-        Test(int = 0);
+class Test {
+ public:
+    Test(int = 0);
 
-        void print() const;
+    void print() const;
 
-    private:
-        int x;
+ private:
+    int x;
 };
 
 // constructor
-Test::Test(int value) : x(value){}
+Test::Test(int value) : x(value) {}
 
-void Test::print() const{
+void Test::print() const {
     // implicitly use the this pointer to access the member x
     std::cout << "        x = " << x;
 
@@ -44,7 +44,7 @@ void Test::print() const{
     std::cout << "\n(*this).x = " << (*this).x << std::endl;
 }
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Test testObject(12);
 
     testObject.print();

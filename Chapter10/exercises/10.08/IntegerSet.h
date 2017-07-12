@@ -20,33 +20,33 @@
 #include <iostream>
 #include <vector>
 
-class IntegerSet{
-    public:
-        IntegerSet();
-        IntegerSet(int[], int);
+class IntegerSet {
+ public:
+    IntegerSet();
+    IntegerSet(int[], int);
 
-        // COMMON SET OPERATIONS
-        IntegerSet unionOfSets(IntegerSet&) const;
-        IntegerSet intersectionOfSets(IntegerSet&) const;
-        bool operator==(IntegerSet&) const;
-        bool operator!=(IntegerSet&) const;
+    // COMMON SET OPERATIONS
+    IntegerSet unionOfSets(IntegerSet&) const;
+    IntegerSet intersectionOfSets(IntegerSet&) const;
+    bool operator==(const IntegerSet&) const;
+    bool operator!=(const IntegerSet&) const;
 
-        // UTILITY FUNCTIONS
-        void insertElement(int);
-        void deleteElement(int);
-        bool elementExists(int) const;
-        bool isEmpty() const;
+    // UTILITY FUNCTIONS
+    void insertElement(int);
+    void deleteElement(int);
+    bool elementExists(int) const;
+    bool isEmpty() const;
 
-        friend std::ostream& operator<<(std::ostream& out, IntegerSet& is){
-            return is.printSet(out);
-        }
+    friend std::ostream& operator<<(std::ostream& out, IntegerSet& is) {
+        return is.printSet(out);
+    }
 
-        std::ostream& printSet(std::ostream&) const;
+    std::ostream& printSet(std::ostream&) const;
 
-    private:
-        static const int _limit = 101;
+ private:
+    static const int _limit = 101;
 
-        std::vector<bool> _integerSet;
+    std::vector<bool> _integerSet;
 
-        void reset();
+    void reset();
 };

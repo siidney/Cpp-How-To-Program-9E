@@ -15,29 +15,27 @@
  *
  * =====================================================================================
  */
-#include "DeckOfCards.h"
 #include "Poker.h"
+#include "DeckOfCards.h"
 
 #include <iostream>
 #include <string>
 
-Poker::Poker() : running(true){
-    players.push_back(Hand(true));
-}
-void Poker::go(){
+Poker::Poker() : running(true) { players.push_back(Hand(true)); }
+void Poker::go() {
     setPlayers();
 
-    while(running){
+    while (running) {
         processTurns();
         showResult();
 
         running = playAgain();
 
         // reinitialise and reshuffle deck
-        if(running){
+        if (running) {
             DeckOfCards::reset();
 
-            for(unsigned int i=0; i<players.size(); ++i){
+            for (unsigned int i = 0; i < players.size(); ++i) {
                 players[i].reset();
             }
 
@@ -45,45 +43,45 @@ void Poker::go(){
         }
     }
 }
-void Poker::setPlayers(){
+void Poker::setPlayers() {
     std::string name;
 
     std::cout << "Enter number of players: ";
     std::cin >> numPlayers;
 
-    if(numPlayers == 0){
+    if (numPlayers == 0) {
         std::cout << "Exiting..." << std::endl;
         running = !running;
     }
 
-    for(unsigned int i=0; i<numPlayers; ++i){
-        std::cout << "Enter player " << i+1 << " name: ";
+    for (unsigned int i = 0; i < numPlayers; ++i) {
+        std::cout << "Enter player " << i + 1 << " name: ";
         std::cin >> name;
 
         players.push_back(Hand(false, name));
     }
 }
-void Poker::processTurns(){
-    for(unsigned int i=0; i<players.size(); ++i){
+void Poker::processTurns() {
+    for (unsigned int i = 0; i < players.size(); ++i) {
         std::cout << "\n==========\n"
                   << players[i].getName() << " turn"
                   << "\n==========\n\n";
 
-        if(!players[i].isDealer()){
+        if (!players[i].isDealer()) {
             players[i].showHand();
             printf("\n");
         }
 
         players[i].turn();
 
-        if(!players[i].isDealer()){
+        if (!players[i].isDealer()) {
             std::cout << "\nFinal Hand\n**********\n";
             players[i].showHand();
             printf("**********\n");
         }
     }
 }
-void Poker::showResult(){
+void Poker::showResult() {
     std::cout << "\n==========\n"
               << "RESULTS\n"
               << "==========\n";
@@ -91,21 +89,22 @@ void Poker::showResult(){
     int winner = 0;
     int high = 0;
 
-    for(unsigned int i=0; i<players.size(); ++i){
-        std::cout << players[i].getName() << ": " << players[i].getScore() << "\n";
+    for (unsigned int i = 0; i < players.size(); ++i) {
+        std::cout << players[i].getName() << ": " << players[i].getScore()
+                  << "\n";
 
         printf("\n");
         players[i].showHand();
         printf("\n");
 
-        if(players[i].getNumScore() > high){
+        if (players[i].getNumScore() > high) {
             high = players[i].getNumScore();
             winner = i;
         }
     }
     std::cout << "***** " << players[winner].getName() << " WINS!!! *****\n";
 }
-bool Poker::playAgain(){
+bool Poker::playAgain() {
     int choice = 0;
     std::cout << "1. Play again\n2. Exit\n> ";
     std::cin >> choice;

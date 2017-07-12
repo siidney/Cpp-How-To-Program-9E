@@ -21,21 +21,21 @@
 
 #include <vector>
 
-class Poker{
-    public:
-        Poker();
+class Poker {
+ public:
+    Poker();
 
-        void go();
+    void go();
 
-    private:
-        unsigned int numPlayers;
+ private:
+    unsigned int numPlayers;
 
-        bool running;
+    bool running;
 
-        std::vector<Hand> players;
+    std::vector<Hand> players;
 
-        void setPlayers();
-        void processTurns();
-        void showResult();
-        bool playAgain();
+    void setPlayers();
+    void processTurns();
+    void showResult();
+    bool playAgain();
 };
