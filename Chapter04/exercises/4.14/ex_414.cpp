@@ -17,10 +17,10 @@
  */
 #include "CreditLimits.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     CreditLimits cl;
 
-    while(cl.getAccountNumber() != -1){
+    while (cl.getAccountNumber() != -1) {
         cl.run();
     }
     return 0;

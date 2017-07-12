@@ -17,24 +17,20 @@
  */
 #include "SalesCommissionCalculator.h"
 
-SalesCommissionCalculator::SalesCommissionCalculator(){}
-SalesCommissionCalculator::~SalesCommissionCalculator(){}
+SalesCommissionCalculator::SalesCommissionCalculator() {}
+SalesCommissionCalculator::~SalesCommissionCalculator() {}
 
 // SETTERS
-void SalesCommissionCalculator::setWeeklySales(double sales){
+void SalesCommissionCalculator::setWeeklySales(double sales) {
     weeklySales = sales;
 }
-void SalesCommissionCalculator::setWeeklyEarnings(){
+void SalesCommissionCalculator::setWeeklyEarnings() {
     weeklyEarnings = BASEPAY + (getWeeklySales() * COMMISSION);
 }
 // GETTERS
-double SalesCommissionCalculator::getWeeklySales(){
-    return weeklySales;
-}
-double SalesCommissionCalculator::getWeeklyEarnings(){
-    return weeklyEarnings;
-}
-void SalesCommissionCalculator::run(){
+double SalesCommissionCalculator::getWeeklySales() { return weeklySales; }
+double SalesCommissionCalculator::getWeeklyEarnings() { return weeklyEarnings; }
+void SalesCommissionCalculator::run() {
     double dtmp = 0.0f;
 
     std::cout << "Enter sales in dollars (-1 to end): ";
@@ -42,7 +38,7 @@ void SalesCommissionCalculator::run(){
 
     setWeeklySales(dtmp);
 
-    if(getWeeklySales() != -1){
+    if (getWeeklySales() != -1) {
         setWeeklyEarnings();
 
         std::cout << "Salary is: $" << getWeeklyEarnings() << std::endl;

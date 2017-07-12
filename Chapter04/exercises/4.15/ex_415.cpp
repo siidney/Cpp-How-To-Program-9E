@@ -17,10 +17,10 @@
  */
 #include "SalesCommissionCalculator.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     SalesCommissionCalculator scc;
 
-    while(scc.getWeeklySales() != -1){
+    while (scc.getWeeklySales() != -1) {
         scc.run();
     }
     return 0;

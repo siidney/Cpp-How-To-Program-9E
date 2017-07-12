@@ -17,26 +17,22 @@
  */
 #include "FindTheLargest.h"
 
-FindTheLargest::FindTheLargest(){}
-FindTheLargest::~FindTheLargest(){}
+FindTheLargest::FindTheLargest() {}
+FindTheLargest::~FindTheLargest() {}
 
 // SETTERS
-void FindTheLargest::setLargest(double l){
-    largest = l;
-}
+void FindTheLargest::setLargest(double l) { largest = l; }
 // GETTERS
-double FindTheLargest::getLargest(){
-    return largest;
-}
+double FindTheLargest::getLargest() { return largest; }
 
-void FindTheLargest::run(){
+void FindTheLargest::run() {
     std::cout << "Program to find the largest of 10 numbers\n" << std::endl;
 
-    while(counter < 10){
+    while (counter < 10) {
         std::cout << "Enter number: (" << (10 - counter) << " remaining): ";
         std::cin >> number;
 
-        if(number > getLargest()){
+        if (number > getLargest()) {
             setLargest(number);
         }
 
@@ -45,4 +41,3 @@ void FindTheLargest::run(){
 
     std::cout << "Largest Number is: " << getLargest() << std::endl;
 }
-

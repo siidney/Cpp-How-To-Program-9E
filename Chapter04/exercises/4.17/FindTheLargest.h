@@ -19,22 +19,21 @@
 
 #include <iostream>
 
-class FindTheLargest{
-    private:
-        int counter     = 0;
-        double number   = 0;
-        double largest  = 0;
+class FindTheLargest {
+ private:
+    int counter = 0;
+    double number = 0;
+    double largest = 0;
 
-    public:
-        FindTheLargest();
-        ~FindTheLargest();
+ public:
+    FindTheLargest();
+    ~FindTheLargest();
 
-        // SETTERS
-        void setLargest(double);
+    // SETTERS
+    void setLargest(double);
 
-        // GETTERS
-        double getLargest();
+    // GETTERS
+    double getLargest();
 
-        void run();
-
+    void run();
 };

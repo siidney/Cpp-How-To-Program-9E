@@ -17,10 +17,10 @@
  */
 #include "SalaryCalculator.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     SalaryCalculator sc;
 
-    while(sc.getHoursWorked() != -1){
+    while (sc.getHoursWorked() != -1) {
         sc.run();
     }
     return 0;

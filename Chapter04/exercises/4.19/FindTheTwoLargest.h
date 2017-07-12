@@ -19,24 +19,24 @@
 
 #include <iostream>
 
-class FindTheTwoLargest{
-    private:
-        int counter     = 0.0f;
-        double number   = 0.0f;
-        double fLargest = 0.0f;
-        double sLargest = 0.0f;
+class FindTheTwoLargest {
+ private:
+    int counter = 0.0f;
+    double number = 0.0f;
+    double fLargest = 0.0f;
+    double sLargest = 0.0f;
 
-    public:
-        FindTheTwoLargest();
-        ~FindTheTwoLargest();
+ public:
+    FindTheTwoLargest();
+    ~FindTheTwoLargest();
 
-        // SETTERS
-        void set1STLargest(double);
-        void set2NDLargest(double);
+    // SETTERS
+    void set1STLargest(double);
+    void set2NDLargest(double);
 
-        // GETTERS
-        double get1STLargest();
-        double get2NDLargest();
+    // GETTERS
+    double get1STLargest();
+    double get2NDLargest();
 
-        void run();
+    void run();
 };

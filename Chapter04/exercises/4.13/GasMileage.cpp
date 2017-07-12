@@ -17,54 +17,43 @@
  */
 #include "GasMileage.h"
 
-GasMileage::GasMileage(){}
+GasMileage::GasMileage() {}
 
 // SETTERS
-void GasMileage::setMilesDriven(){
+void GasMileage::setMilesDriven() {
     milesDriven = 0.0f;
 
     std::cout << "Enter miles driven (-1 to quit): ";
     std::cin >> milesDriven;
 }
-void GasMileage::setGallonsUsed(){
+void GasMileage::setGallonsUsed() {
     gallonsUsed = 0.0f;
 
     std::cout << "Enter gallons used: ";
     std::cin >> gallonsUsed;
 }
-void GasMileage::setTripMPG(){
+void GasMileage::setTripMPG() {
     tripMPG = 0.0f;
 
     tripMPG = (getMilesDriven() / getGallonsUsed());
 }
-void GasMileage::setTotalMPG(){
-    totalMPG += getTripMPG();
-}
+void GasMileage::setTotalMPG() { totalMPG += getTripMPG(); }
 
 // GETTERS
-double GasMileage::getMilesDriven(){
-    return milesDriven;
-}
-double GasMileage::getGallonsUsed(){
-    return gallonsUsed;
-}
-double GasMileage::getTripMPG(){
-    return tripMPG;
-}
-double GasMileage::getTotalMPG(){
-    return totalMPG;
-}
+double GasMileage::getMilesDriven() { return milesDriven; }
+double GasMileage::getGallonsUsed() { return gallonsUsed; }
+double GasMileage::getTripMPG() { return tripMPG; }
+double GasMileage::getTotalMPG() { return totalMPG; }
 
-void GasMileage::run(){
+void GasMileage::run() {
     setMilesDriven();
 
-    if(getMilesDriven() != -1){
+    if (getMilesDriven() != -1) {
         setGallonsUsed();
         setTripMPG();
         setTotalMPG();
 
         std::cout << "MPG this trip: " << getTripMPG() << std::endl;
         std::cout << "Total MPG: " << getTotalMPG() << std::endl;
-
     }
 }

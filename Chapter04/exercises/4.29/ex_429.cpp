@@ -17,10 +17,10 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int num = 2;
 
-    while(true){
+    while (true) {
         std::cout << num << std::endl;
         num *= 2;
     }

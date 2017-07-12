@@ -19,27 +19,27 @@
 
 #include <iostream>
 
-class GasMileage{
-    private:
-        double milesDriven  = 0.0f;
-        double gallonsUsed  = 0.0f;
-        double tripMPG      = 0.0f;
-        double totalMPG     = 0.0f;
+class GasMileage {
+ private:
+    double milesDriven = 0.0f;
+    double gallonsUsed = 0.0f;
+    double tripMPG = 0.0f;
+    double totalMPG = 0.0f;
 
-    public:
-        GasMileage();
+ public:
+    GasMileage();
 
-        // SETTERS
-        void setMilesDriven();
-        void setGallonsUsed();
-        void setTripMPG();
-        void setTotalMPG();
+    // SETTERS
+    void setMilesDriven();
+    void setGallonsUsed();
+    void setTripMPG();
+    void setTotalMPG();
 
-        // GETTERS
-        double getMilesDriven();
-        double getGallonsUsed();
-        double getTripMPG();
-        double getTotalMPG();
+    // GETTERS
+    double getMilesDriven();
+    double getGallonsUsed();
+    double getTripMPG();
+    double getTotalMPG();
 
-        void run();
+    void run();
 };

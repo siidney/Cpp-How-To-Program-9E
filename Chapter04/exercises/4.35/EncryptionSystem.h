@@ -19,29 +19,29 @@
 
 #include <iostream>
 
-class EncryptionSystem{
-    private:
-        int plainPassCode   = 0;
-        int encPassCode     = 0;
+class EncryptionSystem {
+ private:
+    int plainPassCode = 0;
+    int encPassCode = 0;
 
-        // SETTERS
-        bool setPlainPass(int);
-        void setEncPass(int);
+    // SETTERS
+    bool setPlainPass(int);
+    void setEncPass(int);
 
-        bool validatePlainPass(int);
+    bool validatePlainPass(int);
 
-        int swapDigits(int);
-        void clearPlainPass();
-        void clearEncPass();
+    int swapDigits(int);
+    void clearPlainPass();
+    void clearEncPass();
 
-    public:
-        EncryptionSystem();
-        ~EncryptionSystem();
+ public:
+    EncryptionSystem();
+    ~EncryptionSystem();
 
-        // GETTERS
-        int getPlainPass();
-        int getEncPass();
+    // GETTERS
+    int getPlainPass();
+    int getEncPass();
 
-        bool encrypt(int);
-        int decrypt(int = 0);
+    bool encrypt(int);
+    int decrypt(int = 0);
 };

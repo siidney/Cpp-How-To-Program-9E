@@ -17,42 +17,36 @@
  */
 #include "SalaryCalculator.h"
 
-SalaryCalculator::SalaryCalculator(){}
-SalaryCalculator::~SalaryCalculator(){}
+SalaryCalculator::SalaryCalculator() {}
+SalaryCalculator::~SalaryCalculator() {}
 
 // SETTERS
-void SalaryCalculator::setHoursWorked(double hw){
+void SalaryCalculator::setHoursWorked(double hw) {
     hoursWorked = (hw > 0.0f) ? hw : -1;
 }
-void SalaryCalculator::setHourlyRate(double rate){
-    hourlyRate = rate;
-}
+void SalaryCalculator::setHourlyRate(double rate) { hourlyRate = rate; }
 // GETTERS
-double SalaryCalculator::getHoursWorked(){
-    return hoursWorked;
-}
-double SalaryCalculator::getHourlyRate(){
-    return hourlyRate;
-}
-double SalaryCalculator::getSalary(){
-    if(getHoursWorked() > BASE_HOURS){
+double SalaryCalculator::getHoursWorked() { return hoursWorked; }
+double SalaryCalculator::getHourlyRate() { return hourlyRate; }
+double SalaryCalculator::getSalary() {
+    if (getHoursWorked() > BASE_HOURS) {
         double overtime = getHoursWorked() - BASE_HOURS;
         double overtimePay = getHourlyRate() + (getHourlyRate() * 0.5);
 
         return (BASE_HOURS * getHourlyRate()) + (overtime * overtimePay);
-    }else{
+    } else {
         return getHoursWorked() * getHourlyRate();
     }
 }
 
-void SalaryCalculator::run(){
+void SalaryCalculator::run() {
     double dtmp = 0.0f;
 
     std::cout << "Enter hours worked (-1 to end): ";
     std::cin >> dtmp;
     setHoursWorked(dtmp);
 
-    if(dtmp != -1){
+    if (dtmp != -1) {
         std::cout << "Enter hourly rate of the employee ($00.00): ";
         std::cin >> dtmp;
         setHourlyRate(dtmp);

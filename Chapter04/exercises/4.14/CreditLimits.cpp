@@ -18,72 +18,57 @@
 
 #include "CreditLimits.h"
 
-CreditLimits::CreditLimits(){}
-CreditLimits::~CreditLimits(){}
+CreditLimits::CreditLimits() {}
+CreditLimits::~CreditLimits() {}
 
 // SETTERS
-void CreditLimits::setAccountNumber(int accNo){
-    accountNumber = accNo;
-}
-void CreditLimits::setBeginningBalance(double startBalance){
+void CreditLimits::setAccountNumber(int accNo) { accountNumber = accNo; }
+void CreditLimits::setBeginningBalance(double startBalance) {
     beginningBalance = startBalance;
 }
-void CreditLimits::setNewBalance(){
-    newBalance = (getBeginningBalance() + getTotalMonthCharges()) - getTotalMonthCredit();
+void CreditLimits::setNewBalance() {
+    newBalance = (getBeginningBalance() + getTotalMonthCharges()) -
+                 getTotalMonthCredit();
 }
-void CreditLimits::setTotalMonthCharges(double totalCharges){
+void CreditLimits::setTotalMonthCharges(double totalCharges) {
     totalMonthCharges = totalCharges;
 }
-void CreditLimits::setTotalMonthCredit(double totalCredit){
+void CreditLimits::setTotalMonthCredit(double totalCredit) {
     totalMonthCredit = totalCredit;
 }
-void CreditLimits::setCreditLimit(double limit){
-    creditLimit = limit;
-}
+void CreditLimits::setCreditLimit(double limit) { creditLimit = limit; }
 
 // GETTERS
-int CreditLimits::getAccountNumber(){
-    return accountNumber;
-}
-double CreditLimits::getBeginningBalance(){
-    return beginningBalance;
-}
-double CreditLimits::getNewBalance(){
-    return newBalance;
-}
-double CreditLimits::getTotalMonthCharges(){
-    return totalMonthCharges;
-}
-double CreditLimits::getTotalMonthCredit(){
-    return totalMonthCredit;
-}
-double CreditLimits::getCreditLimit(){
-    return creditLimit;
-}
+int CreditLimits::getAccountNumber() { return accountNumber; }
+double CreditLimits::getBeginningBalance() { return beginningBalance; }
+double CreditLimits::getNewBalance() { return newBalance; }
+double CreditLimits::getTotalMonthCharges() { return totalMonthCharges; }
+double CreditLimits::getTotalMonthCredit() { return totalMonthCredit; }
+double CreditLimits::getCreditLimit() { return creditLimit; }
 // determine if credit limit is exceeded
-bool CreditLimits::isCreditLimitExceeded(){
+bool CreditLimits::isCreditLimitExceeded() {
     return (getCreditLimit() - getNewBalance() < 0) ? true : false;
 }
 // print account information
-void CreditLimits::printInfo(){
+void CreditLimits::printInfo() {
     std::cout << "Account: " << getAccountNumber() << std::endl;
     std::cout << "Credit limit: " << getCreditLimit() << std::endl;
     std::cout << "Balance: " << getNewBalance() << std::endl;
 
-    if(isCreditLimitExceeded()){
+    if (isCreditLimitExceeded()) {
         std::cout << "Credit Limit Exceeded." << std::endl;
     }
 }
 // gather account information
-void CreditLimits::run(){
+void CreditLimits::run() {
     int itmp;
-    double dtmp;
-
     std::cout << "Enter account number (or -1 to quit): ";
     std::cin >> itmp;
     setAccountNumber(itmp);
 
-    if(getAccountNumber() != -1){
+    if (getAccountNumber() != -1) {
+        double dtmp;
+
         std::cout << "Enter beginning balance: ";
         std::cin >> dtmp;
         setBeginningBalance(dtmp);

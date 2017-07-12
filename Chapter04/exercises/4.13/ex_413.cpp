@@ -17,10 +17,10 @@
  */
 #include "GasMileage.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     GasMileage gm;
 
-    while(gm.getMilesDriven() != -1){
+    while (gm.getMilesDriven() != -1) {
         gm.run();
     }
 

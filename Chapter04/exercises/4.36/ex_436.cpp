@@ -17,13 +17,13 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <stdio.h>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
-    long long int basePopulation   = 7432663275;
-    long long int population       = basePopulation;
-    long long int increase         = 0;
+int main(int argc, const char *argv[]) {
+    long long int basePopulation = 7432663275;
+    long long int population = basePopulation;
+    long long int increase = 0;
 
     double growthRate = 0.0113f;
     int sample = 0;
@@ -36,14 +36,12 @@ int main(int argc, const char *argv[]){
 
     printf("Year\t\tPopulation\t\tIncrease\n");
 
-    for(int i=1; i<=sample; i++){
+    for (int i = 1; i <= sample; i++) {
         increase = population * growthRate;
 
-        printf("%d\t\t%lld\t\t%lld%s\n",
-                i,
-                population,
-                increase,
-                (population > basePopulation * 2) ? " - Population Doubled" : "");
+        printf(
+            "%d\t\t%lld\t\t%lld%s\n", i, population, increase,
+            (population > basePopulation * 2) ? " - Population Doubled" : "");
 
         population += increase;
     }

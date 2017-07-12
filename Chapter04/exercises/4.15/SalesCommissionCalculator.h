@@ -19,25 +19,25 @@
 
 #include <iostream>
 
-class SalesCommissionCalculator{
-    private:
-        const double COMMISSION = 0.09f;
-        const double BASEPAY    = 200.0f;
+class SalesCommissionCalculator {
+ private:
+    const double COMMISSION = 0.09f;
+    const double BASEPAY = 200.0f;
 
-        double weeklySales      = 0.0f;
-        double weeklyEarnings   = 0.0f;
+    double weeklySales = 0.0f;
+    double weeklyEarnings = 0.0f;
 
-    public:
-        SalesCommissionCalculator();
-        ~SalesCommissionCalculator();
+ public:
+    SalesCommissionCalculator();
+    ~SalesCommissionCalculator();
 
-        // SETTERS
-        void setWeeklySales(double);
-        void setWeeklyEarnings();
+    // SETTERS
+    void setWeeklySales(double);
+    void setWeeklyEarnings();
 
-        // GETTERS
-        double getWeeklySales();
-        double getWeeklyEarnings();
+    // GETTERS
+    double getWeeklySales();
+    double getWeeklyEarnings();
 
-        void run();
+    void run();
 };

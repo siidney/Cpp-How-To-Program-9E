@@ -19,37 +19,37 @@
 
 #include <iostream>
 
-class CreditLimits{
-    private:
-        int accountNumber           = 0;
-        double beginningBalance     = 0.0f;
-        double newBalance           = 0.0f;
-        double totalMonthCharges    = 0.0f;
-        double totalMonthCredit     = 0.0f;
-        double creditLimit          = 0.0f;
+class CreditLimits {
+ private:
+    int accountNumber = 0;
+    double beginningBalance = 0.0f;
+    double newBalance = 0.0f;
+    double totalMonthCharges = 0.0f;
+    double totalMonthCredit = 0.0f;
+    double creditLimit = 0.0f;
 
-    public:
-        CreditLimits();
-        ~CreditLimits();
+ public:
+    CreditLimits();
+    ~CreditLimits();
 
-        // SETTERS
-        void setAccountNumber(int);
-        void setBeginningBalance(double);
-        void setNewBalance();
-        void setTotalMonthCharges(double);
-        void setTotalMonthCredit(double);
-        void setCreditLimit(double);
+    // SETTERS
+    void setAccountNumber(int);
+    void setBeginningBalance(double);
+    void setNewBalance();
+    void setTotalMonthCharges(double);
+    void setTotalMonthCredit(double);
+    void setCreditLimit(double);
 
-        // GETTERS
-        int getAccountNumber();
-        double getBeginningBalance();
-        double getNewBalance();
-        double getTotalMonthCharges();
-        double getTotalMonthCredit();
-        double getCreditLimit();
+    // GETTERS
+    int getAccountNumber();
+    double getBeginningBalance();
+    double getNewBalance();
+    double getTotalMonthCharges();
+    double getTotalMonthCredit();
+    double getCreditLimit();
 
-        bool isCreditLimitExceeded();
+    bool isCreditLimitExceeded();
 
-        void run();
-        void printInfo();
+    void run();
+    void printInfo();
 };

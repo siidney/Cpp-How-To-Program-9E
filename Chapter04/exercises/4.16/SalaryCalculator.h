@@ -19,25 +19,25 @@
 
 #include <iostream>
 
-class SalaryCalculator{
-    private:
-        const double BASE_HOURS = 40.0f;
+class SalaryCalculator {
+ private:
+    const double BASE_HOURS = 40.0f;
 
-        double hoursWorked  = 0.0f;
-        double hourlyRate   = 0.0f;
+    double hoursWorked = 0.0f;
+    double hourlyRate = 0.0f;
 
-    public:
-        SalaryCalculator();
-        ~SalaryCalculator();
+ public:
+    SalaryCalculator();
+    ~SalaryCalculator();
 
-        // SETTERS
-        void setHoursWorked(double);
-        void setHourlyRate(double);
+    // SETTERS
+    void setHoursWorked(double);
+    void setHourlyRate(double);
 
-        // GETTERS
-        double getHoursWorked();
-        double getHourlyRate();
-        double getSalary();
+    // GETTERS
+    double getHoursWorked();
+    double getHourlyRate();
+    double getSalary();
 
-        void run();
+    void run();
 };

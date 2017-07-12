@@ -17,33 +17,25 @@
  */
 #include "FindTheTwoLargest.h"
 
-FindTheTwoLargest::FindTheTwoLargest(){}
-FindTheTwoLargest::~FindTheTwoLargest(){}
+FindTheTwoLargest::FindTheTwoLargest() {}
+FindTheTwoLargest::~FindTheTwoLargest() {}
 
 // SETTERS
-void FindTheTwoLargest::set1STLargest(double num){
-    fLargest = num;
-}
-void FindTheTwoLargest::set2NDLargest(double num){
-    sLargest = num;
-}
+void FindTheTwoLargest::set1STLargest(double num) { fLargest = num; }
+void FindTheTwoLargest::set2NDLargest(double num) { sLargest = num; }
 
 // GETTERS
-double FindTheTwoLargest::get1STLargest(){
-    return fLargest;
-}
-double FindTheTwoLargest::get2NDLargest(){
-    return sLargest;
-}
+double FindTheTwoLargest::get1STLargest() { return fLargest; }
+double FindTheTwoLargest::get2NDLargest() { return sLargest; }
 
-void FindTheTwoLargest::run(){
+void FindTheTwoLargest::run() {
     std::cout << "Find the two largest numbers from 10" << std::endl;
 
-    while(counter < 10){
+    while (counter < 10) {
         std::cout << "Enter number (" << 10 - counter << " remaining): ";
         std::cin >> number;
 
-        if(number > get1STLargest()){
+        if (number > get1STLargest()) {
             set2NDLargest(get1STLargest());
             set1STLargest(number);
         }

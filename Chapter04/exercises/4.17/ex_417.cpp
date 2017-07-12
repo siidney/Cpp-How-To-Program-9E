@@ -17,7 +17,7 @@
  */
 #include "FindTheLargest.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     FindTheLargest ftl;
 
     ftl.run();
