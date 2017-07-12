@@ -19,7 +19,7 @@
  */
 void f(const int *);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int y;
 
     f(&y);
@@ -27,6 +27,6 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // xPtr cannot modify the value of constant variable to which it points
-void f(const int *xPtr){
-    *xPtr = 100;    // error: cannot modify a const object
+void f(const int *xPtr) {
+    *xPtr = 100;  // error: cannot modify a const object
 }

@@ -21,16 +21,17 @@
 /*
  * Program Entry Point
  */
-void Simpletron::go(){
+void Simpletron::go() {
     printGreeting();
 
-    while(true){
-        std::cout << std::setw(2) << std::setfill('0') << instructionCounter++ << " ? ";
+    while (true) {
+        std::cout << std::setw(2) << std::setfill('0') << instructionCounter++
+                  << " ? ";
         std::cin >> instructionRegister;
 
-        if(instructionRegister == -99999){
+        if (instructionRegister == -99999) {
             break;
-        }else if(instructionRegister > 9999 || instructionRegister < -9999){
+        } else if (instructionRegister > 9999 || instructionRegister < -9999) {
             --instructionCounter;
             continue;
         }
@@ -44,27 +45,29 @@ void Simpletron::go(){
     ptrReg = &reg[0];
 
     std::cout << std::setw(0) << "\n*** Program loading completed ***"
-              << "\n*** Program execution begins ***\n" << std::endl;
+              << "\n*** Program execution begins ***\n"
+              << std::endl;
 
     runProgram();
 }
 /*
  * Prints greeting on program execution
  */
-void Simpletron::printGreeting(){
-    std::cout <<  "*** Welcome to Simpletron! ***"
+void Simpletron::printGreeting() {
+    std::cout << "*** Welcome to Simpletron! ***"
               << "\n\n*** Please enter your program one instruction ***"
               << "\n*** (or data word) at a time. I will type the ***"
               << "\n*** location number and a question mark(?). ***"
               << "\n*** You then type the word for that instructionCounter. ***"
               << "\n*** Type the sentinel -99999 to stop entering ***"
-              << "\n*** your program. ***\n" << std::endl;
+              << "\n*** your program. ***\n"
+              << std::endl;
 }
 /*
  * Loops over register until exit condition is met
  */
-void Simpletron::runProgram(){
-    while(operationCode != HALT){
+void Simpletron::runProgram() {
+    while (operationCode != HALT) {
         instructionRegister = *(ptrReg++);
 
         processInstruction();
@@ -73,12 +76,12 @@ void Simpletron::runProgram(){
 /*
  * Processes Simpletron instructions
  */
-void Simpletron::processInstruction(){
+void Simpletron::processInstruction() {
     // seperate word
     operand = instructionRegister % 100;
     operationCode = instructionRegister / 100;
 
-    switch(operationCode){
+    switch (operationCode) {
         // read int from keyboard into operand
         case READ:
             std::cout << "> ";
@@ -103,7 +106,8 @@ void Simpletron::processInstruction(){
             std::cout << "> ";
             std::cin >> val;
 
-            std::cout << val << " " << (int)val << " " << (val -  (int)val)*100 << std::endl;
+            std::cout << val << " " << static_cast<int>(val) << " "
+                      << (val - static_cast<int>(val)) * 100 << std::endl;
 
             break;
         // write a float
@@ -114,7 +118,7 @@ void Simpletron::processInstruction(){
             std::cin.ignore();
 
             std::cout << "> ";
-            std::getline (std::cin, simpleString);
+            std::getline(std::cin, simpleString);
 
             processString(operand);
 
@@ -125,10 +129,11 @@ void Simpletron::processInstruction(){
 
             len = *ptrRegS % 100;
 
-            printf("%c", *(ptrRegS++) % 100); // print first char
+            printf("%c", *(ptrRegS++) % 100);  // print first char
 
-            for(int i=operand+1; i<=operand+(len/2) && *ptrRegS != '\0'; ++i, ptrRegS++){
-                printf("%c%c", *ptrRegS / 100 , *ptrRegS % 100);
+            for (int i = operand + 1;
+                 i <= operand + (len / 2) && *ptrRegS != '\0'; ++i, ptrRegS++) {
+                printf("%c%c", *ptrRegS / 100, *ptrRegS % 100);
             }
             std::cout << std::endl;
 
@@ -154,10 +159,10 @@ void Simpletron::processInstruction(){
             break;
         // divide word from operand to accumulator (result in accumulator)
         case DIVIDE:
-            if(accumulator == 0 || reg[operand] == 0){
+            if (accumulator == 0 || reg[operand] == 0) {
                 printError("Attempt to divide by zero");
                 operationCode = HALT;
-            }else{
+            } else {
                 accumulator /= reg[operand];
             }
             break;
@@ -171,7 +176,7 @@ void Simpletron::processInstruction(){
             break;
         // accumulator ^ word (result in accumulator)
         case EXPONENT:
-            for(int i=1; i<reg[operand]; ++i){
+            for (int i = 1; i < reg[operand]; ++i) {
                 accumulator *= accumulator;
             }
             break;
@@ -182,14 +187,14 @@ void Simpletron::processInstruction(){
             break;
         // branch to operand if accumulator is negative
         case BRANCHNEG:
-            if(accumulator < 0){
+            if (accumulator < 0) {
                 ptrReg = &reg[operand];
                 processInstruction();
             }
             break;
         // branch to operand is accumulator is zero
         case BRANCHZERO:
-            if(accumulator == 0){
+            if (accumulator == 0) {
                 ptrReg = &reg[operand];
                 processInstruction();
             }
@@ -199,7 +204,7 @@ void Simpletron::processInstruction(){
             break;
         // turn on/off debugging mode
         case DEBUG:
-            if(operand == 1 || operand == 0){
+            if (operand == 1 || operand == 0) {
                 debug = operand;
             }
             break;
@@ -209,7 +214,7 @@ void Simpletron::processInstruction(){
             break;
     }
 
-    if(debug){
+    if (debug) {
         printDump();
     }
 }
@@ -217,26 +222,26 @@ void Simpletron::processInstruction(){
 /*
  * Splits and stores the given string in the register
  */
-void Simpletron::processString(int operand){
+void Simpletron::processString(int operand) {
     ptrRegS = &reg[operand];
     len = simpleString.length();
 
     // convert to UPPERCASE (can only store chars as 2 digit integers)
-    for(int i=0; i<len; ++i){
-        if(simpleString[i] > 90){
+    for (int i = 0; i < len; ++i) {
+        if (simpleString[i] > 90) {
             simpleString[i] = simpleString[i] - 32;
         }
     }
 
-    ascii = (len*100) + simpleString[0];
+    ascii = (len * 100) + simpleString[0];
 
     *(ptrRegS++) = ascii;
 
-    for(int i=1; i<len; i+=2){
+    for (int i = 1; i < len; i += 2) {
         // ensure don't exceed bounds of string
-        if(i + 1 <= len){
-            ascii = (simpleString[i] * 100) +  simpleString[i+1];
-        }else{  // last char (add null terminator)
+        if (i + 1 <= len) {
+            ascii = (simpleString[i] * 100) + simpleString[i + 1];
+        } else {  // last char (add null terminator)
             ascii = simpleString[i] * 100;
         }
 
@@ -250,41 +255,43 @@ void Simpletron::processString(int operand){
 /*
  * Prints an error message
  */
-void Simpletron::printError(std::string error){
+void Simpletron::printError(std::string error) {
     std::cout << "*** " << error << " ***"
-              << "\n*** Simpletron execution abnormally terminated ***" << std::endl;
+              << "\n*** Simpletron execution abnormally terminated ***"
+              << std::endl;
 
     printDump();
 }
 /*
  * Prints a memory dump
  */
-void Simpletron::printDump(){
-    std::cout << std::setfill('0')
-              << "\nREGISTERS:\n"
-              << "\naccumulator          " << std::showpos << std::setw(4) << accumulator
-              << "\ninstructionCounter   " << std::noshowpos << instructionCounter
-              << "\ninstructionRegister  " << std::showpos << std::setw(4) << instructionRegister
+void Simpletron::printDump() {
+    std::cout << std::setfill('0') << "\nREGISTERS:\n"
+              << "\naccumulator          " << std::showpos << std::setw(4)
+              << accumulator << "\ninstructionCounter   " << std::noshowpos
+              << instructionCounter << "\ninstructionRegister  " << std::showpos
+              << std::setw(4) << instructionRegister
               << "\noperationCode        " << std::noshowpos << operationCode
-              << "\noperand              " << operand
-              << "\n\nMEMORY:\n"
+              << "\noperand              " << operand << "\n\nMEMORY:\n"
               << "  ";
 
     int* ptrReg = &reg[0];  // local ptrReg to avoid resetting main
 
-    for(int i=0; i<10; ++i){
-        std::cout << std::setfill(' ') << std::right << std::setw(5) << i << " ";
+    for (int i = 0; i < 10; ++i) {
+        std::cout << std::setfill(' ') << std::right << std::setw(5) << i
+                  << " ";
     }
 
     std::cout << std::endl;
 
-    //for(int i=0; i<LIMIT/10; ++i){
-    for(int i=0; i<10; ++i){
-        std::cout << std::right << std::setfill('0') << std::noshowpos << std::setw(3) << i*10 << " ";
-        for(int j=0; j<10; ++j){
-            std::cout << std::left << std::showpos << std::setw(5) << std::setfill('0') << *(ptrReg++) << " ";
+    // for(int i=0; i<LIMIT/10; ++i){
+    for (int i = 0; i < 10; ++i) {
+        std::cout << std::right << std::setfill('0') << std::noshowpos
+                  << std::setw(3) << i * 10 << " ";
+        for (int j = 0; j < 10; ++j) {
+            std::cout << std::left << std::showpos << std::setw(5)
+                      << std::setfill('0') << *(ptrReg++) << " ";
         }
         std::cout << std::endl;
     }
-
 }

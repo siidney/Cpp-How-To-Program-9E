@@ -20,12 +20,12 @@
 /*
  * Program Entry Point
  */
-void Simpletron::go(){
-    while(true){
+void Simpletron::go() {
+    while (true) {
         std::cout << "> ";
         std::cin >> word;
 
-        if(word == -9999){
+        if (word == -9999) {
             break;
         }
 
@@ -44,20 +44,20 @@ void Simpletron::go(){
 /*
  * Loops over register until exit condition is met
  */
-void Simpletron::runProgram(){
-    while(instruction != HALT){
+void Simpletron::runProgram() {
+    while (instruction != HALT) {
         processInstruction(*(ptrReg++));
     }
 }
 /*
  * Processes Simpletron instructions
  */
-void Simpletron::processInstruction(int w){
+void Simpletron::processInstruction(int w) {
     // seperate word
     location = w % 100;
     instruction = w / 100;
 
-    switch(instruction){
+    switch (instruction) {
         // read word from keyboard into location
         case READ:
             int newWord;
@@ -103,13 +103,13 @@ void Simpletron::processInstruction(int w){
             break;
         // branch to location if accumulator is negative
         case BRANCHNEG:
-            if(accumulator < 0){
+            if (accumulator < 0) {
                 ptrReg = &reg[location];
             }
             break;
         // branch to location is accumulator is zero
         case BRANCHZERO:
-            if(accumulator == 0){
+            if (accumulator == 0) {
                 ptrReg = &reg[location];
             }
             break;

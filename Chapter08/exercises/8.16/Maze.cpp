@@ -19,20 +19,16 @@
  */
 #include "Maze.h"
 
-Maze::Maze() : _moves(0){
-
-}
-Maze::Maze(std::string& fname) : _fname(fname), _moves(0){
-    initialise();
-}
-Maze::~Maze(){
-    if(_maze != nullptr){
+Maze::Maze() : _moves(0) {}
+Maze::Maze(std::string& fname) : _moves(0),_fname(fname)  { initialise(); }
+Maze::~Maze() {
+    if (_maze != nullptr) {
         delete _maze;
     }
 }
 // initialise the maze
-void Maze::initialise(){
-    if(!add()){
+void Maze::initialise() {
+    if (!add()) {
         std::cout << "ERROR: Invalid maze file" << std::endl;
         return;
     }
@@ -41,12 +37,12 @@ void Maze::initialise(){
     mazeTraversal();
 }
 // reads in maze from file
-bool Maze::add(){
+bool Maze::add() {
     std::ifstream f;
 
     f.open(_fname, std::ios::out | std::ios::binary);
 
-    if(!f.is_open()){
+    if (!f.is_open()) {
         return false;
     }
 
@@ -55,10 +51,10 @@ bool Maze::add(){
     _maze = new char[(_ROWS * _COLS) + 1];
 
     char c;
-    int i=0;
+    int i = 0;
 
-    while(f.get(c)){
-        if(c == '\n'){
+    while (f.get(c)) {
+        if (c == '\n') {
             continue;
         }
         *(_maze + i) = c;
@@ -72,35 +68,33 @@ bool Maze::add(){
     return true;
 }
 // get maze name from istream
-std::istream& Maze::readFname(std::istream& in){
+std::istream& Maze::readFname(std::istream& in) {
     in >> _fname;
     initialise();
 }
 // prints the maze
-void Maze::print(){
-    for(int row=0; row<_ROWS; ++row){
-        for(int col=0; col<_COLS; ++col){
+void Maze::print() {
+    for (int row = 0; row < _ROWS; ++row) {
+        for (int col = 0; col < _COLS; ++col) {
             std::cout << *(_maze + (row * _ROWS + col));
         }
         std::cout << std::endl;
     }
 }
 // prints the maze from ostream
-std::ostream& Maze::print(std::ostream& out){
-    print();
-}
+std::ostream& Maze::print(std::ostream& out) { print(); }
 // traverse the maze
-void Maze::mazeTraversal(){
+void Maze::mazeTraversal() {
     // get starting pos
 
-    for(int row=0; row<_ROWS; ++row){
-        for(int col=0; col<_COLS; ++col){
-            if(*(_maze + (row * _ROWS + col)) == _AGENT){
+    for (int row = 0; row < _ROWS; ++row) {
+        for (int col = 0; col < _COLS; ++col) {
+            if (*(_maze + (row * _ROWS + col)) == _AGENT) {
                 _startCoords.y = row;
                 _startCoords.x = col;
                 continue;
             }
-            if(*(_maze + (row * _ROWS + col)) == _EXIT){
+            if (*(_maze + (row * _ROWS + col)) == _EXIT) {
                 _exitCoords.y = row;
                 _exitCoords.x = col;
                 continue;
@@ -109,48 +103,49 @@ void Maze::mazeTraversal(){
     }
 
     // traverse the maze
-    if(mazeTraversalUtil(_startCoords.y, _startCoords.x)){
+    if (mazeTraversalUtil(_startCoords.y, _startCoords.x)) {
         std::cout << "Traversal Succeeded" << std::endl;
         std::cout << _moves << " moves" << std::endl;
-    }else{
+    } else {
         std::cout << "Traversal Failed." << std::endl;
     }
 }
 // maze traversal utility function
-bool Maze::mazeTraversalUtil(int x, int y){
+bool Maze::mazeTraversalUtil(int x, int y) {
     *(_maze + (x * _ROWS + y)) = _AGENT;
 
     _moves++;
 
     // found exit
-    if(isExit(x, y)){
+    if (isExit(x, y)) {
         return true;
     }
 
-    if((x > 0 && getTile(x-1, y) == _FREE || isExit(x-1, y)) && mazeTraversalUtil(x-1, y)){
+    if (((x > 0 && getTile(x - 1, y)) == _FREE || isExit(x - 1, y)) &&
+        mazeTraversalUtil(x - 1, y)) {
         return true;
     }
-    if((x < _COLS && getTile(x+1, y) == _FREE || isExit(x+1, y)) && mazeTraversalUtil(x+1, y)){
+    if (((x < _COLS && getTile(x + 1, y)) == _FREE || isExit(x + 1, y)) &&
+        mazeTraversalUtil(x + 1, y)) {
         return true;
     }
-    if((y > 0 && getTile(x, y-1) == _FREE || isExit(x, y-1)) && mazeTraversalUtil(x, y-1)){
+    if (((y > 0 && getTile(x, y - 1)) == _FREE || isExit(x, y - 1)) &&
+        mazeTraversalUtil(x, y - 1)) {
         return true;
     }
-    if((y < _ROWS && getTile(x, y+1) == _FREE || isExit(x, y+1)) && mazeTraversalUtil(x, y+1)){
+    if (((y < _ROWS && getTile(x, y + 1)) == _FREE || isExit(x, y + 1)) &&
+        mazeTraversalUtil(x, y + 1)) {
         return true;
     }
 
     *(_maze + (x * _ROWS + y)) = _FREE;
     _moves--;
 
-
     return false;
 }
 // utility function
-char Maze::getTile(int x, int y){
-    return *(_maze + (x * _ROWS + y));
-}
+char Maze::getTile(int x, int y) { return *(_maze + (x * _ROWS + y)); }
 // utility function
-bool Maze::isExit(int x, int y){
+bool Maze::isExit(int x, int y) {
     return (x == _exitCoords.y && y == _exitCoords.x);
 }

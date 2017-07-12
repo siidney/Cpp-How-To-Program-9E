@@ -17,15 +17,16 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
+#include <utility>
 
-void quickSort(int [], int, int);
-int partition(int [], int, int);
+void quickSort(int[], int, int);
+int partition(int[], int, int);
 void swap(int*, int*);
 void printArray(int[], int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char* argv[]) {
     const int limit = 10;
 
     int a[limit] = {32, 2, 6, 4, 89, 8, 10, 12, 68, 45};
@@ -34,7 +35,7 @@ int main(int argc, const char *argv[]){
 
     printArray(a, limit);
 
-    quickSort(a, 0, limit-1);
+    quickSort(a, 0, limit - 1);
 
     std::cout << "\nSorted Array:" << std::endl;
 
@@ -43,9 +44,9 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // recursive quickSort
-void quickSort(int a[], int start, int end){
+void quickSort(int a[], int start, int end) {
     // base case
-    if(start < end){
+    if (start < end) {
         // middle = subscript of sorted element
         int pivot = partition(a, start, end);
 
@@ -57,13 +58,13 @@ void quickSort(int a[], int start, int end){
 }
 // takes first element as pivot, sorts array around it's value
 // Returns subscript of sorted element.
-int partition(int a[], int start, int end){
-    int pivot = a[start];   // value of pivot
-    int wi = start;         // working index ()
+int partition(int a[], int start, int end) {
+    int pivot = a[start];  // value of pivot
+    int wi = start;        // working index ()
 
     // loop through unsorted array
-    for(int j=start+1; j<=end; ++j){
-        if(a[j] <= pivot){
+    for (int j = start + 1; j <= end; ++j) {
+        if (a[j] <= pivot) {
             ++wi;
             swap(&a[j], &a[wi]);
         }
@@ -73,14 +74,14 @@ int partition(int a[], int start, int end){
     return wi;
 }
 // utility function to swap two elements
-void swap(int* a, int* b){
+void swap(int* a, int* b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 // utility function to print array
-void printArray(int a[], int limit){
-    for(int i=0; i<limit; ++i){
+void printArray(int a[], int limit) {
+    for (int i = 0; i < limit; ++i) {
         std::cout << std::setw(4) << a[i];
     }
 

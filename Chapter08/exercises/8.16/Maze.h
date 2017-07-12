@@ -18,62 +18,65 @@
  */
 #pragma once
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 
-struct coord2D{
+struct coord2D {
     int x;
     int y;
 
-    coord2D(int X = 0, int Y = 0) : x(X), y(Y){}
-    coord2D(const coord2D& coord){x = coord.x; y = coord.y;}
+    explicit coord2D(int X = 0, int Y = 0) : x(X), y(Y) {}
+    explicit coord2D(const coord2D& coord) {
+        x = coord.x;
+        y = coord.y;
+    }
 };
 
-class Maze{
-    private:
-        int _COLS;
-        int _ROWS;
-        int _moves;
+class Maze {
+ private:
+    int _COLS;
+    int _ROWS;
+    int _moves;
 
-        coord2D _startCoords;
-        coord2D _exitCoords;
+    coord2D _startCoords;
+    coord2D _exitCoords;
 
-        std::string _fname;
+    std::string _fname;
 
-        char _WALL = '#';
-        char _AGENT = '@';
-        char _FREE = '.';
-        char _EXIT = 'X';
+    char _WALL = '#';
+    char _AGENT = '@';
+    char _FREE = '.';
+    char _EXIT = 'X';
 
-        char* _maze = nullptr;
+    char* _maze = nullptr;
 
-        std::ostream& print(std::ostream& out);
-        std::istream& readFname(std::istream& in);
+    std::ostream& print(std::ostream& out);
+    std::istream& readFname(std::istream& in);
 
-        bool add();
+    bool add();
 
-        void initialise();
+    void initialise();
 
-        void mazeTraversal();
-        bool mazeTraversalUtil(int, int);
+    void mazeTraversal();
+    bool mazeTraversalUtil(int, int);
 
-        char getTile(int, int);
-        bool isExit(int, int);
+    char getTile(int, int);
+    bool isExit(int, int);
 
-    public:
-        Maze();
-        Maze(std::string&);
+ public:
+    Maze();
+    explicit Maze(std::string&);
 
-        ~Maze();
+    ~Maze();
 
-        void print();       // prints the maze
+    void print();  // prints the maze
 
-        friend std::istream& operator>>(std::istream& in, Maze& m){
-            return m.readFname(in);
-        }
+    friend std::istream& operator>>(std::istream& in, Maze& m) {
+        return m.readFname(in);
+    }
 
-        friend std::ostream& operator<<(std::ostream& out, Maze& m){
-            return m.print(out);
-        }
+    friend std::ostream& operator<<(std::ostream& out, Maze& m) {
+        return m.print(out);
+    }
 };

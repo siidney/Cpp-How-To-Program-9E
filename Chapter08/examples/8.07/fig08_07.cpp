@@ -20,7 +20,7 @@
 
 void cubeByReference(int *);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int number = 5;
 
     std::cout << "The original value of number is " << number;
@@ -31,6 +31,4 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // calculate the cube of *nPtr; modifies variable number in main
-void cubeByReference(int *nPtr){
-    *nPtr = *nPtr * *nPtr * *nPtr;
-}
+void cubeByReference(int *nPtr) { *nPtr = *nPtr * *nPtr * *nPtr; }

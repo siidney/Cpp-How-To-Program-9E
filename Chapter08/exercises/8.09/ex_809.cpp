@@ -15,10 +15,10 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     long int value1 = 200000;
     long int value2;
 
@@ -31,7 +31,8 @@ int main(int argc, const char *argv[]){
     // c) print the value of the object pointer to by longPtr
     std::cout << *longPtr << std::endl;
 
-    // d) assign the value of the object pointed to by longPtr to variable value2
+    // d) assign the value of the object pointed to by longPtr to variable
+    // value2
     value2 = *longPtr;
 
     // e) print the value of value2

@@ -18,7 +18,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int x = 5, y;
 
     // ptr is a constant pointer to a constant integer.
@@ -28,8 +28,8 @@ int main(int argc, const char *argv[]){
 
     std::cout << *ptr << std::endl;
 
-    *ptr = 7;   // error: *ptr is const; cannot assign new value
-    ptr = &y;   // error: ptr is const; cannot assign new address.
+    *ptr = 7;  // error: *ptr is const; cannot assign new value
+    ptr = &y;  // error: ptr is const; cannot assign new address.
 
     return 0;
 }

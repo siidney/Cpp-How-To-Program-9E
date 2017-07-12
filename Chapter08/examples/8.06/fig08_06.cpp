@@ -19,7 +19,7 @@
 
 int cubeByValue(int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int number = 5;
 
     std::cout << "The original value of number is " << number;
@@ -30,6 +30,4 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // calculate and return cube of integer argument
-int cubeByValue(int n){
-    return n* n *n;
-}
+int cubeByValue(int n) { return n * n * n; }

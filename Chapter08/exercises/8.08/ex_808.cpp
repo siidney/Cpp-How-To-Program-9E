@@ -15,10 +15,10 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     const int SIZE = 5;
 
     // a) declare array unsigned int 'values' with 5 elements
@@ -30,7 +30,7 @@ int main(int argc, const char *argv[]){
 
     // c) Use a for statement to print the elements of 'values' using array
     //    subscript notation
-    for(int i=0; i<SIZE; ++i){
+    for (int i = 0; i < SIZE; ++i) {
         std::cout << std::setw(4) << values[i];
     }
 
@@ -43,7 +43,7 @@ int main(int argc, const char *argv[]){
 
     // e) use a for statement to print the elements of array 'values' using
     //    pointer/offset notation
-    for(int i=0; i<SIZE; ++i){
+    for (int i = 0; i < SIZE; ++i) {
         std::cout << std::setw(4) << *(vPtr + i);
     }
 
@@ -51,7 +51,7 @@ int main(int argc, const char *argv[]){
 
     // f) use a for statement to print the elements of array values using
     //    pointer/offset notation with the array name as the pointer
-    for(int i=0; i<SIZE; ++i){
+    for (int i = 0; i < SIZE; ++i) {
         std::cout << std::setw(4) << *(values + i);
     }
 
@@ -59,7 +59,7 @@ int main(int argc, const char *argv[]){
 
     // g) use a for statement to ptint the elements of array 'values' by
     //    subscripting the pointer to the array.
-    for(int i=0; i<SIZE; ++i){
+    for (int i = 0; i < SIZE; ++i) {
         std::cout << std::setw(4) << vPtr[i];
     }
 
@@ -68,12 +68,11 @@ int main(int argc, const char *argv[]){
     // h) refer to the 5th element of 'values' using array subscript notation,
     //    pointer/offset notation with the array name as the pointer.
     // values[4];
-    //*(values + 4);
+    // *(values + 4);
 
     // i) what address is referenced by vPtr + 3?
     //    what value is stored at that location
-    std::cout << &*(vPtr + 3)
-              << "\n" << *(vPtr + 3) << std::endl;
+    std::cout << &*(vPtr + 3) << "\n" << *(vPtr + 3) << std::endl;
 
     // j) assuming that vPtr point to values[4]
     //    what address is referenced by vPtr -= 4?
