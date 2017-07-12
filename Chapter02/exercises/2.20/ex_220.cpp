@@ -24,8 +24,7 @@
 
 const double PI = 3.14159;
 
-int main(int argc, const char *argv[]){
-
+int main(int argc, const char *argv[]) {
     int radius;
 
     std::cout << "Enter an integer value circle radius: ";

@@ -27,7 +27,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     double milesDriven = 0, costPerGallon = 0, milesPerGallon = 0,
            parkingFees = 0, dailyTolls = 0, dailyDrivingCost = 0;
 
@@ -46,7 +46,8 @@ int main(int argc, const char *argv[]){
     std::cout << "Enter your tolls per day: ";
     std::cin >> dailyTolls;
 
-    dailyDrivingCost = ((milesDriven / milesPerGallon) * costPerGallon) + parkingFees + dailyTolls;
+    dailyDrivingCost = ((milesDriven / milesPerGallon) * costPerGallon) +
+                       parkingFees + dailyTolls;
 
     std::cout << "\nDaily Driving Cost: " << dailyDrivingCost << std::endl;
 

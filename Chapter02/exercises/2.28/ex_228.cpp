@@ -19,26 +19,32 @@
  * =====================================================================================
  */
 #include <iostream>
+#include <string>
 
-int main(int argc, const char *argv[]){
+void printDigits(int);
 
-    int num, n1, n2, n3, n4, n5;
+int main(int argc, const char *argv[]) {
+    int num;
 
     std::cout << "Enter a five digit integer: ";
     std::cin >> num;
 
-    n5 = num % 10;
-    num /= 10;
-    n4 = num % 10;
-    num /= 10;
-    n3 = num % 10;
-    num /= 10;
-    n2 = num % 10;
-    num /= 10;
-    n1 = num % 10;
-    num /= 10;
+    printDigits(num);
 
-    std::cout << n1 << "   " << n2 << "   " << n3 << "   " << n4 << "   " << n5 << std::endl;
+    std::cout << std::endl;
 
     return 0;
+}
+
+/**
+ * Seperates and prints digits in the correct order.
+ * Prints in correct order using stack unwinding.
+ * @param num.
+ */
+void printDigits(int num) {
+    const std::string SPACES = "   ";
+    if (num / 10 > 0)
+        printDigits(num / 10);
+
+    std::cout << num % 10 << SPACES;
 }

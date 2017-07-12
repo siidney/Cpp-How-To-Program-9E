@@ -24,7 +24,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int a, b, c;
 
     std::cout << "Enter two numbers ";
