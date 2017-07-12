@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
-#include <iostream>
-#include <iomanip>
 #include <cstdlib>
+#include <iomanip>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int frequency1 = 0;
     int frequency2 = 0;
     int frequency3 = 0;
@@ -29,11 +29,11 @@ int main(int argc, const char *argv[]){
 
     int face;
 
-    for(int roll=0; roll<=6000000; ++roll){
+    for (int roll = 0; roll <= 6000000; ++roll) {
         face = 1 + rand() % 6;
 
         // determine roll value 1-6 and increment appropriate counter
-        switch(face){
+        switch (face) {
             case 1:
                 ++frequency1;
                 break;
@@ -57,12 +57,11 @@ int main(int argc, const char *argv[]){
         }
 
         std::cout << "Face" << std::setw(13) << "Frequency" << std::endl;
-        std::cout << "   1" << std::setw(13) << frequency1
-                << "\n   2" << std::setw(13) << frequency2
-                << "\n   3" << std::setw(13) << frequency3
-                << "\n   4" << std::setw(13) << frequency4
-                << "\n   5" << std::setw(13) << frequency5
-                << "\n   6" << std::setw(13) << frequency6 << std::endl;
+        std::cout << "   1" << std::setw(13) << frequency1 << "\n   2"
+                  << std::setw(13) << frequency2 << "\n   3" << std::setw(13)
+                  << frequency3 << "\n   4" << std::setw(13) << frequency4
+                  << "\n   5" << std::setw(13) << frequency5 << "\n   6"
+                  << std::setw(13) << frequency6 << std::endl;
     }
     return 0;
 }

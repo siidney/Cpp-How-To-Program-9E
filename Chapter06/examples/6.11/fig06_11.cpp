@@ -15,14 +15,14 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 int rollDice();
 
-int main(int argc, const char *argv[]){
-    enum Status {CONTINUE, WON, LOST};
+int main(int argc, const char *argv[]) {
+    enum Status { CONTINUE, WON, LOST };
 
     int myPoint;
     Status gameStatus;
@@ -33,7 +33,7 @@ int main(int argc, const char *argv[]){
     int sumOfDice = rollDice();
 
     // determine game status and point (if needed) based on first roll
-    switch(sumOfDice){
+    switch (sumOfDice) {
         case 7:
         case 11:
             gameStatus = WON;
@@ -50,33 +50,34 @@ int main(int argc, const char *argv[]){
             break;
     }
 
-    while(gameStatus == CONTINUE){
+    while (gameStatus == CONTINUE) {
         sumOfDice = rollDice();
 
-        if(sumOfDice == myPoint){
+        if (sumOfDice == myPoint) {
             gameStatus = WON;
-        }else{
-            if(sumOfDice == 7){
+        } else {
+            if (sumOfDice == 7) {
                 gameStatus = LOST;
             }
         }
     }
 
-    if(gameStatus == WON){
+    if (gameStatus == WON) {
         std::cout << "Player wins" << std::endl;
-    }else{
+    } else {
         std::cout << "Player loses" << std::endl;
     }
 
     return 0;
 }
-int rollDice(){
+int rollDice() {
     int die1 = 1 + rand() % 6;
     int die2 = 1 + rand() % 6;
 
     int sum = die1 + die2;
 
-    std::cout << "Player rolled " << die1 << " + " << die2 << " = " << sum << std::endl;
+    std::cout << "Player rolled " << die1 << " + " << die2 << " = " << sum
+              << std::endl;
 
     return sum;
 }

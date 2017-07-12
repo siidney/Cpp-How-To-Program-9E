@@ -17,29 +17,28 @@
  */
 #pragma once
 
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
-class Craps{
-    private:
-        enum class Status{CONTINUE, WON, LOST, QUIT};
+class Craps {
+ private:
+    enum class Status { CONTINUE, WON, LOST, QUIT };
 
-        int _myPoint;
-        int _sumOfDice;
-        int _bankBalance;
-        int _wager;
+    int _myPoint;
+    int _bankBalance;
+    int _wager;
 
-        Status _gameStatus;
+    Status _gameStatus;
 
-        int rollDice();
-        void setWager();
-        void checkScore(int);
-        void getStatus();
+    int rollDice();
+    void setWager();
+    void checkScore(int);
+    void getStatus();
 
-    public:
-        Craps();
-        ~Craps();
+ public:
+    Craps();
+    ~Craps();
 
-        void run();
+    void run();
 };

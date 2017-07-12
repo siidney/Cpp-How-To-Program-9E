@@ -23,7 +23,7 @@ void useGlobal();
 
 int x = 1;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "global x in main is " << x << std::endl;
 
     int x = 5;
@@ -50,7 +50,7 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // useLocal reinitializes local variable x during each call
-void useLocal(){
+void useLocal() {
     int x = 25;
 
     std::cout << "\nlocal x is " << x << " on entering useLocal" << std::endl;
@@ -59,17 +59,19 @@ void useLocal(){
 }
 // useStaticLocal initializes static local variable x only the first time the
 // function is called; value of x is saved between calls to this function
-void useStaticLocal(){
+void useStaticLocal() {
     static int x = 50;
 
-    std::cout << "\nlocal static x is " << x << " on entering useStaticLocal" << std::endl;
+    std::cout << "\nlocal static x is " << x << " on entering useStaticLocal"
+              << std::endl;
 
     ++x;
 
-    std::cout << "local static x is " << x << " on exiting useStaticLocal" << std::endl;
+    std::cout << "local static x is " << x << " on exiting useStaticLocal"
+              << std::endl;
 }
 // useGlobal modifies global variable x during each call
-void useGlobal(){
+void useGlobal() {
     std::cout << "\nglobal x is " << x << " on entering useGlobal" << std::endl;
 
     x *= 10;

@@ -18,7 +18,7 @@
 #include "GuessTheNumber.h"
 
 // initialises and resets member variables
-void GuessTheNumber::initialise(){
+void GuessTheNumber::initialise() {
     _currentState = GameStates::PLAY;
 
     srand(static_cast<int>(time(0)));
@@ -32,59 +32,62 @@ void GuessTheNumber::initialise(){
     std::cout << "I have a number between 1 and 1000." << std::endl;
 }
 // takes the player guess and compares to number
-void GuessTheNumber::guess(int playerGuess){
-
+void GuessTheNumber::guess(int playerGuess) {
     _numGuesses++;
 
-    if(playerGuess == _randNumber){
+    if (playerGuess == _randNumber) {
         std::cout << "Excellent! You guessed the number!" << std::endl;
         _currentState = GameStates::WON;
-    }else{
-        std::cout << "Too " << ((playerGuess < _randNumber) ? "low. " : "high. ")
+    } else {
+        std::cout << "Too "
+                  << ((playerGuess < _randNumber) ? "low. " : "high. ")
                   << "Try again." << std::endl;
     }
 }
 // main game loop
-void GuessTheNumber::run(void){
-    while(_currentState != GameStates::EXIT){
-        if(_currentState == GameStates::PLAY){
+void GuessTheNumber::run(void) {
+    while (_currentState != GameStates::EXIT) {
+        if (_currentState == GameStates::PLAY) {
             std::cout << "\nCan you guess my number?" << std::endl;
 
             std::cout << "Please type your guess: ";
             std::cin >> _playerGuess;
 
-            if(_playerGuess < 1 || _playerGuess > 1000){
-                std::cout << "\nInvalid guess. Your number needs to be between 1 and 1000" << std::endl;
+            if (_playerGuess < 1 || _playerGuess > 1000) {
+                std::cout << "\nInvalid guess. Your number needs to be between "
+                             "1 and 1000"
+                          << std::endl;
                 continue;
             }
 
             guess(_playerGuess);
         }
-        if(_currentState == GameStates::WON){
+        if (_currentState == GameStates::WON) {
             victoryMessage();
 
             std::cout << "\nWould you like to play again (y or n)? ";
             std::cin >> _playerContinue;
 
-            if(_playerContinue == 'y'){
+            if (_playerContinue == 'y') {
                 initialise();
-            }else{
+            } else {
                 _currentState = GameStates::EXIT;
             }
         }
     }
 }
 // victory message
-void GuessTheNumber::victoryMessage(){
-    if(_numGuesses <= 10){
+void GuessTheNumber::victoryMessage() {
+    if (_numGuesses <= 10) {
         std::cout << "\nGuesses: " << _numGuesses
-                  << "\nEither you know the secret or you got lucky!" << std::endl;
+                  << "\nEither you know the secret or you got lucky!"
+                  << std::endl;
     }
-    if(_numGuesses == 10){
+    if (_numGuesses == 10) {
         std::cout << "\nGuesses: " << _numGuesses
                   << "\nAhah! You know the secret!" << std::endl;
     }
-    if(_numGuesses > 10){
+    if (_numGuesses > 10) {
         std::cout << "\nGuesses: " << _numGuesses
                   << "\nYou should be able to do better!" << std::endl;
     }

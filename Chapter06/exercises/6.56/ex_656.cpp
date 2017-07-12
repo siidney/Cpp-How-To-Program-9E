@@ -19,7 +19,7 @@
 
 #include "CAI.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     CAI cai;
 
     cai.run();

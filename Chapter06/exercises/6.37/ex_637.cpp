@@ -19,29 +19,31 @@
 
 int fibonacci(int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int n;
 
-    std::cout << "Program to non recursively calculate fibonacci to n\n" << std::endl;
+    std::cout << "Program to non recursively calculate fibonacci to n\n"
+              << std::endl;
 
     std::cout << "Enter n: ";
     std::cin >> n;
 
-    std::cout << "Fibonacci to the " << n << "th power: " << fibonacci(n) << std::endl;
+    std::cout << "Fibonacci to the " << n << "th power: " << fibonacci(n)
+              << std::endl;
 
     return 0;
 }
 // iteratively calculate fibonacci to n
-int fibonacci(int n){
+int fibonacci(int n) {
     int fib;
-    int firstTerm  = 0;
+    int firstTerm = 0;
     int secondTerm = 1;
 
-    for(int i=0; i<n; ++i){
+    for (int i = 0; i < n; ++i) {
         // first two terms are 0 and 1
-        if(i <= 1){
+        if (i <= 1) {
             fib = i;
-        }else{
+        } else {
             fib = firstTerm + secondTerm;
 
             firstTerm = secondTerm;

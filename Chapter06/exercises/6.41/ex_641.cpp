@@ -19,29 +19,31 @@
 
 int gcd(int, int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int x, y;
 
-    std::cout << "Program to recursively find the gcd of two numbers" << std::endl;
+    std::cout << "Program to recursively find the gcd of two numbers"
+              << std::endl;
 
     std::cout << "Enter x and y: ";
     std::cin >> x >> y;
 
     // tmp must be larger for recursive approach
-    if(x < y){
+    if (x < y) {
         int tmp = x;
         x = y;
         y = tmp;
     }
 
-    std::cout << "GCD of " << x << " and " << y << " is " << gcd(x, y) << std::endl;
+    std::cout << "GCD of " << x << " and " << y << " is " << gcd(x, y)
+              << std::endl;
     return 0;
 }
 // recursive greatest common divisor
-int gcd(int x, int y){
-    if(y == 0){
+int gcd(int x, int y) {
+    if (y == 0) {
         return x;
-    }else{
-        return gcd(y, x%y);
+    } else {
+        return gcd(y, x % y);
     }
 }

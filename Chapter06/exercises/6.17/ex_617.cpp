@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     srand(time(NULL));
 
     std::cout << "Random number from each of the following sets: " << std::endl;

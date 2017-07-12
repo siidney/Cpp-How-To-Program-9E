@@ -19,10 +19,11 @@
 
 unsigned long fibonacci(unsigned long);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // calculate fibonacci values of 0 through 10
-    for(int counter=0; counter<=10; ++counter){
-        std::cout << "fibonacci(" << counter << ") = " << fibonacci(counter) << std::endl;
+    for (int counter = 0; counter <= 10; ++counter) {
+        std::cout << "fibonacci(" << counter << ") = " << fibonacci(counter)
+                  << std::endl;
     }
 
     // display higher fibonacci values
@@ -33,9 +34,9 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // recursive function fibonacci
-unsigned long fibonacci(unsigned long number){
+unsigned long fibonacci(unsigned long number) {
     // base cases
-    if((number == 0) || (number == 1))
+    if ((number == 0) || (number == 1))
         return number;
     else
         return fibonacci(number - 1) + fibonacci(number - 2);

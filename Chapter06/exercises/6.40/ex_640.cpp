@@ -15,25 +15,26 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 unsigned long factorial(unsigned long);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     // calculate factorials of 0 through 10
-    for(int counter=0; counter<=10; ++counter){
-        std::cout << counter << "! = " << factorial(counter) << "\n" << std::endl;
+    for (int counter = 0; counter <= 10; ++counter) {
+        std::cout << counter << "! = " << factorial(counter) << "\n"
+                  << std::endl;
     }
     return 0;
 }
 // recursive definition of function factorial
-unsigned long factorial(unsigned long number){
+unsigned long factorial(unsigned long number) {
     // base case
-    if(number <= 1){
+    if (number <= 1) {
         std::cout << number << std::endl;
         return 1;
-    }else{
+    } else {
         std::cout << number << " * ";
         return number * factorial(number - 1);
     }

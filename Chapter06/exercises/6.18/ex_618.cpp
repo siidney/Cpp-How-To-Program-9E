@@ -19,7 +19,7 @@
 
 int integerPower(int, int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int base, exponent;
 
     std::cout << "Enter base and exponent: ";
@@ -31,10 +31,9 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // returns base to the power of exponent
-int integerPower(int base, int exponent){
+int integerPower(int base, int exponent) {
     // base case
-    if(exponent <= 0)
-        return 1;
+    if (exponent <= 0) return 1;
 
-    return base * integerPower(base, exponent -1);
+    return base * integerPower(base, exponent - 1);
 }

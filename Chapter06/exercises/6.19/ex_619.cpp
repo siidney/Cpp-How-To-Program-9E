@@ -15,15 +15,15 @@
  *
  * =====================================================================================
  */
-#include <iostream>
-#include <iomanip>
 #include <math.h>
+#include <iomanip>
+#include <iostream>
 
 double hypotenuse(double, double);
 
-int main(int argc, const char *argv[]){
-    std::cout << "Triangle" << std::setw(10) << "Side1" << std::setw(10) << "Side2"
-              << std::setw(15) << "Hypotenuse" << std::endl;
+int main(int argc, const char *argv[]) {
+    std::cout << "Triangle" << std::setw(10) << "Side1" << std::setw(10)
+              << "Side2" << std::setw(15) << "Hypotenuse" << std::endl;
 
     std::cout << "1" << std::setw(15) << "3.0" << std::setw(10) << "4.0"
               << std::setw(8) << hypotenuse(3.0, 4.0) << std::endl;
@@ -36,6 +36,6 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // calculate the hypotenuse of a right triangle with two given sides
-double hypotenuse(double sideA, double sideB){
+double hypotenuse(double sideA, double sideB) {
     return sqrt(pow(sideA, 2) + pow(sideB, 2));
 }

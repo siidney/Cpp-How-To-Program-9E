@@ -18,7 +18,7 @@
 #include "GuessTheNumber.h"
 
 // initialises and resets member variables
-void GuessTheNumber::initialise(){
+void GuessTheNumber::initialise() {
     _currentState = GameStates::PLAY;
 
     srand(static_cast<int>(time(0)));
@@ -29,19 +29,20 @@ void GuessTheNumber::initialise(){
     std::cout << "I have a number between 1 and 1000." << std::endl;
 }
 // takes the player guess and compares to number
-void GuessTheNumber::guess(int playerGuess){
-    if(playerGuess == _randNumber){
+void GuessTheNumber::guess(int playerGuess) {
+    if (playerGuess == _randNumber) {
         std::cout << "Excellent! You guessed the number!" << std::endl;
         _currentState = GameStates::WON;
-    }else{
-        std::cout << "Too " << ((playerGuess < _randNumber) ? "low. " : "high. ")
+    } else {
+        std::cout << "Too "
+                  << ((playerGuess < _randNumber) ? "low. " : "high. ")
                   << "Try again." << std::endl;
     }
 }
 // main game loop
-void GuessTheNumber::run(void){
-    while(_currentState != GameStates::EXIT){
-        if(_currentState == GameStates::PLAY){
+void GuessTheNumber::run(void) {
+    while (_currentState != GameStates::EXIT) {
+        if (_currentState == GameStates::PLAY) {
             std::cout << "\nCan you guess my number?" << std::endl;
 
             std::cout << "Please type your guess: ";
@@ -49,13 +50,13 @@ void GuessTheNumber::run(void){
 
             guess(_playerGuess);
         }
-        if(_currentState == GameStates::WON){
+        if (_currentState == GameStates::WON) {
             std::cout << "Would you like to play again (y or n)? ";
             std::cin >> _playerContinue;
 
-            if(_playerContinue == 'y'){
+            if (_playerContinue == 'y') {
                 initialise();
-            }else{
+            } else {
                 _currentState = GameStates::EXIT;
             }
         }

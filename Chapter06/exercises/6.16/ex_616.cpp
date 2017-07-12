@@ -15,14 +15,16 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     srand(time(NULL));
 
-    std::cout << "Program to assign random integers to variables in the following ranges" << std::endl;
+    std::cout << "Program to assign random integers to variables in the "
+                 "following ranges"
+              << std::endl;
 
     std::cout << "1 <= n <= 2: " << 1 + rand() % 2
               << "\n1 <= n <= 100: " << 1 + rand() % 100

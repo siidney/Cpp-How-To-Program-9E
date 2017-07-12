@@ -18,11 +18,9 @@
  */
 #include <iostream>
 
-inline double cube(const double side){
-    return side * side * side;
-}
+inline double cube(const double side) { return side * side * side; }
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     double sideValue;
 
     std::cout << "Enter the side length of your cube: ";

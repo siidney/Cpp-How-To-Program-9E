@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char* argv[]) {
     int x = 3;
     int& y = x;
 

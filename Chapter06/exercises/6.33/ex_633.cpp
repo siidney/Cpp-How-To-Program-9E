@@ -15,14 +15,14 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <ctime>
+#include <iostream>
 
 int flip(void);
 
 const int NUM_FLIPS = 100;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int heads = 0;
     int tails = 0;
 
@@ -30,14 +30,13 @@ int main(int argc, const char *argv[]){
 
     std::cout << "Program to simulate coin tossing" << std::endl;
 
-    for(int i=1; i<=NUM_FLIPS; ++i){
-
+    for (int i = 1; i <= NUM_FLIPS; ++i) {
         std::cout << i << ": ";
 
-        if(flip() == 1){
+        if (flip() == 1) {
             std::cout << "heads" << std::endl;
             heads++;
-        }else{
+        } else {
             std::cout << "tails" << std::endl;
             tails++;
         }
@@ -47,6 +46,4 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // simulates the flipping of a coin and returns the results
-int flip(void){
-    return 1 + rand() % 2;
-}
+int flip(void) { return 1 + rand() % 2; }

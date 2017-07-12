@@ -19,12 +19,13 @@
 
 // detemine the smallest of two arguments
 template <typename T>
-T minimum(T num1, T num2){
+T minimum(T num1, T num2) {
     return (num1 < num2) ? num1 : num2;
 }
 
-int main(int argc, const char *argv[]){
-    std::cout << "Program to test templating using int, char and float" << std::endl;
+int main(int argc, const char *argv[]) {
+    std::cout << "Program to test templating using int, char and float"
+              << std::endl;
 
     // int
     std::cout << "minimum(91,78): " << minimum(91, 78) << std::endl;

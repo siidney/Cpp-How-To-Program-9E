@@ -19,7 +19,7 @@
  */
 #include <iostream>
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "Iterative program to solve towers of hanoi" << std::endl;
 
     std::cout << "\nApparently..." << std::endl;

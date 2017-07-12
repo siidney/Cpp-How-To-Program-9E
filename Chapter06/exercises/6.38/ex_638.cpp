@@ -21,7 +21,7 @@
 
 void hanoi(int, int, int, int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << "Program to recursively solve towers of hanoi" << std::endl;
 
     hanoi(4, 1, 3, 2);
@@ -29,13 +29,12 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // recursive towers of hanoi implementation
-void hanoi(int numDisks, int sourcePeg, int destPeg, int tempPeg){
-    if(numDisks > 0){
-        hanoi((numDisks -1), sourcePeg, tempPeg, destPeg);
+void hanoi(int numDisks, int sourcePeg, int destPeg, int tempPeg) {
+    if (numDisks > 0) {
+        hanoi((numDisks - 1), sourcePeg, tempPeg, destPeg);
 
-        std::cout << "From " << sourcePeg <<  " to " << destPeg << std::endl;
+        std::cout << "From " << sourcePeg << " to " << destPeg << std::endl;
 
-        hanoi((numDisks -1), tempPeg, destPeg, sourcePeg);
+        hanoi((numDisks - 1), tempPeg, destPeg, sourcePeg);
     }
-
 }

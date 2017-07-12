@@ -19,11 +19,12 @@
 
 void squareOfChars(int, char);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int n;
     char fillChar;
 
-    std::cout << "Program to print a square of size n of any character\n" << std::endl;
+    std::cout << "Program to print a square of size n of any character\n"
+              << std::endl;
 
     std::cout << "Enter side: ";
     std::cin >> n;
@@ -36,9 +37,9 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // prints a square of fillChar of size n
-void squareOfChars(int n, char fillChar){
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
+void squareOfChars(int n, char fillChar) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             std::cout << fillChar;
         }
         std::cout << std::endl;

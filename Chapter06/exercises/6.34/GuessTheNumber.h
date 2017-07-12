@@ -17,25 +17,25 @@
  */
 #pragma once
 
-#include <iostream>
 #include <ctime>
+#include <iostream>
 
-enum class GameStates{PLAY, EXIT, WON};
+enum class GameStates { PLAY, EXIT, WON };
 
-class GuessTheNumber{
-    private:
-        GameStates  _currentState;
+class GuessTheNumber {
+ private:
+    GameStates _currentState;
 
-        int     _randNumber;
-        int     _playerGuess;
-        char    _playerContinue;
+    int _randNumber;
+    int _playerGuess;
+    char _playerContinue;
 
-        void initialise();
-        void guess(int);
+    void initialise();
+    void guess(int);
 
-    public:
-        GuessTheNumber(){initialise();}
-        ~GuessTheNumber(){}
+ public:
+    GuessTheNumber() { initialise(); }
+    ~GuessTheNumber() {}
 
-        void run(void);
+    void run(void);
 };

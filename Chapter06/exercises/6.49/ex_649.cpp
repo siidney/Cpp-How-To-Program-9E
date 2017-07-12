@@ -17,7 +17,7 @@
  */
 #include "Craps.h"
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Craps craps;
 
     craps.run();

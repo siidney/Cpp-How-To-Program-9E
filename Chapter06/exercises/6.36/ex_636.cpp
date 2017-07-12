@@ -19,7 +19,7 @@
 
 int power(int, int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int base, exponent;
 
     std::cout << "A program to recursively calculate exponents" << std::endl;
@@ -27,13 +27,13 @@ int main(int argc, const char *argv[]){
     std::cout << "\nEnter the base and exponent: ";
     std::cin >> base >> exponent;
 
-    std::cout << base << " to the power of " << exponent << ": " << power(base, exponent) << std::endl;
+    std::cout << base << " to the power of " << exponent << ": "
+              << power(base, exponent) << std::endl;
     return 0;
 }
 // recusively calculate exponents
-int power(int base, int exponent){
-    if(exponent == 0)
-        return 1;
+int power(int base, int exponent) {
+    if (exponent == 0) return 1;
 
-    return base * power(base, exponent -1);
+    return base * power(base, exponent - 1);
 }

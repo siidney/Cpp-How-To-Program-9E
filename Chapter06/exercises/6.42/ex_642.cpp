@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-int main(){
+int main() {
     static int count = 1;
 
     std::cout << count++ << std::endl;

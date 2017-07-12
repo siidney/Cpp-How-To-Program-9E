@@ -15,25 +15,25 @@
  *
  * =====================================================================================
  */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 double circleArea(double);
 
 const double PI = 3.14159;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     double radius;
 
-    std::cout << "A program to print the area of a circle from the radius" << std::endl;
+    std::cout << "A program to print the area of a circle from the radius"
+              << std::endl;
 
     std::cout << "Enter circle radius: ";
     std::cin >> radius;
 
-    std::cout << std::fixed << std::setprecision(2) << "Area: " << circleArea(radius) << std::endl;
+    std::cout << std::fixed << std::setprecision(2)
+              << "Area: " << circleArea(radius) << std::endl;
     return 0;
 }
 // returns the area of a circle from the given radius
-double circleArea(double r){
-    return PI * (r * r);
-}
+double circleArea(double r) { return PI * (r * r); }

@@ -19,7 +19,7 @@
 
 int gcd(int, int);
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     int num1, num2;
 
     std::cout << "Program to print the gcd of two integers\n" << std::endl;
@@ -31,13 +31,13 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 // find and return the greatest common divisor of two integers
-int gcd(int x, int y){
+int gcd(int x, int y) {
     // smaller number subtracted from larger
     // difference stored in place of larger
     // repeat until 2 numbers equal > gcd
 
-    while(x != y){
-        if(x > y)
+    while (x != y) {
+        if (x > y)
             x -= y;
         else
             y -= x;

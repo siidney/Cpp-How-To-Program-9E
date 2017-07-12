@@ -17,15 +17,15 @@
  */
 #include <iostream>
 
-int square(int x){
+int square(int x) {
     std::cout << "square of integer " << x << " is ";
     return x * x;
 }
-double square(double y){
+double square(double y) {
     std::cout << "square of double " << y << " is ";
     return y * y;
 }
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     std::cout << square(7);
     std::cout << std::endl;
 
