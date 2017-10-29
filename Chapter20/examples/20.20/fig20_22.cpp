@@ -47,7 +47,7 @@ int main(int argc, const char* argv[]) {
     double doubleValue;
 
     std::cout << std::fixed << std::setprecision(1)
-              << "\n\n\nEnter 10 double valus:\n";
+              << "\n\n\nEnter 10 double values:\n";
 
     // insert 10 doubleegers to doubleTree
     for (int i = 0; i < 10; ++i) {
