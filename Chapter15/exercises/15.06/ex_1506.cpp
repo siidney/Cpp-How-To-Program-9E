@@ -39,7 +39,7 @@ int main(int argc, const char *argv[]) {
               << std::noshowpos << 200 << std::endl;
 
     // d) Print the decimal value 100 in hexidecimal form preceded by 0x
-    std::cout << "0x" << std::hex << 100 << std::endl;
+    std::cout << std::showbase << std::hex << 100 << std::endl;
 
     // e) Read characters into array charArray until the character 'p' is
     // encountered, up to a LIMIT of 10 characters (including the terminating
@@ -53,16 +53,7 @@ int main(int argc, const char *argv[]) {
 
     std::cout << "Enter up to 10 chars 'p' to end input:\n";
 
-    while (i < LIMIT) {
-        if (std::cin.peek() == 'p') {
-            i++;
-            break;
-        }
-        charArray[i++] = std::cin.get();
-    }
-
-    charArray[i] = '\0';
-
+    std::cin.getline( charArray, 10, 'p' );
     std::cout << charArray;
 
     // f) Print 1.234 in a 9-digit field with preceeding zeros
