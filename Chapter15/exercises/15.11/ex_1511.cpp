@@ -26,7 +26,7 @@ int main(int argc, const char *argv[]) {
     std::getline(std::cin, input);
 
     int i;
-    for (i = 0; input[i] != '\0'; ++i)
+    for (i = 0; input[i] != '\0'; ++i);
 
     std::cout << "Length of string: " << input << " = " << i << std::endl;
 
