@@ -18,11 +18,13 @@
 #pragma once
 
 #include <iostream>
+using namespace std;
+
 
 class Complex {
- public:
-    friend std::ostream& operator<<(std::ostream&, const Complex&);
-    friend std::istream& operator>>(std::istream&, Complex&);
+ friend ostream &operator<<( ostream &, const Complex & );
+ friend istream &operator>>( istream &, Complex & );
+
 
  private:
     int real;
