@@ -49,11 +49,10 @@ int main(int argc, const char *argv[]) {
     const int LIMIT = 11;
 
     char charArray[LIMIT];
-    int i = 0;
 
     std::cout << "Enter up to 10 chars 'p' to end input:\n";
 
-    std::cin.getline( charArray, 10, 'p' );
+    std::cin.getline(charArray, 10, 'p');
     std::cout << charArray;
 
     // f) Print 1.234 in a 9-digit field with preceeding zeros
