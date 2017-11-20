@@ -16,9 +16,41 @@
  * =====================================================================================
  */
 #include "Complex.h"
+using namespace std;
 
-std::ostream& operator<<(std::ostream& out, const Complex& complex) {
-    return out;
+ostream &operator<<( ostream &output, const Complex &complex) 
+{
+    output << complex.real;
+    output << showpos << complex.imaginary << noshowpos << 'i' << endl;
+    return output;
 }
 
-std::istream& operator>>(std::istream& in, Complex& complex) { return in; }
+istream &operator>>( istream &input, Complex &complex)
+{    
+    int a = 0;
+    int b = 0;
+    char c;
+
+    cin >> a;
+    
+    if ( cin.peek() == 'i' ) //numbers without real part like '16i'
+    {
+        complex.real = 0;
+        complex.imaginary = a;
+        return input;
+    }
+
+    while ( cin.good() && ( c=cin.get() ) != '\n' )    
+        if ( c == '+' || c == '-' )
+        {
+            cin >> b;
+            if ( c == '-' )
+                b *= -1;// for negative imaginary part
+            break;
+        }
+
+    complex.real = a;
+    complex.imaginary = b;
+
+    return input;
+}
