@@ -16,7 +16,7 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 
 int main(int argc, const char *argv[]) {
     try {
