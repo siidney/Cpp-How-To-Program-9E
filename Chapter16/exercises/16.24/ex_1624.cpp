@@ -16,7 +16,7 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 
 class C1 {
  public:
