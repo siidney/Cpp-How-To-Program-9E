@@ -16,7 +16,7 @@
  * =====================================================================================
  */
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 
 int main(int argc, const char *argv[]) {
     try {
@@ -24,7 +24,7 @@ int main(int argc, const char *argv[]) {
             throw std::exception();
         } catch (std::exception) {
             std::cout << "Original throw caught" << std::endl;
-            throw std::exception();
+            throw;
         }
     } catch (std::exception) {
         std::cout << "Rethrow caught" << std::endl;
