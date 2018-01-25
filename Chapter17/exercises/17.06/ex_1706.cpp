@@ -55,37 +55,30 @@ int main(int argc, const char* argv[]) {
     
     // process changes
     while (!inOldMaster.eof() && !inTransaction.eof()) {
-        if (transAccountNum < mastAccountNum)
-        {
+        if (transAccountNum < mastAccountNum) {
             std::cout << "Unmatched transaction record for account number: "
                       << transAccountNum << std::endl;
             inTransaction >> transAccountNum >> transDollarAmount;
-        }
-        else if (transAccountNum == mastAccountNum)
-        {
+        } else if (transAccountNum == mastAccountNum) {
             mastDollarAmount += transDollarAmount;
             outNewMaster << mastAccountNum << " " << fName << " " << lName
                          << " " << mastDollarAmount << std::endl;
             inTransaction >> transAccountNum >> transDollarAmount;
             inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
-        }
-        else if (transAccountNum > mastAccountNum)
-        {
+        } else if (transAccountNum > mastAccountNum) {
             outNewMaster << mastAccountNum << " " << fName << " " << lName
                          << " " << mastDollarAmount << std::endl;
             inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
         }
     }
-    // if trans.dat reachs to end of file befor oldmast.dat
-    while ( !inOldMaster.eof() )
-    {
+    // if trans.dat reachs to end of file before oldmast.dat
+    while ( !inOldMaster.eof() ) {
         outNewMaster << mastAccountNum << " " << fName << " " << lName
                      << " " << mastDollarAmount << std::endl;
         inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
     }
-    // if oldmast.dat reachs to end of file befor trans.dat
-    while ( !inTransaction.eof() )
-    {
+    // if oldmast.dat reachs to end of file before trans.dat
+    while ( !inTransaction.eof() ) {
         std::cout << "Unmatched transaction record for account number: "
                   << transAccountNum << std::endl;
             inTransaction >> transAccountNum >> transDollarAmount;
