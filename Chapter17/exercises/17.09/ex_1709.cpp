@@ -49,32 +49,44 @@ int main(int argc, const char* argv[]) {
     std::string fName;
     std::string lName;
 
+    // handling files with one record
+    inTransaction >> transAccountNum >> transDollarAmount;
+    inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
+    
     // process changes
     while (!inOldMaster.eof() && !inTransaction.eof()) {
-        inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
-        // ensure mastAccountNum !exceed transAccountNum
-        if (transAccountNum < mastAccountNum)
-            inTransaction >> transAccountNum >> transDollarAmount;
-
-        // update total on account number match
-        while ((mastAccountNum == transAccountNum) && !inTransaction.eof()) {
-            mastDollarAmount += transDollarAmount;
-
-            inTransaction >> transAccountNum >> transDollarAmount;
-        }
-        if (((mastAccountNum > transAccountNum) && !inTransaction.eof()) ||
-            inOldMaster.eof()) {
+         if (transAccountNum < mastAccountNum) {
             std::cout << "Unmatched transaction record for account number: "
                       << transAccountNum << std::endl;
-        }
-
-        // only update if not at eof
-        // ensures transAccountNum's > the last record in the old master file
-        // are properly logged.
-        if (!inOldMaster.eof())
+            inTransaction >> transAccountNum >> transDollarAmount;
+        } else if (transAccountNum == mastAccountNum) {
+            do {
+                mastDollarAmount += transDollarAmount;
+                inTransaction >> transAccountNum >> transDollarAmount;
+            } while (transAccountNum == mastAccountNum && !inTransaction.eof());
             outNewMaster << mastAccountNum << " " << fName << " " << lName
                          << " " << mastDollarAmount << std::endl;
+            inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
+        } else if (transAccountNum > mastAccountNum) {
+            outNewMaster << mastAccountNum << " " << fName << " " << lName
+                         << " " << mastDollarAmount << std::endl;
+            inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
+        }
     }
-
+    
+    // if trans.dat reachs to end of file before oldmast.dat
+    while ( !inOldMaster.eof() ) {
+        outNewMaster << mastAccountNum << " " << fName << " " << lName
+                     << " " << mastDollarAmount << std::endl;
+        inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
+    }
+    
+    // if oldmast.dat reachs to end of file before trans.dat
+    while ( !inTransaction.eof() ) {
+        std::cout << "Unmatched transaction record for account number: "
+                  << transAccountNum << std::endl;
+            inTransaction >> transAccountNum >> transDollarAmount;
+    }
+    
     return 0;
 }
