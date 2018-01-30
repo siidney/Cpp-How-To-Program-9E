@@ -200,8 +200,9 @@ void updateRecord(std::fstream &inOutHardware) {
             case 2: {  // name
                 std::string name;
 
+                std::cin.ignore();//skip leading '\n'
                 std::cout << "Enter new Name: ";
-                std::cin >> name;
+                std::getline(std::cin, name);
 
                 t.setName(name);
             } break;
