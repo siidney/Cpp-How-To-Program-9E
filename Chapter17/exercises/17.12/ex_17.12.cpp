@@ -80,7 +80,7 @@ std::string getNumber(const std::string& prompt) {
 }
 // validate given number
 bool validate(const std::string& number) {
-    if (((number.length() < 7) || number.length() > 8) ||
+    if ((number.length() < 7) || (number.length() > 8) ||
         ((number.length() == 8) && (number[3] != '-')))
         return false;
 
@@ -94,7 +94,7 @@ bool validate(const std::string& number) {
 }
 // generate list of words
 void generateWords(const std::string& number) {
-    std::ofstream outFile("phone.dat", std::ios::in);
+    std::ofstream outFile("phone.dat", std::ios::out);
 
     if (!outFile) {
         std::cerr << "phone.dat could not be opened" << std::endl;
