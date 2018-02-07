@@ -25,10 +25,10 @@
 void readWordList(std::vector<std::string>&, std::istream&);
 int getChoice();
 void play(std::vector<std::string>&);
-std::string getNewWord(std::vector<std::string>&);
+std::string getNewWord(const std::vector<std::string>&);
 char getGuess();
 void hangman(int);
-void printGuesses(std::vector<char>&);
+void printGuesses(const std::vector<char>&);
 
 int main(int argc, const char* argv[]) {
     srand((int)time(0));
@@ -111,7 +111,7 @@ void play(std::vector<std::string>& wordList) {
 }
 // generate random word from the file
 std::string getNewWord(const std::vector<std::string>& wordList) {
-    int word = (rand() % wordList.size()) + 1;
+    int word = (rand() % wordList.size()) - 1;
 
     return wordList[word];
 }
@@ -127,39 +127,11 @@ char getGuess() {
 // print the hangman
 // TODO(me): find a more efficient way of doing this (remove the repetition)
 void hangman(int incorrect) {
-    switch (incorrect) {
-        case 7:
-            std::cout << " O" << std::endl;
-            break;
-        case 6:
-            std::cout << " O" << std::endl;
-            std::cout << "/";
-            break;
-        case 5:
-            std::cout << " O" << std::endl;
-            std::cout << "/|";
-            break;
-        case 4:
-            std::cout << " O" << std::endl;
-            std::cout << "/|\\";
-            break;
-        case 3:
-            std::cout << " O" << std::endl;
-            std::cout << "/|\\" << std::endl;
-            std::cout << " |" << std::endl;
-            break;
-        case 2:
-            std::cout << " O" << std::endl;
-            std::cout << "/|\\" << std::endl;
-            std::cout << " |" << std::endl;
-            std::cout << "/";
-            break;
-        case 1:
-            std::cout << " O" << std::endl;
-            std::cout << "/|\\" << std::endl;
-            std::cout << " |" << std::endl;
-            std::cout << "/\\";
-    }
+    //From left to right: head, left hand, chest, right hand, ....
+    std::vector<std::string> output = { " O\n", "/", "|", "\\", "\n | \n", "/", " \\" };
+
+    for ( int i = 0; i <= 7 - incorrect; ++i )
+        std::cout << output[ i ];
 
     std::cout << std::endl;
 }
