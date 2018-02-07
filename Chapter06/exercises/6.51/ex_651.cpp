@@ -18,7 +18,7 @@
 #include <iostream>
 
 int tripleByValue(int);
-int tripleByReference(int&);
+int tripleByReference(const int&);
 
 int main(int argc, const char* argv[]) {
     std::cout
