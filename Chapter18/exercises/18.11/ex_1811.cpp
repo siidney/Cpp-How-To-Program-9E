@@ -25,10 +25,10 @@
 void readWordList(std::vector<std::string>&, std::istream&);
 int getChoice();
 void play(std::vector<std::string>&);
-std::string getNewWord(std::vector<std::string>&);
+std::string getNewWord(const std::vector<std::string>&);
 char getGuess();
 void hangman(int);
-void printGuesses(std::vector<char>&);
+void printGuesses(const std::vector<char>&);
 
 int main(int argc, const char* argv[]) {
     srand((int)time(0));
@@ -111,7 +111,7 @@ void play(std::vector<std::string>& wordList) {
 }
 // generate random word from the file
 std::string getNewWord(const std::vector<std::string>& wordList) {
-    int word = (rand() % wordList.size()) + 1;
+    int word = (rand() % wordList.size());
 
     return wordList[word];
 }
@@ -158,7 +158,7 @@ void hangman(int incorrect) {
             std::cout << " O" << std::endl;
             std::cout << "/|\\" << std::endl;
             std::cout << " |" << std::endl;
-            std::cout << "/\\";
+            std::cout << "/ \\";
     }
 
     std::cout << std::endl;
