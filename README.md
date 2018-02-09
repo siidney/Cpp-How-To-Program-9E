@@ -1,7 +1,9 @@
 ## Deitel and Deitel - C++ How To Program 9th Edition
 
 #### My solutions to most, eventually all, of the books problems.
-> - Also contains the example programs used to introduce topics.
+    Also contains the example programs used to introduce topics.
+
+**All solutions compiled with gcc:**  `g++ -o main *.cpp -g -Wall -pipe -O3 --std=c++14 -lm`
 
 ## Chapter List (Updated as they are started)
 
