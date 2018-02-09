@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Poll.h"
+#include "Poll.hpp"
 
 int main(int argc, const char *argv[]) {
     Poll poll;

@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 int main(int argc, const char *argv[]) {
     int gradesArray[GradeBook::students][GradeBook::tests] = {

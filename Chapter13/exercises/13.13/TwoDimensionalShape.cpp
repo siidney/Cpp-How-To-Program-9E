@@ -15,6 +15,6 @@
  *
  * =====================================================================================
  */
-#include "TwoDimensionalShape.h"
+#include "TwoDimensionalShape.hpp"
 
 TwoDimensionalShape::TwoDimensionalShape(double l, double w) : Shape(l, w) {}

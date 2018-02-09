@@ -4,11 +4,6 @@
  *       Filename:  ex_230.cpp
  *
  *    Description:  Exercise 2.30 - Body Mass Index Calculator
- *                  Create a BMI calculator application that read the user's
- *                  weight in pounds and height in inches, then calculates and
- *                  displays the user's body mass index.
- *                  Also the application should display the following
- *                  information from the...
  *
  *        Version:  1.0
  *        Created:  11/03/16 05:09:38

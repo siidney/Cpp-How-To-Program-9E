@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Rectangle.h"
+#include "Rectangle.hpp"
 
 #include <iostream>
 

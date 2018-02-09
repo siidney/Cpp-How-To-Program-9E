@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Decrypter.h"
+#include "Decrypter.hpp"
 
 #include <iostream>
 

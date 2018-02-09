@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SalesPerson.h"
+#include "SalesPerson.hpp"
 
 int main(int argc, const char *argv[]) {
     SalesPerson s;

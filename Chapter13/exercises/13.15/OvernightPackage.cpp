@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "OvernightPackage.h"
+#include "OvernightPackage.hpp"
 
 #include <stdexcept>
 

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "ReservationSystem.h"
+#include "ReservationSystem.hpp"
 
 ReservationSystem::ReservationSystem() : _availability(Availability::BOTH) {}
 // entry point

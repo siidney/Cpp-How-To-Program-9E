@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Rational.h"
+#include "Rational.hpp"
 
 int main(int argc, const char *argv[]) {
     Rational r1;

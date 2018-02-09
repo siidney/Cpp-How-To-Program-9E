@@ -17,22 +17,26 @@
  */
 #include <iostream>
 
+#define AVERAGE(a, b) (a / b)
+
+static const int EXIT = 9999;
+
 int main(int argc, const char *argv[]) {
     int counter = 0;
     int sum = 0;
 
     std::cout
-        << "Enter a list of space separated integers for average calculation"
-        << "9999 ends input: " << std::endl;
+        << "Enter a list of space separated integers for average calculation. "
+        << EXIT << " ends input\n> ";
     std::cin >> sum;
 
     // set i as input to ensure exit condition
     // increment counter as opposed i
-    for (int i = 0; i != 9999; counter++) {
+    for (int i = 0; i != EXIT; counter++) {
         sum += i;
         std::cin >> i;
     }
 
-    std::cout << "Average: " << sum / counter << std::endl;
+    std::cout << "Average: " << AVERAGE(sum, counter) << std::endl;
     return 0;
 }

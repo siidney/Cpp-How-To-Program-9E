@@ -21,7 +21,7 @@ double getPrice(int, int);
 
 int main(int argc, const char *argv[]) {
     double total = 0.0f;
-    int product, quantity = 0;
+    int product = 0, quantity = 0;
 
     std::cout << "Program to add retail prices for 5 products.\n" << std::endl;
 

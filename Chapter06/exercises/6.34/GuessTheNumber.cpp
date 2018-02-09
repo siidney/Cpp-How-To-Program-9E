@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "GuessTheNumber.h"
+#include "GuessTheNumber.hpp"
 
 // initialises and resets member variables
 void GuessTheNumber::initialise() {

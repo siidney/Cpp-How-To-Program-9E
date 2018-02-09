@@ -17,7 +17,7 @@
  *
  * =====================================================================================
  */
-#include "MergeSort.h"
+#include "MergeSort.hpp"
 
 #include <cstdlib>
 #include <ctime>

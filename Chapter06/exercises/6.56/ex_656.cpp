@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#include "CAI.h"
+#include "CAI.hpp"
 
 int main(int argc, const char *argv[]) {
     CAI cai;

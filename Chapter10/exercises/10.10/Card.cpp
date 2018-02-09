@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Card.h"
+#include "Card.hpp"
 
 std::string Card::suits[5] = {"", "clubs", "diamonds", "hearts", "spades"};
 std::string Card::faces[14] = {"",     "ace",  "two",   "three", "four",

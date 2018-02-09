@@ -1,9 +1,16 @@
-# compiled class files
-*.class
+# Created by https://www.gitignore.io/api/vim
 
-# vim swap files
-*.swo
-*.swp
+### Vim ###
+# swap
+.sw[a-p]
+.*.sw[a-p]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
 
-# compiled executables
+# compiled binary files
 main

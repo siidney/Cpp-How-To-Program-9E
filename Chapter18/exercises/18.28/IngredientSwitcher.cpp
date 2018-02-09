@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "IngredientSwitcher.h"
+#include "IngredientSwitcher.hpp"
 
 IngredientSwitcher::IngredientSwitcher() {}
 IngredientSwitcher::~IngredientSwitcher() {

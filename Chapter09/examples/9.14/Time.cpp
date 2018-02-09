@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Time.h"
+#include "Time.hpp"
 
 Time::Time(int hr, int min, int sec) { setTime(hr, min, sec); }
 void Time::setTime(int h, int m, int s) {

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "RationalNumber.h"
+#include "RationalNumber.hpp"
 
 #include <iostream>
 

@@ -17,11 +17,13 @@
  *
  * =====================================================================================
  */
-#include "Question.h"
+#include <string>
+
+#include "Question.hpp"
 
 // INITIALISATION
 // checks if question and answers are set and sets them if not
-// creates and ranomises an answers vector
+// creates and randomises an answers vector
 void Question::initialise() {
     std::string tmp;
     if (_q.empty()) {
@@ -67,9 +69,10 @@ void Question::setA(const std::string& A) { _a = A; }
 void Question::setB(const std::string& B) { _b = B; }
 void Question::setC(const std::string& C) { _c = C; }
 void Question::setD(const std::string& D) { _d = D; }
+
 // GETTERS
 // prints the question and randomised answers vector
-void Question::getQuestion() {
+void Question::getQuestion() const {
     // question
     std::cout << _q << std::endl << std::endl;
 

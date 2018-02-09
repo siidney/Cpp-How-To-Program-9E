@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Building.h"
+#include "Building.hpp"
 
 Building::Building() {}
 // calculate buildings carbon footprint

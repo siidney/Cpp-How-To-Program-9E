@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SalaryCalculator.h"
+#include "SalaryCalculator.hpp"
 
 int main(int argc, const char *argv[]) {
     SalaryCalculator sc;

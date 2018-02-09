@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "EncryptionSystem.h"
+#include "EncryptionSystem.hpp"
 
 int main(int argc, const char *argv[]) {
     EncryptionSystem es;
@@ -28,9 +28,9 @@ int main(int argc, const char *argv[]) {
 
     es.encrypt(code);
 
-    std::cout << "\nEncrypted pass code: " << es.getEncPass() << "\n"
-              << std::endl;
+    std::cout << "\nEncrypted pass code: " << es.getEncPass() << "\n" << std::endl;
 
     std::cout << "Decrypted pass code: " << es.decrypt() << std::endl;
+
     return 0;
 }

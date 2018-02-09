@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SalesPerson.h"
+#include "SalesPerson.hpp"
 
 #include <iomanip>
 #include <iostream>

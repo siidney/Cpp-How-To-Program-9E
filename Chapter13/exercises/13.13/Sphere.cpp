@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Sphere.h"
+#include "Sphere.hpp"
 
 #include <iostream>
 #include <stdexcept>

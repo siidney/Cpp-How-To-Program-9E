@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "RationalNumber.h"
+#include "RationalNumber.hpp"
 
 RationalNumber::RationalNumber(int num, int den) {
     if (den < 1) {

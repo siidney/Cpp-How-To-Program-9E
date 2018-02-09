@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "DeckOfCards.h"
+#include "DeckOfCards.hpp"
 
 #include <algorithm>
 #include <ctime>
@@ -115,7 +115,7 @@ void DeckOfCards::printScore() const {
             std::cout << "Four of a Kind";
             break;
         case 5:
-            std::cout << "Flush";
+            std::cout << "Flu.hpp";
             break;
         case 6:
             std::cout << "Straight";

@@ -18,7 +18,7 @@
  *
  * =====================================================================================
  */
-#include "BucketSort.h"
+#include "BucketSort.hpp"
 
 void BucketSort::sort(std::vector<int>& intVec) {
     // std::vector<int> row;

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "CAI.h"
+#include "CAI.hpp"
 
 // INITIALISATION
 void CAI::initialise() {

@@ -17,7 +17,7 @@
  * =====================================================================================
  */
 #include <iostream>
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 int main(int argc, const char *argv[]) {
     GradeBook gradeBook1("CS101 Introduction to C++ Programming.");

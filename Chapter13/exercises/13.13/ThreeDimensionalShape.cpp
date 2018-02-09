@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "ThreeDimensionalShape.h"
+#include "ThreeDimensionalShape.hpp"
 
 #include <stdexcept>
 

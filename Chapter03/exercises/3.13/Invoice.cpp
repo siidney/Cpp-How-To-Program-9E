@@ -15,10 +15,14 @@
  *
  * =====================================================================================
  */
-#include "Invoice.h"
+#include <string>
+
+#include "Invoice.hpp"
 
 // Constructor
-Invoice::Invoice(std::string number, std::string description, int quantity,
+Invoice::Invoice(const std::string &number,
+                 const std::string &description,
+                 int quantity,
                  int price) {
     setPartNumber(number);
     setPartDescription(description);
@@ -26,8 +30,8 @@ Invoice::Invoice(std::string number, std::string description, int quantity,
     setPricePerItem(price);
 }
 // SETTERS
-void Invoice::setPartNumber(std::string number) { partNumber = number; }
-void Invoice::setPartDescription(std::string description) {
+void Invoice::setPartNumber(const std::string &number) { partNumber = number; }
+void Invoice::setPartDescription(const std::string &description) {
     partDescription = description;
 }
 void Invoice::setItemQuantity(int quantity) {
@@ -37,9 +41,10 @@ void Invoice::setPricePerItem(int price) {
     pricePerItem = (price > 0) ? price : 0;
 }
 // GETTERS
-std::string Invoice::getPartNumber() { return partNumber; }
-std::string Invoice::getPartDescription() { return partDescription; }
-int Invoice::getItemQuantity() { return itemQuantity; }
-int Invoice::getPricePerItem() { return pricePerItem; }
+std::string Invoice::getPartNumber() const { return partNumber; }
+std::string Invoice::getPartDescription() const { return partDescription; }
+int Invoice::getItemQuantity() const { return itemQuantity; }
+int Invoice::getPricePerItem() const { return pricePerItem; }
+
 // calcualates the invoice amount
-int Invoice::getInvoiceAmount() { return itemQuantity * pricePerItem; }
+int Invoice::getInvoiceAmount() const { return (getItemQuantity() * getPricePerItem()); }

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SalaryCalculator.h"
+#include "SalaryCalculator.hpp"
 
 SalaryCalculator::SalaryCalculator() {}
 SalaryCalculator::~SalaryCalculator() {}
@@ -26,9 +26,9 @@ void SalaryCalculator::setHoursWorked(double hw) {
 }
 void SalaryCalculator::setHourlyRate(double rate) { hourlyRate = rate; }
 // GETTERS
-double SalaryCalculator::getHoursWorked() { return hoursWorked; }
-double SalaryCalculator::getHourlyRate() { return hourlyRate; }
-double SalaryCalculator::getSalary() {
+double SalaryCalculator::getHoursWorked() const { return hoursWorked; }
+double SalaryCalculator::getHourlyRate() const { return hourlyRate; }
+double SalaryCalculator::getSalary() const {
     if (getHoursWorked() > BASE_HOURS) {
         double overtime = getHoursWorked() - BASE_HOURS;
         double overtimePay = getHourlyRate() + (getHourlyRate() * 0.5);
@@ -52,7 +52,5 @@ void SalaryCalculator::run() {
         setHourlyRate(dtmp);
 
         std::cout << "Salary is: " << getSalary() << std::endl;
-
-        dtmp = 0.0f;
     }
 }

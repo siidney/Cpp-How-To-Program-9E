@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Craps.h"
+#include "Craps.hpp"
 
 Craps::Craps() : _myPoint(0), _bankBalance(1000), _wager(0) {
     srand(time(NULL));

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 int main(int argc, const char *argv[]) {
     GradeBook myGradeBook("Course Name");

@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "ScreenManager.h"
+#include "ScreenManager.hpp"
 
 #include <iostream>
 #include <string>

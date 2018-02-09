@@ -4,9 +4,6 @@
  *       Filename:  ex_219.cpp
  *
  *    Description:  Exercise 2.19 - Arithmetic, Smallest and Largest
- *                  Write a program that inputs three integers from the keyboard
- *                  and prints the sum, average, product, smallest and largest
- *                  of there numbers.
  *
  *        Version:  1.0
  *        Created:  11/03/16 03:31:34

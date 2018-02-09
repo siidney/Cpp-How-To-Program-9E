@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SalaryCalculator.h"
+#include "SalaryCalculator.hpp"
 
 SalaryCalculator::SalaryCalculator() {}
 // SETTERS
@@ -36,9 +36,10 @@ void SalaryCalculator::setHourlyRate(double rate) {
 void SalaryCalculator::setWeeklySales(double sales) {
     weeklySales = sales;
 
-    if (sales == 0.0f)
+    if (sales == 0.0f) {
         std::cout << "\nPoor thing. You sold nothing all week :(\n"
                   << std::endl;
+    }
 }
 void SalaryCalculator::setHoursWorked(double hw) {
     if (hw >= 0.0f) {
@@ -57,9 +58,10 @@ void SalaryCalculator::setEmployeeCode(int emp) {
 void SalaryCalculator::setPiecesProduced(int pieces) {
     piecesProduced = pieces;
 
-    if (pieces == 0.0f)
+    if (pieces == 0.0f) {
         std::cout << "\nPoor little fella made nothing this week :(\n"
                   << std::endl;
+    }
 }
 void SalaryCalculator::inputSalaries() {
     int iValue = 0;

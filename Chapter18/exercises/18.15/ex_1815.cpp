@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Cryptogram.h"
+#include "Cryptogram.hpp"
 
 int main(int argc, const char* argv[]) {
     Cryptogram crypt;

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Integer.h"
+#include "Integer.hpp"
 
 #include <iostream>
 #include <memory>

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SavingsAccount.h"
+#include "SavingsAccount.hpp"
 
 int main(int argc, const char* argv[]) {
     SavingsAccount saver1(2000.00f);

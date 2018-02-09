@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "IntegerSet.h"
+#include "IntegerSet.hpp"
 
 int main(int argc, const char *argv[]) {
     IntegerSet set1;

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "IntegerSet.h"
+#include "IntegerSet.hpp"
 
 #include <stdexcept>
 

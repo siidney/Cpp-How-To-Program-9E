@@ -15,9 +15,10 @@
  *
  * =====================================================================================
  */
-#include "HealthProfile.h"
-
 #include <iostream>
+#include <string>
+
+#include "HealthProfile.hpp"
 
 int main(int argc, const char *argv[]) {
     std::string fName, lName, gender;

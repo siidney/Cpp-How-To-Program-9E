@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#include "Account.h"
+#include "Account.hpp"
 
 int main(int argc, const char *argv[]) {
     Account acc1(500);

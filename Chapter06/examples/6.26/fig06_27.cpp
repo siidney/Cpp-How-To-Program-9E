@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#include "maximum.h"
+#include "maximum.hpp"
 
 int main(int argc, const char *argv[]) {
     // demonstrate maximum with int values

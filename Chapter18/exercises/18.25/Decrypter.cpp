@@ -17,7 +17,7 @@
  *
  * =====================================================================================
  */
-#include "Decrypter.h"
+#include "Decrypter.hpp"
 
 Decrypter::Decrypter() {
     resultsFile.open("results.txt", std::ios::out);

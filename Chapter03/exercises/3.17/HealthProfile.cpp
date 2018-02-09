@@ -15,28 +15,30 @@
  *
  * =====================================================================================
  */
-#include "HealthProfile.h"
+#include <string>
 
-HealthProfile::HealthProfile(std::string fName, std::string lName,
-                             std::string sex, int m, int d, int y, double h,
+#include "HealthProfile.hpp"
+
+HealthProfile::HealthProfile(const std::string &fName, const std::string &lName,
+                             const std::string &g, int m, int d, int y, double h,
                              double w) {
     setFirstName(fName);
     setLastName(lName);
-    setGender(sex);
+    setGender(g);
     setDOB(m, d, y);
     setHeight(h);
     setWeight(w);
     setAge();
 }
 // SETTERS
-void HealthProfile::setFirstName(std::string fName) {
+void HealthProfile::setFirstName(const std::string &fName) {
     firstName = (fName.length() > 0) ? fName : "FirstName";
 }
-void HealthProfile::setLastName(std::string lName) {
+void HealthProfile::setLastName(const std::string &lName) {
     lastName = (lName.length() > 0) ? lName : "LastName";
 }
-void HealthProfile::setGender(std::string sex) {
-    gender = (sex == "Male" || sex == "Female") ? sex : "Undefined";
+void HealthProfile::setGender(const std::string &g) {
+    gender = (g == "Male" || g == "Female") ? g : "Undefined";
 }
 void HealthProfile::setDOB(int m, int d, int y) {
     setMonth(m);
@@ -67,23 +69,25 @@ void HealthProfile::setAge() {
 void HealthProfile::setHeight(int h) { height = h; }
 void HealthProfile::setWeight(int w) { weight = w; }
 // GETTERS
-std::string HealthProfile::getFirstName() { return firstName; }
-std::string HealthProfile::getLastName() { return lastName; }
-std::string HealthProfile::getGender() { return gender; }
-int HealthProfile::getMonth() { return month; }
-int HealthProfile::getDay() { return day; }
-int HealthProfile::getYear() { return year; }
-void HealthProfile::getDOB() {
+std::string HealthProfile::getFirstName() const { return firstName; }
+std::string HealthProfile::getLastName() const { return lastName; }
+std::string HealthProfile::getGender() const { return gender; }
+int HealthProfile::getMonth() const { return month; }
+int HealthProfile::getDay() const { return day; }
+int HealthProfile::getYear() const { return year; }
+void HealthProfile::getDOB() const {
     std::cout << getMonth() << "/" << getDay() << "/" << getYear() << std::endl;
 }
 int HealthProfile::getAge() {
-    if (ageInYears == 0) setAge();
+    if (ageInYears == 0) {
+        setAge();
+    }
 
     return ageInYears;
 }
-double HealthProfile::getHeight() { return height; }
-double HealthProfile::getWeight() { return weight; }
-double HealthProfile::getBMI() {
+double HealthProfile::getHeight() const { return height; }
+double HealthProfile::getWeight() const { return weight; }
+double HealthProfile::getBMI() const {
     return ((getWeight() * 703) / (getHeight() * getHeight()));
 }
 // returns a persons target heart rate
@@ -103,7 +107,7 @@ void HealthProfile::showHealthProfile() {
     std::cout << "Max Heart Rate: " << getMaxHeartRate() << std::endl;
     printBMIInfo();
 }
-void HealthProfile::printBMIInfo() {
+void HealthProfile::printBMIInfo() const {
     std::cout << "\nBMI VALUES" << std::endl;
     std::cout << "Underweight: less than 18.5" << std::endl;
     std::cout << "Normal:      between 18.5 and 24.9" << std::endl;

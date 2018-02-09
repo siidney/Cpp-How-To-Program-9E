@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "MergeSort.h"
+#include "MergeSort.hpp"
 
 #include <iostream>
 

@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "CreateAndDestroy.h"
+#include "CreateAndDestroy.hpp"
 
 CreateAndDestroy::CreateAndDestroy(int ID, std::string messageString) {
     objectID = ID;

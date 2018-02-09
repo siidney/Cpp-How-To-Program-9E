@@ -17,7 +17,7 @@
  * =====================================================================================
  */
 #include <iostream>
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 // function main begins program excution
 int main(int argc, const char *argv[]) {

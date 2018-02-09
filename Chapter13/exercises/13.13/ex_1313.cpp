@@ -15,16 +15,16 @@
  *
  * =====================================================================================
  */
-#include "Circle.h"
-#include "Cube.h"
-#include "Cuboid.h"
-#include "Rectangle.h"
-#include "Shape.h"
-#include "Sphere.h"
-#include "Square.h"
-#include "ThreeDimensionalShape.h"
-#include "Triangle.h"
-#include "TwoDimensionalShape.h"
+#include "Circle.hpp"
+#include "Cube.hpp"
+#include "Cuboid.hpp"
+#include "Rectangle.hpp"
+#include "Shape.hpp"
+#include "Sphere.hpp"
+#include "Square.hpp"
+#include "ThreeDimensionalShape.hpp"
+#include "Triangle.hpp"
+#include "TwoDimensionalShape.hpp"
 
 #include <iostream>
 #include <typeinfo>

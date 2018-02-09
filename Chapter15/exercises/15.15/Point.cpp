@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Point.h"
+#include "Point.hpp"
 
 std::ostream& operator<<(std::ostream& out, const Point& point) {
     if (!std::cin.fail()) {

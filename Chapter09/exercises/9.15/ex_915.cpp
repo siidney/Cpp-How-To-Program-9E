@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#include "TicTacToe.h"
+#include "TicTacToe.hpp"
 
 int main(int argc, const char *argv[]) {
     TicTacToe ttt(3, 3);

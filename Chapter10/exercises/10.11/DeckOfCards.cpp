@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "DeckOfCards.h"
+#include "DeckOfCards.hpp"
 
 #include <algorithm>
 #include <ctime>

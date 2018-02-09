@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "DivideByZeroException.h"
+#include "DivideByZeroException.hpp"
 
 #include <iostream>
 

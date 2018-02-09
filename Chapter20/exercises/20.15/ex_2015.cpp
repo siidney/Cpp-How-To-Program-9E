@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Queue.h"
+#include "Queue.hpp"
 
 #include <iostream>
 #include <cstdlib>

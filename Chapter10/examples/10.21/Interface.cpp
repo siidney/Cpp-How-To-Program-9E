@@ -17,8 +17,8 @@
  *
  * =====================================================================================
  */
-#include "Interface.h"
-#include "Implementation.h"
+#include "Interface.hpp"
+#include "Implementation.hpp"
 
 Interface::Interface(int v) : ptr(new Implementation(v)) {}
 Interface::~Interface() { delete ptr; }

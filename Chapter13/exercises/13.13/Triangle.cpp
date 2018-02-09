@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Triangle.h"
+#include "Triangle.hpp"
 
 #include <iostream>
 #include <stdexcept>

@@ -20,7 +20,6 @@
 #include <iostream>
 
 int main(int argc, const char *argv[]) {
-    double amount;
     double principal = 1000.0f;
     double rate = .05f;
 
@@ -29,7 +28,7 @@ int main(int argc, const char *argv[]) {
     std::cout << std::fixed << std::setprecision(2);
 
     for (int year = 0; year <= 10; ++year) {
-        amount = principal * pow(1.0f + rate, year);
+        double amount = principal * pow(1.0f + rate, year);
 
         std::cout << std::setw(4) << year << std::setw(21) << amount
                   << std::endl;

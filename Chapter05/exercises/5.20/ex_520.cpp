@@ -41,10 +41,11 @@ bool isRightTriangle(int a, int b, int c) {
     // get hypotenuse (always the longest side)
     int hypotenuse = std::max(a, std::max(b, c));
 
-    if (hypotenuse == a)
+    if (hypotenuse == a) {
         return pow(b, 2) + pow(c, 2) == pow(hypotenuse, 2);
-    else if (hypotenuse == b)
+    } else if (hypotenuse == b) {
         return pow(a, 2) + pow(c, 2) == pow(hypotenuse, 2);
-    else
+    } else {
         return pow(a, 2) + pow(b, 2) == pow(hypotenuse, 2);
+    }
 }

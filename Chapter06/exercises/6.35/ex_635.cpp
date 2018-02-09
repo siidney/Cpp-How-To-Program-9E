@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "GuessTheNumber.h"
+#include "GuessTheNumber.hpp"
 
 int main(int argc, const char *argv[]) {
     GuessTheNumber gtn;

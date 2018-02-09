@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Rational.h"
+#include "Rational.hpp"
 
 Rational::Rational(int n, int d) : num(n), den(d) { reduce(); }
 Rational::~Rational() {}

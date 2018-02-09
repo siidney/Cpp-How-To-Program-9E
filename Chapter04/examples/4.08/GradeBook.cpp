@@ -18,15 +18,16 @@
  * =====================================================================================
  */
 #include <iostream>
+#include <string>
 
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 GradeBook::GradeBook(std::string name) { setCourseName(name); }
 // SETTERS
 void GradeBook::setCourseName(std::string name) {
-    if (name.length() <= 25)
+    if (name.length() <= 25) {
         courseName = name;
-    else {
+    } else {
         courseName = name.substr(0, 25);
         std::cout << "Name \"" << name << "\" exceeds maximum length (25).\n";
         std::cout << "Limiting courseName to first 25 characters.\n"

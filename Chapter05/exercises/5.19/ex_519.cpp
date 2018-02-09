@@ -29,11 +29,11 @@ int main(int argc, const char *argv[]) {
     std::cout << "Term" << std::setw(4) << "\tPI Approx" << std::endl;
 
     for (int i = 1; i <= limit; i++) {
-        if (toggle == 0)
+        if (toggle == 0) {
             pi -= (4.0f / divisor);
-        else
+        } else {
             pi += (4.0f / divisor);
-
+        }
         // bit toggle for + - switching above
         toggle = (1 - toggle);
 

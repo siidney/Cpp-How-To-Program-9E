@@ -15,31 +15,34 @@
  *
  * =====================================================================================
  */
-#include "Employee.h"
+#include <string>
 
-Employee::Employee(std::string fName, std::string lName, int mSalary) {
+#include "Employee.hpp"
+
+Employee::Employee(const std::string &fName, const std::string &lName, int mSalary) {
     setFirstName(fName);
     setLastName(lName);
     setMonthlySalary(mSalary);
 }
 
 // SETTERS
-void Employee::setFirstName(std::string fName) { firstName = fName; }
-void Employee::setLastName(std::string lName) { lastName = lName; }
+void Employee::setFirstName(const std::string &fName) { firstName = fName; }
+void Employee::setLastName(const std::string &lName) { lastName = lName; }
 void Employee::setMonthlySalary(int mSalary) {
     monthlySalary = (mSalary > 0) ? mSalary : 0;
 }
+
 // GETTERS
-std::string Employee::getFirstName() { return firstName; }
-std::string Employee::getLastName() { return lastName; }
-int Employee::getMonthlySalary() { return monthlySalary; }
-int Employee::calculateSalary(int months) { return monthlySalary * months; }
+std::string Employee::getFirstName() const { return firstName; }
+std::string Employee::getLastName() const { return lastName; }
+int Employee::getMonthlySalary() const { return monthlySalary; }
+int Employee::calculateSalary(int months) const { return (getMonthlySalary() * months); }
 void Employee::giveRaise(int percent) {
     monthlySalary += (monthlySalary / 100) * percent;
 }
-void Employee::showEmployee() {
-    std::cout << "Name: " << getFirstName() << " " << getLastName();
-    std::cout << "\nMonthly Salary: " << getMonthlySalary();
-    std::cout << "\nYearly Salary: " << calculateSalary(12) << std::endl;
-    std::cout << std::endl;
+void Employee::showEmployee() const {
+    std::cout << "Name: " << getFirstName() << " " << getLastName()
+              << "\nMonthly Salary: " << getMonthlySalary()
+              << "\nYearly Salary: " << calculateSalary(12) << std::endl
+              << std::endl;
 }

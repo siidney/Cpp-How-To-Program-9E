@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "CheckingAccount.h"
+#include "CheckingAccount.hpp"
 
 #include <iostream>
 

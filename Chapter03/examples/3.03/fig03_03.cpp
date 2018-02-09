@@ -18,11 +18,12 @@
  * =====================================================================================
  */
 #include <iostream>
+#include <string>
 
 // GradeBook class definition
 class GradeBook {
  public:
-    void displayMessage(std::string courseName) {
+    void displayMessage(const std::string &courseName) {
         std::cout << "Welcome to the grade book for\n"
                   << courseName << "!" << std::endl;
     }

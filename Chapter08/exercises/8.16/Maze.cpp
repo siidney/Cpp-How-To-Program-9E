@@ -17,7 +17,7 @@
  *
  * =====================================================================================
  */
-#include "Maze.h"
+#include "Maze.hpp"
 
 Maze::Maze() : _moves(0) {}
 Maze::Maze(std::string& fname) : _moves(0),_fname(fname)  { initialise(); }

@@ -19,6 +19,7 @@
  * =====================================================================================
  */
 #include <iostream>
+#include <string>
 
 class GradeBook {
  private:
@@ -26,7 +27,7 @@ class GradeBook {
 
  public:
     // SETTERS
-    void setCourseName(std::string name) { courseName = name; }
+    void setCourseName(const std::string &name) { courseName = name; }
     // GETTERS
     std::string getCourseName() { return courseName; }
     // function that displays a welcome message

@@ -26,19 +26,22 @@ int main(int argc, const char *argv[]) {
         std::cout << "Enter a number between 1 and 20: ";
         std::cin >> count;
 
-        if (count > 0 && count <= 20)
+        if (count > 0 && count <= 20) {
             break;
+        }
     }
 
     for (int i = 0; i < count; i++) {
-        if (count > 1)
+        if (count > 1) {
             printf("*");
+        }
 
         for (int j = 1; j < count - 1; j++) {
-            if (i == 0 || i == count - 1)
+            if (i == 0 || i == count - 1) {
                 printf("*");
-            else
+            } else {
                 printf(" ");
+            }
         }
         printf("*\n");
     }

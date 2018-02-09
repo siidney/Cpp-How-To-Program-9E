@@ -15,12 +15,12 @@
  *
  * =====================================================================================
  */
-#include "BasePlusCommissionEmployee.h"
-#include "CommissionEmployee.h"
-#include "Employee.h"
-#include "HourlyWorker.h"
-#include "PieceWorker.h"
-#include "SalariedEmployee.h"
+#include "BasePlusCommissionEmployee.hpp"
+#include "CommissionEmployee.hpp"
+#include "Employee.hpp"
+#include "HourlyWorker.hpp"
+#include "PieceWorker.hpp"
+#include "SalariedEmployee.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -30,7 +30,7 @@ int main(int argc, const char *argv[]) {
     std::vector<Employee *> employees;
 
     employees.push_back(
-        new SalariedEmployee("John", "Smith", "111-11-1111", 800));
+        new SalariedEmployee("John", "Smi.hpp", "111-11-1111", 800));
     employees.push_back(
         new CommissionEmployee("Sue", "Jones", "222-22-2222", 10000, .06));
     employees.push_back(new BasePlusCommissionEmployee(

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Simpletron.h"
+#include "Simpletron.hpp"
 
 int main(int argc, const char *argv[]) {
     Simpletron s;

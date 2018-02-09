@@ -15,12 +15,14 @@
  *
  * =====================================================================================
  */
-#include "SalaryCalculator.h"
+#include "SalaryCalculator.hpp"
+
+static const int QUIT = -1;
 
 int main(int argc, const char *argv[]) {
     SalaryCalculator sc;
 
-    while (sc.getHoursWorked() != -1) {
+    while (sc.getHoursWorked() != QUIT) {
         sc.run();
     }
     return 0;

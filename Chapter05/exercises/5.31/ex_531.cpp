@@ -31,7 +31,9 @@ int main(int argc, const char *argv[]) {
         std::cout << "Enter expenses (-1 to quit): ";
         std::cin >> dAmount;
 
-        if (dAmount > 0) dAmountTotal += dAmount;
+        if (dAmount > 0) {
+            dAmountTotal += dAmount;
+        }
     }
 
     std::cout << "Total amount: " << dAmountTotal << std::endl;

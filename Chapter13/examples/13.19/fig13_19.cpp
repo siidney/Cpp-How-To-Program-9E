@@ -18,10 +18,10 @@
  *
  * =====================================================================================
  */
-#include "BasePlusCommissionEmployee.h"
-#include "CommissionEmployee.h"
-#include "Employee.h"
-#include "SalariedEmployee.h"
+#include "BasePlusCommissionEmployee.hpp"
+#include "CommissionEmployee.hpp"
+#include "Employee.hpp"
+#include "SalariedEmployee.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -36,7 +36,7 @@ int main(int argc, const char *argv[]) {
     std::vector<Employee *> employees(3);
 
     // Initialise vector with various kinds of Employees
-    employees[0] = new SalariedEmployee("John", "Smith", "111-11-1111", 800);
+    employees[0] = new SalariedEmployee("John", "Smi.hpp", "111-11-1111", 800);
     employees[1] =
         new CommissionEmployee("Sue", "Jones", "333-33-3333", 10000, .06);
     employees[2] = new BasePlusCommissionEmployee("Bob", "Lewis", "444-44-4444",

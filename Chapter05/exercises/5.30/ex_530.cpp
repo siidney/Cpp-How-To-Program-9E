@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Quiz.h"
+#include "Quiz.hpp"
 
 int main(int argc, const char *argv[]) {
     Quiz q;

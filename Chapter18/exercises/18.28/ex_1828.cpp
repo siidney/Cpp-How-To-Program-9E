@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "IngredientSwitcher.h"
+#include "IngredientSwitcher.hpp"
 
 int main(int argc, const char* argv[]) {
     IngredientSwitcher is;

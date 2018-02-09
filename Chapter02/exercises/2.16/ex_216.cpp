@@ -4,9 +4,6 @@
  *       Filename:  ex_216.cpp
  *
  *    Description:  Exercise 2.16 - Arithmetic
- *                  Write a program that asks the user to enter two numbers,
- *                  obtains the two numbers from the user and prints the sum,
- *                  product, difference and quotient of the two numbers.
  *
  *        Version:  1.0
  *        Created:  11/03/16 03:14:49

@@ -4,16 +4,6 @@
  *       Filename:  ex_231.cpp
  *
  *    Description:  Exercise 2.31 - Car-Pool Savings Calculator
- *                  Create an application that calculates your daily driving
- *                  cost, so that you can estimate how much money could be saved
- *                  by car pooling.
- *                  The application should input the following information and
- *                  display the user's cost per day of driving to work:
- *                  a) Total mile driven per day.
- *                  b) Cost per gallon of gasoline.
- *                  c) Average miles per gallon.
- *                  d) Parking fees per day.
- *                  e) Tolls per day.
  *
  *        Version:  1.0
  *        Created:  11/03/16 05:28:41

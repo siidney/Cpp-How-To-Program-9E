@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "PieceWorker.h"
+#include "PieceWorker.hpp"
 
 PieceWorker::PieceWorker(const std::string& first, const std::string& last,
                          const std::string& ssn, double pieces, double wage)

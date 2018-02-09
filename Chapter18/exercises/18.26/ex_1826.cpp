@@ -30,7 +30,7 @@ int main(int argc, const char* argv[]) {
     int order;  // 1 ascending, 2 descending
     std::string a[arraySize] = {
         "test", "avacado",  "ascending", "zebra", "cellphone",
-        "feet", "elephant", "nunchucks", "brian", "messiah"};
+        "feet", "elephant", "nunchucks", "brian", "messi.hpp"};
 
     std::cout << "1 - Ascending\n"
               << "2 - Descending\n> ";

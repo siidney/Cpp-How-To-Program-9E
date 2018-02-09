@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SMSDecoder.h"
+#include "SMSDecoder.hpp"
 
 int main(int argc, const char* argv[]) {
     SMSDecoder smsd;

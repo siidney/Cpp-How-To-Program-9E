@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#include "Invoice.h"
+#include "Invoice.hpp"
 
 int main(int argc, const char *argv[]) {
     Invoice invoice1("12345", "Hammer", 12, 6);

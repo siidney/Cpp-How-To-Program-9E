@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "DoubleScriptedArray.h"
+#include "DoubleScriptedArray.hpp"
 
 #include <iostream>
 

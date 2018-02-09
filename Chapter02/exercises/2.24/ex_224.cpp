@@ -4,7 +4,7 @@
  *       Filename:  ex_224.cpp
  *
  *    Description:  Exercise 2.24 - Odd or Even
- *                  Write a program taht reads an integer and determines and
+ *                  Write a program that reads an integer and determines and
  *                  prints whether it's odd or even.
  *
  *        Version:  1.0
@@ -25,8 +25,7 @@ int main(int argc, const char *argv[]) {
     std::cout << "Enter an integer: ";
     std::cin >> num1;
 
-    std::cout << num1 << " is " << ((num1 % 2 == 0) ? "even" : "odd")
-              << std::endl;
+    std::cout << num1 << " is " << ((num1 % 2 == 0) ? "even" : "odd") << std::endl;
 
     return 0;
 }

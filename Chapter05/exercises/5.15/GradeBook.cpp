@@ -17,7 +17,9 @@
  *
  * =====================================================================================
  */
-#include "GradeBook.h"
+#include <string>
+
+#include "GradeBook.hpp"
 
 GradeBook::GradeBook(std::string name) {
     setCourseName(name);
@@ -40,8 +42,8 @@ void GradeBook::setCourseName(std::string name) {
     }
 }
 // GETTERS
-std::string GradeBook::getCourseName() { return courseName; }
-void GradeBook::displayMessage() {
+std::string GradeBook::getCourseName() const { return courseName; }
+void GradeBook::displayMessage() const {
     std::cout << "Welcome to the grade book for\n"
               << getCourseName() << "!\n"
               << std::endl;
@@ -86,7 +88,7 @@ void GradeBook::inputGrades() {
         }
     }
 }
-void GradeBook::displayGradeReport() {
+void GradeBook::displayGradeReport() const {
     std::cout << "\n\nNumber of students who received each letter grade:"
               << "\nA: " << aCount << "\nB: " << bCount << "\nC: " << cCount
               << "\nD: " << dCount << "\nF: " << fCount << std::endl;

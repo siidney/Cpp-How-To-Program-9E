@@ -43,8 +43,9 @@ int main(int argc, const char *argv[]) {
  */
 void printDigits(int num) {
     const std::string SPACES = "   ";
-    if (num / 10 > 0)
+    if (num / 10 > 0) {
         printDigits(num / 10);
+    }
 
     std::cout << num % 10 << SPACES;
 }

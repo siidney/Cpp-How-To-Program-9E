@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Complex.h"
+#include "Complex.hpp"
 
 int main(int argc, const char *argv[]) {
     Complex c1;

@@ -15,12 +15,14 @@
  *
  * =====================================================================================
  */
-#include "SalesCommissionCalculator.h"
+#include "SalesCommissionCalculator.hpp"
+
+static const int QUIT = -1;
 
 int main(int argc, const char *argv[]) {
     SalesCommissionCalculator scc;
 
-    while (scc.getWeeklySales() != -1) {
+    while (scc.getWeeklySales() != QUIT) {
         scc.run();
     }
     return 0;

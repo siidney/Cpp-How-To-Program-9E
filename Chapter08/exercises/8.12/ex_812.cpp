@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "TortoiseAndHare.h"
+#include "TortoiseAndHare.hpp"
 
 int main(int argc, const char *argv[]) {
     TortoiseAndHare th;

@@ -15,12 +15,14 @@
  *
  * =====================================================================================
  */
-#include "CreditLimits.h"
+#include "CreditLimits.hpp"
+
+const static int QUIT = -1;
 
 int main(int argc, const char *argv[]) {
     CreditLimits cl;
 
-    while (cl.getAccountNumber() != -1) {
+    while (cl.getAccountNumber() != QUIT) {
         cl.run();
     }
     return 0;

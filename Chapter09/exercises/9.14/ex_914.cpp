@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "HugeInteger.h"
+#include "HugeInteger.hpp"
 
 int main(int argc, const char *argv[]) {
     HugeInteger h1("123456");

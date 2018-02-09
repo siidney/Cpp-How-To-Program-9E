@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 #include <iomanip>
 #include <iostream>

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Turtle.h"
+#include "Turtle.hpp"
 
 void Turtle::go() {
     std::cout << "\n*** Welcome to the Turtle Graphics Program ***\n"

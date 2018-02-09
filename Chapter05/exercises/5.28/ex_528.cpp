@@ -78,8 +78,7 @@ void printVerse(int day) {
         case 2:
             std::cout << "Two Turtle Doves" << std::endl;
         case 1:
-            printf("%s Partridge in a Pear Tree\n",
-                   (day > 1) ? "and a" : "a");
+            printf("%s Partridge in a Pear Tree\n", (day > 1) ? "and a" : "a");
         default:
             break;
     }

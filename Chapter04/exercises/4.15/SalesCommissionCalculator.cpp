@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SalesCommissionCalculator.h"
+#include "SalesCommissionCalculator.hpp"
 
 SalesCommissionCalculator::SalesCommissionCalculator() {}
 SalesCommissionCalculator::~SalesCommissionCalculator() {}
@@ -28,8 +28,8 @@ void SalesCommissionCalculator::setWeeklyEarnings() {
     weeklyEarnings = BASEPAY + (getWeeklySales() * COMMISSION);
 }
 // GETTERS
-double SalesCommissionCalculator::getWeeklySales() { return weeklySales; }
-double SalesCommissionCalculator::getWeeklyEarnings() { return weeklyEarnings; }
+double SalesCommissionCalculator::getWeeklySales() const { return weeklySales; }
+double SalesCommissionCalculator::getWeeklyEarnings() const { return weeklyEarnings; }
 void SalesCommissionCalculator::run() {
     double dtmp = 0.0f;
 

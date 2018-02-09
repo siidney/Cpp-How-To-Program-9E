@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Array.h"
+#include "Array.hpp"
 
 #include <cstdlib>
 #include <iomanip>

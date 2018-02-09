@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "BinarySearch.h"
+#include "BinarySearch.hpp"
 
 #include <algorithm>
 #include <cstdlib>

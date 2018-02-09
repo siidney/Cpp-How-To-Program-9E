@@ -18,7 +18,7 @@
  */
 #include <iostream>
 
-#include "Employee.h"
+#include "Employee.hpp"
 
 int main(int argc, const char *argv[]) {
     Date birth(7, 24, 1949);

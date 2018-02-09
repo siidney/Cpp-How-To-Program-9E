@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "SalariedEmployee.h"
+#include "SalariedEmployee.hpp"
 
 SalariedEmployee::SalariedEmployee(const std::string& first,
                                    const std::string& last,

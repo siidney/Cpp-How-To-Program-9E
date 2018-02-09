@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SavingsAccount.h"
+#include "SavingsAccount.hpp"
 
 SavingsAccount::SavingsAccount(double b, double ir)
     : Account(b), interestRate(ir) {}

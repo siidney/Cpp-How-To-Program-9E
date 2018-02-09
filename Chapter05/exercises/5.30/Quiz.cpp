@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Quiz.h"
+#include "Quiz.hpp"
 
 void Quiz::run() {
     if (_currentState != GameStates::INIT) {
@@ -54,11 +54,11 @@ bool Quiz::setQuestions() {
                                   "Blue! NO! YELLOOOOOOOOWW!!!", "Greeeen?",
                                   "Uh...er...Africa"));
     _questions.push_back(Question(
-        "What...is the capital of Assyria?", "Nineveh", "Used to be Assur",
+        "What...is the capital of Assyria?", "Ninev.hpp", "Used to be Assur",
         "In the past it was Numrud", "At one time it was at Dur Sarukin"));
     _questions.push_back(
         Question("What...is the airspeed velocity of an unladen swallow?",
-                 "An African or European Swallow?", "Uh uh uh", "Uh...er...ah",
+                 "An African or European Swallow?", "Uh uh .hpp", "Uh...er...ah",
                  "Well...I don't know..."));
 
     _currentState = GameStates::PLAY;

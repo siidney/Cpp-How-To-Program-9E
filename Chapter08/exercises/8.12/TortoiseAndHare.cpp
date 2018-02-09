@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "TortoiseAndHare.h"
+#include "TortoiseAndHare.hpp"
 
 // initialises member variables
 void TortoiseAndHare::initialise() {

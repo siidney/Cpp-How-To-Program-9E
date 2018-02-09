@@ -4,12 +4,6 @@
  *       Filename:  ex_217.cpp
  *
  *    Description:  Exercise 2.17 - Printing
- *                  Write a program that prints the numbers 1 to 4 on the same
- *                  line with each pair of adjacent numbers separated by one
- *                  space. Do this several ways:
- *                  a) Using one statement with one stream insertion operator.
- *                  b) Using one statement with four stream insertion operators.
- *                  c) Using four statements.
  *
  *        Version:  1.0
  *        Created:  11/03/16 03:22:46

@@ -41,8 +41,7 @@ int main(int argc, const char *argv[]) {
     std::cout << "Enter the desired accuracy of e: ";
     std::cin >> c;
 
-    printf("Factorial A: %d\nFactorial B: %d\nFactorial C: %d\n", factorialA(a),
-           factorialB(b), factorialC(c));
+    printf("Factorial A: %d\nFactorial B: %d\nFactorial C: %d\n", factorialA(a), factorialB(b), factorialC(c));
     return 0;
 }
 // A - compute and return factorial

@@ -15,12 +15,14 @@
  *
  * =====================================================================================
  */
-#include "GasMileage.h"
+#include "GasMileage.hpp"
+
+static const int QUIT = -1;
 
 int main(int argc, const char *argv[]) {
     GasMileage gm;
 
-    while (gm.getMilesDriven() != -1) {
+    while (gm.getMilesDriven() != QUIT) {
         gm.run();
     }
 

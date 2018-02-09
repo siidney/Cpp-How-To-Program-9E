@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Circle.h"
+#include "Circle.hpp"
 
 #include <iostream>
 #include <stdexcept>

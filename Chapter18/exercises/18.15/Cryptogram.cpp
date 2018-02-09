@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Cryptogram.h"
+#include "Cryptogram.hpp"
 
 Cryptogram::Cryptogram() : userState(STATE::PLAY) {
     srand((int)time(0));

@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
-#include "BasePlusCommissionEmployee.h"
-#include "CommissionEmployee.h"
-#include "Date.h"
-#include "Employee.h"
-#include "SalariedEmployee.h"
+#include "BasePlusCommissionEmployee.hpp"
+#include "CommissionEmployee.hpp"
+#include "Date.hpp"
+#include "Employee.hpp"
+#include "SalariedEmployee.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -29,7 +29,7 @@ int main(int argc, const char *argv[]) {
     // set floating-point output formatting
     std::cout << std::fixed << std::setprecision(2);
 
-    SalariedEmployee salariedEmployee("John", "Smith", "111-11-1111",
+    SalariedEmployee salariedEmployee("John", "Smi.hpp", "111-11-1111",
                                       Date(5, 13, 1975), 800);
     CommissionEmployee commissionEmployee("Sue", "Jones", "333-33-3333",
                                           Date(6, 18, 1985), 10000, .06);

@@ -15,11 +15,32 @@
  *
  * =====================================================================================
  */
-#include "FindTheTwoLargest.h"
+#include <iostream>
+
+#define MAX(a, b) ((a > b) ? a : b)
 
 int main(int argc, const char *argv[]) {
-    FindTheTwoLargest ftl;
+    int counter = 0;
+    int number = 0;
+    int fLargest = 0;
+    int sLargest = 0;
 
-    ftl.run();
+    std::cout << "Program to find the largest of 10 numbers\n" << std::endl;
+
+    while (counter < 10) {
+        std::cout << "Enter number: (" << (10 - counter) << " remaining): ";
+        std::cin >> number;
+
+        if (MAX(fLargest, number) == number) {
+            sLargest = fLargest;
+            fLargest = number;
+        }
+
+        ++counter;
+    }
+
+    std::cout << "First Largest: " << fLargest
+              << "\nSecond Largest: " << sLargest << std::endl;
+
     return 0;
 }

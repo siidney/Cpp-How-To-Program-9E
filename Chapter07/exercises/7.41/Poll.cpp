@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Poll.h"
+#include "Poll.hpp"
 
 Poll::Poll() { initialise(); }
 // intialise arrays

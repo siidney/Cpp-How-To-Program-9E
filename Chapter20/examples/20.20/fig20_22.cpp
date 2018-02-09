@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Tree.h"
+#include "Tree.hpp"
 
 #include <iomanip>
 #include <iostream>

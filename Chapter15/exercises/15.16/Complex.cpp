@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Complex.h"
+#include "Complex.hpp"
 
 std::ostream& operator<<(std::ostream& out, const Complex& complex) {
     return out;

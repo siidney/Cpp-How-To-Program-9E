@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "CreateAndDestroy.h"
+#include "CreateAndDestroy.hpp"
 
 void create(void);                                  // prototype
 CreateAndDestroy first(1, "(global before main)");  // global object

@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "ReservationSystem.h"
+#include "ReservationSystem.hpp"
 
 int main(int argc, const char *argv[]) {
     ReservationSystem res;

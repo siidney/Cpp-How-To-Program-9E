@@ -25,9 +25,8 @@ bool isRightTriangle(int, int, int);
 int main(int argc, const char *argv[]) {
     int a, b, c = 0;
 
-    std::cout
-        << "Program to check whether 3 values represent a right triangle.\n"
-        << std::endl;
+    std::cout << "Program to check whether 3 values represent a right triangle.\n"
+              << std::endl;
 
     std::cout << "Enter three space separated non zero integers: ";
     std::cin >> a >> b >> c;
@@ -39,10 +38,11 @@ int main(int argc, const char *argv[]) {
 bool isRightTriangle(int a, int b, int c) {
     int hypotenuse = std::max(a, std::max(b, c));
 
-    if (hypotenuse == a)
+    if (hypotenuse == a) {
         return pow(b, 2) + pow(c, 2) == pow(hypotenuse, 2);
-    else if (hypotenuse == b)
+    } else if (hypotenuse == b) {
         return pow(a, 2) + pow(c, 2) == pow(hypotenuse, 2);
-    else
+    } else {
         return pow(a, 2) + pow(b, 2) == pow(hypotenuse, 2);
+    }
 }

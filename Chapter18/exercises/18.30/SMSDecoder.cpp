@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "SMSDecoder.h"
+#include "SMSDecoder.hpp"
 
 SMSDecoder::SMSDecoder() {}
 // main program entry point

@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-#include "Time.h"
+#include "Time.hpp"
 
 int main(int argc, const char *argv[]) {
     Time wakeUp(6, 45, 0);      // non-constant object

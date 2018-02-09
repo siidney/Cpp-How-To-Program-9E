@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "BucketSort.h"
+#include "BucketSort.hpp"
 
 #include <cstdlib>
 #include <iostream>

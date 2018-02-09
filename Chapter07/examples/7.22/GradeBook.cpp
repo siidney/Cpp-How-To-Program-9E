@@ -19,7 +19,7 @@
 #include <iomanip>
 #include <iostream>
 
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 GradeBook::GradeBook(std::string name, const int gradesArray[][tests]) {
     setCourseName(name);

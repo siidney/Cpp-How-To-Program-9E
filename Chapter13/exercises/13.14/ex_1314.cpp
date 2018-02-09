@@ -18,11 +18,11 @@
  *
  * =====================================================================================
  */
-#include "Circle.h"
-#include "Rectangle.h"
-#include "ScreenManager.h"
-#include "Square.h"
-#include "Triangle.h"
+#include "Circle.hpp"
+#include "Rectangle.hpp"
+#include "ScreenManager.hpp"
+#include "Square.hpp"
+#include "Triangle.hpp"
 
 void processMenu(int);
 

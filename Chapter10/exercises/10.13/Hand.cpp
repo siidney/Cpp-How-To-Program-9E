@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "Hand.h"
+#include "Hand.hpp"
 
 #include <algorithm>
 #include <iostream>
@@ -285,7 +285,7 @@ std::string Hand::getScore() {
             return "Four of a Kind";
             break;
         case 5:
-            return "Flush";
+            return "Flu.hpp";
             break;
         case 6:
             return "Straight";

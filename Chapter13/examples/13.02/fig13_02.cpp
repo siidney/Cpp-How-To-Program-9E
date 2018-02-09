@@ -16,8 +16,8 @@
  *
  * =====================================================================================
  */
-#include "BasePlusCommissionEmployee.h"
-#include "CommissionEmployee.h"
+#include "BasePlusCommissionEmployee.hpp"
+#include "CommissionEmployee.hpp"
 
 int main(int argc, const char *argv[]) {
     CommissionEmployee commissionEmployee("Sue", "Jones", "222-22-2222", 10000,

@@ -18,7 +18,7 @@
  */
 #include <iostream>
 
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 GradeBook::GradeBook(std::string name) {
     setCourseName(name);

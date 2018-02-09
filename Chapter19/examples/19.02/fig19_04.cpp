@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "BinarySearch.h"
+#include "BinarySearch.hpp"
 
 #include <iostream>
 

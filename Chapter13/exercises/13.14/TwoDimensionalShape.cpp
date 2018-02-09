@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "TwoDimensionalShape.h"
+#include "TwoDimensionalShape.hpp"
 
 TwoDimensionalShape::TwoDimensionalShape(int w, int h, int x, int y, char f)
     : Shape(w, h, x, y), fillchar(f) {}

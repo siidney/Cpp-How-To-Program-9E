@@ -17,7 +17,7 @@
  *
  * =====================================================================================
  */
-#include "HugeInteger.h"
+#include "HugeInteger.hpp"
 
 #include <string>
 

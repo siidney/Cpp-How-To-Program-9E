@@ -19,15 +19,16 @@
  */
 #include <iomanip>
 #include <iostream>
+#include <string>
 
-#include "GradeBook.h"
+#include "GradeBook.hpp"
 
 GradeBook::GradeBook(std::string name) { setCourseName(name); }
 // SETTERS
 void GradeBook::setCourseName(std::string name) {
-    if (name.length() <= 25)
+    if (name.length() <= 25) {
         courseName = name;
-    else {
+    } else {
         courseName = name.substr(0, 25);
         std::cout << "Name \"" << name << "\" exceeds maximum length (25).\n";
         std::cout << "Limiting courseName to first 25 characters.\n"
@@ -47,7 +48,6 @@ void GradeBook::determineClassAverage() {
     int total;
     int gradeCounter;
     int grade;
-    double average;
 
     total = 0;
     gradeCounter = 0;
@@ -66,12 +66,13 @@ void GradeBook::determineClassAverage() {
     // ensure at least 1 grade entered
     if (gradeCounter != 0) {
         // calculate the average of all entered grades
-        average = static_cast<double>(total) / gradeCounter;
+        double average = static_cast<double>(total) / gradeCounter;
 
         std::cout << "\nTotal of all " << gradeCounter << " grades is " << total
                   << std::endl;
         std::cout << "Class average is " << std::setprecision(2) << std::fixed
                   << average << std::endl;
-    } else
+    } else {
         std::cout << "No grades were entered" << std::endl;
+    }
 }

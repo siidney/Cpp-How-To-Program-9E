@@ -52,7 +52,7 @@ int main(int argc, const char* argv[]) {
     // handling files with one record
     inTransaction >> transAccountNum >> transDollarAmount;
     inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
-    
+
     // process changes
     while (!inOldMaster.eof() && !inTransaction.eof()) {
         if (transAccountNum < mastAccountNum) {

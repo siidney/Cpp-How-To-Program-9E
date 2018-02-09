@@ -16,7 +16,7 @@
  * =====================================================================================
  */
 
-#include "CreditLimits.h"
+#include "CreditLimits.hpp"
 
 CreditLimits::CreditLimits() {}
 CreditLimits::~CreditLimits() {}
@@ -39,18 +39,18 @@ void CreditLimits::setTotalMonthCredit(double totalCredit) {
 void CreditLimits::setCreditLimit(double limit) { creditLimit = limit; }
 
 // GETTERS
-int CreditLimits::getAccountNumber() { return accountNumber; }
-double CreditLimits::getBeginningBalance() { return beginningBalance; }
-double CreditLimits::getNewBalance() { return newBalance; }
-double CreditLimits::getTotalMonthCharges() { return totalMonthCharges; }
-double CreditLimits::getTotalMonthCredit() { return totalMonthCredit; }
-double CreditLimits::getCreditLimit() { return creditLimit; }
+int CreditLimits::getAccountNumber() const { return accountNumber; }
+double CreditLimits::getBeginningBalance() const { return beginningBalance; }
+double CreditLimits::getNewBalance() const { return newBalance; }
+double CreditLimits::getTotalMonthCharges() const { return totalMonthCharges; }
+double CreditLimits::getTotalMonthCredit() const { return totalMonthCredit; }
+double CreditLimits::getCreditLimit() const { return creditLimit; }
 // determine if credit limit is exceeded
-bool CreditLimits::isCreditLimitExceeded() {
+bool CreditLimits::isCreditLimitExceeded() const {
     return (getCreditLimit() - getNewBalance() < 0) ? true : false;
 }
 // print account information
-void CreditLimits::printInfo() {
+void CreditLimits::printInfo() const {
     std::cout << "Account: " << getAccountNumber() << std::endl;
     std::cout << "Credit limit: " << getCreditLimit() << std::endl;
     std::cout << "Balance: " << getNewBalance() << std::endl;

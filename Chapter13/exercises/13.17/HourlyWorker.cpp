@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "HourlyWorker.h"
+#include "HourlyWorker.hpp"
 
 HourlyWorker::HourlyWorker(const std::string& first, const std::string& last,
                            const std::string& ssn, double hours, double wage)

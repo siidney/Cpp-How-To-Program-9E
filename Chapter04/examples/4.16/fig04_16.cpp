@@ -28,10 +28,11 @@ int main(int argc, const char *argv[]) {
         std::cout << "Enter result (1 = pass, 2 = fail) ";
         std::cin >> result;
 
-        if (result == 1)
+        if (result == 1) {
             passes++;
-        else
+        } else {
             failures++;
+        }
 
         studentCounter++;
     }
@@ -39,6 +40,9 @@ int main(int argc, const char *argv[]) {
     std::cout << "Passed " << passes << "\nFailed " << failures << std::endl;
 
     // determine whether more than 8 students passed
-    if (passes > 8) std::cout << "Bonus to instructor!" << std::endl;
+    if (passes > 8) {
+        std::cout << "Bonus to instructor!" << std::endl;
+    }
+
     return 0;
 }

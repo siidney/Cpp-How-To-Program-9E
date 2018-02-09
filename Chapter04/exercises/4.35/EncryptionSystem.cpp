@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "EncryptionSystem.h"
+#include "EncryptionSystem.hpp"
 
 EncryptionSystem::EncryptionSystem() {}
 EncryptionSystem::~EncryptionSystem() {
@@ -34,6 +34,7 @@ bool EncryptionSystem::setPlainPass(int plain) {
     return false;
 }
 void EncryptionSystem::setEncPass(int enc) { encPassCode = enc; }
+
 // GETTERS
 int EncryptionSystem::getPlainPass() { return plainPassCode; }
 int EncryptionSystem::getEncPass() { return encPassCode; }
@@ -75,7 +76,9 @@ bool EncryptionSystem::encrypt(int plain) {
 int EncryptionSystem::decrypt(int enc) {
     int digits = 0;
 
-    if (enc == 0) enc = getEncPass();
+    if (enc == 0) {
+        enc = getEncPass();
+    }
 
     swapDigits(enc);
 
@@ -102,11 +105,11 @@ int EncryptionSystem::swapDigits(int digits) {
     digits /= 10;
 
     tmp = digits;
-
     a = c;
+
     c = tmp;
 
-    tmp = c;
+    tmp = b;
     b = d;
     d = tmp;
 

@@ -24,16 +24,18 @@ int main(int argc, const char *argv[]) {
 
     std::cout
         << "Enter a list of space separated integers to determine the smallest"
-        << "first entry is number of separate entries: " << std::endl;
+        << "first entry is number of separate entries\n> ";
     std::cin >> counter;
 
     // set current smallest
-    smallest = counter;
+    smallest = 0;
 
     for (int i = 0; i < counter; i++) {
         std::cin >> current;
 
-        if (current < smallest) smallest = current;
+        if ((current < smallest) || (i == 0)) {
+            smallest = current;
+        }
     }
 
     std::cout << "Smallest: " << smallest << std::endl;

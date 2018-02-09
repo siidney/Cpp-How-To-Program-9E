@@ -15,8 +15,8 @@
  *
  * =====================================================================================
  */
-#include "Poker.h"
-#include "DeckOfCards.h"
+#include "Poker.hpp"
+#include "DeckOfCards.hpp"
 
 #include <iostream>
 #include <string>

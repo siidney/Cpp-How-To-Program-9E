@@ -15,7 +15,7 @@
  *
  * =====================================================================================
  */
-#include "TwoDayPackage.h"
+#include "TwoDayPackage.hpp"
 
 #include <stdexcept>
 

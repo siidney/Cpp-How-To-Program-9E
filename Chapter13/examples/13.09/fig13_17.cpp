@@ -16,10 +16,10 @@
  *
  * =====================================================================================
  */
-#include "BasePlusCommissionEmployee.h"
-#include "CommissionEmployee.h"
-#include "Employee.h"
-#include "SalariedEmployee.h"
+#include "BasePlusCommissionEmployee.hpp"
+#include "CommissionEmployee.hpp"
+#include "Employee.hpp"
+#include "SalariedEmployee.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -33,7 +33,7 @@ int main(int argc, const char* argv[]) {
     std::cout << std::fixed << std::setprecision(2);
 
     // create derived-class objects
-    SalariedEmployee salariedEmployee("John", "Smith", "111-11-1111", 800);
+    SalariedEmployee salariedEmployee("John", "Smi.hpp", "111-11-1111", 800);
     CommissionEmployee commissionEmployee("Sue", "Jones", "333-33-3333", 10000,
                                           .06);
     BasePlusCommissionEmployee basePlusCommissionEmployee(

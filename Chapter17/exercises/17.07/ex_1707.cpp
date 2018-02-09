@@ -31,7 +31,7 @@ int main(int argc, const char* argv[]) {
     outOldMaster << 300 << " "
                  << "Mary"
                  << " "
-                 << "Smith"
+                 << "Smi.hpp"
                  << " " << 27.19 << std::endl;
     outOldMaster << 500 << " "
                  << "Sam"

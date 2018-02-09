@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#include "Employee.h"
+#include "Employee.hpp"
 
 int main(int argc, const char *argv[]) {
     Employee emp1("Bob", "Bobson", 1200);

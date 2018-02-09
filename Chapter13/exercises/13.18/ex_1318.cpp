@@ -16,10 +16,10 @@
  *
  * =====================================================================================
  */
-#include "Bicycle.h"
-#include "Building.h"
-#include "Car.h"
-#include "CarbonFootprint.h"
+#include "Bicycle.hpp"
+#include "Building.hpp"
+#include "Car.hpp"
+#include "CarbonFootprint.hpp"
 
 #include <iostream>
 #include <vector>

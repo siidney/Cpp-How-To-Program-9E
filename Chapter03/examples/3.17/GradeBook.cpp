@@ -16,14 +16,16 @@
  *
  * =====================================================================================
  */
-#include "GradeBook.h"
-#include <iostream>
+#include "GradeBook.hpp"
 
-GradeBook::GradeBook(std::string name) { setCourseName(name); }
+#include <iostream>
+#include <string>
+
+GradeBook::GradeBook(const std::string &name) { setCourseName(name); }
 // SETTERS
 // ensure coursename does not exceed 25 chars
-void GradeBook::setCourseName(std::string name) {
-    if (name.length() <= 25) courseName = name;
+void GradeBook::setCourseName(const std::string &name) {
+    if (name.length() <= 25) { courseName = name; }
 
     if (name.length() > 25) {
         courseName = name.substr(0, 25);
