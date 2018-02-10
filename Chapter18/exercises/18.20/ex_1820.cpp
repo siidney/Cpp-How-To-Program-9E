@@ -21,7 +21,7 @@
 #include <string>
 
 int main(int argc, const char *argv[]) {
-    const char char1 = '!';
+    const char *punc_marks = ";,.:\"!?()[]{}-_'/";
     const char char2 = ' ';
 
     std::cout << "Enter a string: ";
@@ -29,11 +29,11 @@ int main(int argc, const char *argv[]) {
     std::string base;
     std::getline(std::cin, base);
 
-    size_t pos = base.find(char1, 0);
+    size_t pos = base.find_first_of(punc_marks, 0);
 
     while (pos != std::string::npos) {
         base[pos] = char2;
-        pos = base.find(char1, pos + 1);
+        pos = base.find_first_of(punc_marks, pos + 1);
     }
 
     // duplicate then tokenize string
