@@ -17,8 +17,10 @@
  */
 #include <iostream>
 
-int tripleByValue(int);
-int tripleByReference(const int&);
+// triples and returns n by value
+inline int tripleByValue(int n) { return n * n * n; }
+// triples and returns n by reference
+inline int tripleByReference(const int& n) { return n * n * n; }
 
 int main(int argc, const char* argv[]) {
     std::cout << "Demonstrating passing parameters by reference and value\n";
@@ -30,7 +32,3 @@ int main(int argc, const char* argv[]) {
 
     return 0;
 }
-// triples and returns n by value
-int tripleByValue(int n) { return n * n * n; }
-// triples and returns n by reference
-int tripleByReference(const int& n) { return n * n * n; }

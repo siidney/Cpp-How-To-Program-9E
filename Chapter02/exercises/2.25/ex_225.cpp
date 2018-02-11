@@ -4,8 +4,6 @@
  *       Filename:  ex_225.cpp
  *
  *    Description:  Exercise 2.25 - Multiples
- *                  Write a program that reads in two integers and determines
- *                  and prints if the first is a multiple of the second.
  *
  *        Version:  1.0
  *        Created:  11/03/16 04:06:37

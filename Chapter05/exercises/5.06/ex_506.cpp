@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#define AVERAGE(a, b) (a / b)
+inline int AVERAGE(int a, int b) { return (a / b); };
 
 static const int EXIT = 9999;
 

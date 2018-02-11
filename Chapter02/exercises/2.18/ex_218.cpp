@@ -17,7 +17,7 @@
  */
 #include <iostream>
 
-#define MAX(a, b) ((a > b) ? a : b)
+inline int MAX(int a, int b) { return (a > b) ? a : b; }
 
 int main(int argc, const char *argv[]) {
     int num1, num2;

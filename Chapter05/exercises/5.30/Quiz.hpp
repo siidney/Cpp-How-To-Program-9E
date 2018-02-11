@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Quiz.h
+ *       Filename:  Quiz.hpp
  *
  *    Description:  Exercise 5.30 - Global Warming Facts Quiz (Without the
  *                  global warming facts)

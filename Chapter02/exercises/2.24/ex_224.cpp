@@ -4,8 +4,6 @@
  *       Filename:  ex_224.cpp
  *
  *    Description:  Exercise 2.24 - Odd or Even
- *                  Write a program that reads an integer and determines and
- *                  prints whether it's odd or even.
  *
  *        Version:  1.0
  *        Created:  11/03/16 04:03:30

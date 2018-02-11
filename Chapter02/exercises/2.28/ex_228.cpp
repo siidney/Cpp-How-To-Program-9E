@@ -4,9 +4,6 @@
  *       Filename:  ex_228.cpp
  *
  *    Description:  Exercise 2.28 - Digits of an Integer.
- *                  Write a program that inputs a five-digit integer, separates
- *                  the integer into its digits and prints them separated by
- *                  three spaces each.
  *
  *        Version:  1.0
  *        Created:  11/03/16 04:42:11

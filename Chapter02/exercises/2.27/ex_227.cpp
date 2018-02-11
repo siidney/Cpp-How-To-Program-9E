@@ -4,9 +4,6 @@
  *       Filename:  ex_227.cpp
  *
  *    Description:  Exercise 2.27 - Integer Equivalent of a Character
- *                  Write a program that prints the integer equivalent of a
- *                  character typed at the keyboard.
- *                  Store the input in a varable type of char.
  *
  *        Version:  1.0
  *        Created:  11/03/16 04:37:43

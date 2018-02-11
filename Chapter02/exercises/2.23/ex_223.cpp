@@ -4,8 +4,6 @@
  *       Filename:  ex_223.cpp
  *
  *    Description:  Exercise 2.23 - Largest and Smallest Integers
- *                  Write a program that reads in five integers and determines
- *                  and prints the largest and smallest integers in the group.
  *
  *        Version:  1.0
  *        Created:  11/03/16 03:59:38
@@ -19,8 +17,9 @@
  */
 #include <iostream>
 
-#define MAX(a, b) ((a > b) ? a : b)
-#define MIN(a, b) ((a < b) ? a : b)
+inline int MAX(int a, int b) {return (a > b ? a : b); }
+inline int MIN(int a, int b) {return (a < b ? a : b); }
+
 
 int main(int argc, const char *argv[]) {
     int num1, num2, num3, num4, num5;

@@ -4,11 +4,6 @@
  *       Filename:  ex_220.cpp
  *
  *    Description:  Exercise 2.20 - Diameter, Circumference and Area of a circle
- *                  Write a program that reads in the radius of a circle as an
- *                  integer and prints the circle's diameter, circumference and
- *                  area.
- *                  Use the constant value 3.14159 for pi.
- *                  Do all calculations in output statements.
  *
  *        Version:  1.0
  *        Created:  11/03/16 03:39:27
