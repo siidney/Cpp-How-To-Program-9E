@@ -33,7 +33,9 @@ int main(int argc, const char *argv[]) {
 // returns base to the power of exponent
 int integerPower(int base, int exponent) {
     // base case
-    if (exponent <= 0) return 1;
+    if (exponent <= 0) {
+        return 1;
+    }
 
     return base * integerPower(base, exponent - 1);
 }

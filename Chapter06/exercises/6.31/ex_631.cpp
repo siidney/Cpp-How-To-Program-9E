@@ -37,10 +37,11 @@ int gcd(int x, int y) {
     // repeat until 2 numbers equal > gcd
 
     while (x != y) {
-        if (x > y)
+        if (x > y) {
             x -= y;
-        else
+        } else {
             y -= x;
+        }
     }
     // can return either x or y as both will be the same
     return x;

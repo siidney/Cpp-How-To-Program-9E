@@ -34,8 +34,7 @@ int main(int argc, const char *argv[]) {
     Points pointA(1, 5);
     Points pointB(2, 6);
 
-    std::cout << "Program to print the distance between two points"
-              << std::endl;
+    std::cout << "Program to print the distance between two points" << std::endl;
 
     std::cout << "Distance between (" << pointA.x << "," << pointA.y << ")("
               << pointB.x << "," << pointB.y

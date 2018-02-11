@@ -5,9 +5,9 @@
  *
  *    Description:  Exercise 6.26 - Celsius and Farenheit Temperatures
  *
- *        Version:  1.0
+ *        Version:  1.1
  *        Created:  14/04/16 18:04:23
- *       Revision:  none
+ *       Revision:  11/02/18 03:30:32
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -18,8 +18,10 @@
 #include <iomanip>
 #include <iostream>
 
-double celsius(double);
-double farenheit(double);
+// convert farenheit to celsius
+inline double celsius(double f) { return (f - 32) * 5 / 9; }
+// convert celsius to farenheit
+inline double farenheit(double c) { return c * 9 / 5 + 32; }
 
 int main(int argc, const char *argv[]) {
     // CELSIUS TO FARENHEIT
@@ -28,8 +30,9 @@ int main(int argc, const char *argv[]) {
     std::cout << "Celsius\tFarenheit" << std::fixed << std::setprecision(1)
               << std::endl;
 
-    for (double c = 0.0; c <= 100.0; c++) {
-        std::cout << c << "\t" << farenheit(c) << std::endl;
+    for (int c = 0; c <= 100; ++c) {
+        std::cout << static_cast<double>(c) << "\t"
+                  << farenheit(static_cast<double>(c)) << std::endl;
     }
 
     // FARENHEIT TO CELSIUS
@@ -39,12 +42,9 @@ int main(int argc, const char *argv[]) {
               << std::endl;
 
     for (int f = 32; f <= 212; f++) {
-        std::cout << f << "\t" << celsius(f) << std::endl;
+        std::cout << static_cast<double>(f) << "\t"
+                  << celsius(static_cast<double>(f)) << std::endl;
     }
 
     return 0;
 }
-// convert farenheit to celsius
-double celsius(double f) { return (f - 32) * 5 / 9; }
-// convert celsius to farenheit
-double farenheit(double c) { return c * 9 / 5 + 32; }

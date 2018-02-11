@@ -23,8 +23,7 @@ unsigned long factorial(unsigned long);
 int main(int argc, const char *argv[]) {
     // calculate factorials of 0 through 10
     for (int counter = 0; counter <= 10; ++counter) {
-        std::cout << counter << "! = " << factorial(counter) << "\n"
-                  << std::endl;
+        printf("%d ! = %lu\n\n", counter, factorial(counter));
     }
     return 0;
 }

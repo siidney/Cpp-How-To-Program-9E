@@ -20,7 +20,10 @@
 bool multiple(int, int);
 
 int main(int argc, const char *argv[]) {
-    int x, y, choice = 0;
+    int x;
+    int y;
+    int choice = 0;
+
     std::cout
         << "Program to determine if first integer is a multiple of a second\n"
         << std::endl;
@@ -29,7 +32,9 @@ int main(int argc, const char *argv[]) {
         std::cout << "Enter two integers (-1 to quit): ";
         std::cin >> x;
 
-        if (x == -1) break;
+        if (x == -1) {
+            break;
+        }
 
         std::cin >> y;
 

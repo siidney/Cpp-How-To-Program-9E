@@ -5,9 +5,9 @@
  *
  *    Description:  Exercise 6.27 - Find the Minimum
  *
- *        Version:  1.0
+ *        Version:  1.1
  *        Created:  14/04/16 18:23:58
- *       Revision:  none
+ *       Revision:  11/02/18 03:44:59
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -16,7 +16,9 @@
  * =====================================================================================
  */
 #include <iostream>
+#include <iomanip>
 
+inline double min1(double a, double b) { return (a < b ? a : b); }
 double minimum(double, double, double);
 
 int main(int argc, const char *argv[]) {
@@ -27,14 +29,13 @@ int main(int argc, const char *argv[]) {
     std::cout << "Enter three double values: ";
     std::cin >> d1 >> d2 >> d3;
 
-    std::cout << "Smallest: " << minimum(d1, d2, d3) << std::endl;
+    std::cout << std::fixed << std::setprecision(1)
+              << "Smallest: " << minimum(d1, d2, d3) << std::endl;
     return 0;
 }
 // finds and returns the smallest of 3 values
 double minimum(double d1, double d2, double d3) {
-    double minimum = d1;
+    double min = (d1 < d2 ? d1 : d2);
 
-    if (d2 < minimum) minimum = d2;
-
-    return (d3 < minimum) ? d3 : minimum;
+    return (d3 < min ? d3 : min);
 }

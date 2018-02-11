@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  GuessTheNumber.h
+ *       Filename:  GuessTheNumber.hpp
  *
  *    Description:  Exercise 6.34 - Guess-the-Number Games
  *
@@ -17,8 +17,8 @@
  */
 #pragma once
 
-#include <ctime>
 #include <iostream>
+#include <random>
 
 enum class GameStates { PLAY, EXIT, WON };
 
@@ -26,16 +26,22 @@ class GuessTheNumber {
  private:
     GameStates _currentState;
 
+    const int MIN = 0;
+    const int MAX = 1000;
+
     int _randNumber;
     int _playerGuess;
     char _playerContinue;
 
+    std::mt19937 gen;
+
     void initialise();
-    void guess(int);
+    GameStates guess(int) const;
+    int getRandomNumber();
 
  public:
-    GuessTheNumber() { initialise(); }
+    GuessTheNumber();
     ~GuessTheNumber() {}
 
-    void run(void);
+    void run();
 };

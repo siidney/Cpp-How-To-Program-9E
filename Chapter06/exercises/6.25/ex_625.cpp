@@ -41,7 +41,9 @@ int main(int argc, const char *argv[]) {
 // returns the number of elapsed seconds since 12 and the given time
 long numSeconds(int h, int m, int s) {
     // if 24h convert to 12h
-    if (h > 12) h -= 12;
+    if (h > 12) {
+        h -= 12;
+    }
 
     // hours > minutes > seconds + minutes > seconds + seconds
     return ((h * 60) * 60) + (m * 60) + s;

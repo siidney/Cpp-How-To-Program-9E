@@ -21,15 +21,12 @@ int tripleByValue(int);
 int tripleByReference(const int&);
 
 int main(int argc, const char* argv[]) {
-    std::cout
-        << "Program to demonstrate passing parameters by reference and value"
-        << std::endl;
+    std::cout << "Demonstrating passing parameters by reference and value\n";
 
     int count = 3;
 
     std::cout << "tripleByValue = " << tripleByValue(count) << std::endl;
-    std::cout << "tripleByReference = " << tripleByReference(count)
-              << std::endl;
+    std::cout << "tripleByReference = " << tripleByReference(count) << std::endl;
 
     return 0;
 }

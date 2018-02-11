@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Craps.h
+ *       Filename:  Craps.hpp
  *
  *    Description:  Exercise 6.49 - Craps Game Modification
  *
@@ -17,24 +17,29 @@
  */
 #pragma once
 
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
+#include <random>
 
 class Craps {
  private:
     enum class Status { CONTINUE, WON, LOST, QUIT };
 
+    Status _gameStatus;
+
+    const int MIN = 1;
+    const int MAX = 6;
+
     int _myPoint;
     int _bankBalance;
     int _wager;
 
-    Status _gameStatus;
+    std::mt19937 gen;
 
     int rollDice();
     void setWager();
     void checkScore(int);
     void getStatus();
+    int getRandomNumber();
 
  public:
     Craps();

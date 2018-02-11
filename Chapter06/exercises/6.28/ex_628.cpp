@@ -31,7 +31,7 @@ int main(int argc, const char *argv[]) {
                       << "\t";
             // print divisors
             for (long d = 1; d < i; d++) {
-                if (i % d == 0) std::cout << d << " ";
+                if (i % d == 0) { std::cout << d << " "; }
             }
             std::cout << std::endl;
         }
@@ -46,7 +46,7 @@ bool isPerfect(long n) {
 
     // sum all divisors up to n/2
     for (long i = 1; i <= n / 2; i++) {
-        if (n % i == 0) sum += i;
+        if (n % i == 0) { sum += i; }
     }
 
     return sum == n;

@@ -27,7 +27,9 @@ int main(int argc, const char *argv[]) {
         std::cout << "Enter a number to round (-1 to exit): ";
         std::cin >> num;
 
-        if (num == -1) break;
+        if (num == -1) {
+            break;
+        }
 
         std::cout << "num: " << num << "\nrounded: " << floor(num + .5)
                   << std::endl;

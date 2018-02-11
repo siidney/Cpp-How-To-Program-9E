@@ -1,9 +1,9 @@
 /*
  * =====================================================================================
  *
- *       Filename:  CAI.h
+ *       Filename:  CAI.hpp
  *
- *    Description:  Exercise 5.56-60 - Computer-Assisted Instruction
+ *    Description:  Exercise 6.56-60 - Computer-Assisted Instruction
  *
  *        Version:  1.0
  *        Created:  16/04/16 15:25:53
@@ -17,23 +17,24 @@
  */
 #pragma once
 
-#include "Question.hpp"
-
-#include <ctime>
 #include <iomanip>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <random>
 
-enum class QuizStates { INIT, PLAY, EXIT };
-enum class ProblemTypes { DIVISION, MULTIPLICATION, ADDITION, SUBTRACTION };
-
-static int MAX_QUESTIONS = 10;
+#include "Question.hpp"
 
 class CAI {
  private:
     Question<int> _intQuestion;        // integer questions
     Question<double> _doubleQuestion;  // double questions
+
+    enum class QuizStates { INIT, PLAY, EXIT };
+    enum class ProblemTypes { DIVISION, MULTIPLICATION, ADDITION, SUBTRACTION };
+
+    const int MAX_QUESTIONS = 10;
+
 
     QuizStates _currentState;
     ProblemTypes _problemType;
@@ -46,6 +47,8 @@ class CAI {
     int _incorrect;
     int _difficulty;
     int _randomProblem;
+
+    std::mt19937 gen;
 
     // template to check answer
     template <typename T>
@@ -62,6 +65,7 @@ class CAI {
     void printResponse(bool);  // prints random response
     void printReport();        // prints performance report
     void reset();
+    int getRandomNumber(const int&, const int&);
 
  public:
     CAI()
@@ -69,7 +73,8 @@ class CAI {
           _correct(0),
           _incorrect(0),
           _difficulty(0),
-          _randomProblem(0) {
+          _randomProblem(0),
+         gen(std::random_device()()){
         initialise();
     }
     ~CAI() {

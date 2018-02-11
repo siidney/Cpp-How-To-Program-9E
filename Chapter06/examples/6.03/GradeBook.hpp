@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  GradeBook.h
+ *       Filename:  GradeBook.hpp
  *
  *    Description:  Fig. 6.3: Definition of class GradeBook that find the
  *                  maximum of three grades.

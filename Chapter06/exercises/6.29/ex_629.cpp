@@ -25,7 +25,7 @@ int main(int argc, const char *argv[]) {
               << std::endl;
 
     for (int i = 2; i < 100; i++) {
-        if (isPrime(i)) std::cout << i << " ";
+        if (isPrime(i)) { std::cout << i << " "; }
     }
     std::cout << std::endl;
 
@@ -33,15 +33,15 @@ int main(int argc, const char *argv[]) {
 }
 // determine whether n is prime
 bool isPrime(int n) {
-    if (n == 1 || n == 2) return true;
+    if (n == 1 || n == 2) { return true; }
 
     // prime numbers cannot be even
-    if (n % 2 == 0) return false;
+    if (n % 2 == 0) { return false; }
 
     // upper limit sqrt as primes cannot be squared
     for (int i = 2; i < sqrt(n); ++i) {
         // has divisor not prime
-        if (n % i == 0) return false;
+        if (n % i == 0) { return false; }
     }
     return true;
 }

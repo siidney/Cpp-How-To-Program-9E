@@ -31,8 +31,9 @@ int main(int argc, const char *argv[]) {
 // recursive definition of function factorial
 unsigned long factorial(unsigned long number) {
     // base case
-    if (number <= 1)
+    if (number <= 1) {
         return 1;
-    else
+    } else {
         return number * factorial(number - 1);
+    }
 }

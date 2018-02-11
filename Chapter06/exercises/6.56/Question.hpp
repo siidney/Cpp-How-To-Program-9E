@@ -37,8 +37,8 @@ struct Question {
 
     T divide() {
         // prevent divide by zero
-        if (num1 == 0) num1 = 1;
-        if (num2 == 0) num2 = 1;
+        num1 = (num1 == 0 ? 1 : num1);
+        num2 = (num2 == 0 ? 1 : num2);
 
         double scale = 0.01;
         return static_cast<int>((num1 / num2) / scale) * scale;

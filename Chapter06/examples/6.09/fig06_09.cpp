@@ -27,10 +27,8 @@ int main(int argc, const char *argv[]) {
     int frequency5 = 0;
     int frequency6 = 0;
 
-    int face;
-
     for (int roll = 0; roll <= 6000000; ++roll) {
-        face = 1 + rand() % 6;
+        int face = 1 + rand() % 6;
 
         // determine roll value 1-6 and increment appropriate counter
         switch (face) {

@@ -30,7 +30,6 @@ int main(int argc, const char *argv[]) {
     std::cout << "Value returned by squareByValue: " << squareByValue(x)
               << std::endl;
     std::cout << "x = " << x << " after squareByValue\n" << std::endl;
-    ;
 
     // demonstrate squareByReference
     std::cout << "z = " << z << " before squareByReference\n";

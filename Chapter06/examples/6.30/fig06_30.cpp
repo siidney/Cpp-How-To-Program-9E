@@ -36,8 +36,9 @@ int main(int argc, const char *argv[]) {
 // recursive function fibonacci
 unsigned long fibonacci(unsigned long number) {
     // base cases
-    if ((number == 0) || (number == 1))
+    if ((number == 0) || (number == 1)) {
         return number;
-    else
+    } else {
         return fibonacci(number - 1) + fibonacci(number - 2);
+    }
 }

@@ -35,8 +35,7 @@ int main(int argc, const char *argv[]) {
         y = tmp;
     }
 
-    std::cout << "GCD of " << x << " and " << y << " is " << gcd(x, y)
-              << std::endl;
+    printf("GCD of %d and %d is %d\n", x, y, gcd(x, y));
     return 0;
 }
 // recursive greatest common divisor

@@ -3,7 +3,7 @@
  *
  *       Filename:  CAI.cpp
  *
- *    Description:  Exercise 5.56-60 - Computer-Assisted Instruction
+ *    Description:  Exercise 6.56-60 - Computer-Assisted Instruction
  *
  *        Version:  1.0
  *        Created:  16/04/16 15:25:59
@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+#include <string>
+
 #include "CAI.hpp"
 
 // INITIALISATION
@@ -30,17 +32,15 @@ void CAI::initialise() {
     _incorrectResponses.push_back("Wrong. Try once more.");
     _incorrectResponses.push_back("Don't give up!");
     _incorrectResponses.push_back("No. Keep trying.");
-
-    srand(static_cast<int>(time(0)));
 }
+
 // prints a menu and sets the difficulty level
 void CAI::setDifficulty() {
     int choice = 0;
 
     while (choice == 0) {
-        std::cout
-            << "Welcome to the quiz.\nPlease select your difficulty level:\n";
-        std::cout << "1. Super mega easy.\n"
+        std::cout << "Welcome to the quiz.\nPlease select your difficulty level:\n"
+                  << "1. Super mega easy.\n"
                   << "2. Normal\n"
                   << "3. Insane\n"
                   << "4. Genius Mode\n"
@@ -56,13 +56,14 @@ void CAI::setDifficulty() {
         }
     }
 }
+
 // prints a menu and sets the problem type
 void CAI::chooseProblemType() {
     int choice = 0;
 
     while (choice == 0) {
-        std::cout << "Please select the type of problems to solve:\n";
-        std::cout << "1. Addition.\n"
+        std::cout << "Please select the type of problems to solve:\n"
+                  << "1. Addition.\n"
                   << "2. Subtraction.\n"
                   << "3. Multiplication.\n"
                   << "4. Division.\n"
@@ -78,6 +79,7 @@ void CAI::chooseProblemType() {
         }
     }
 }
+
 // set problem type separately from printing as if choice is random needs to be
 // done at beginning of each question.
 void CAI::setProblemType(int type) {
@@ -101,49 +103,33 @@ void CAI::setProblemType(int type) {
             break;
     }
 }
+
 // generates and assigns a pair of random numbers for the current question
 void CAI::generateQuestion() {
-    int limit;
-
-    switch (_difficulty) {
-        case 1:
-        default:
-            limit = 9;
-            break;
-        case 2:
-            limit = 99;
-            break;
-        case 3:
-            limit = 999;
-            break;
-        case 4:
-            limit = 9999;
-            break;
-    }
+    //                    v padding
+    static int limit[5] = {0, 9, 99, 999, 9999};
 
     // randomise division from 1 so as to avoid divide by zero
     if (_problemType == ProblemTypes::DIVISION) {
-        _doubleQuestion.init((1 + rand() % limit), (1 + rand() % limit));
+        _doubleQuestion.init(getRandomNumber(1, limit[_difficulty]), getRandomNumber(1, limit[_difficulty]));
     } else {
-        _intQuestion.init((rand() % limit), (rand() % limit));
+        _intQuestion.init(getRandomNumber(0, limit[_difficulty]), getRandomNumber(0, limit[_difficulty]));
     }
 }
 // asks the question
 void CAI::askQuestion() {
-    int intAnswer;
-    int intSolution;
+    int intSolution = 0;
 
-    double doubleAnswer;
-    double doubleSolution;
+    double doubleSolution = 0;
 
     bool correct;
 
     std::string questionOperator;
 
-    _questionCount++;
+    ++_questionCount;
 
     if (_randomProblem == 1) {
-        setProblemType(1 + rand() % 4);
+        setProblemType(getRandomNumber(1, 4));
     }
 
     // question needs generating after random problem
@@ -174,6 +160,8 @@ void CAI::askQuestion() {
     std::cout << "\n" << _questionCount << "/" << MAX_QUESTIONS << ": ";
 
     if (_problemType == ProblemTypes::DIVISION) {
+        double doubleAnswer;
+
         std::cout << _doubleQuestion.num1 << questionOperator
                   << _doubleQuestion.num2 << "? ";
         std::cin >> doubleAnswer;
@@ -188,6 +176,8 @@ void CAI::askQuestion() {
 
         correct = checkAnswer(doubleAnswer, doubleSolution);
     } else {
+        int intAnswer;
+
         std::cout << _intQuestion.num1 << questionOperator << _intQuestion.num2
                   << "? ";
         std::cin >> intAnswer;
@@ -205,7 +195,7 @@ void CAI::askQuestion() {
 
     printResponse(correct);
 
-    (correct) ? _correct++ : _incorrect++;
+    (correct) ? ++_correct : ++_incorrect;
 }
 // prints response based on whether the question was answered correctly
 void CAI::printResponse(bool correct) {
@@ -213,11 +203,11 @@ void CAI::printResponse(bool correct) {
 
     if (correct) {
         std::cout << "\n\t*** "
-                  << _correctResponses[rand() % _correctResponses.size()]
+                  << _correctResponses[getRandomNumber(0, _correctResponses.size() -1)]
                   << " ***" << std::endl;
     } else {
         std::cout << "\n\t*** "
-                  << _incorrectResponses[rand() % _incorrectResponses.size()]
+                  << _incorrectResponses[getRandomNumber(0, _incorrectResponses.size() -1)]
                   << " ***" << std::endl;
     }
 }
@@ -267,10 +257,21 @@ void CAI::run() {
             std::cout << "\nPlay again (y/n)? ";
             std::cin >> cont;
 
-            if (cont == 'y')
+            if (cont == 'y') {
                 reset();
-            else
+            } else {
                 _currentState = QuizStates::EXIT;
+            }
         }
     }
 }
+
+/**
+ * Creates a random distribution and returns a value in the range min max.
+ * @param int
+ * @param int
+ * @return int
+ */
+int CAI::getRandomNumber(const int& min, const int& max) {
+    return std::uniform_int_distribution<int>{min, max}(gen);
+}  // end method getrandomnumber

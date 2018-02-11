@@ -17,25 +17,23 @@
  */
 #include "Craps.hpp"
 
-Craps::Craps() : _myPoint(0), _bankBalance(1000), _wager(0) {
-    srand(time(NULL));
-
-    _gameStatus = Status::CONTINUE;
+Craps::Craps() : _gameStatus(Status::CONTINUE), _myPoint(0),
+                 _bankBalance(1000), _wager(0) , gen(std::random_device()()) {
 }
 Craps::~Craps() {}
 
 // rolls the dice
 int Craps::rollDice() {
-    int die1 = 1 + rand() % 6;
-    int die2 = 1 + rand() % 6;
+    int die1 = getRandomNumber();
+    int die2 = getRandomNumber();
 
     int sum = die1 + die2;
 
-    std::cout << "Player rolled " << die1 << " + " << die2 << " = " << sum
-              << std::endl;
+    printf("Player rolled %d + %d = %d\n", die1, die2, sum);
 
     return sum;
 }
+
 // sets the current turn wager
 void Craps::setWager() {
     while (true) {
@@ -45,13 +43,13 @@ void Craps::setWager() {
         if (_wager >= 0 && _wager <= _bankBalance) {
             if (_wager == _bankBalance) {
                 std::cout << "\n*** Look at you going for broke. You brave "
-                             "little fella. ***\n"
-                          << std::endl;
+                             "little fella. ***\n" << std::endl;
             }
             break;
         }
     }
 }
+
 // checks the game status
 void Craps::checkScore(int sum) {
     switch (sum) {
@@ -79,23 +77,20 @@ void Craps::checkScore(int sum) {
             break;
     }
 }
+
 // gets the game status
 void Craps::getStatus() {
     if (_gameStatus == Status::WON) {
         _bankBalance += _wager;
 
         std::cout << "\n*** Player wins ***" << std::endl;
-    }
-    if (_gameStatus == Status::LOST) {
+    } else if (_gameStatus == Status::LOST) {
         _bankBalance -= _wager;
 
         std::cout << "\n*** Player loses ***" << std::endl;
-
-        if (_bankBalance == 0) {
-            std::cout << "\n*** Sorry, You busted! ***\n" << std::endl;
-        }
     }
     if (_bankBalance == 0) {
+        std::cout << "\n*** Sorry, You busted! ***\n" << std::endl;
         _gameStatus = Status::QUIT;
     }
     if (_gameStatus != Status::CONTINUE && _bankBalance > 0) {
@@ -103,7 +98,7 @@ void Craps::getStatus() {
 
         char cont;
 
-        std::cout << "\nContinue(y/n)? ";
+        std::cout << "\nContinue (y/n)? ";
         std::cin >> cont;
 
         if (cont == 'y') {
@@ -114,6 +109,7 @@ void Craps::getStatus() {
         }
     }
 }
+
 // run one instance of a game
 void Craps::run() {
     setWager();
@@ -123,3 +119,11 @@ void Craps::run() {
         getStatus();
     }
 }
+
+/**
+ * Creates a random distribution and returns a value in the range min max.
+ * @return int
+ */
+int Craps::getRandomNumber() {
+    return std::uniform_int_distribution<int>{MIN, MAX}(gen);
+}  // end method getRandomNumber

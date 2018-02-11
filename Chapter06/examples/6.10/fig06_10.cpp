@@ -30,7 +30,9 @@ int main(int argc, const char *argv[]) {
     for (int counter = 0; counter <= 10; ++counter) {
         std::cout << std::setw(10) << (1 + rand() % 6);
 
-        if (counter % 5 == 0) std::cout << std::endl;
+        if (counter % 5 == 0) {
+            std::cout << std::endl;
+        }
     }
     return 0;
 }

@@ -15,15 +15,19 @@
  *
  * =====================================================================================
  */
+#include <random>
+
 #include "GuessTheNumber.hpp"
+
+GuessTheNumber::GuessTheNumber() : gen(std::random_device()()) {
+        initialise();
+}  // end constructor GuessTheNumber
 
 // initialises and resets member variables
 void GuessTheNumber::initialise() {
     _currentState = GameStates::PLAY;
 
-    srand(static_cast<int>(time(0)));
-
-    _randNumber = 1 + rand() % 1000;
+    _randNumber = getRandomNumber();
 
     _numGuesses = 0;
     _playerGuess = 0;
@@ -31,36 +35,33 @@ void GuessTheNumber::initialise() {
     // print here so as to avoid having it print ever turn
     std::cout << "I have a number between 1 and 1000." << std::endl;
 }
+
 // takes the player guess and compares to number
-void GuessTheNumber::guess(int playerGuess) {
+GameStates GuessTheNumber::guess(int playerGuess) {
     _numGuesses++;
 
     if (playerGuess == _randNumber) {
         std::cout << "Excellent! You guessed the number!" << std::endl;
-        _currentState = GameStates::WON;
-    } else {
-        std::cout << "Too "
-                  << ((playerGuess < _randNumber) ? "low. " : "high. ")
-                  << "Try again." << std::endl;
+        return GameStates::WON;
     }
+
+    printf("Too %s Try again.\n", (playerGuess < _randNumber ? "low" : "high"));
+    return GameStates::PLAY;
 }
+
 // main game loop
-void GuessTheNumber::run(void) {
+void GuessTheNumber::run() {
     while (_currentState != GameStates::EXIT) {
         if (_currentState == GameStates::PLAY) {
-            std::cout << "\nCan you guess my number?" << std::endl;
-
-            std::cout << "Please type your guess: ";
+            printf("\nCan you guess my number?\nPlease type your guess: ");
             std::cin >> _playerGuess;
 
-            if (_playerGuess < 1 || _playerGuess > 1000) {
-                std::cout << "\nInvalid guess. Your number needs to be between "
-                             "1 and 1000"
-                          << std::endl;
+            if (_playerGuess < MIN || _playerGuess > MAX) {
+                printf("\nInvalid guess. Your number needs to be between %d and %d\n", MIN, MAX);
                 continue;
             }
 
-            guess(_playerGuess);
+            _currentState = guess(_playerGuess);
         }
         if (_currentState == GameStates::WON) {
             victoryMessage();
@@ -76,19 +77,22 @@ void GuessTheNumber::run(void) {
         }
     }
 }
+
 // victory message
-void GuessTheNumber::victoryMessage() {
-    if (_numGuesses <= 10) {
-        std::cout << "\nGuesses: " << _numGuesses
-                  << "\nEither you know the secret or you got lucky!"
-                  << std::endl;
-    }
+void GuessTheNumber::victoryMessage() const {
     if (_numGuesses == 10) {
-        std::cout << "\nGuesses: " << _numGuesses
-                  << "\nAhah! You know the secret!" << std::endl;
-    }
-    if (_numGuesses > 10) {
-        std::cout << "\nGuesses: " << _numGuesses
-                  << "\nYou should be able to do better!" << std::endl;
+        printf("\nGuesses: %d\nAhah! You know the secret!\n", _numGuesses);
+    } else if (_numGuesses < 10) {
+        printf("\nGuesses: %d\nEither you know the secret or you got lucky!\n", _numGuesses);
+    } else {
+        printf("\nGuesses: %d\nYou should be able to do better!\n", _numGuesses);
     }
 }
+
+/**
+ * Creates a random distribution and returns a value in the range min max.
+ * @return int
+ */
+int GuessTheNumber::getRandomNumber() {
+    return std::uniform_int_distribution<int>{MIN, MAX}(gen);
+}  // end method getRandomNumber

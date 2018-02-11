@@ -27,13 +27,13 @@ int main(int argc, const char *argv[]) {
     std::cout << "\nEnter the base and exponent: ";
     std::cin >> base >> exponent;
 
-    std::cout << base << " to the power of " << exponent << ": "
-              << power(base, exponent) << std::endl;
+    printf("%d to the power of %d: %d\n", base, exponent, power(base, exponent));
+
     return 0;
 }
 // recusively calculate exponents
 int power(int base, int exponent) {
-    if (exponent == 0) return 1;
+    if (exponent == 0) { return 1; }
 
     return base * power(base, exponent - 1);
 }

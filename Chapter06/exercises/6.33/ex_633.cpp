@@ -15,18 +15,22 @@
  *
  * =====================================================================================
  */
-#include <ctime>
 #include <iostream>
+#include <random>
 
 int flip(void);
 
 const int NUM_FLIPS = 100;
 
+std::random_device rd;
+std::mt19937 gen(rd());
+
+// simulates the flipping of a coin and returns the results
+inline int flip() { return std::uniform_int_distribution<int>{0, 1}(gen); }
+
 int main(int argc, const char *argv[]) {
     int heads = 0;
     int tails = 0;
-
-    srand(static_cast<int>(time(0)));
 
     std::cout << "Program to simulate coin tossing" << std::endl;
 
@@ -45,5 +49,3 @@ int main(int argc, const char *argv[]) {
     std::cout << "\nHeads: " << heads << "\nTails:" << tails << std::endl;
     return 0;
 }
-// simulates the flipping of a coin and returns the results
-int flip(void) { return 1 + rand() % 2; }

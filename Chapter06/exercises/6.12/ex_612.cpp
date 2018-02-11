@@ -27,8 +27,9 @@ const double MAXIMUM_FEE = 10.0f;
 double calculateCharges(double);
 
 int main(int argc, const char *argv[]) {
-    double hours1, hours2, hours3 = 0.0f;
-    double charges1, charges2, charges3 = 0.0f;
+    double hours1;
+    double hours2;
+    double hours3;
 
     std::cout << "Program to calculate parking charges for 3 cars\n"
               << std::endl;
@@ -39,19 +40,19 @@ int main(int argc, const char *argv[]) {
     std::cout << "Car" << std::setw(15) << "Hours" << std::setw(15) << "Charge"
               << std::endl;
 
-    charges1 = calculateCharges(hours1);
-    charges2 = calculateCharges(hours2);
-    charges3 = calculateCharges(hours3);
+    double charges1 = calculateCharges(hours1);
+    double charges2 = calculateCharges(hours2);
+    double charges3 = calculateCharges(hours3);
 
     std::cout << std::fixed << std::setprecision(2);
-    std::cout << "1" << std::setw(17) << hours1 << std::setw(15) << charges1
+    std::cout << "1" << std::setw(17) << hours1 << std::setw(10) << "$" << charges1
               << std::endl;
-    std::cout << "2" << std::setw(17) << hours2 << std::setw(15) << charges2
+    std::cout << "2" << std::setw(17) << hours2 << std::setw(10) << "$" << charges2
               << std::endl;
-    std::cout << "3" << std::setw(17) << hours3 << std::setw(15) << charges3
+    std::cout << "3" << std::setw(17) << hours3 << std::setw(10) << "$" << charges3
               << std::endl;
     std::cout << "TOTAL" << std::setw(13) << hours1 + hours2 + hours3
-              << std::setw(15) << charges1 + charges2 + charges3 << std::endl;
+              << std::setw(10) << "$" << charges1 + charges2 + charges3 << std::endl;
 
     return 0;
 }
