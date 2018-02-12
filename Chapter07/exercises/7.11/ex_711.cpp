@@ -15,8 +15,11 @@
  *
  * =====================================================================================
  */
-#include <cstdlib>
 #include <iostream>
+#include <random>
+
+void printArray(int[], int);
+void swap(int*, int*);
 
 const int limit = 10;
 
@@ -26,37 +29,53 @@ int main(int argc, const char *argv[]) {
 
     srand(time(0));
 
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(0, 100);
+
     int n[limit] = {};
 
     // randomise elements of n
     for (int i = 0; i < limit; ++i) {
-        n[i] = rand() % 100;
+        n[i] = dis(gen);
     }
 
     std::cout << "Unsorted array n: " << std::endl;
-    // print unsorted array
-    for (int i = 0; i < limit; ++i) {
-        std::cout << n[i] << std::endl;
-    }
+    printArray(n, limit);
 
     // BUBBLE SORT
     for (int i = 0; i < limit - 1; ++i) {
         for (int j = 0; j < limit - 1; ++j) {
             if (n[j] > n[j + 1]) {
-                int temp = n[j];
-
-                n[j] = n[j + 1];
-                n[j + 1] = temp;
+                swap(&n[j], &n[j + 1]);
             }
         }
     }
 
     std::cout << "\nSorted array n: " << std::endl;
-
-    // print sorted array
-    for (int i = 0; i < limit; ++i) {
-        std::cout << n[i] << std::endl;
-    }
+    printArray(n, limit);
 
     return 0;
 }
+
+/**
+ * Prints the given array
+ * @param int[]
+ * @param int
+ */
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << std::endl;
+    }
+}  // end method print
+
+/**
+ * Swaps the given elements
+ * @param int*
+ * @param int*
+ */
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}  // end method swap

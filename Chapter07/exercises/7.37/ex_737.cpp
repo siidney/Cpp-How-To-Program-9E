@@ -5,9 +5,9 @@
  *
  *    Description:  Exercise 7.37 - Find the Minimum Value in an Array
  *
- *        Version:  1.0
+ *        Version:  1.1
  *        Created:  26/04/16 14:33:30
- *       Revision:  none
+ *       Revision:  12/02/18 04:34:06
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -15,8 +15,8 @@
  *
  * =====================================================================================
  */
-#include <ctime>
 #include <iostream>
+#include <random>
 
 int recursiveMinimum(const int[], int, int);
 
@@ -28,10 +28,12 @@ int main(int argc, const char *argv[]) {
 
     int n[LIMIT];
 
-    srand(time(0));
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(1, LIMIT);
 
     for (int i = 0; i < LIMIT; ++i) {
-        n[i] = rand() % LIMIT + 1;
+        n[i] = dis(gen);
 
         std::cout << n[i] << std::endl;
     }
@@ -41,17 +43,17 @@ int main(int argc, const char *argv[]) {
 
     return 0;
 }
-// Returns the minimum value from an array recursively
+/*
+ * Recursively finds the minimum value from the given array.
+ * @param const int[]
+ * @param int
+ * @param int
+ * @return int
+ */
 int recursiveMinimum(const int n[], int start, int end) {
-    static int minimum = n[start];
+    if (start == end) { return n[start]; }
 
-    if (start == end)
-        return minimum;
+    int min = recursiveMinimum(n, ++start, end);
 
-    if (minimum < n[start + 1]) {
-        return recursiveMinimum(n, ++start, end);
-    }
-
-    minimum = n[start + 1];
-    return recursiveMinimum(n, ++start, end);
+    return (min < n[start]) ? min : n[start];
 }

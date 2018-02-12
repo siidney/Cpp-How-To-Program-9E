@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Poll.h
+ *       Filename:  Poll.hpp
  *
  *    Description:  Exercise 7.41 - Polling
  *

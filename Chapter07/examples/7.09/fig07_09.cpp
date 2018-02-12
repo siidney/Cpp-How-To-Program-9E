@@ -27,12 +27,13 @@ int main(int argc, const char *argv[]) {
 
     for (int i = 0; i < arraySize; ++i) {
         // output bar labels
-        if (i == 0)
+        if (i == 0) {
             std::cout << "  0-9: ";
-        else if (i == 10)
+        } else if (i == 10) {
             std::cout << "  100: ";
-        else
+        } else {
             std::cout << i * 10 << "-" << (i * 10) + 9 << ": ";
+        }
 
         // print bar of asterisks
         for (int stars = 0; stars < n[i]; ++stars) {

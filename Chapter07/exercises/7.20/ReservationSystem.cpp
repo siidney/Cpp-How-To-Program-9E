@@ -37,8 +37,7 @@ void ReservationSystem::printMenu() {
     std::cout << "\nPlease type 0 for First Class"
               << ((_availability == Availability::SECOND) ? " (full)\n" : "\n")
               << "Please type 1 for Second Class"
-              << ((_availability == Availability::FIRST) ? " (full)\n> "
-                                                         : "\n> ");
+              << ((_availability == Availability::FIRST) ? " (full)\n> " : "\n> ");
 
     std::cin >> choice;
 
@@ -49,7 +48,7 @@ void ReservationSystem::printMenu() {
         bookedSeat = bookSeat(choice);
 
         // set successfully booked
-        if (bookedSeat > -1) printBoardingPass(bookedSeat);
+        if (bookedSeat > -1) { printBoardingPass(bookedSeat); }
 
         // prevent incorrect values triggering this
     } else if (choice == 0 || choice == 1) {
@@ -94,9 +93,9 @@ int ReservationSystem::bookSeat(int cl) {
             _plane[seat] = !_plane[seat];
 
             // set availability based upon seatClass limits
-            if (seat == 5) _availability = Availability::SECOND;
+            if (seat == 5) { _availability = Availability::SECOND; }
 
-            if (seat == 10) _availability = Availability::FIRST;
+            if (seat == 10) { _availability = Availability::FIRST; }
 
             return seat;
         }
@@ -107,7 +106,7 @@ int ReservationSystem::bookSeat(int cl) {
 // sets _availability to full if none found
 void ReservationSystem::checkCapacity() {
     for (int seat = 1; seat < capacity; ++seat) {
-        if (isSeatAvailable(seat)) return;
+        if (isSeatAvailable(seat)) { return; }
     }
     _availability = Availability::FULL;
 }

@@ -18,8 +18,7 @@
 #include "Turtle.hpp"
 
 void Turtle::go() {
-    std::cout << "\n*** Welcome to the Turtle Graphics Program ***\n"
-              << std::endl;
+    std::cout << "\n*** Welcome to the Turtle Graphics Program ***\n\n";
 
     while (_running) {
         printMenu();
@@ -28,15 +27,15 @@ void Turtle::go() {
 }
 // prints the selection menu
 void Turtle::printMenu() {
-    std::cout << "1   - Pen Up" << std::endl;
-    std::cout << "2   - Pen Down" << std::endl;
-    std::cout << "3   - Pen Erase" << std::endl;
-    std::cout << "4   - Turn Right" << std::endl;
-    std::cout << "5   - Turn Left" << std::endl;
-    std::cout << "6   - Move Forward n Spaces" << std::endl;
-    std::cout << "7   - Print Your Creation" << std::endl;
-    std::cout << "9   - Exit Program" << std::endl;
-    std::cout << "13  - Reset and Redraw" << std::endl;
+    std::cout << "1   - Pen Up\n"
+              << "2   - Pen Down\n"
+              << "3   - Pen Erase\n"
+              << "4   - Turn Right\n"
+              << "5   - Turn Left\n"
+              << "6   - Move Forward n Spaces\n"
+              << "7   - Print Your Creation\n"
+              << "9   - Exit Program\n"
+              << "13  - Reset and Redraw" << std::endl;
 }
 // prints the current pen metrics
 void Turtle::printPen() {
@@ -78,15 +77,16 @@ int Turtle::getInput() {
         std::cout << "> ";
         std::cin >> choice;
 
-        if ((choice >= 1 && choice <= 9) || choice == 13)
+        if ((choice >= 1 && choice <= 9) || choice == 13) {
             return choice;
-        else
+        } else {
             std::cout << "Incorrect Input" << std::endl;
+        }
     }
 }
 // processes the input - updates pen or sets exit condition
 void Turtle::process(int choice) {
-    if (choice == 9) _running = !_running;
+    if (choice == 9) { _running = !_running; }
 
     switch (choice) {
         case 1:
@@ -99,24 +99,26 @@ void Turtle::process(int choice) {
             _pen.state = PENSTATE::ERASE;
             break;
         case 4:
-            if (_pen.dir == PENDIR::RIGHT)
+            if (_pen.dir == PENDIR::RIGHT) {
                 _pen.dir = PENDIR::DOWN;
-            else if (_pen.dir == PENDIR::DOWN)
+            } else if (_pen.dir == PENDIR::DOWN) {
                 _pen.dir = PENDIR::LEFT;
-            else if (_pen.dir == PENDIR::LEFT)
+            } else if (_pen.dir == PENDIR::LEFT) {
                 _pen.dir = PENDIR::UP;
-            else if (_pen.dir == PENDIR::UP)
+            } else if (_pen.dir == PENDIR::UP) {
                 _pen.dir = PENDIR::RIGHT;
+            }
             break;
         case 5:
-            if (_pen.dir == PENDIR::RIGHT)
+            if (_pen.dir == PENDIR::RIGHT) {
                 _pen.dir = PENDIR::UP;
-            else if (_pen.dir == PENDIR::UP)
+            } else if (_pen.dir == PENDIR::UP) {
                 _pen.dir = PENDIR::LEFT;
-            else if (_pen.dir == PENDIR::LEFT)
+            } else if (_pen.dir == PENDIR::LEFT) {
                 _pen.dir = PENDIR::DOWN;
-            else if (_pen.dir == PENDIR::DOWN)
+            } else if (_pen.dir == PENDIR::DOWN) {
                 _pen.dir = PENDIR::RIGHT;
+            }
             break;
         case 6:
             int steps, limit;
@@ -137,7 +139,7 @@ void Turtle::process(int choice) {
                     for (; steps >= 0; ++_pen.x, --steps) {
                         draw();
                         // prevent out of bounds
-                        if (_pen.x == limit) break;
+                        if (_pen.x == limit) { break; }
                     }
                 }
             }
@@ -153,7 +155,7 @@ void Turtle::process(int choice) {
                     for (; steps >= 0; --_pen.x, --steps) {
                         draw();
                         // prevent out of bounds
-                        if (_pen.x == limit) break;
+                        if (_pen.x == limit) { break; }
                     }
                 }
             }
@@ -169,7 +171,7 @@ void Turtle::process(int choice) {
                     for (; steps >= 0; --_pen.y, --steps) {
                         draw();
                         // prevent out of bounds
-                        if (_pen.y == limit) break;
+                        if (_pen.y == limit) { break; }
                     }
                 }
             }
@@ -185,7 +187,7 @@ void Turtle::process(int choice) {
                     for (; steps >= 0; ++_pen.y, --steps) {
                         draw();
                         // prevent out of bounds
-                        if (_pen.y == limit) break;
+                        if (_pen.y == limit) { break; }
                     }
                 }
             }
@@ -214,10 +216,11 @@ void Turtle::draw() {
 void Turtle::printArray() {
     for (int row = 0; row < ROWS; ++row) {
         for (int col = 0; col < COLS; ++col) {
-            if (_floor[row][col])
+            if (_floor[row][col]) {
                 std::cout << '*';
-            else
+            } else {
                 std::cout << ' ';
+            }
         }
         std::cout << std::endl;
     }

@@ -42,7 +42,7 @@ void Poll::go() {
         std::cout << "Add participant (y/n)? ";
         std::cin >> choice;
 
-        if (choice == 'n' || choice == 'N') break;
+        if (choice == 'n' || choice == 'N') { break; }
     }
 
     printResults();
@@ -64,10 +64,9 @@ void Poll::askPoll() {
                 continue;
             }
 
-            if (r > 0 && r <= RESPONSES) break;
+            if (r > 0 && r <= RESPONSES) { break; }
         }
         ++responses[t][r - 1];
-        r = 0;
     }
 }
 // displays the results

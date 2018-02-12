@@ -15,23 +15,26 @@
  *
  * =====================================================================================
  */
-#include <cstdlib>
 #include <iostream>
+#include <random>
 
 void printArray(int[], int);
+void swap(int*, int*);
 
 const int limit = 10;
 
 int main(int argc, const char *argv[]) {
     std::cout << "Optimised bubble sort to for an integer array" << std::endl;
 
-    //    srand(time(0));
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(0, 100);
 
     int n[limit] = {};
 
     // randomise elements of n
     for (int i = 0; i < limit; ++i) {
-        n[i] = rand() % 100;
+        n[i] = dis(gen);
     }
 
     std::cout << "Unsorted array n: " << std::endl;
@@ -39,22 +42,15 @@ int main(int argc, const char *argv[]) {
     printArray(n, limit);
 
     // BUBBLE SORT
-    for (int i = 0, swaps = 0; i < limit; swaps = 0, ++i) {
-        // inner loop limit can decrease by i as the last value on each pass
-        // will be in the correct order
-        for (int j = 0; j < limit - i; ++j) {
-            // swap values if needed
+    for (int i = 0, swapped = 0; i < limit - 1; swapped = 0, ++i) {
+        for (int j = 0; j < limit - i - 1; ++j) {
             if (n[j] > n[j + 1]) {
-                int temp = n[j];
-
-                n[j] = n[j + 1];
-                n[j + 1] = temp;
-
-                ++swaps;
+                swap(&n[j], &n[j + 1]);
+                swapped = 1;
             }
         }
-        // if no swaps made no need to make another pass
-        if (swaps == 0) {
+
+        if (swapped == 0) {
             break;
         }
     }
@@ -66,9 +62,21 @@ int main(int argc, const char *argv[]) {
 
     return 0;
 }
+
 // prints array
-void printArray(int n[], int sizeOfN) {
-    for (int i = 0; i < sizeOfN; ++i) {
-        std::cout << n[i] << std::endl;
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << std::endl;
     }
 }
+
+/**
+ * Swaps the given elements
+ * @param int*
+ * @param int*
+ */
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}  // end method swap

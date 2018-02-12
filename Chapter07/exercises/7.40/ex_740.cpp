@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include <ctime>
 #include <iostream>
 #include <vector>
+#include <random>
 
 int recursiveMinimum(const std::vector<int>&, int, int);
 
@@ -29,10 +29,12 @@ int main(int argc, const char* argv[]) {
 
     std::vector<int> n(LIMIT);
 
-    srand(time(0));
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(1, LIMIT);
 
     for (int i = 0; i < LIMIT; ++i) {
-        n[i] = rand() % LIMIT + 1;
+        n[i] = dis(gen);
 
         std::cout << n[i] << std::endl;
     }
@@ -42,18 +44,18 @@ int main(int argc, const char* argv[]) {
 
     return 0;
 }
-// Returns the minimum value from an array recursively
+
+/*
+ * Recursively finds the minimum value from the given array.
+ * @param const std::vector<int>
+ * @param int
+ * @param int
+ * @return int
+ */
 int recursiveMinimum(const std::vector<int>& n, int start, int end) {
-    static int minimum = n[start];
+    if (start == end) { return n[start]; }
 
-    std::cout << minimum << std::endl;
+    int min = recursiveMinimum(n, ++start, end);
 
-    if (start == end)
-        return minimum;
-
-    if (minimum < n[start + 1]) {
-        return recursiveMinimum(n, ++start, end);
-    }
-    minimum = n[start + 1];
-    return recursiveMinimum(n, ++start, end);
+    return (min < n[start]) ? min : n[start];
 }

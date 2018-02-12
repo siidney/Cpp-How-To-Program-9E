@@ -35,10 +35,11 @@ int main(int argc, const char *argv[]) {
     int element = linearSearch(a, searchKey, arraySize);
 
     // display results
-    if (element != -1)
+    if (element != -1) {
         std::cout << "Found value in element " << element << std::endl;
-    else
+    } else {
         std::cout << "Value not found" << std::endl;
+    }
 
     return 0;
 }
@@ -47,7 +48,7 @@ int main(int argc, const char *argv[]) {
 // not found
 int linearSearch(const int array[], int key, int sizeOfArray) {
     for (int i = 0; i < sizeOfArray; ++i) {
-        if (array[i] == key) return i;
+        if (array[i] == key) { return i; }
     }
 
     return -1;

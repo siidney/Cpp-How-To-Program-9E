@@ -15,23 +15,23 @@
  *
  * =====================================================================================
  */
-#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <vector>
+#include <random>
 
 int rollDie();
 
 static int totalRolls = 36000;
 static size_t total = 13;
 
+std::random_device rd;
+std::mt19937 gen(rd());
+
 int main(int argc, const char *argv[]) {
     std::vector<int> tally(total);
 
-    srand(time(0));
-
-    std::cout << "Program to print the totals of 2 dice rolls 36000 times\n"
-              << std::endl;
+    std::cout << "Program to print the totals of 2 dice rolls 36000 times\n\n";
 
     for (int i = 0; i < totalRolls; ++i) {
         ++tally[rollDie() + rollDie()];
@@ -44,4 +44,4 @@ int main(int argc, const char *argv[]) {
     return 0;
 }
 // roll a single die
-int rollDie() { return rand() % 6 + 1; }
+int rollDie() { return std::uniform_int_distribution<int>{1, 6}(gen); }

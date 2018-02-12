@@ -29,26 +29,27 @@ int main(int argc, const char *argv[]) {
         std::cout << "Enter salary (-1 to quit): ";
         std::cin >> choice;
 
-        if (choice == -1)
+        if (choice == -1) {
             break;
-        else if (choice > 999)
+        } else if (choice > 999) {
             ++arrSalaries[8];
-        else if (choice > 899)
+        } else if (choice > 899) {
             ++arrSalaries[7];
-        else if (choice > 799)
+        } else if (choice > 799) {
             ++arrSalaries[6];
-        else if (choice > 699)
+        } else if (choice > 699) {
             ++arrSalaries[5];
-        else if (choice > 599)
+        } else if (choice > 599) {
             ++arrSalaries[4];
-        else if (choice > 499)
+        } else if (choice > 499) {
             ++arrSalaries[3];
-        else if (choice > 399)
+        } else if (choice > 399) {
             ++arrSalaries[2];
-        else if (choice > 299)
+        } else if (choice > 299) {
             ++arrSalaries[1];
-        else if (choice >= 200)
+        } else if (choice >= 200) {
             ++arrSalaries[0];
+        }
     }
 
     // show results

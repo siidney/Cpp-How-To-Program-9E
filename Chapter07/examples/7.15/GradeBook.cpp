@@ -38,7 +38,7 @@ int GradeBook::getMinimum() {
     int lowGrade = 100;
 
     for (int grade = 0; grade < students; ++grade) {
-        if (grades[grade] < lowGrade) lowGrade = grades[grade];
+        if (grades[grade] < lowGrade) { lowGrade = grades[grade]; }
     }
 
     return lowGrade;
@@ -48,7 +48,7 @@ int GradeBook::getMaximum() {
     int highGrade = 0;
 
     for (int grade = 0; grade < students; ++grade) {
-        if (grades[grade] > highGrade) highGrade = grades[grade];
+        if (grades[grade] > highGrade) { highGrade = grades[grade]; }
     }
 
     return highGrade;
@@ -96,12 +96,13 @@ void GradeBook::outputBarChart() {
     // for each grade frequency, print bar in chart
     for (int count = 0; count < frequencySize; ++count) {
         // output bar labels
-        if (count == 0)
+        if (count == 0) {
             std::cout << "  0-9: ";
-        else if (count == 10)
+        } else if (count == 10) {
             std::cout << "  100: ";
-        else
+        } else {
             std::cout << count * 10 << "-" << (count * 10) + 9 << ": ";
+        }
 
         // print bar of asterisks
         for (int stars = 0; stars < frequency[count]; ++stars) {

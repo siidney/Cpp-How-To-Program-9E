@@ -54,8 +54,9 @@ int main(int argc, const char* argv[]) {
     // use inequality operator with vector objects
     std::cout << "\nEvaluating: integers1 != integers2" << std::endl;
 
-    if (integers1 != integers2)
+    if (integers1 != integers2) {
         std::cout << "integers1 and integers2 are not equal" << std::endl;
+    }
 
     // create vector integers3 using integers1 as an initialiser; print size and
     // contents
@@ -78,8 +79,9 @@ int main(int argc, const char* argv[]) {
     // user equality operator with vector objects
     std::cout << "\nEvaluating: integers1 == integers2" << std::endl;
 
-    if (integers1 == integers2)
+    if (integers1 == integers2) {
         std::cout << "integers1 and integers2 are equal" << std::endl;
+    }
 
     // use square brackets to create rvalue
     std::cout << "\nintegers1[5] is " << integers1[5];
@@ -107,10 +109,10 @@ void outputVector(const std::vector<int>& array) {
     for (i = 0; i < array.size(); ++i) {
         std::cout << std::setw(12) << array[i];
 
-        if ((i + 1) % 4 == 0) std::cout << std::endl;
+        if ((i + 1) % 4 == 0) { std::cout << std::endl; }
     }
 
-    if (i % 4 != 0) std::cout << std::endl;
+    if (i % 4 != 0) { std::cout << std::endl; }
 }
 // input vector contents
 void inputVector(std::vector<int>& array) {

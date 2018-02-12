@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ReservationSystem.h
+ *       Filename:  ReservationSystem.hpp
  *
  *    Description:  Exercise 7.20 - Airline Reservation System
  *

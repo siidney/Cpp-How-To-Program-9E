@@ -30,7 +30,6 @@ int main(int argc, const char *argv[]) {
     }
 
     // Read 12 values for double array monthlyTemperatures from the keyboard
-
     double monthlyTemperature[12] = {};
 
     for (int i = 0; i < 12; ++i) {

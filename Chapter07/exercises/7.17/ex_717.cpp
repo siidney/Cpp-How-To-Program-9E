@@ -15,19 +15,21 @@
  *
  * =====================================================================================
  */
-#include <cstdlib>
 #include <iomanip>
 #include <iostream>
+#include <random>
 
 int rollDie();
 
 static int totalRolls = 36000;
 static int total = 13;
 
+std::random_device rd;
+std::mt19937 gen(rd());
+
 int main(int argc, const char *argv[]) {
     int tally[total] = {};
 
-    srand(time(0));
 
     std::cout << "Program to print the totals of 2 dice rolls 36000 times\n"
               << std::endl;
@@ -43,4 +45,4 @@ int main(int argc, const char *argv[]) {
     return 0;
 }
 // roll a single die
-int rollDie() { return rand() % 6 + 1; }
+int rollDie() { return std::uniform_int_distribution<int>{1, 6}(gen); }

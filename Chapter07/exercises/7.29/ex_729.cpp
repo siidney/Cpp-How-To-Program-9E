@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ex_7.29.cpp
+ *       Filename:  ex_729.cpp
  *
  *    Description:  Exercise 7.29 - Sieve of Eratosthenes
  *
@@ -32,7 +32,7 @@ int main(int argc, const char *argv[]) {
     sieveOfEratosthenes(arrPrimes, limit);
 
     for (int i = 2; i < limit; ++i) {
-        if (arrPrimes[i] == 1) std::cout << i << " ";
+        if (arrPrimes[i] == 1) { std::cout << i << " "; }
     }
 
     std::cout << std::endl;

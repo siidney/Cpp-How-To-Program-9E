@@ -39,15 +39,15 @@ int main(int argc, const char* argv[]) {
 // recursively prints a string in reverse
 void stringReverse(const std::string& st, int start) {
     // account for lack of start index
-    if (start == -1) start = st.length();
+    if (start == -1) { start = st.length(); }
+
+    std::cout << st[start];
 
     // base case
     if (start == 0) {
-        std::cout << st[start] << std::endl;
+        std::cout << std::endl;
         return;
     }
-
-    std::cout << st[start];
 
     stringReverse(st, --start);
 }

@@ -36,10 +36,11 @@ int main(int argc, const char *argv[]) {
     int element = linearSearch(a, searchKey, ARRAY_SIZE);
 
     // display results
-    if (element != -1)
+    if (element != -1) {
         std::cout << "Found value in element " << element << std::endl;
-    else
+    } else {
         std::cout << "Value not found" << std::endl;
+    }
 
     return 0;
 }
@@ -47,12 +48,10 @@ int main(int argc, const char *argv[]) {
 // array is reached; return subscript of element if key is found or -1 if key is
 // not found
 int linearSearch(int array[], int key, int sizeOfArray) {
-    --sizeOfArray;
-
     // not found
-    if (sizeOfArray < 0) return -1;
+    if (sizeOfArray < 0) { return -1; }
 
-    if (array[sizeOfArray] == key) return sizeOfArray;
+    if (array[sizeOfArray] == key) { return sizeOfArray; }
 
-    return linearSearch(array, key, sizeOfArray);
+    return linearSearch(array, key, --sizeOfArray);
 }

@@ -40,8 +40,9 @@ int GradeBook::getMinimum() {
 
     for (int student = 0; student < students; ++student) {
         for (int test = 0; test < tests; ++test) {
-            if (grades[student][test] < lowGrade)
+            if (grades[student][test] < lowGrade) {
                 lowGrade = grades[student][test];
+            }
         }
     }
 
@@ -52,8 +53,9 @@ int GradeBook::getMaximum() {
 
     for (int student = 0; student < students; ++student) {
         for (int test = 0; test < tests; ++test) {
-            if (grades[student][test] > highGrade)
+            if (grades[student][test] > highGrade) {
                 highGrade = grades[student][test];
+            }
         }
     }
 
@@ -94,12 +96,13 @@ void GradeBook::outputBarChart() {
     }
 
     for (int count = 0; count < frequencySize; ++count) {
-        if (count == 0)
+        if (count == 0) {
             std::cout << "  0-9: ";
-        else if (count == 10)
+        } else if (count == 10) {
             std::cout << "  100: ";
-        else
+        } else {
             std::cout << count * 10 << "-" << (count * 10) + 9 << ": ";
+        }
 
         for (int stars = 0; stars < frequency[count]; ++stars) {
             std::cout << '*';

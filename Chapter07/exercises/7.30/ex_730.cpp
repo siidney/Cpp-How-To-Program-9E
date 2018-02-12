@@ -18,8 +18,8 @@
  *
  * =====================================================================================
  */
-#include <ctime>
 #include <iostream>
+#include <random>
 
 static const int LIMIT = 10;
 
@@ -29,10 +29,12 @@ int getPlaces(int[], int);
 int main(int argc, const char *argv[]) {
     int n[LIMIT];
 
-    srand(time(0));
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(1, 1000);
 
     for (int i = 0; i < LIMIT; ++i) {
-        n[i] = rand() % 1000 + 1;
+        n[i] = dis(gen);
     }
 
     std::cout << "\nUnsorted" << std::endl;
@@ -73,11 +75,11 @@ void bucketSort(int n[], int LIMIT) {
             row = n[i] % place;
 
             // adjust rows to be within range
-            if (row > 9) row /= (place / 10);
+            if (row > 9) { row /= (place / 10); }
 
             // account for single digits numbers
             // don't know why they don't automatically go into bucket 0
-            if (n[i] < 9) row = 0;
+            if (n[i] < 9) { row = 0; }
 
             bucket[row][counters[row]] = n[i];
 
@@ -114,7 +116,7 @@ int getPlaces(int n[], int LIMIT) {
     int max = n[0];
 
     for (int i = 1; i < LIMIT; ++i) {
-        if (n[i] > max) max = n[i];
+        if (n[i] > max) { max = n[i]; }
     }
 
     int count = 0;
