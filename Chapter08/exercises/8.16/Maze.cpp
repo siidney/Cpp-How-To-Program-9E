@@ -1,151 +1,171 @@
 /*
- * =====================================================================================
+ * =============================================================================
  *
  *       Filename:  Maze.cpp
  *
- *    Description:  Exercise 8.16 - Maze Traversal
- *                  Uses 1d array in place of 2d array as is easier to pass to
- *                  functions. Even though it transpired passing was not needed.
+ *    Description:  Exercise 8.16 - Maze Traversal.
  *
- *        Version:  1.1
- *        Created:  02/06/16 13:40:11
- *       Revision:  03/06/16 16:23:35
+ *        Version:  1.0
+ *        Created:  13/02/18 04:34:25
+ *       Revision:  none
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
  *   Organization:  LolaDog Studio
  *
- * =====================================================================================
+ * =============================================================================
  */
+#include <unistd.h>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <stack>
+
 #include "Maze.hpp"
 
-Maze::Maze() : _moves(0) {}
-Maze::Maze(std::string& fname) : _moves(0),_fname(fname)  { initialise(); }
+Maze::Maze(const std::string& fname) {
+    if (!loadMaze(fname)) {
+        std::cout << "Error loading maze: Invalid filename" << std::endl;
+    }
+}  // end constructor Maze
+
 Maze::~Maze() {
-    if (_maze != nullptr) {
-        delete _maze;
+}  // end destructor Maze
+
+/**
+ * Loads the maze
+ * @param string
+ */
+bool Maze::loadMaze(const std::string& fname) {
+    std::ifstream file(fname, std::ios::in | std::ios::binary);
+
+    if (!file.is_open()) { return false; }
+
+    // read contents into maze
+    if (file.good()) {
+        // set width and height
+        file >> WIDTH >> HEIGHT;
+
+        // read file char by char into maze
+        char c;
+        while (file.get(c)) {
+            if (c == '\n') { continue; }
+            maze.emplace_back(c);
+        }
+
+        file.close();
+
+        return (setStartPosition(start, START) && setStartPosition(exit, EXIT));
     }
-}
-// initialise the maze
-void Maze::initialise() {
-    if (!add()) {
-        std::cout << "ERROR: Invalid maze file" << std::endl;
-        return;
-    }
 
-    _moves = 0;
-    mazeTraversal();
-}
-// reads in maze from file
-bool Maze::add() {
-    std::ifstream f;
+    return false;
+}  // end method loadMaze
 
-    f.open(_fname, std::ios::out | std::ios::binary);
+/**
+ * Generic function to set position of given entity.
+ * @param Coord2D
+ * @param char
+ * @return bool
+ */
+bool Maze::setStartPosition(Coord2D& pos, const char& token) {
+    auto itr = std::find(maze.begin(), maze.end(), token);
 
-    if (!f.is_open()) {
+    // get index of entity in vector
+    if (itr != maze.end()) {
+        int index = std::distance(maze.begin(), itr);
+
+        // convert to 2d coords
+        pos = Coord2D((index % WIDTH), (index / HEIGHT));
+
+        // replace token with path
+        *(itr) = PATH;
+    } else {
+        std::cout << "Entity " << token << " not found in map" << std::endl;
         return false;
     }
 
-    f >> _ROWS >> _COLS;
-
-    _maze = new char[(_ROWS * _COLS) + 1];
-
-    char c;
-    int i = 0;
-
-    while (f.get(c)) {
-        if (c == '\n') {
-            continue;
-        }
-        *(_maze + i) = c;
-        i++;
-    }
-
-    _maze[(_ROWS * _COLS) + 1] = '\0';
-
-    f.close();
-
     return true;
-}
-// get maze name from istream
-std::istream& Maze::readFname(std::istream& in) {
-    in >> _fname;
-    initialise();
-}
-// prints the maze
-void Maze::print() {
-    for (int row = 0; row < _ROWS; ++row) {
-        for (int col = 0; col < _COLS; ++col) {
-            std::cout << *(_maze + (row * _ROWS + col));
+}  // end method setStartPosition
+
+/**
+ * Traverses the maze.
+ * @param std::vector<char>
+ * @param Coord2D
+ * @return bool
+ */
+bool Maze::traverse(std::vector<char>& maze, Coord2D current) {
+    // outside of maze / not PATH
+    if (!isValid(current)) { return false; }
+
+    maze[toIndex(current)] = VISITED;
+
+    // found exit
+    if (current == exit) { return true; }
+
+    printMaze();
+
+    // .25 second sleep to follow along
+    usleep(250000);
+
+    // NORTH
+    if (traverse(maze, Coord2D(current.x, current.y - 1))) { return true; }
+
+    // EAST
+    if (traverse(maze, Coord2D(current.x + 1, current.y))) { return true; }
+
+    // SOUTH
+    if (traverse(maze, Coord2D(current.x, current.y + 1))) { return true; }
+
+    // WEST
+    if (traverse(maze, Coord2D(current.x - 1, current.y))) { return true; }
+
+    maze[toIndex(current)] = PATH;
+
+    return false;
+}  // end method traverse
+
+/**
+ * Converts Coord2D to 1D index subscript.
+ * @param Coord2D
+ * @return int
+ */
+int Maze::toIndex(const Coord2D& coord) const {
+    return WIDTH * coord.y + coord.x;
+}  // end method Maze::toIndex
+
+/**
+ * Determines whether given Coord2D is out of bounds.
+ * @param Coord2D
+ */
+bool Maze::isValid(const Coord2D& coord) const {
+    return ((coord.x >= 0) && (coord.y >= 0)) &&
+        ((coord.x <= WIDTH) && (coord.y <= HEIGHT)) &&
+        (maze[toIndex(coord)] == PATH);
+}  // end method isValid
+
+/**
+ * Prints the maze
+ */
+void Maze::printMaze() const {
+    for (int row = 0; row < WIDTH; ++row) {
+        for (int col = 0; col < HEIGHT; ++col) {
+            std::cout << ((maze[toIndex(Coord2D(col, row))] == PATH) ? ' ' : maze[toIndex(Coord2D(col, row))]);
         }
         std::cout << std::endl;
     }
-}
-// prints the maze from ostream
-std::ostream& Maze::print(std::ostream& out) { print(); }
-// traverse the maze
-void Maze::mazeTraversal() {
-    // get starting pos
+}  // end method printMaze
 
-    for (int row = 0; row < _ROWS; ++row) {
-        for (int col = 0; col < _COLS; ++col) {
-            if (*(_maze + (row * _ROWS + col)) == _AGENT) {
-                _startCoords.y = row;
-                _startCoords.x = col;
-                continue;
-            }
-            if (*(_maze + (row * _ROWS + col)) == _EXIT) {
-                _exitCoords.y = row;
-                _exitCoords.x = col;
-                continue;
-            }
-        }
-    }
-
-    // traverse the maze
-    if (mazeTraversalUtil(_startCoords.y, _startCoords.x)) {
-        std::cout << "Traversal Succeeded" << std::endl;
-        std::cout << _moves << " moves" << std::endl;
+/**
+ * Entry point
+ */
+void Maze::go() {
+    if (traverse(maze, start)) {
+        std::cout << "SUCCESS" << std::endl;
     } else {
-        std::cout << "Traversal Failed." << std::endl;
-    }
-}
-// maze traversal utility function
-bool Maze::mazeTraversalUtil(int x, int y) {
-    *(_maze + (x * _ROWS + y)) = _AGENT;
-
-    _moves++;
-
-    // found exit
-    if (isExit(x, y)) {
-        return true;
+        std::cout << "FAILURE" << std::endl;
     }
 
-    if (((x > 0 && getTile(x - 1, y)) == _FREE || isExit(x - 1, y)) &&
-        mazeTraversalUtil(x - 1, y)) {
-        return true;
-    }
-    if (((x < _COLS && getTile(x + 1, y)) == _FREE || isExit(x + 1, y)) &&
-        mazeTraversalUtil(x + 1, y)) {
-        return true;
-    }
-    if (((y > 0 && getTile(x, y - 1)) == _FREE || isExit(x, y - 1)) &&
-        mazeTraversalUtil(x, y - 1)) {
-        return true;
-    }
-    if (((y < _ROWS && getTile(x, y + 1)) == _FREE || isExit(x, y + 1)) &&
-        mazeTraversalUtil(x, y + 1)) {
-        return true;
-    }
-
-    *(_maze + (x * _ROWS + y)) = _FREE;
-    _moves--;
-
-    return false;
-}
-// utility function
-char Maze::getTile(int x, int y) { return *(_maze + (x * _ROWS + y)); }
-// utility function
-bool Maze::isExit(int x, int y) {
-    return (x == _exitCoords.y && y == _exitCoords.x);
-}
+    printMaze();
+}  // end method go

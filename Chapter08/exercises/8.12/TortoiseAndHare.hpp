@@ -1,13 +1,13 @@
 /*
  * =====================================================================================
  *
- *       Filename:  TortoiseAndHare.h
+ *       Filename:  TortoiseAndHare.hpp
  *
  *    Description:  Exercise 8.12 - Simulation: The Tortoise and the Hare
  *
- *        Version:  1.0
+ *        Version:  1.1
  *        Created:  06/05/16 17:49:08
- *       Revision:  none
+ *       Revision:  13/02/18 03:33:01
  *       Compiler:  gcc
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -17,9 +17,9 @@
  */
 #pragma once
 
-#include <ctime>
 #include <iostream>
 #include <string>
+#include <random>
 
 struct participant {
     std::string name;
@@ -39,6 +39,8 @@ class TortoiseAndHare {
 
     GameStates _gameState;
 
+    std::mt19937 gen;
+
     void initialise();
     void moveTortoise(participant &);
     void moveHare(participant &);
@@ -46,9 +48,10 @@ class TortoiseAndHare {
     void printProgress();
     void summarise();
     void reset();
+    int getRandomNumber();
 
  public:
-    TortoiseAndHare() : _gameState(GameStates::PLAY) {}
+    TortoiseAndHare() : _gameState(GameStates::PLAY), gen(std::random_device()()) {}
 
     ~TortoiseAndHare() {}
 

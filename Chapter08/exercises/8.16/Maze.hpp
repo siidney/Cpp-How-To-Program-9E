@@ -1,82 +1,84 @@
 /*
- * =====================================================================================
+ * =============================================================================
  *
- *       Filename:  Maze.h
+ *       Filename:  Maze.hpp
  *
- *    Description:  Exercise 8.16 - Maze Traversal
- *                  Represents a maze
+ *    Description:  Exercise 8.16 - Maze Traversal.
  *
  *        Version:  1.0
- *        Created:  02/06/16 13:20:31
+ *        Created:  13/02/18 04:07:27
  *       Revision:  none
  *       Compiler:  gcc
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
  *   Organization:  LolaDog Studio
  *
- * =====================================================================================
+ * =============================================================================
  */
 #pragma once
 
-#include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
 
-struct coord2D {
+// 2D representation of point in maze
+struct Coord2D {
     int x;
     int y;
 
-    explicit coord2D(int X = 0, int Y = 0) : x(X), y(Y) {}
-    explicit coord2D(const coord2D& coord) {
-        x = coord.x;
-        y = coord.y;
+    Coord2D() {}
+    Coord2D(const Coord2D& C) { this->x = C.x; this->y = C.y; }
+    Coord2D(int X, int Y) : x(X), y(Y) {}
+
+    Coord2D& operator= (const Coord2D& C) {
+        this->x = C.x;
+        this->y = C.y;
+
+        return *this;
+    }
+
+    bool operator== (const Coord2D& rhs) {
+        return (this->x == rhs.x) && (this->y == rhs.y);
+    }
+
+    bool operator!= (const Coord2D& rhs) {
+        return !(*this == rhs);
+    }
+
+    friend std::ostream& operator<< (std::ostream& os, const Coord2D& C) {
+        os << C.x << ',' << C.y;
+
+        return os;
     }
 };
 
 class Maze {
- private:
-    int _COLS;
-    int _ROWS;
-    int _moves;
-
-    coord2D _startCoords;
-    coord2D _exitCoords;
-
-    std::string _fname;
-
-    char _WALL = '#';
-    char _AGENT = '@';
-    char _FREE = '.';
-    char _EXIT = 'X';
-
-    char* _maze = nullptr;
-
-    std::ostream& print(std::ostream& out);
-    std::istream& readFname(std::istream& in);
-
-    bool add();
-
-    void initialise();
-
-    void mazeTraversal();
-    bool mazeTraversalUtil(int, int);
-
-    char getTile(int, int);
-    bool isExit(int, int);
-
  public:
-    Maze();
-    explicit Maze(std::string&);
+        explicit Maze(const std::string&);
+        ~Maze();
 
-    ~Maze();
+        void go();
 
-    void print();  // prints the maze
+ private:
+        const char START = 'X';
+        const char EXIT = '@';
+        const char WALL = '#';
+        const char PATH = '.';
+        const char VISITED = 'O';
 
-    friend std::istream& operator>>(std::istream& in, Maze& m) {
-        return m.readFname(in);
-    }
+        int WIDTH;
+        int HEIGHT;
 
-    friend std::ostream& operator<<(std::ostream& out, Maze& m) {
-        return m.print(out);
-    }
-};
+        Coord2D start;
+        Coord2D exit;
+
+        std::vector<char> maze;
+
+        bool loadMaze(const std::string&);
+        bool setStartPosition(Coord2D&, const char&);
+        bool traverse(std::vector<char>&, Coord2D);
+        int toIndex(const Coord2D&) const;
+        bool isValid(const Coord2D&) const;
+        void printMaze() const;
+
+};  // end class Maze

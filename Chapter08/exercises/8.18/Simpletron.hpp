@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Simpletron.h
+ *       Filename:  Simpletron.hpp
  *
  *    Description:  Exercise 8.18 - Machine-Language Programming
  *

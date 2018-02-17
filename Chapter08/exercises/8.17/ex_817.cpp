@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  ex_816.cpp
+ *       Filename:  ex_817.cpp
  *
- *    Description:  Exercise 8.16 - Maze Traversal
+ *    Description:  Exercise 8.17 - Generating Mazes Randomly
  *
  *        Version:  1.0
- *        Created:  13/02/18 04:05:58
+ *        Created:  16/02/18 16:47:55
  *       Revision:  none
  *       Compiler:  g++
  *
@@ -24,9 +24,9 @@
  * @return int.
  */
 int main(int argc, char* argv[]) {
-    Maze maze("levels/level2");
+    Maze maze;
 
-    maze.go();
+    maze.generate(12, 12);
 
     return 0;
 }  // end method main

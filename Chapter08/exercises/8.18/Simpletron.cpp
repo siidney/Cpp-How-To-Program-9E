@@ -25,9 +25,7 @@ void Simpletron::go() {
         std::cout << "> ";
         std::cin >> word;
 
-        if (word == -9999) {
-            break;
-        }
+        if (word == -9999) { break; }
 
         instruction = word / 100;
 
@@ -41,6 +39,7 @@ void Simpletron::go() {
 
     runProgram();
 }
+
 /*
  * Loops over register until exit condition is met
  */
@@ -49,6 +48,7 @@ void Simpletron::runProgram() {
         processInstruction(*(ptrReg++));
     }
 }
+
 /*
  * Processes Simpletron instructions
  */

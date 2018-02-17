@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  ex_816.cpp
+ *       Filename:  Maze.cpp
  *
- *    Description:  Exercise 8.16 - Maze Traversal
+ *    Description:  Exercise 8.17 - Generating Mazes Randomly
  *
  *        Version:  1.0
- *        Created:  13/02/18 04:05:58
+ *        Created:  16/02/18 20:19:42
  *       Revision:  none
  *       Compiler:  g++
  *
@@ -17,16 +17,3 @@
  */
 #include "Maze.hpp"
 
-/**
- * This is the main method.
- * @param argc.
- * @param argv[].
- * @return int.
- */
-int main(int argc, char* argv[]) {
-    Maze maze("levels/level2");
-
-    maze.go();
-
-    return 0;
-}  // end method main

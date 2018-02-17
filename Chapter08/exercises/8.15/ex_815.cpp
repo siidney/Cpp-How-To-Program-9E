@@ -43,6 +43,7 @@ int main(int argc, const char* argv[]) {
 
     return 0;
 }
+
 // recursive quickSort
 void quickSort(int a[], int start, int end) {
     // base case
@@ -56,6 +57,7 @@ void quickSort(int a[], int start, int end) {
         quickSort(a, pivot + 1, end);
     }
 }
+
 // takes first element as pivot, sorts array around it's value
 // Returns subscript of sorted element.
 int partition(int a[], int start, int end) {
@@ -73,12 +75,14 @@ int partition(int a[], int start, int end) {
 
     return wi;
 }
+
 // utility function to swap two elements
 void swap(int* a, int* b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
+
 // utility function to print array
 void printArray(int a[], int limit) {
     for (int i = 0; i < limit; ++i) {
