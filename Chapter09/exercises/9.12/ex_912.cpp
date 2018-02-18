@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Rectangle.hpp"
-
 #include <iostream>
+
+#include "Rectangle.hpp"
 
 int main(int argc, const char *argv[]) {
     Coord2D tl(1, 1);

@@ -15,15 +15,16 @@
  *
  * =====================================================================================
  */
-#include "DateAndTime.hpp"
-
 #include <iomanip>
+
+#include "DateAndTime.hpp"
 
 DateAndTime::DateAndTime(unsigned int m, unsigned int d, unsigned int y,
                          unsigned int hr, unsigned int min, unsigned int sec) {
     setDate(m, d, y);
     setTime(hr, min, sec);
 }
+
 void DateAndTime::setDate(unsigned int m, unsigned int d, unsigned int y) {
     if (y > 0) {
         year = y;
@@ -44,6 +45,7 @@ void DateAndTime::setDate(unsigned int m, unsigned int d, unsigned int y) {
         throw std::invalid_argument("Day must be 0-31");
     }
 }
+
 void DateAndTime::setTime(unsigned int hr, unsigned int min, unsigned int sec) {
     if (hr <= 23) {
         hour = hr;
@@ -61,10 +63,12 @@ void DateAndTime::setTime(unsigned int hr, unsigned int min, unsigned int sec) {
         throw std::invalid_argument("Second must be 0-59");
     }
 }
+
 // check if given year is leap year
 bool DateAndTime::isLeapYear(unsigned int y) {
     return (y % 4 == 0 || y % 400 == 0 || y % 100 == 0);
 }
+
 // increment time by 1 second
 void DateAndTime::tick() {
     if (second < 59) {
@@ -87,6 +91,7 @@ void DateAndTime::tick() {
         }
     }
 }
+
 // increment date by 1
 void DateAndTime::nextDay() {
     if (day < DAYS_IN_MONTH[month]) {
@@ -103,12 +108,14 @@ void DateAndTime::nextDay() {
         }
     }
 }
+
 // print Time in universal-time format (HH:MM:SS)
 void DateAndTime::printUniversal() {
     std::cout << day << "/" << month << "/" << year << " " << std::setfill('0')
               << std::setw(2) << hour << ":" << std::setw(2) << minute << ":"
               << std::setw(2) << second;
 }
+
 // print Time in standard-time format (H:MM:SS AM PM)
 void DateAndTime::printStandard() {
     std::cout << day << "/" << month << "/" << year << " "

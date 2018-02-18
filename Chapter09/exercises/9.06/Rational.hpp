@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Rational.h
+ *       Filename:  Rational.hpp
  *
  *    Description:  Exercise 9.06 - Rational Class
  *                  Class representation of reduced form fraction

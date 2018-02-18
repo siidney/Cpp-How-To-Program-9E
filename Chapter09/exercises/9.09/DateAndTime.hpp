@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  DateAndTime.h
+ *       Filename:  DateAndTime.hpp
  *
  *    Description:  Exercise 9.9 - Combining Class Time and Class Date
  *

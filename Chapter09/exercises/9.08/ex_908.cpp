@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Date.hpp"
-
 #include <iostream>
+
+#include "Date.hpp"
 
 int main(int argc, const char *argv[]) {
     Date d1(11, 30, 2015);

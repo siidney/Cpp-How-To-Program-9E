@@ -1,2 +1,5 @@
-Need to start exercise 8.17. Spent too much time just researching it. Will
-finish at a later date.
+#### Chapter 8 Incomplete Solutions
+
+*If you have a solution feel free to contribute*
+
+- 8.17 - *Generating Mazes Randomly*

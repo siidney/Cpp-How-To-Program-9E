@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Complex.h
+ *       Filename:  Complex.hpp
  *
  *    Description:  Exercise 9.05 - Complex Class
  *                  Complex number class representation

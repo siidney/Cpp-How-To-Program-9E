@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  HugeInteger.h
+ *       Filename:  HugeInteger.hpp
  *
  *    Description:  Exercise 9.14 - HugeInteger Class
  *                  Only implemented add and subtract

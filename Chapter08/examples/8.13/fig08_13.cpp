@@ -56,7 +56,7 @@ void selectionSort(int *const array, const int size) {
 
         // loop to find index of smallest element
         for (int index = i + 1; index < size; ++index) {
-            if (array[index] < array[smallest]) smallest = index;
+            if (array[index] < array[smallest]) { smallest = index; }
         }
 
         swap(&array[i], &array[smallest]);

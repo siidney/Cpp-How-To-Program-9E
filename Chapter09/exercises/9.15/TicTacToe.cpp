@@ -184,8 +184,10 @@ void TicTacToe::resetBoard() {
     }
 }
 // check for valid move
+// no need to check >= 0 as unsigned
 bool TicTacToe::isValidMove(unsigned int x, unsigned int y) {
-    if ((x >= 0 && x < COLS) && (y >= 0 && y < ROWS)) {
+    // no need to check >= 0 as unsigned
+    if ((x < COLS) && (y < ROWS)) {
         return _board[x + COLS * y] == 0;
     }
     return false;

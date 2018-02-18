@@ -39,6 +39,7 @@ Date::Date(unsigned int m, unsigned int d, unsigned int y) {
         throw std::invalid_argument("Day must be 0-31");
     }
 }
+
 // increment date by 1
 void Date::nextDay() {
     if (day < DAYS_IN_MONTH[month]) {
@@ -55,13 +56,17 @@ void Date::nextDay() {
         }
     }
 }
+
 // check whether given year is leap year
 bool Date::isLeapYear(unsigned int y) {
     return (y % 4 == 0 || y % 400 == 0 || y % 100 == 0);
 }
+
 // print date in format mm/dd/yyyy
 void Date::print() { std::cout << month << "/" << day << "/" << year; }
+
 // sensible date printing dd/mm/yyyy
 std::ostream& Date::printSensible(std::ostream& out) {
     out << day << "/" << month << "/" << year;
+    return out;
 }

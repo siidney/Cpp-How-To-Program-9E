@@ -5,9 +5,9 @@
  *
  *    Description:  Exercise 6.49 - Craps Game Modification
  *
- *        Version:  1.0
+ *        Version:  1.1
  *        Created:  15/04/16 17:41:19
- *       Revision:  none
+ *       Revision:  12/02/18 03:29:53
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -18,7 +18,7 @@
 #include "Craps.hpp"
 
 Craps::Craps() : _gameStatus(Status::CONTINUE), _myPoint(0),
-                 _bankBalance(1000), _wager(0) , gen(std::random_device()()) {
+                 _bankBalance(1000), _wager(0), gen(std::random_device()()) {
 }
 Craps::~Craps() {}
 

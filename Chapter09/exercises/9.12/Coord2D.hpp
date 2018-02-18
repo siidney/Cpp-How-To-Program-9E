@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Coord2D.h
+ *       Filename:  Coord2D.hpp
  *
  *    Description:  Exercise 9.12 - 2D Coordinate Representation
  *

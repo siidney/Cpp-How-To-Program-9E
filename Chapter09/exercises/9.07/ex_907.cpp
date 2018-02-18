@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Time.hpp"
-
 #include <iostream>
+
+#include "Time.hpp"
 
 int main(int argc, const char *argv[]) {
     Time t1(23, 59, 58);

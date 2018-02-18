@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Rectangle.h
+ *       Filename:  Rectangle.hpp
  *
  *    Description:  Exercise 9.11 - Rectangle Class
  *

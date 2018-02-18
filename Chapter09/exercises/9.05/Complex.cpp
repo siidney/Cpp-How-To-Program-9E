@@ -26,4 +26,5 @@ Complex::~Complex() {}
 // print complex number
 std::ostream& Complex::printComplex(std::ostream& out) {
     out << "(" << real << "," << imaginary << ")";
+    return out;
 }

@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Time.h
+ *       Filename:  Time.hpp
  *
  *    Description:  Exercise 9.7 - Enhancing Class Time
  *
