@@ -53,7 +53,7 @@ int main(int argc, const char* argv[]) {
 void bubbleSort(std::vector<int>& intVec) {
     size_t size = intVec.size();
 
-    for (size_t i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size - 1; ++i) {
         for (size_t j = 0; j < size - 1; ++j) {
             if (intVec[j] > intVec[j + 1]) {
                 int tmp = intVec[j];
