@@ -55,8 +55,8 @@ void bubbleSort(std::vector<int>& intVec) {
     size_t size = intVec.size() - 1;
     bool swap = false;
 
-    for (size_t i = 0; i < size; swap = false, ++i) {
-        for (size_t j = 0; j < size - i; ++j) {
+    for (size_t i = 0; i < size - 1; swap = false, ++i) {
+        for (size_t j = 0; j < size - 1 - i; ++j) {
             if (intVec[j] > intVec[j + 1]) {
                 int tmp = intVec[j];
 
