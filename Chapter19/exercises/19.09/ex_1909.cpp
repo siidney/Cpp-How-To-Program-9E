@@ -16,30 +16,38 @@
  * =====================================================================================
  */
 #include <algorithm>
-#include <cstdlib>
 #include <iostream>
 #include <vector>
+#include <random>
 
 int recursiveBinarySearch(const std::vector<int>&, int, int, int);
+
+int getRandomNumber(int, int);
 
 // print a vector
 template <typename T>
 void print(const std::vector<T>& data) {
-    for (T elem : data) std::cout << elem << " ";
+    for (T elem : data) { std::cout << elem << " "; }
 
     std::cout << std::endl;
 }
 
-int main(int argc, const char* argv[]) {
-    std::srand(time(0));
+std::random_device rd;
+std::mt19937 gen(rd());
 
+int main(int argc, const char* argv[]) {
     const size_t limit = 100;
     const size_t size = 100;
     std::vector<int> intVec;
 
-    int searchKey = ((rand() % limit) + 1);
+    int searchKey = (getRandomNumber(1, limit));
 
-    for (size_t i = 0; i < size; ++i) intVec.push_back(((rand() % limit) + 1));
+    for (size_t i = 0; i < size; ++i) {
+        intVec.push_back(getRandomNumber(1, limit));
+    }
+
+    std::cout << "Unsorted" << std::endl;
+    print(intVec);
 
     std::sort(intVec.begin(), intVec.end());
 
@@ -48,27 +56,34 @@ int main(int argc, const char* argv[]) {
 
     int result = recursiveBinarySearch(intVec, searchKey, 0, intVec.size() - 1);
 
-    if (result > -1)
-        std::cout << "\n"
-                  << searchKey << " found at location " << result << std::endl;
-    else
-        std::cout << "\n" << searchKey << " not found." << std::endl;
+    std::cout << "\n" << searchKey;
 
+    if (result > -1) {
+        std::cout << " found at location " << result << std::endl;
+    } else {
+        std::cout << " not found." << std::endl;
+    }
     return 0;
 }
 // recursive binary search
-int recursiveBinarySearch(const std::vector<int>& intVec, int searchKey,
-                          int low, int high) {
+int recursiveBinarySearch(const std::vector<int>& intVec, int searchKey, int low, int high) {
     int middle = (low + high + 1) / 2;
 
-    if (low > high)
-        return -1;
+    if (low > high) { return -1; }
 
-    if (searchKey == intVec[middle])
-        return middle;
+    if (searchKey == intVec[middle]) { return middle; }
 
-    if (searchKey < intVec[middle])
+    if (searchKey < intVec[middle]) {
         return recursiveBinarySearch(intVec, searchKey, low, (middle - 1));
-    else
+    } else {
         return recursiveBinarySearch(intVec, searchKey, (middle + 1), high);
+    }
 }
+
+/**
+ * Gets and returns random int.
+ * @return int
+ */
+int getRandomNumber(int low, int high) {
+    return std::uniform_int_distribution<int>{low, high}(gen);
+}  // end method getRandomNumber

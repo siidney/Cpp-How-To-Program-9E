@@ -15,13 +15,14 @@
  *
  * =====================================================================================
  */
-#include <cstdlib>
 #include <iostream>
 #include <vector>
+#include <utility>
+#include <random>
 
 template <typename T>
 void printVector(const std::vector<T>& data) {
-    for (T elem : data) std::cout << elem << " ";
+    for (T elem : data) { std::cout << elem << " "; }
 
     std::cout << std::endl;
 }
@@ -30,13 +31,16 @@ void quickSortHelper(std::vector<int>&, int, int);
 int partition(std::vector<int>&, int, int);
 
 int main(int argc, const char* argv[]) {
-    std::srand(time(0));
-
     const int limit = 100;
     const int size = 100;
     std::vector<int> intVec;
 
-    for (int i = 0; i < size; ++i) intVec.push_back(((rand() % limit) + 1));
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    for (int i = 0; i < size; ++i) {
+        intVec.push_back(std::uniform_int_distribution<int>{1, limit}(gen));
+    }
 
     std::cout << "Unsorted Vector:\n";
     printVector(intVec);
@@ -52,11 +56,8 @@ int main(int argc, const char* argv[]) {
 void quickSortHelper(std::vector<int>& intVec, int left, int right) {
     int index = partition(intVec, left, right);
 
-    if (left < index - 1)
-        quickSortHelper(intVec, left, index - 1);
-
-    if (index < right)
-        quickSortHelper(intVec, index, right);
+    if (left < index - 1) { quickSortHelper(intVec, left, index - 1); }
+    if (index < right) { quickSortHelper(intVec, index, right); }
 }
 // partition
 int partition(std::vector<int>& intVec, int left, int right) {
@@ -66,11 +67,11 @@ int partition(std::vector<int>& intVec, int left, int right) {
     while (left <= right) {
         // find element on the left
         // that should be on right
-        while (intVec[left] < pivot) ++left;
+        while (intVec[left] < pivot) { ++left; }
 
         // find element on right
         // that should be on left
-        while (intVec[right] > pivot) --right;
+        while (intVec[right] > pivot) { --right; }
 
         if (left <= right) {
             std::swap(intVec[left], intVec[right]);
