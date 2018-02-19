@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  OvernightPackage.h
+ *       Filename:  OvernightPackage.hpp
  *
  *    Description:  Exercise 12.9: Package Inheritance Hierarchy
  *

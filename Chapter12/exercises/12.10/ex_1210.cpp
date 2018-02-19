@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
+#include <iostream>
+
 #include "Account.hpp"
 #include "CheckingAccount.hpp"
 #include "SavingsAccount.hpp"
-
-#include <iostream>
 
 int main(int argc, const char *argv[]) {
     SavingsAccount sa(1000, .5);

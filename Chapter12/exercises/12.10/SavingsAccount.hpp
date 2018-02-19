@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  SavingsAccount.h
+ *       Filename:  SavingsAccount.hpp
  *
  *    Description:  Exercise 12.10 - Account Inheritance Hierarchy
  *

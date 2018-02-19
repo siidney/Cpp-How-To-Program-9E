@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
+#include <iostream>
+
 #include "OvernightPackage.hpp"
 #include "TwoDayPackage.hpp"
 #include "Utility.hpp"
-
-#include <iostream>
 
 int main(int argc, const char *argv[]) {
     OvernightPackage op(Person("Bob", "Bobson", "12 Bob Street", "BobVille",

@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "TwoDayPackage.hpp"
-
 #include <stdexcept>
+
+#include "TwoDayPackage.hpp"
 
 TwoDayPackage::TwoDayPackage(const Person& snd, const Person& rcp, double wgt,
                              double cpo, double fee)

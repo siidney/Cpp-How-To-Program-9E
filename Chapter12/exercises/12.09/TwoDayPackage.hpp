@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  TwoDayPackage.h
+ *       Filename:  TwoDayPackage.hpp
  *
  *    Description:  Exercise 12.9: Package Inheritance Hierarchy
  *

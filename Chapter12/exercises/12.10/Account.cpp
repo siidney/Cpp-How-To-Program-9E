@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Account.hpp"
-
 #include <iostream>
+
+#include "Account.hpp"
 
 Account::Account(double b) : balance(0) {
     if (b >= 0.0f) {
