@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  HourlyWorker.h
+ *       Filename:  HourlyWorker.hpp
  *
  *    Description:  Exercise 13.17 - Payroll System Modification
  *

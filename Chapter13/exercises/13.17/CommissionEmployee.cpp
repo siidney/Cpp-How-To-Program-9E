@@ -16,9 +16,10 @@
  *
  * =====================================================================================
  */
-#include "CommissionEmployee.hpp"
-
 #include <iostream>
+#include <string>
+
+#include "CommissionEmployee.hpp"
 
 // constructor
 CommissionEmployee::CommissionEmployee(const std::string& first,
@@ -31,20 +32,22 @@ CommissionEmployee::CommissionEmployee(const std::string& first,
 }
 // set gross sales amount
 void CommissionEmployee::setGrossSales(double sales) {
-    if (sales >= 0.0f)
+    if (sales >= 0.0f) {
         grossSales = sales;
-    else
+    } else {
         throw std::invalid_argument("Gross sales must be >= 0.0f.");
+    }
 }
 // return gross sales amount
 double CommissionEmployee::getGrossSales() const { return grossSales; }
 // set commission rate
 void CommissionEmployee::setCommissionRate(double rate) {
-    if (rate > 0.0f && rate < 1.0f)
+    if (rate > 0.0f && rate < 1.0f) {
         commissionRate = rate;
-    else
+    } else {
         throw std::invalid_argument(
             "Commission rate must be > 0.0f and < 1.0f.");
+    }
 }
 // return commission rate
 double CommissionEmployee::getCommissionRate() const { return commissionRate; }

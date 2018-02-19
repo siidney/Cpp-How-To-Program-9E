@@ -15,13 +15,13 @@
  *
  * =====================================================================================
  */
+#include <iostream>
+#include <vector>
+
 #include "OvernightPackage.hpp"
 #include "Package.hpp"
 #include "TwoDayPackage.hpp"
 #include "Utility.hpp"
-
-#include <iostream>
-#include <vector>
 
 int main(int argc, const char *argv[]) {
     // two day packages

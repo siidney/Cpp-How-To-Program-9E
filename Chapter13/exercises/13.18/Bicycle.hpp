@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Bicycle.h
+ *       Filename:  Bicycle.hpp
  *
  *    Description:  Exercise 13.18 - CarbonFootprint Abstract Class:
  *                  Polymorphism

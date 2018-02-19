@@ -16,26 +16,26 @@
  *
  * =====================================================================================
  */
-#include "ScreenManager.hpp"
-
 #include <iostream>
 #include <string>
 
+#include "ScreenManager.hpp"
+
 ScreenManager::ScreenManager(int r, int c) {
-    if (r > 0)
+    if (r > 0) {
         ROWS = r;
-    else
+    } else {
         ROWS = 50;
-
-    if (c > 0)
+    }
+    if (c > 0) {
         COLS = c;
-    else
+    } else {
         COLS = 50;
-
+    }
     _canvas = new Canvas(ROWS, COLS);
 }
 ScreenManager::~ScreenManager() {
-    if (_canvas != nullptr) delete[] _canvas;
+    if (_canvas != nullptr) { delete[] _canvas; }
 
     for (unsigned int i = 0; i < _shapes.size(); ++i) {
         delete _shapes[i];

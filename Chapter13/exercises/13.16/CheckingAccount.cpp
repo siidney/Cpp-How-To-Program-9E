@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "CheckingAccount.hpp"
-
 #include <iostream>
+
+#include "CheckingAccount.hpp"
 
 CheckingAccount::CheckingAccount(double b, double fpt)
     : Account(b), feePerTransaction(fpt) {

@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  BasePlusCommissionEmployee.h
+ *       Filename:  BasePlusCommissionEmployee.hpp
  *
  *    Description:  Fig. 13.15: BasePlusCommissionEmployee class derived from
  *                  CommissionEmployee.

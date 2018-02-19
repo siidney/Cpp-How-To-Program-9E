@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+#include <string>
+
 #include "PieceWorker.hpp"
 
 PieceWorker::PieceWorker(const std::string& first, const std::string& last,
@@ -25,19 +27,21 @@ PieceWorker::PieceWorker(const std::string& first, const std::string& last,
 }
 // set pieces
 void PieceWorker::setPieces(double p) {
-    if (p >= 0.0f)
+    if (p >= 0.0f) {
         pieces = p;
-    else
+    } else {
         throw std::invalid_argument("Pieces produced must be >= 0.0f");
+    }
 }
 // get pieces
 double PieceWorker::getPieces() const { return pieces; }
 // set wage
 void PieceWorker::setWage(double w) {
-    if (w > 0.0f)
+    if (w > 0.0f) {
         wage = w;
-    else
+    } else {
         throw std::invalid_argument("Wage must be > 0.0f");
+    }
 }
 // get wage
 double PieceWorker::getWage() const { return wage; }

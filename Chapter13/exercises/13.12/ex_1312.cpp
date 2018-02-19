@@ -15,15 +15,15 @@
  *
  * =====================================================================================
  */
+#include <iomanip>
+#include <iostream>
+#include <vector>
+
 #include "BasePlusCommissionEmployee.hpp"
 #include "CommissionEmployee.hpp"
 #include "Date.hpp"
 #include "Employee.hpp"
 #include "SalariedEmployee.hpp"
-
-#include <iomanip>
-#include <iostream>
-#include <vector>
 
 int main(int argc, const char *argv[]) {
     // set floating-point output formatting

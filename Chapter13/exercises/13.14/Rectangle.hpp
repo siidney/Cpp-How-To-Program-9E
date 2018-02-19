@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Rectangle.h
+ *       Filename:  Rectangle.hpp
  *
  *    Description:  Exercise 13.13 - Shape Hierarchy
  *                  2D Rectangle

@@ -15,10 +15,11 @@
  *
  * =====================================================================================
  */
-#include "Package.hpp"
-
 #include <iostream>
 #include <stdexcept>
+#include <string>
+
+#include "Package.hpp"
 
 Package::Package(const Person& snd, const Person& rcp, double wgt, double cpo)
     : sender(snd), recipient(rcp) {

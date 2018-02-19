@@ -16,13 +16,13 @@
  *
  * =====================================================================================
  */
+#include <iostream>
+#include <vector>
+
 #include "Bicycle.hpp"
 #include "Building.hpp"
 #include "Car.hpp"
 #include "CarbonFootprint.hpp"
-
-#include <iostream>
-#include <vector>
 
 int main(int argc, const char *argv[]) {
     std::vector<CarbonFootprint *> carbonFootprints;

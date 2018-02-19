@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Account.h
+ *       Filename:  Account.hpp
  *
  *    Description:  Exercise 12.10 - Account Inheritance Hierarchy
  *

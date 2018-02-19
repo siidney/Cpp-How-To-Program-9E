@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Employee.h
+ *       Filename:  Employee.hpp
  *
  *    Description:  Fig. 13.9: Employee abstract base class.
  *
@@ -17,11 +17,11 @@
  */
 #pragma once
 
-#include "Date.hpp"
-
 #include <iostream>
 #include <stdexcept>
 #include <string>
+
+#include "Date.hpp"
 
 class Employee {
  public:

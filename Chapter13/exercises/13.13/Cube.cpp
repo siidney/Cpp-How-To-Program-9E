@@ -16,14 +16,13 @@
  *
  * =====================================================================================
  */
-#include "Cube.hpp"
-
 #include <iostream>
 
-Cube::Cube(double l, double w, double h) : ThreeDimensionalShape(l, w, h) {
-    if (w == 0) setWidth(l);
+#include "Cube.hpp"
 
-    if (h == 0) setHeight(l);
+Cube::Cube(double l, double w, double h) : ThreeDimensionalShape(l, w, h) {
+    if (w == 0) { setWidth(l); }
+    if (h == 0) { setHeight(l); }
 }
 // get surface area
 double Cube::getArea() const { return 6 * (getLength() * getWidth()); }

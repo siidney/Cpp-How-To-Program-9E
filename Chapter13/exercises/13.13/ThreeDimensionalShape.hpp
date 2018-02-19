@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ThreeDimensionalShape.h
+ *       Filename:  ThreeDimensionalShape.hpp
  *
  *    Description:  Exercie 13.13 - Shape Hierarchy
  *

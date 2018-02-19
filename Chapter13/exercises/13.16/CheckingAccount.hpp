@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  CheckingAccount.h
+ *       Filename:  CheckingAccount.hpp
  *
  *    Description:  Exercise 12.10 - Account Inheritance Hierarchy
  *

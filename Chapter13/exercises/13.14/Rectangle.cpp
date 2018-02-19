@@ -16,9 +16,9 @@
  *
  * =====================================================================================
  */
-#include "Rectangle.hpp"
-
 #include <iostream>
+
+#include "Rectangle.hpp"
 
 Rectangle::Rectangle(int h, int w, int x, int y, char f)
     : TwoDimensionalShape(h, w, x, y, f) {}
@@ -31,10 +31,11 @@ char* Rectangle::draw() {
         for (unsigned int row = 0; row < getHeight(); ++row) {
             for (unsigned int col = 0; col < getWidth(); ++col) {
                 if (col == 0 || col == getWidth() - 1 || row == 0 ||
-                    row == getHeight() - 1)
+                    row == getHeight() - 1) {
                     img[col + getWidth() * row] = fillchar;
-                else
+                } else {
                     img[col + getWidth() * row] = ' ';
+                }
             }
         }
     }

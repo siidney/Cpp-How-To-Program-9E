@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "OvernightPackage.hpp"
-
 #include <stdexcept>
+
+#include "OvernightPackage.hpp"
 
 OvernightPackage::OvernightPackage(const Person& snd, const Person& rcp,
                                    double wgt, double cpo, double fpo)

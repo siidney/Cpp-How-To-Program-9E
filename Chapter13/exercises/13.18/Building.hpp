@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Building.h
+ *       Filename:  Building.hpp
  *
  *    Description:  Exercise 13.18 - CarbonFootprint Abstract Class:
  *                  Polymorphism

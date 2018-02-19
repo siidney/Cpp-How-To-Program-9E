@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  SalariedEmployee.h
+ *       Filename:  SalariedEmployee.hpp
  *
  *    Description:  Fig. 13.11: SalariedEmployee class derived from Employee.
  *

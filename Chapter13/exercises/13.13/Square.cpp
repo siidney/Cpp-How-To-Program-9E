@@ -16,12 +16,12 @@
  *
  * =====================================================================================
  */
-#include "Square.hpp"
-
 #include <iostream>
 
+#include "Square.hpp"
+
 Square::Square(double l, double w) : TwoDimensionalShape(l, w) {
-    if (w == 0) setWidth(l);
+    if (w == 0) { setWidth(l); }
 }
 // get area
 double Square::getArea() const {

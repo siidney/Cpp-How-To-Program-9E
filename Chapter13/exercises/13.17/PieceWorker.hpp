@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  PieceWorker.h
+ *       Filename:  PieceWorker.hpp
  *
  *    Description:  Exercise 13.17 - Payroll System Modification
  *

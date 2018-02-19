@@ -16,9 +16,9 @@
  *
  * =====================================================================================
  */
-#include "Cuboid.hpp"
-
 #include <iostream>
+
+#include "Cuboid.hpp"
 
 Cuboid::Cuboid(double w, double l, double h) : ThreeDimensionalShape(w, l, h) {}
 // get surface area

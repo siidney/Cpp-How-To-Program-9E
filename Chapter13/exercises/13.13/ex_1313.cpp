@@ -15,6 +15,10 @@
  *
  * =====================================================================================
  */
+#include <iostream>
+#include <typeinfo>
+#include <vector>
+
 #include "Circle.hpp"
 #include "Cube.hpp"
 #include "Cuboid.hpp"
@@ -25,10 +29,6 @@
 #include "ThreeDimensionalShape.hpp"
 #include "Triangle.hpp"
 #include "TwoDimensionalShape.hpp"
-
-#include <iostream>
-#include <typeinfo>
-#include <vector>
 
 int main(int argc, const char *argv[]) {
     // 2D shapes

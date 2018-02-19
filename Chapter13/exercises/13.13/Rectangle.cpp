@@ -16,9 +16,9 @@
  *
  * =====================================================================================
  */
-#include "Rectangle.hpp"
-
 #include <iostream>
+
+#include "Rectangle.hpp"
 
 Rectangle::Rectangle(double l, double w) : TwoDimensionalShape(l, w) {}
 // get area

@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Circle.h
+ *       Filename:  Circle.hpp
  *
  *    Description:  Exercise 13.13 - Shape Hierarchy
  *                  2D Circle

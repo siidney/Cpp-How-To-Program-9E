@@ -17,9 +17,10 @@
  *
  * =====================================================================================
  */
-#include "Employee.hpp"
-
 #include <iostream>
+#include <string>
+
+#include "Employee.hpp"
 
 Employee::Employee(const std::string& first, const std::string& last,
                    const std::string& ssn, Date dob)

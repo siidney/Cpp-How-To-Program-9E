@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Package.h
+ *       Filename:  Package.hpp
  *
  *    Description:  Exercise 12.9: Package Inheritance Hierarchy
  *
@@ -17,11 +17,11 @@
  */
 #pragma once
 
-#include "Utility.hpp"
-
 #include <iostream>
 #include <sstream>
 #include <string>
+
+#include "Utility.hpp"
 
 class Package {
  public:

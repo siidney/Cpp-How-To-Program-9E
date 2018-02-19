@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Sphere.h
+ *       Filename:  Sphere.hpp
  *
  *    Description:  Exercise 13.13 - Shape Hierarchy
  *                  3D Sphere

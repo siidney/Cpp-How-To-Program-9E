@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  CommissionEmployee.h
+ *       Filename:  CommissionEmployee.hpp
  *
  *    Description:  Fig. 13.13: CommissionEmployee class derived from Employee.
  *

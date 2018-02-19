@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Cuboid.h
+ *       Filename:  Cuboid.hpp
  *
  *    Description:  Exercise 13.13 - Shape Hierarchy
  *                  3D Cuboid

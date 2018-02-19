@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "ThreeDimensionalShape.hpp"
-
 #include <stdexcept>
+
+#include "ThreeDimensionalShape.hpp"
 
 ThreeDimensionalShape::ThreeDimensionalShape(double l, double w, double h)
     : Shape(l, w) {
@@ -25,10 +25,11 @@ ThreeDimensionalShape::ThreeDimensionalShape(double l, double w, double h)
 }
 // set length
 void ThreeDimensionalShape::setHeight(double h) {
-    if (h >= 0.0f)
+    if (h >= 0.0f) {
         height = h;
-    else
+    } else {
         throw std::invalid_argument("Length must be >= 0.0f");
+    }
 }
 // get length
 double ThreeDimensionalShape::getHeight() const { return height; }

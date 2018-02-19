@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Shape.h
+ *       Filename:  Shape.hpp
  *
  *    Description:  Exercie 13.13 - Shape Hierarchy
  *

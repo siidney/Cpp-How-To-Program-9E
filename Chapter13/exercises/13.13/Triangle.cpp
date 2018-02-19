@@ -16,10 +16,10 @@
  *
  * =====================================================================================
  */
-#include "Triangle.hpp"
-
 #include <iostream>
 #include <stdexcept>
+
+#include "Triangle.hpp"
 
 Triangle::Triangle(double b, double h) {
     setBase(b);
@@ -27,19 +27,21 @@ Triangle::Triangle(double b, double h) {
 }
 // set base
 void Triangle::setBase(double b) {
-    if (b > 0.0f)
+    if (b > 0.0f) {
         base = b;
-    else
+    } else {
         throw std::invalid_argument("Base must be > 0.0f");
+    }
 }
 // get base
 double Triangle::getBase() const { return base; }
 // set height
 void Triangle::setHeight(double h) {
-    if (h > 0.0f)
+    if (h > 0.0f) {
         height = h;
-    else
+    } else {
         throw std::invalid_argument("Height must be > 0.0f");
+    }
 }
 // get height
 double Triangle::getHeight() const { return height; }

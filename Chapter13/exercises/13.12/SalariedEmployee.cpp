@@ -16,6 +16,8 @@
  *
  * =====================================================================================
  */
+#include <string>
+
 #include "SalariedEmployee.hpp"
 
 SalariedEmployee::SalariedEmployee(const std::string& first,
@@ -27,10 +29,11 @@ SalariedEmployee::SalariedEmployee(const std::string& first,
 }
 // set salary
 void SalariedEmployee::setWeeklySalary(double salary) {
-    if (salary >= 0.0f)
+    if (salary >= 0.0f) {
         weeklySalary = salary;
-    else
+    } else {
         throw std::invalid_argument("Weekly salary must be >= 0.0f");
+    }
 }
 // get salary
 double SalariedEmployee::getWeeklySalary() const { return weeklySalary; }

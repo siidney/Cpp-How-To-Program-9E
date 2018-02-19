@@ -15,16 +15,16 @@
  *
  * =====================================================================================
  */
+#include <iomanip>
+#include <iostream>
+#include <vector>
+
 #include "BasePlusCommissionEmployee.hpp"
 #include "CommissionEmployee.hpp"
 #include "Employee.hpp"
 #include "HourlyWorker.hpp"
 #include "PieceWorker.hpp"
 #include "SalariedEmployee.hpp"
-
-#include <iomanip>
-#include <iostream>
-#include <vector>
 
 int main(int argc, const char *argv[]) {
     std::vector<Employee *> employees;

@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Utility.h
+ *       Filename:  Utility.hpp
  *
  *    Description:  Exercise 12.9: Package Inheritance Hierarchy
  *                  Utility struct - avoids passing 12 strings to package

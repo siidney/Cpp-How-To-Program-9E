@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+#include <string>
+
 #include "HourlyWorker.hpp"
 
 HourlyWorker::HourlyWorker(const std::string& first, const std::string& last,
@@ -25,19 +27,21 @@ HourlyWorker::HourlyWorker(const std::string& first, const std::string& last,
 }
 // set hours
 void HourlyWorker::setHours(double h) {
-    if (h >= 0.0f)
+    if (h >= 0.0f) {
         hours = h;
-    else
+    } else {
         throw std::invalid_argument("Hours must be >= 0.0f");
+    }
 }
 // get hours
 double HourlyWorker::getHours() const { return hours; }
 // set wage
 void HourlyWorker::setWage(double w) {
-    if (w > 0.0f)
+    if (w > 0.0f) {
         wage = w;
-    else
+    } else {
         throw std::invalid_argument("Wage must be > 0.0f");
+    }
 }
 // get wage
 double HourlyWorker::getWage() const { return wage; }

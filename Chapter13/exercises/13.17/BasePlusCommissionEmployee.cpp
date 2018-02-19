@@ -16,9 +16,10 @@
  *
  * =====================================================================================
  */
-#include "BasePlusCommissionEmployee.hpp"
-
 #include <iostream>
+#include <string>
+
+#include "BasePlusCommissionEmployee.hpp"
 
 // constructor
 BasePlusCommissionEmployee::BasePlusCommissionEmployee(
@@ -29,10 +30,11 @@ BasePlusCommissionEmployee::BasePlusCommissionEmployee(
 }
 // set base salary
 void BasePlusCommissionEmployee::setBaseSalary(double salary) {
-    if (salary >= 0.0f)
+    if (salary >= 0.0f) {
         baseSalary = salary;
-    else
+    } else {
         throw std::invalid_argument("Salary must be >= 0.0f");
+    }
 }
 // get base salary
 double BasePlusCommissionEmployee::getBaseSalary() const { return baseSalary; }

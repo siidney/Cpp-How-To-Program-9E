@@ -16,12 +16,12 @@
  *
  * =====================================================================================
  */
+#include <iostream>
+#include <vector>
+
 #include "Account.hpp"
 #include "CheckingAccount.hpp"
 #include "SavingsAccount.hpp"
-
-#include <iostream>
-#include <vector>
 
 int main(int argc, const char *argv[]) {
     std::vector<Account *> accounts;

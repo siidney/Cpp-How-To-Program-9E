@@ -24,10 +24,11 @@
 Sphere::Sphere(double r) { setRadius(r); }
 // set radius
 void Sphere::setRadius(double r) {
-    if (r > 0.0f)
+    if (r > 0.0f) {
         radius = r;
-    else
+    } else {
         throw std::invalid_argument("Radius must be > 0.0f");
+    }
 }
 // get radius
 double Sphere::getRadius() const { return radius; }

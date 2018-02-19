@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Canvas.h
+ *       Filename:  Canvas.hpp
  *
  *    Description:  Exercise 13.14 - Project Polymorphic Screen Manager Using
  *                  Shape Hierarchy.
@@ -40,18 +40,20 @@ struct Canvas {
     }
     // rows
     void setRows(int rows) {
-        if (rows > 0)
+        if (rows > 0) {
             ROWS = rows;
-        else
+        } else {
             throw std::invalid_argument("Canvas Error: rows must be > 0");
+        }
     }
     unsigned int getRows() const { return ROWS; }
     // cols
     void setCols(int cols) {
-        if (cols > 0)
+        if (cols > 0) {
             COLS = cols;
-        else
+        } else {
             throw std::invalid_argument("Canvas Error: cols must be > 0");
+        }
     }
     unsigned int getCols() const { return COLS; }
     // add image to be rendered to _canvas
@@ -60,7 +62,7 @@ struct Canvas {
     void addToCanvas(unsigned int x, unsigned int y, unsigned int width,
                      unsigned int height, const char* image) {
         // ensure x and y are not out of bounds
-        if (x > COLS || y > ROWS) return;
+        if (x > COLS || y > ROWS) { return; }
 
         const char* imagePtr = image;
 

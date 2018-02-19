@@ -16,10 +16,10 @@
  *
  * =====================================================================================
  */
-#include "Date.hpp"
-
 #include <iostream>
 #include <string>
+
+#include "Date.hpp"
 
 // initialise static member; one classwide copy
 const int Date::days[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

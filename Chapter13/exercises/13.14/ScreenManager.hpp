@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ScreenManager.h
+ *       Filename:  ScreenManager.hpp
  *
  *    Description:  Exercise 13.14 - Project: Polymorphic Screen Manager Using
  *                  Shape Hierarchy
