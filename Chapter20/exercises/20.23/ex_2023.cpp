@@ -15,15 +15,26 @@
  *
  * =============================================================================
  */
-#include "Tree.hpp"
-
-#include <stdlib.h>
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
+#include <random>
+
+#include "Tree.hpp"
 
 static const int HEIGHT = 30;
 static const int LIMIT = 100;
+
+std::random_device rd;
+std::mt19937 gen(rd());
+
+/**
+ * Generates random number.
+ * @param int
+ * @param in
+ */
+int getRandomNumber(int min, int max) {
+    return std::uniform_int_distribution<int>{min, max}(gen);
+}  // end method getRandomNumber
 
 /**
  * This is the main method.
@@ -34,27 +45,19 @@ static const int LIMIT = 100;
 int main(int argc, char* argv[]) {
     Tree<int> intTree;
 
-    unsigned int seed = static_cast<int>(std::time(nullptr));
-
     for (int i = 0; i < HEIGHT; ++i) {
-        intTree.insertNode(rand_r(&seed) % LIMIT);
+        intTree.insertNode(getRandomNumber(0, LIMIT));
     }
 
     intTree.inOrderTraversal();
 
-    std::cout << "Depth: " << Tree<int>.depth(intTree) << std::endl;
+    std::cout << "Depth: " << Tree<int>::depth(intTree) << std::endl;
 
-    int query = rand_r(&seed) % LIMIT;
+    int query = getRandomNumber(0, LIMIT);
 
     TreeNode<int>* result = intTree.binaryTreeSearch(query);
 
-    if (result == nullptr) {
-        std::printf("%d not found.\n", query);
-    }
-
-    if (result != nullptr) {
-        std::printf("%d found in tree.\n", query);
-    }
+    printf("%d%sfound in tree.\n", query, ((result == nullptr) ? " not " : " "));
 
     return 0;
 }  // end method main

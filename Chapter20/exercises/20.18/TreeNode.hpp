@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  TreeNode.h
+ *       Filename:  TreeNode.hpp
  *
  *    Description:  Fig. 20.20 - Template TreeNode class definition
  *

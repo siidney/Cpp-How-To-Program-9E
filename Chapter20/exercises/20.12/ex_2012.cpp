@@ -15,10 +15,10 @@
  *
  * =====================================================================================
  */
-#include "Stack.hpp"
-
 #include <iostream>
 #include <string>
+
+#include "Stack.hpp"
 
 /*
  * Tests whether given character is a valid arithmetic operation
@@ -84,13 +84,11 @@ std::string convertToPostfix(std::string& infix) {
     for (char& c : infix) {
         // if the current char in infix is a digit, copy to next element in
         // postfix.
-        if (isdigit(c))
-            postfix += c;
+        if (isdigit(c)) { postfix += c; }
 
         // if the current char in infix is a left parenthesis, push it onto the
         // stack.
-        if (c == '(')
-            postfixStack.push(c);
+        if (c == '(') { postfixStack.push(c); }
 
         // if current char in infix is an operator.
         if (isOperator(c)) {

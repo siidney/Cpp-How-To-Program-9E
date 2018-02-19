@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "List.hpp"
-
 #include <iostream>
+
+#include "List.hpp"
 
 int main(int argc, const char* argv[]) {
     List<char> charList;
@@ -29,14 +29,15 @@ int main(int argc, const char* argv[]) {
     }
 
     // iterate over base insert at front on charListRev
-    ListNode<char>* iter = charList.begin();
+    auto iter = charList.begin();
 
     while (iter != charList.end()) {
         charListRev.insertAtFront(iter->getData());
 
         iter = iter->next();
 
-        if (iter == charList.end()) charListRev.insertAtFront(iter->getData());
+        // copy last element
+        if (iter == charList.end()) { charListRev.insertAtFront(iter->getData()); }
     }
 
     charList.print();

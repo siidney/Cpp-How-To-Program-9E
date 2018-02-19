@@ -1,9 +1,9 @@
 /*
  * =====================================================================================
  *
- *       Filename:  ex_219.cpp
+ *       Filename:  ex_2019.cpp
  *
- *    Description:  Exercise 2.19 - Depth of a Binary Tree.
+ *    Description:  Exercise 20.19 - Depth of a Binary Tree.
  *
  *        Version:  1.0
  *        Created:  18/07/17 16:55:12
@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Tree.hpp"
-
 #include <iostream>
+
+#include "Tree.hpp"
 
 /**
  * This is the main method.

@@ -15,11 +15,13 @@
  *
  * =====================================================================================
  */
+#include <iostream>
+#include <random>
+
 #include "Queue.hpp"
 
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+std::random_device rd;
+std::mt19937 gen(rd());
 
 /**
  * Returns random n + random int (1-4)
@@ -27,7 +29,7 @@
  * @return result.
  */
 int getTime(int n) {
-    return n + (1 + (rand() % 4));
+    return n + std::uniform_int_distribution<int>{1, 4}(gen);
 }
 
 /**
@@ -37,8 +39,6 @@ int getTime(int n) {
  * @return int.
  */
 int main(int argc, const char* argv[]) {
-    std::srand(static_cast<int>(time(0)));
-
     Queue<int> checkout;
 
     // 1 - Choose a random int 1 - 4 to determine the minute at which the first
@@ -60,8 +60,7 @@ int main(int argc, const char* argv[]) {
             printf("%3d - Customer %3d arrived\n", m, customer);
 
             // first customer service time
-            if (serviceTime == 0)
-                serviceTime = getTime(m);
+            if (serviceTime == 0) { serviceTime = getTime(m); }
 
             // schedule arrival of next customer.
             arrivalTime = getTime(m);
@@ -69,22 +68,23 @@ int main(int argc, const char* argv[]) {
 
         // if service completed for last customer
         if (m == serviceTime) {
-            printf("%3d - Customer %3d serviced\n",
-                    m, checkout.queueFront());
+            printf("%3d - Customer %3d serviced\n", m, checkout.queueFront());
 
             // dequeue customer.
             checkout.dequeue(checkout.queueFront());
 
             // schedule service time if more customers
-            if (!checkout.isQueueEmpty())
+            if (!checkout.isQueueEmpty()) {
                 serviceTime = getTime(m);
-            else
+            } else {
                 serviceTime = 0;
+            }
         }
 
         // get max queue size
-        if (maxQueueSize == 0 || checkout.queueSize() > maxQueueSize)
+        if (maxQueueSize == 0 || checkout.queueSize() > maxQueueSize) {
             maxQueueSize = checkout.queueSize();
+        }
     }
 
     printf("Max queue size: %d\n", maxQueueSize);

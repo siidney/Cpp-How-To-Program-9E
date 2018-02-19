@@ -15,10 +15,10 @@
  *
  * =====================================================================================
  */
-#include "Tree.hpp"
-
 #include <iostream>
 #include <iomanip>
+
+#include "Tree.hpp"
 
 /**
  * This is the main method.

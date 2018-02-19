@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Tree.hpp"
-
 #include <iostream>
+
+#include "Tree.hpp"
 
 /**
  * removes duplicates in the given array.
@@ -71,15 +71,13 @@ int main(int argc, const char* argv[]) {
 
     std::cout << "\n\nArray - Before elimination:" << std::endl;
 
-    for (unsigned int i = 0; i < LENGTH; ++i)
-        printf("%d ", intArr[i]);
+    for (unsigned int i = 0; i < LENGTH; ++i) { printf("%d ", intArr[i]); }
 
     duplicateElimination(intArr, LENGTH);
 
     std::cout << "\nAfter elimination: " << std::endl;
 
-    for (unsigned int i = 0; i < LENGTH; ++i)
-        printf("%d ", intArr[i]);
+    for (unsigned int i = 0; i < LENGTH; ++i) { printf("%d ", intArr[i]); }
 
     std::cout << std::endl;
 

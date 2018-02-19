@@ -15,10 +15,10 @@
  *
  * =====================================================================================
  */
-#include "Stack.hpp"
-
 #include <iostream>
 #include <string>
+
+#include "Stack.hpp"
 
 /*
  * Tests whether given character is a valid arithmetic operation
@@ -119,10 +119,11 @@ int evaluatePostfixExpression(std::string& postfix) {
             postfixStack.pop(postfixStack.stackTop());
 
             // swap x and y to avoid negative values
-            if ((c == '/' || c == '-') && y > x)
+            if ((c == '/' || c == '-') && y > x) {
                     postfixStack.push(calculate(y, c, x));
-            else
+            } else {
                 postfixStack.push(calculate(x, c, y));
+            }
         }
     }
 

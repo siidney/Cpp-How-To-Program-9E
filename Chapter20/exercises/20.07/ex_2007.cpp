@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "List.hpp"
-
 #include <iostream>
+
+#include "List.hpp"
 
 int main(int argc, const char* argv[]) {
     List<int> intList1;

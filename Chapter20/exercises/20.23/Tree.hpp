@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Tree.h
+ *       Filename:  Tree.hpp
  *
  *    Description:  Exercise 20.23 - Binary Tree Search
  *
@@ -17,10 +17,10 @@
  */
 #pragma once
 
-#include "TreeNode.hpp"
-
 #include <iostream>
 #include <algorithm>
+
+#include "TreeNode.hpp"
 
 // Tree class-template definition
 template <typename NODETYPE>
@@ -73,10 +73,11 @@ void Tree<NODETYPE>::insertNodeHelper(TreeNode<NODETYPE> **ptr,
             insertNodeHelper(&((*ptr)->leftPtr), value);
         } else {
             // data to insert is greater than data in current node
-            if (value > (*ptr)->data)
+            if (value > (*ptr)->data) {
                 insertNodeHelper(&((*ptr)->rightPtr), value);
-            else  // duplicate value ignored
+            } else { // duplicate value ignored
                 std::cout << value << " dup" << std::endl;
+            }
         }
     }
 }

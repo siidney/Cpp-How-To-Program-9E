@@ -15,19 +15,20 @@
  *
  * =====================================================================================
  */
-#include "List.hpp"
-
 #include <iostream>
+
+#include "List.hpp"
 
 int main(int argc, const char* argv[]) {
     List<char> charList1;
     List<char> charList2;
 
     for (char c = 'a'; c <= 'z'; ++c) {
-        if (c < 'n')
+        if (c < 'n') {
             charList1.insertAtBack(c);
-        else
+        } else {
             charList2.insertAtBack(c);
+        }
     }
 
     std::cout << "List 1 : ";

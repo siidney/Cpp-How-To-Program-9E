@@ -15,13 +15,12 @@
  *
  * =====================================================================================
  */
-#include "List.hpp"
-
 #include <algorithm>
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
 #include <vector>
+#include <random>
+
+#include "List.hpp"
 
 int main(int argc, const char* argv[]) {
     List<int> intList;
@@ -30,11 +29,12 @@ int main(int argc, const char* argv[]) {
     const int RAND_LIMIT = 100;
     const int LIST_SIZE = 25;
 
-    std::srand(std::time(0));
+    std::random_device rd;
+    std::mt19937 gen(rd());
 
     // generate the random numbers
     for (int i = 0; i < LIST_SIZE; ++i) {
-        data.push_back((rand() % RAND_LIMIT));
+        data.push_back(std::uniform_int_distribution<int>{0, RAND_LIMIT}(gen));
     }
 
     // sort the data
@@ -48,17 +48,14 @@ int main(int argc, const char* argv[]) {
     // calculate sum of elements
     long sum = 0;
 
-    ListNode<int>* iter = intList.begin();
+     auto iter = intList.begin();
 
-    do {
-        sum += iter->getData();
-        iter = iter->next();
+     while (iter != intList.end()) {
+         sum += iter->getData();
+         iter = iter->next();
+     }
 
-        if (iter->getData() == intList.end()->getData()) sum += iter->getData();
-    } while (iter != intList.end());
-
-    std::cout << "sum: " << sum << " average: " << (sum / LIST_SIZE)
-              << std::endl;
+    std::cout << "sum: " << sum << " average: " << (sum / LIST_SIZE) << std::endl;
 
     intList.print();
     std::cout << std::endl;

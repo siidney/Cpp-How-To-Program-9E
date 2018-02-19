@@ -31,7 +31,7 @@ int main(int argc, const char* argv[]) {
 
     // sanitise data - remove spaces and punctuation
     for (char& c : cData) {
-        if (isspace(c) || ispunct(c)) continue;
+        if (isspace(c) || ispunct(c)) { continue; }
 
         cSanitised += tolower(c);
         cStack.push(tolower(c));
@@ -45,7 +45,8 @@ int main(int argc, const char* argv[]) {
         cStack.pop();
     }
 
-    std::cout << cData << " is" << (rData == cSanitised ? " " : " not ")
+    std::cout << cData << " is"
+              << (rData == cSanitised ? " " : " not ")
               << "a palindrome" << std::endl;
 
     return 0;

@@ -29,9 +29,7 @@ int main(int argc, const char* argv[]) {
     std::stack<char> cStack;
 
     // add data to stack
-    for (char& c : cData) {
-        cStack.push(c);
-    }
+    for (char& c : cData) { cStack.push(c); }
 
     // read stack in reverse order
     while (!cStack.empty()) {

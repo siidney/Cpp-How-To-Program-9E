@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  List.h
+ *       Filename:  List.hpp
  *
  *    Description:  Exercise 20.06 - Concatenating Lists
  *
@@ -18,6 +18,7 @@
 #pragma once
 
 #include <iostream>
+
 #include "ListNode.hpp"
 
 template <typename NODETYPE>
@@ -96,10 +97,11 @@ bool List<NODETYPE>::removeFromFront(NODETYPE &value) {
     } else {
         ListNode<NODETYPE> *tempPtr = firstPtr;
 
-        if (firstPtr == lastPtr)
+        if (firstPtr == lastPtr) {
             firstPtr = lastPtr = 0;  // no nodes remain after removal
-        else
+        } else {
             firstPtr = firstPtr->nextPtr;  // point to previous 2nd node
+        }
 
         value = tempPtr->data;
         delete tempPtr;
@@ -123,8 +125,9 @@ bool List<NODETYPE>::removeFromBack(NODETYPE &value) {
             ListNode<NODETYPE> *currentPtr = firstPtr;
 
             // locate second to last element
-            while (currentPtr->nextPtr != lastPtr)
+            while (currentPtr->nextPtr != lastPtr) {
                 currentPtr = currentPtr->nextPtr;  // move to next node
+            }
 
             lastPtr = currentPtr;     // remove last node
             currentPtr->nextPtr = 0;  // this is now the last node

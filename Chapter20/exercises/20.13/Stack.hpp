@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Stack.h
+ *       Filename:  Stack.hpp
  *
  *    Description:  Fig. 20.13 - Template Stack class definition derived from
  *                  class List

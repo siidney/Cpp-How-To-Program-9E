@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
-#include "Tree.hpp"
-
 #include <iostream>
 #include <string>
 #include <sstream>
+
+#include "Tree.hpp"
 
 /**
  * This is the main method.
@@ -37,15 +37,15 @@ int main(int argc, const char* argv[]) {
     std::istringstream ss(input);
     std::string parsed;
 
-    while (ss >> parsed) {
-        strTree.insertNode(parsed);
-    }
+    while (ss >> parsed) { strTree.insertNode(parsed); }
 
     std::cout << std::endl;
-
     strTree.inOrderTraversal();
+    std::cout << std::endl;
     strTree.preOrderTraversal();
+    std::cout << std::endl;
     strTree.postOrderTraversal();
+    std::cout << std::endl << std::endl;
 
     return 0;
 }

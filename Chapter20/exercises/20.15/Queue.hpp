@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Queue.h
+ *       Filename:  Queue.hpp
  *
  *    Description:  Fig. 20.16 - Template Queue class definition derived from
  *                  class List

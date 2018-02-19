@@ -15,11 +15,10 @@
  *
  * =====================================================================================
  */
-
-#include "List.hpp"
-
 #include <vector>
 #include <algorithm>
+
+#include "List.hpp"
 
 /**
  * This is the main method.
@@ -45,14 +44,11 @@ int main(int argc, char* argv[]) {
     // sort the vector then add to list sorted.
     std::sort(intVec.begin(), intVec.end());
 
-    for (int n : intVec) {
-        intList.insertAtBack(n);
-    }
+    for (int n : intVec) { intList.insertAtBack(n); }
 
     intList.print();
 
     intList.printListBackwards();
-
 
     return 0;
 }  // end method main

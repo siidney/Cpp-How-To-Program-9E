@@ -65,11 +65,10 @@ void Tree<NODETYPE>::insertNodeHelper(TreeNode<NODETYPE> **ptr,
         if (value < (*ptr)->data) {
             insertNodeHelper(&((*ptr)->leftPtr), value);
         } else {
-            // data to insert is greater than data in current node
-            if (value > (*ptr)->data)
+            // allow duplicates
+            if (value > (*ptr)->data || value == (*ptr)->data) {
                 insertNodeHelper(&((*ptr)->rightPtr), value);
-            // else  // duplicate value ignored
-            //    std::cout << value << " dup" << std::endl;
+            }
         }
     }
 }
