@@ -36,7 +36,7 @@ int main(int argc, const char* argv[]) {
 void printReverse(std::string& base) {
     static std::string::reverse_iterator rit = base.rbegin();
 
-    if (rit == base.rend()) return;
+    if (rit == base.rend()) { return; }
 
     std::cout << *(rit++);
 

@@ -15,11 +15,16 @@
  *
  * =====================================================================================
  */
+#include <vector>
+#include <map>
+#include <string>
+#include <algorithm>
+
 #include "IngredientSwitcher.hpp"
 
 IngredientSwitcher::IngredientSwitcher() {}
 IngredientSwitcher::~IngredientSwitcher() {
-    for (auto elem : alternativesMap) deleteNodes(&elem.second);
+    for (auto elem : alternativesMap) { deleteNodes(&elem.second); }
 }
 // builds alternativesMap
 // name amount measure
@@ -73,10 +78,11 @@ bool IngredientSwitcher::constructIngredients() {
 }
 // main loop
 void IngredientSwitcher::run() {
-    if (!initialise())
+    if (!initialise()) {
         std::cerr << "Could not initialise application" << std::endl;
-    else
+    } else {
         printMenu();
+    }
 }
 // print main menu
 void IngredientSwitcher::printMenu() {
@@ -153,7 +159,7 @@ struct Node IngredientSwitcher::getNode(const std::string &ingredient) {
 }
 // list all known alternatives
 void IngredientSwitcher::listAll() {
-    for (auto elem : alternativesMap) printAlternatives(elem.second);
+    for (auto elem : alternativesMap) { printAlternatives(elem.second); }
 }
 // LINKED LIST FUNCTIONS
 // Follows and prints all next nodes

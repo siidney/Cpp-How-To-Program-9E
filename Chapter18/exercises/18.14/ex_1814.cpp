@@ -4,11 +4,10 @@
  *       Filename:  ex_1814.cpp
  *
  *    Description:  Exercise 18.14 - Cryptograms
- *                  Made this so it randomises the cyper every run.
  *
- *        Version:  1.0
+ *        Version:  1.1
  *        Created:  15/02/17 17:21:55
- *       Revision:  none
+ *       Revision:  19/02/18 01:44:08
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -17,18 +16,16 @@
  * =====================================================================================
  */
 #include <algorithm>
-#include <ctime>
 #include <iostream>
 #include <map>
 #include <string>
+#include <utility>
+#include <random>
 
 void initialise(std::map<char, char>&);
-void encrypt(std::string&, std::map<char, char>&);
-void print(const std::map<char, char>&);
+void encrypt(std::string&, const std::map<char, char>&);
 
 int main(int argc, const char* argv[]) {
-    srand((int)time(0));
-
     std::map<char, char> cypher;
 
     initialise(cypher);
@@ -41,43 +38,41 @@ int main(int argc, const char* argv[]) {
 
     std::cout << userStr << std::endl;
 
-    // print(cypher);
-
     return 0;
 }
-// create the cryptogram cypher
-// randomises alphabet and maps to original letters
+
+/*
+ * Create the cryptogram cypher.
+ * Randomises alphabet and maps to original letters.
+ * @input map<char, char>
+ */
 void initialise(std::map<char, char>& cypher) {
     std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
     std::string shuffled = alphabet;
 
-    std::random_shuffle(shuffled.begin(), shuffled.end());
+    std::random_device rd;
 
-    std::string::iterator ait = alphabet.begin();
-    std::string::iterator sit = shuffled.begin();
+    std::shuffle(shuffled.begin(), shuffled.end(), rd);
+
+    auto ait = alphabet.begin();
+    auto sit = shuffled.begin();
 
     while (ait != alphabet.end()) {
         cypher.insert(std::pair<char, char>(*(ait++), *(sit++)));
     }
 }
-// cypherise the given string
-void encrypt(std::string& userStr, std::map<char, char>& cypher) {
-    std::string::iterator it = userStr.begin();
 
-    while (it != userStr.end()) {
-        if (*it != ' ') {
-            if (isupper(*it))
-                *it = tolower(*it);
+/*
+ * Swaps the userStr chars for the mapped values in cypher.
+ * @input string
+ * @input map<char, char>
+ */
+void encrypt(std::string& userStr, const std::map<char, char>& cypher) {
+    for (auto &c : userStr) {
+        if (c != ' ') {
+            if (isupper(c)) { c = tolower(c); }
 
-            *it = cypher.find(*(it++))->second;
-        } else {
-            ++it;
+            c = cypher.find(c)->second;
         }
-    }
-}
-// print map contents
-void print(const std::map<char, char>& cypher) {
-    for (auto elem : cypher) {
-        std::cout << elem.first << " " << elem.second << std::endl;
     }
 }

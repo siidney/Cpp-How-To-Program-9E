@@ -5,9 +5,9 @@
  *
  *    Description:  Exercise 18.13 - Alphabetising Animal Names
  *
- *        Version:  1.0
+ *        Version:  1.1
  *        Created:  15/02/17 10:16:45
- *       Revision:  none
+ *       Revision:  19/02/18 01:26:11
  *       Compiler:  g++
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -22,7 +22,8 @@
 
 void readWordList(std::vector<std::string>&, std::istream&);
 void sort(std::vector<std::string>&);
-void print(std::vector<std::string>&);
+void alphabetise(std::vector<std::string>&);
+void print(const std::vector<std::string>&);
 
 int main(int argc, const char* argv[]) {
     std::ifstream wordFile("animals.txt", std::ios::in);
@@ -37,10 +38,10 @@ int main(int argc, const char* argv[]) {
 
     wordFile.close();
 
-    std::cout << "\nBefore Sort:" << std::endl;
+    std::cout << "\nBefore Alphabetise:" << std::endl;
     print(wordList);
-    sort(wordList);
-    std::cout << "\nAfter Sort: " << std::endl;
+    alphabetise(wordList);
+    std::cout << "\nAfter Alphabetise: " << std::endl;
     print(wordList);
 
     return 0;
@@ -51,29 +52,22 @@ void readWordList(std::vector<std::string>& wordList, std::istream& wordFile) {
 
     std::string word;
 
-    while (std::getline(wordFile, word)) wordList.push_back(word);
+    while (std::getline(wordFile, word)) { wordList.emplace_back(word); }
 }
-// bubble sort list of animal names
-// only checking if first letter is capitalised. Not sorting on only capitalised
-// letters as it doesn't produce required results.
-void sort(std::vector<std::string>& wordList) {
-    for (unsigned int i = 0; i < wordList.size(); ++i) {
-        for (unsigned int j = 0; j < wordList.size() - 1; ++j) {
-            if ((wordList[j][0] >= 65 && wordList[j][0] <= 90) &&
-                (wordList[j + 1][0] >= 65 && wordList[j + 1][0] <= 90)) {
-                if (wordList[j] > wordList[j + 1]) {
-                    std::string tmp = wordList[j + 1];
-                    wordList[j + 1] = wordList[j];
-                    wordList[j] = tmp;
-                }
-            }
-        }
-    }
-}
-// print vector
-void print(const std::vector<std::string>& wordList) {
-    for (unsigned int i = 0; i < wordList.size(); ++i) {
-        std::cout << wordList[i] << ' ';
-    }
+
+/**
+ * Alphabetises the given vector of strings.
+ * @param vector<string>
+ */
+void alphabetise(std::vector<std::string> &wordList) {
+    for (auto &str : wordList) { str[0] = std::toupper(str[0]); }
+}  // end method alphabetise
+
+/**
+ * Prints the given vector
+ */
+void print(const std::vector<std::string> &wordList) {
+    for (auto &str : wordList) { std::cout << str << ' '; }
+
     std::cout << std::endl;
-}
+}  // end method print

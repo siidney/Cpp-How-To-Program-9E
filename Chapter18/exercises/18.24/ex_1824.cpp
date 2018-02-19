@@ -27,7 +27,7 @@ int main(int argc, const char* argv[]) {
         for (size_t k = 0, l = i; k < j; ++k) {
             std::cout << base[l];
 
-            if (l == base.length()) std::cout << '{';
+            if (l == base.length()) { std::cout << '{'; }
 
             ((k >= i) ? --l : ++l);
         }

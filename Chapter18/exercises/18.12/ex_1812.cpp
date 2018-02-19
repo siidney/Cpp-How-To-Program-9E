@@ -29,10 +29,11 @@ int main(int argc, const char* argv[]) {
     while (it != input.rend()) {
         int ascii = *(it++);
 
-        if ((ascii >= 97) && (ascii <= 122))
+        if ((ascii >= 97) && (ascii <= 122)) {
             ascii = (ascii - 32);
-        else if ((ascii >= 65) && (ascii <= 90))
+        } else if ((ascii >= 65) && (ascii <= 90)) {
             ascii = (ascii + 32);
+        }
 
         char c = ascii;
 

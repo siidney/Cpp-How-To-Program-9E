@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  SMSDecoder.h
+ *       Filename:  SMSDecoder.hpp
  *
  *    Description:  Exercise 18.30 - SMS Language
  *

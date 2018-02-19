@@ -15,6 +15,9 @@
  *
  * =====================================================================================
  */
+#include <map>
+#include <string>
+
 #include "SMSDecoder.hpp"
 
 SMSDecoder::SMSDecoder() {}
@@ -105,12 +108,13 @@ void SMSDecoder::decode() {
         // strip, save and reinsert punctuation (only from end of word)
         for (std::string::reverse_iterator rit = word.rbegin();
              rit != word.rend(); ++rit) {
-            if (std::ispunct(*rit))
+            if (std::ispunct(*rit)) {
                 punct += *rit;
-            else
+            } else {
                 break;
+            }
         }
-        if (punct != "") sanitised = word.substr(0, word.find(punct));
+        if (punct != "") { sanitised = word.substr(0, word.find(punct)); }
 
         decodedMsg += getTranslation(toUpperWord(sanitised));
         decodedMsg += punct;
@@ -147,11 +151,12 @@ std::string SMSDecoder::fixCase(const std::string& word) {
 
     for (std::string::const_iterator it = word.begin(); it != word.end();
          ++it) {
-        if (std::isalpha(*it))
+        if (std::isalpha(*it)) {
             fixed +=
                 ((std::isupper(*it)) ? std::tolower(*it) : std::toupper(*it));
-        else
+        } else {
             fixed += *it;
+        }
     }
     return fixed;
 }
@@ -161,7 +166,7 @@ std::string SMSDecoder::getTranslation(const std::string& word) {
     std::map<std::string, std::string>::iterator it = abrvMap.find(word);
 
     // case already good
-    if (it != abrvMap.end()) return it->second;
+    if (it != abrvMap.end()) { return it->second; }
 
     // revert word to original case
     return fixCase(word);

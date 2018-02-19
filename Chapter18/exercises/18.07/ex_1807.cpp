@@ -71,11 +71,12 @@ const std::string rot13(const std::string& base) {
         int ascii = *(it++);
 
         // first half upper/lower case
-        if ((ascii >= 97 && ascii < 110) || (ascii >= 65 && ascii < 78))
+        if ((ascii >= 97 && ascii < 110) || (ascii >= 65 && ascii < 78)) {
             ascii = (ascii + 13);
         // second half
-        else if ((ascii >= 110 && ascii <= 122) || (ascii >= 78 && ascii <= 90))
+        } else if ((ascii >= 110 && ascii <= 122) || (ascii >= 78 && ascii <= 90)) {
             ascii = (ascii - 13);
+        }
 
         result += ascii;
     }

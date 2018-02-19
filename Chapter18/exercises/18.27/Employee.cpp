@@ -16,9 +16,10 @@
  *
  * =====================================================================================
  */
-#include "Employee.hpp"
-
 #include <iostream>
+#include <string>
+
+#include "Employee.hpp"
 
 Employee::Employee(const std::string& first, const std::string& last,
                    const std::string& ssn, Date dob)
@@ -55,9 +56,9 @@ void Employee::print() const {
 // utility functions
 bool Employee::isValidSocialSecurityNumber(const std::string& base) const {
     for (size_t i = 0; i < base.size(); ++i) {
-        if (i == 3 || i == 6) continue;
+        if (i == 3 || i == 6) { continue; }
 
-        if (!isdigit(base[i])) return false;
+        if (!isdigit(base[i])) { return false; }
     }
 
     return true;
