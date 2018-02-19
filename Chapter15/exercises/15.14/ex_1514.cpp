@@ -16,9 +16,9 @@
  *
  * =====================================================================================
  */
-#include "PhoneNumber.hpp"
-
 #include <iostream>
+
+#include "PhoneNumber.hpp"
 
 int main(int argc, const char *argv[]) {
     PhoneNumber phone;

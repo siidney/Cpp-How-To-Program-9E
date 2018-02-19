@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Point.hpp"
-
 #include <iostream>
+
+#include "Point.hpp"
 
 int main(int argc, const char *argv[]) {
     Point point;

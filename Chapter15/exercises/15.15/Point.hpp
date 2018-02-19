@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Point.h
+ *       Filename:  Point.hpp
  *
  *    Description:  Exercise 15.15 - Point Class
  *

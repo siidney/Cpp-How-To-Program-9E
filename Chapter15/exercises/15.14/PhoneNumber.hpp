@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  PhoneNumber.h
+ *       Filename:  PhoneNumber.hpp
  *
  *    Description:  fig. 11.3: Phone Number class definition
  *

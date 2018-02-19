@@ -16,10 +16,10 @@
  *
  * =====================================================================================
  */
-#include "PhoneNumber.hpp"
-
 #include <algorithm>
 #include <iomanip>
+
+#include "PhoneNumber.hpp"
 
 // overloaded stream insertion operator; cannot be
 // a member function if we would like to invoke it with
