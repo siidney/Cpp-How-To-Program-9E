@@ -25,7 +25,7 @@ class C1 {
 int main(int argc, const char *argv[]) {
     try {
         C1 c;
-    } catch (int e) {
+    } catch (int &e) {
         std::cerr << "Exception: " << e << std::endl;
     }
     return 0;

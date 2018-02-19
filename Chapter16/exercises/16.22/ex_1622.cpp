@@ -29,9 +29,9 @@ int main(int argc, const char *argv[]) {
 
     try {
         throw derived;
-    } catch (B b) {
+    } catch (B &b) {
         std::cout << "Caught base class" << std::endl;
-    } catch (D d) {
+    } catch (D &d) {
         std::cout << "caught derived class" << std::endl;
         std::cout << d.what() << std::endl;
     }

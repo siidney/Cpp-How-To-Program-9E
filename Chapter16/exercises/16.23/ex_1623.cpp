@@ -25,9 +25,9 @@ int main(int argc, const char *argv[]) {
         double d = 6.5;
 
         false ? throw i : throw d;  // double should throw
-    } catch (int i) {
+    } catch (int &i) {
         std::cout << "i was thrown" << std::endl;
-    } catch (double d) {
+    } catch (double &d) {
         std::cout << "d was thrown" << std::endl;
     }
     return 0;

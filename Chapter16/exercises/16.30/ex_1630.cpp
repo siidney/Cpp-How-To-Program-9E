@@ -20,10 +20,11 @@
 
 void function() {
     try {
-        if (false)
+        if (false) {
             throw 9;  // caught in function
-        else
+        } else {
             throw 10.5;  // caught in main
+        }
     } catch (int e) {
         std::cout << "Caught in Function: i: " << e << std::endl;
     }
@@ -32,7 +33,7 @@ void function() {
 int main(int argc, const char *argv[]) {
     try {
         function();
-    } catch (double e) {
+    } catch (double &e) {
         std::cout << "Caught in main: d: " << e << std::endl;
     } catch (...) {
         std::cout << "test" << std::endl;
