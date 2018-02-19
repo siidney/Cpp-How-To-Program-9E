@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Deck.h
+ *       Filename:  Deck.hpp
  *
  *    Description:  Exercise 10.11: Card Shuffling and Dealing
  *
@@ -17,9 +17,10 @@
  */
 #pragma once
 
-#include "Card.hpp"
-
 #include <vector>
+#include <random>
+
+#include "Card.hpp"
 
 class DeckOfCards {
  public:
@@ -51,6 +52,9 @@ class DeckOfCards {
     std::vector<Card> hand;
 
     int currentCard;
+    std::mt19937 gen;
 
     bool isSorted;
+
+    int getRandomNumber();
 };

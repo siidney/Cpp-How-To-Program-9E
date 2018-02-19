@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "DeckOfCards.hpp"
-
 #include <iostream>
+
+#include "DeckOfCards.hpp"
 
 int main(int argc, const char *argv[]) {
     DeckOfCards deck;

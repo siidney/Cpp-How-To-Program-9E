@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Poker.h
+ *       Filename:  Poker.hpp
  *
  *    Description:  Exercise 10.13: Card Shuffling and Dealing
  *
@@ -17,9 +17,9 @@
  */
 #pragma once
 
-#include "Hand.hpp"
-
 #include <vector>
+
+#include "Hand.hpp"
 
 class Poker {
  public:

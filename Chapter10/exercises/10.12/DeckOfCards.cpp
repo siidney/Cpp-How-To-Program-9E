@@ -15,20 +15,20 @@
  *
  * =====================================================================================
  */
-#include "DeckOfCards.hpp"
-
 #include <algorithm>
 #include <ctime>
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
+#include <random>
+
+#include "DeckOfCards.hpp"
 
 int DeckOfCards::currentCard = 0;
 std::vector<Card> DeckOfCards::deck;
 
 DeckOfCards::DeckOfCards() : isSorted(false) {
-    std::srand(std::time(0));
-
     for (int i = 1; i <= 4; ++i) {
         for (int j = 1; j <= 13; ++j) {
             deck.push_back(Card(j, i));
@@ -37,17 +37,18 @@ DeckOfCards::DeckOfCards() : isSorted(false) {
 }
 void DeckOfCards::shuffle() {
     for (int i = 0, r1 = 0, r2 = 0; i < TOTAL_CARDS; ++i) {
-        r1 = rand() % TOTAL_CARDS;
-        r2 = rand() % TOTAL_CARDS;
+        r1 = getRandomNumber();
+        r2 = getRandomNumber();
 
         std::iter_swap(deck.begin() + r1, deck.begin() + r2);
     }
 }
 Card DeckOfCards::dealCard() {
-    if (moreCards())
+    if (moreCards()) {
         return deck[currentCard++];
-    else
+    } else {
         throw std::invalid_argument("end of deck reached");
+    }
 }
 void DeckOfCards::dealHand() {
     for (int i = 0; i < HAND_SIZE; ++i) {
@@ -206,3 +207,11 @@ bool DeckOfCards::hasStraight() {
     }
     return true;
 }
+
+/**
+ * Creates a random distribution and returns a value in the range min max.
+ * @return int
+ */
+int DeckOfCards::getRandomNumber() {
+    return std::uniform_int_distribution<int>{1, TOTAL_CARDS - 1}(gen);
+}  // end method getRandomNumber

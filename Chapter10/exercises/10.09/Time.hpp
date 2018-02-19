@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Time.h
+ *       Filename:  Time.hpp
  *
  *    Description:  Exercise 10.9: Time Class Modification
  *

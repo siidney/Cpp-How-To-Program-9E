@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  SavingsAccount.h
+ *       Filename:  SavingsAccount.hpp
  *
  *    Description:  Exercise 10.7 - SavingsAccount Class
  *

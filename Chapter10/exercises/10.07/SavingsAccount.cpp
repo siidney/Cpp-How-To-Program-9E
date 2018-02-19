@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "SavingsAccount.hpp"
-
 #include <stdexcept>
+
+#include "SavingsAccount.hpp"
 
 double SavingsAccount::annualInterestRate = 0.0f;
 
@@ -33,10 +33,11 @@ void SavingsAccount::calculateMonthlyInterest() {
 }
 double SavingsAccount::getInterestRate() { return annualInterestRate; }
 void SavingsAccount::modifyInterestRate(double rte) {
-    if (rte >= 0.0f)
+    if (rte >= 0.0f) {
         annualInterestRate = rte;
-    else
+    } else {
         throw std::invalid_argument("Interest rate cannot be negative");
+    }
 }
 std::ostream& SavingsAccount::printBalance(std::ostream& out) const {
     out << savingsBalance;

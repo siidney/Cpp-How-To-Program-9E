@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  IntegerSet.h
+ *       Filename:  IntegerSet.hpp
  *
  *    Description:  Exercise 10.08: IntegerSet Class
  *

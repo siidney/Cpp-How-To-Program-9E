@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+#include <string>
+
 #include "Card.hpp"
 
 std::string Card::suits[5] = {"", "clubs", "diamonds", "hearts", "spades"};
@@ -26,6 +28,7 @@ Card::Card(int f, int s) {
     face = f;
     suit = s;
 }
+
 std::string Card::toString() const {
     return faces[face] + " of " + suits[suit];
 }

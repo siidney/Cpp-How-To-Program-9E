@@ -15,11 +15,12 @@
  *
  * =====================================================================================
  */
-#include "Hand.hpp"
-
 #include <algorithm>
 #include <iostream>
 #include <stdexcept>
+#include <string>
+
+#include "Hand.hpp"
 
 Hand::Hand(bool dealer, std::string n)
     : isSorted(false), dealer(dealer), handScored(false) {
@@ -38,10 +39,11 @@ void Hand::dealHand() {
     sortHand();
 }
 Card Hand::dealCard() {
-    if (moreCards())
+    if (moreCards()) {
         return deck[currentCard++];
-    else
+    } else {
         throw std::invalid_argument("end of deck reached");
+    }
 }
 bool Hand::moreCards() const { return currentCard < TOTAL_CARDS; }
 void Hand::showHand() const {
@@ -217,7 +219,7 @@ void Hand::playerMove() {
 // Discard up to three cards
 // pass indice of card to remove
 bool Hand::discard(unsigned int index) {
-    if (index >= 0 && index < HAND_SIZE) {
+    if (index < HAND_SIZE) {
         hand.erase(hand.begin() + index);
         return true;
     }

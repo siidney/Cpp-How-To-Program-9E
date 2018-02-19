@@ -15,11 +15,12 @@
  *
  * =====================================================================================
  */
-#include "Date.hpp"
-
+#include <string>
 #include <ctime>
 #include <iostream>
 #include <stdexcept>
+
+#include "Date.hpp"
 
 // use system date
 Date::Date() {

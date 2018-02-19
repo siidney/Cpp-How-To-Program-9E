@@ -15,10 +15,10 @@
  *
  * =====================================================================================
  */
-#include "Time.hpp"
-
 #include <iomanip>
 #include <iostream>
+
+#include "Time.hpp"
 
 Time::Time(int hr, int min, int sec) { setTime(hr, min, sec); }
 // SETTERS
@@ -30,27 +30,27 @@ Time& Time::setTime(int h, int m, int s) {
     return *this;  // enables cascading
 }
 Time& Time::setHour(int h) {
-    if (h >= 0 && h < 24)
+    if (h >= 0 && h < 24) {
         secondsSinceMidnight = h * SECONDS_HOUR;
-    else
+    } else {
         throw std::invalid_argument("hour must be 0-23");
-
+    }
     return *this;  // enables cascading
 }
 Time& Time::setMinute(int m) {
-    if (m >= 0 && m < 60)
+    if (m >= 0 && m < 60) {
         secondsSinceMidnight += m * SECONDS_MINUTE;
-    else
+    } else {
         throw std::invalid_argument("minute must be 0-59");
-
+    }
     return *this;  // enables cascading
 }
 Time& Time::setSecond(int s) {
-    if (s >= 0 && s < 60)
+    if (s >= 0 && s < 60) {
         secondsSinceMidnight += s;
-    else
+    } else {
         throw std::invalid_argument("second must be 0-59");
-
+    }
     return *this;  // enables cascading
 }
 // GETTERS

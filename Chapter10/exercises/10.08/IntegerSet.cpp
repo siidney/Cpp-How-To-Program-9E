@@ -15,9 +15,10 @@
  *
  * =====================================================================================
  */
-#include "IntegerSet.hpp"
-
 #include <stdexcept>
+#include <vector>
+
+#include "IntegerSet.hpp"
 
 IntegerSet::IntegerSet() { reset(); }
 IntegerSet::IntegerSet(int arr[], int size) {
