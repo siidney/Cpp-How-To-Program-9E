@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "DoubleScriptedArray.hpp"
-
 #include <iostream>
+
+#include "DoubleScriptedArray.hpp"
 
 int main(int argc, const char *argv[]) {
     DoubleScriptedArray intArray(10, 2);

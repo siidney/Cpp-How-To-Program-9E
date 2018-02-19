@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  RationalNumber.h
+ *       Filename:  RationalNumber.hpp
  *
  *    Description:  Exercise 11.10: RationalNumber Class
  *

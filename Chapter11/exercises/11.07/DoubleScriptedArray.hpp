@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  DoubleScriptedArray.h
+ *       Filename:  DoubleScriptedArray.hpp
  *
  *    Description:  Exercise 11.7: Overloading the Parenthesis Operator
  *

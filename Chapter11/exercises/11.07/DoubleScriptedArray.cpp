@@ -15,11 +15,11 @@
  *
  * =====================================================================================
  */
-#include "DoubleScriptedArray.hpp"
-
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
+
+#include "DoubleScriptedArray.hpp"
 
 // default constructor for class DoubleScriptedArray (default size 10)
 DoubleScriptedArray::DoubleScriptedArray(int cols, int rows) {
@@ -97,7 +97,8 @@ bool DoubleScriptedArray::operator==(const DoubleScriptedArray& right) const {
 // reference return creates a modifiable lvalue
 int& DoubleScriptedArray::operator()(unsigned int subRow, unsigned int subCol) {
     // check for subscript out-of-range error
-    if (subRow < 0 || subRow >= ROWS || subCol < 0 || subCol >= COLS) {
+    // unsigned so always >= 0
+    if (subRow >= ROWS || subCol >= COLS) {
         throw std::out_of_range("Subscript out of range");
     }
 
@@ -108,7 +109,8 @@ int& DoubleScriptedArray::operator()(unsigned int subRow, unsigned int subCol) {
 int& DoubleScriptedArray::operator()(unsigned int subRow,
                                      unsigned int subCol) const {
     // check for subscript out-of-range error
-    if (subRow < 0 || subRow >= ROWS || subCol < 0 || subCol >= COLS) {
+    // unsigned so always >= 0
+    if (subRow >= ROWS ||subCol >= COLS) {
         throw std::out_of_range("Subscript out of range");
     }
 

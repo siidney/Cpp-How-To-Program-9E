@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Complex.h
+ *       Filename:  Complex.hpp
  *
  *    Description:  Exercise 11.8: Complex Class
  *

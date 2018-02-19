@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "RationalNumber.hpp"
-
 #include <iostream>
+
+#include "RationalNumber.hpp"
 
 int main(int argc, const char *argv[]) {
     RationalNumber r1(3, 5);

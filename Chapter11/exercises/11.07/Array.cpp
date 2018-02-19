@@ -16,11 +16,11 @@
  *
  * =====================================================================================
  */
-#include "Array.hpp"
-
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
+
+#include "Array.hpp"
 
 // default constructor for class Array (default size 10)
 Array::Array(int arraySize) {

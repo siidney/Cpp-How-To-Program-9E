@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Array.h
+ *       Filename:  Array.hpp
  *
  *    Description:  Fig. 11.10: Array class definition with overloaded
  *                  operators.
