@@ -20,6 +20,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <string>
 
 enum CHOICES { LIST = 1, NEW, END };
 
@@ -81,14 +82,15 @@ std::string getNumber(const std::string& prompt) {
 // validate given number
 bool validate(const std::string& number) {
     if ((number.length() < 7) || (number.length() > 8) ||
-        ((number.length() == 8) && (number[3] != '-')))
+        ((number.length() == 8) && (number[3] != '-'))) {
         return false;
+    }
 
     // check range of individual digits
     for (const char& c : number) {
-        if (c == '-') continue;
+        if (c == '-') { continue; }
 
-        if (((c - '0') < 2) || ((c - '0') > 9)) return false;
+        if (((c - '0') < 2) || ((c - '0') > 9)) { return false; }
     }
     return true;
 }
@@ -106,7 +108,7 @@ void generateWords(const std::string& number) {
     // remove '-' from number
     if (number.length() == 8) {
         for (const char& c : number) {
-            if (c == '-') continue;
+            if (c == '-') { continue; }
 
             sanNum.push_back(c);
         }
@@ -116,21 +118,19 @@ void generateWords(const std::string& number) {
 
     // TODO(me): Anything other than this.
     for (int i = 0; i < 4; ++i) {
-        if (letters[(sanNum[0] - '0') - 2][i] == ' ') continue;
+        if (letters[(sanNum[0] - '0') - 2][i] == ' ') { continue; }
         for (int j = 0; j < 4; ++j) {
-            if (letters[(sanNum[1] - '0') - 2][j] == ' ') continue;
+            if (letters[(sanNum[1] - '0') - 2][j] == ' ') { continue; }
             for (int k = 0; k < 4; ++k) {
-                if (letters[(sanNum[2] - '0') - 2][k] == ' ') continue;
+                if (letters[(sanNum[2] - '0') - 2][k] == ' ') { continue; }
                 for (int l = 0; l < 4; ++l) {
-                    if (letters[(sanNum[3] - '0') - 2][l] == ' ') continue;
+                    if (letters[(sanNum[3] - '0') - 2][l] == ' ') { continue; }
                     for (int m = 0; m < 4; ++m) {
-                        if (letters[(sanNum[4] - '0') - 2][m] == ' ') continue;
+                        if (letters[(sanNum[4] - '0') - 2][m] == ' ') { continue; }
                         for (int n = 0; n < 4; ++n) {
-                            if (letters[(sanNum[5] - '0') - 2][n] == ' ')
-                                continue;
+                            if (letters[(sanNum[5] - '0') - 2][n] == ' ') { continue; }
                             for (int o = 0; o < 4; ++o) {
-                                if (letters[(sanNum[6] - '0') - 2][o] == ' ')
-                                    continue;
+                                if (letters[(sanNum[6] - '0') - 2][o] == ' ') { continue; }
 
                                 outFile << letters[(sanNum[0] - '0') - 2][i]
                                         << letters[(sanNum[1] - '0') - 2][j]

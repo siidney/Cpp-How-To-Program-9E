@@ -28,7 +28,7 @@ struct Tool {
     double cost = 0.0f;
 
     void setId(int ID) { id = ID; }
-    void setName(std::string& NAME) {
+    void setName(std::string NAME) {
         std::memset(name, '\0', 100);
 
         int length = NAME.size();
@@ -127,7 +127,7 @@ void listRecords(std::fstream &inOutHardware) {
     // read all records from file
     while (inOutHardware && !inOutHardware.eof()) {
         // display record
-        if (t.id != 0) outputLine(std::cout, t);
+        if (t.id != 0) { outputLine(std::cout, t); }
 
         // read next from file
         inOutHardware.read(reinterpret_cast<char *>(&t), sizeof(Tool));
@@ -200,7 +200,7 @@ void updateRecord(std::fstream &inOutHardware) {
             case 2: {  // name
                 std::string name;
 
-                std::cin.ignore();//skip leading '\n'
+                std::cin.ignore();  // skip leading '\n'
                 std::cout << "Enter new Name: ";
                 std::getline(std::cin, name);
 

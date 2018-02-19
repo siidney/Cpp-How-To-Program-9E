@@ -52,7 +52,7 @@ int main(int argc, const char* argv[]) {
     // handling files with one record
     inTransaction >> transAccountNum >> transDollarAmount;
     inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
-    
+
     // process changes
     while (!inOldMaster.eof() && !inTransaction.eof()) {
          if (transAccountNum < mastAccountNum) {
@@ -73,20 +73,20 @@ int main(int argc, const char* argv[]) {
             inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
         }
     }
-    
+
     // if trans.dat reachs to end of file before oldmast.dat
     while ( !inOldMaster.eof() ) {
         outNewMaster << mastAccountNum << " " << fName << " " << lName
                      << " " << mastDollarAmount << std::endl;
         inOldMaster >> mastAccountNum >> fName >> lName >> mastDollarAmount;
     }
-    
+
     // if oldmast.dat reachs to end of file before trans.dat
     while ( !inTransaction.eof() ) {
         std::cout << "Unmatched transaction record for account number: "
                   << transAccountNum << std::endl;
             inTransaction >> transAccountNum >> transDollarAmount;
     }
-    
+
     return 0;
 }

@@ -21,7 +21,7 @@
 #include <string>
 
 int checkFile(std::istream&);  // return total phising point total
-int checkWord(std::string&);   // returns word point (0,1,2,3)
+int checkWord(std::string);    // returns word point (0,1,2,3)
 
 std::map<std::string, int> PHISING_LIST;
 
@@ -38,7 +38,7 @@ int main(int argc, const char* argv[]) {
     std::string key;
     int value;
 
-    while (plist >> key >> value) PHISING_LIST[key] = value;
+    while (plist >> key >> value) { PHISING_LIST[key] = value; }
 
     // ask for user file to scan
     std::string fname;
@@ -69,14 +69,12 @@ int checkFile(std::istream& inputFile) {
     return score;
 }
 // return word point
-int checkWord(std::string& word) {
+int checkWord(std::string word) {
     for (auto it = PHISING_LIST.cbegin(); it != PHISING_LIST.cend(); ++it) {
         // remove trailing punctuation from word.
-        if (ispunct(word[word.length() - 1])) word.erase(word.length() - 1, 1);
+        if (ispunct(word[word.length() - 1])) { word.erase(word.length() - 1, 1); }
 
-        if (it->first == word) {
-            return it->second;
-        }
+        if (it->first == word) { return it->second; }
     }
 
     return 0;
