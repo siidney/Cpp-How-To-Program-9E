@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  Array.h
+ *       Filename:  Array.hpp
  *
  *    Description:  Exericse 14.7 - Array Class Template
  *
@@ -30,10 +30,11 @@ class Array {
  public:
     // default constructor
     explicit Array(int arraySize = 10) {
-        if (arraySize > 0)
+        if (arraySize > 0) {
             size = arraySize;
-        else
+        } else {
             throw std::invalid_argument("Array size must be greater than 0");
+        }
 
         ptr = new T[size];
 
@@ -91,10 +92,10 @@ Array<T>& Array<T>::operator=(const Array& right) {
 // true if so false otherwise
 template <typename T>
 bool Array<T>::operator==(const Array& right) const {
-    if (size != right.size) return false;
+    if (size != right.size) { return false; }
 
     for (int i = 0; i < size; ++i) {
-        if (ptr[i] != right.ptr[i]) return false;
+        if (ptr[i] != right.ptr[i]) { return false; }
     }
 
     return true;
@@ -104,8 +105,9 @@ bool Array<T>::operator==(const Array& right) const {
 template <typename T>
 T& Array<T>::operator[](int subscript) {
     // check for subscript out-of-range error
-    if (subscript < 0 || subscript >= size)
+    if (subscript < 0 || subscript >= size) {
         throw std::out_of_range("Subscript out of range");
+    }
 
     return ptr[subscript];
 }
@@ -114,8 +116,9 @@ T& Array<T>::operator[](int subscript) {
 template <typename T>
 T& Array<T>::operator[](int subscript) const {
     // check for subscript out-of-range error
-    if (subscript < 0 || subscript >= size)
+    if (subscript < 0 || subscript >= size) {
         throw std::out_of_range("Subscript out of range");
+    }
 
     return ptr[subscript];
 }
@@ -139,10 +142,10 @@ std::ostream& operator<<(std::ostream& out, const Array<U>& a) {
         out << std::setw(12) << a.ptr[i];
 
         // 4 numbers per row of output
-        if ((i + 1) % 4 == 0) out << std::endl;
+        if ((i + 1) % 4 == 0) { out << std::endl; }
     }
     // end last line of output
-    if (i % 4 != 0) out << std::endl;
+    if (i % 4 != 0) { out << std::endl; }
 
     return out;
 }

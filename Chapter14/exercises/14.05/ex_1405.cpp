@@ -33,7 +33,7 @@ void printArray(const char* array, int count) {
     for (int i = 0; i < count; ++i) {
         std::cout << std::setw(2) << array[i];
 
-        if (array[i] == ' ') std::cout << "\n";
+        if (array[i] == ' ') { std::cout << "\n"; }
     }
     std::cout << std::endl;
 }

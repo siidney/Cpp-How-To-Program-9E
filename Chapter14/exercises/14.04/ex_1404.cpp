@@ -30,8 +30,9 @@ template <typename T>
 int printArray(const T *const array, int count, int lowSubscript,
                int highSubscript) {
     if (lowSubscript < 0 || highSubscript >= count ||
-        lowSubscript > highSubscript)
+            lowSubscript > highSubscript) {
         return 0;
+    }
 
     int total = 0;
 

@@ -15,9 +15,9 @@
  *
  * =====================================================================================
  */
-#include "Array.hpp"
-
 #include <iostream>
+
+#include "Array.hpp"
 
 int main(int argc, const char *argv[]) {
     Array<int> integers(12);
