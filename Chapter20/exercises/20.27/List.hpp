@@ -1,13 +1,13 @@
 /*
  * =====================================================================================
  *
- *       Filename:  List.hpp
+ *       Filename:  List.h
  *
- *    Description:  Exercise 20.06 - Concatenating Lists
+ *    Description:  Fig. 20.4 - Template List Class Definition
  *
  *        Version:  1.0
  *        Created:  13/03/17 14:02:39
- *       Revision:  17/03/17 16:22:07
+ *       Revision:  none
  *       Compiler:  gcc
  *
  *         Author:  Siidney Watson - siidney.watson.work@gmail.com
@@ -18,7 +18,6 @@
 #pragma once
 
 #include <iostream>
-
 #include "ListNode.hpp"
 
 template <typename NODETYPE>
@@ -31,33 +30,30 @@ class List {
     void insertAtBack(const NODETYPE &);
     bool removeFromFront(NODETYPE &);
     bool removeFromBack(NODETYPE &);
-    void concatenate(List<NODETYPE> &);
-    List<NODETYPE> merge(List<NODETYPE>&);
     bool isEmpty() const;
     void print() const;
-    int size() const;
 
  private:
     ListNode<NODETYPE> *firstPtr;  // pointer to first node
     ListNode<NODETYPE> *lastPtr;   // pointer to last node
-
-    int sz;
 
     // utility function to allocate new node
     ListNode<NODETYPE> *getNewNode(const NODETYPE &);
 };
 // default constructor
 template <typename NODETYPE>
-List<NODETYPE>::List() : firstPtr(0), lastPtr(0), sz(0) {}
+List<NODETYPE>::List() : firstPtr(0), lastPtr(0) {}
 // destructor
 template <typename NODETYPE>
 List<NODETYPE>::~List() {
     if (!isEmpty()) {
+        std::cout << "Destroying Nodes...\n";
         ListNode<NODETYPE> *currentPtr = firstPtr;
 
         // delete remaining nodes
         while (currentPtr != 0) {
             ListNode<NODETYPE> *tempPtr = currentPtr;
+            std::cout << tempPtr->data << '\n';
             currentPtr = currentPtr->nextPtr;
             delete tempPtr;
         }
@@ -74,7 +70,6 @@ void List<NODETYPE>::insertAtFront(const NODETYPE &value) {
         newPtr->nextPtr = firstPtr;  // point new node to previous list node
         firstPtr = newPtr;
     }
-    ++sz;
 }
 // insert node at back of list
 template <typename NODETYPE>
@@ -82,12 +77,17 @@ void List<NODETYPE>::insertAtBack(const NODETYPE &value) {
     ListNode<NODETYPE> *newPtr = getNewNode(value);
 
     if (isEmpty()) {
-        firstPtr = lastPtr = newPtr;  // new list has only one node
+        firstPtr = newPtr;  // new list has only one node
     } else {
-        lastPtr->nextPtr = newPtr;
-        lastPtr = newPtr;
+        ListNode<NODETYPE> *tmpPtr = firstPtr;
+
+        // iterate entire list until end
+        while (tmpPtr->nextPtr != nullptr) {
+            tmpPtr = tmpPtr->nextPtr;
+        }
+
+        tmpPtr->nextPtr = newPtr;
     }
-    ++sz;
 }
 // delete node from front of list
 template <typename NODETYPE>
@@ -106,88 +106,36 @@ bool List<NODETYPE>::removeFromFront(NODETYPE &value) {
         value = tempPtr->data;
         delete tempPtr;
 
-        --sz;
-
         return true;
     }
 }
 // delete node from back of list
 template <typename NODETYPE>
 bool List<NODETYPE>::removeFromBack(NODETYPE &value) {
-    if (isEmpty()) {  // list is empty
+    if (isEmpty()) { // list is empty
         return false;
     } else {
-        ListNode<NODETYPE> *tempPtr = lastPtr;
-
-        if (firstPtr == lastPtr) {   // list has one element
-            firstPtr = lastPtr = 0;  // no nodes remain after removal
+        if (firstPtr->nextPtr == nullptr) {    // list has one element
+            firstPtr = nullptr;  // no nodes remain after removal
         } else {
+            ListNode<NODETYPE> *tempPtr;
             ListNode<NODETYPE> *currentPtr = firstPtr;
 
             // locate second to last element
-            while (currentPtr->nextPtr != lastPtr) {
+            while (currentPtr->nextPtr->nextPtr != nullptr) {
                 currentPtr = currentPtr->nextPtr;  // move to next node
             }
+            currentPtr = currentPtr->nextPtr;
+            tempPtr = currentPtr->nextPtr;  // last node for deletion
 
-            lastPtr = currentPtr;     // remove last node
-            currentPtr->nextPtr = 0;  // this is now the last node
+            currentPtr->nextPtr = nullptr;  // this is now the last node
+
+            value = tempPtr->data;
+            delete tempPtr;
         }
 
-        value = tempPtr->data;
-        delete tempPtr;
-
-        --sz;
         return true;
     }
-}
-// concatenate new list to end of list
-template <typename NODETYPE>
-void List<NODETYPE>::concatenate(List<NODETYPE> &listSecond) {
-    ListNode<NODETYPE> *currentPtr = listSecond.firstPtr;
-
-    while (currentPtr != 0) {
-        insertAtBack(currentPtr->getData());
-        currentPtr = currentPtr->nextPtr;
-    }
-}
-// merge two ordered lists into a new ordered list and return
-template<typename NODETYPE>
-List<NODETYPE> List<NODETYPE>::merge(List<NODETYPE>& list2){
-    List<NODETYPE> mergeList;
-
-    ListNode<NODETYPE>* ptr1 = firstPtr;
-    ListNode<NODETYPE>* ptr2 = list2.firstPtr;
-
-    while (ptr1 != nullptr && ptr2 != nullptr) {
-        // values equal
-        if (ptr1->getData() == ptr2->getData()) {
-            mergeList.insertAtBack(ptr1->getData());
-            mergeList.insertAtBack(ptr2->getData());
-            ptr1 = ptr1->nextPtr;
-            ptr2 = ptr2->nextPtr;
-        }
-        // second bigger
-        if (ptr1->getData() < ptr2->getData()) {
-            mergeList.insertAtBack(ptr1->getData());
-            ptr1 = ptr1->nextPtr;
-        // bigger
-        } else {
-            mergeList.insertAtBack(ptr2->getData());
-            ptr2 = ptr2->nextPtr;
-        }
-
-        // end of lists
-        if (ptr1 == nullptr) {
-            mergeList.insertAtBack(ptr2->getData());
-            ptr2 = ptr2->nextPtr;
-        }
-        if (ptr2 == nullptr) {
-            mergeList.insertAtBack(ptr1->getData());
-            ptr1 = ptr1->nextPtr;
-        }
-    }
-
-    return mergeList;
 }
 // is List empty
 template <typename NODETYPE>
@@ -209,13 +157,12 @@ void List<NODETYPE>::print() const {
 
     ListNode<NODETYPE> *currentPtr = firstPtr;
 
+    std::cout << "The list is: ";
+
     while (currentPtr != 0) {
-        std::cout << currentPtr->getData() << ' ';
+        std::cout << currentPtr->data << ' ';
         currentPtr = currentPtr->nextPtr;
     }
-}
-// print sz of list
-template <typename NODETYPE>
-int List<NODETYPE>::size() const {
-    return sz;
+
+    std::cout << "\n\n";
 }

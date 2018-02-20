@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  ex_2024.cpp
+ *       Filename:  ex_2027.cpp
  *
- *    Description:  Exercise 20.24 - Level-Order Binary Tree Traversal.
+ *    Description:  Exercise 20.27 - List and Queues without Tail Pointers.
  *
  *        Version:  1.0
- *        Created:  19/02/18 15:37:49
+ *        Created:  20/02/18 16:14:58
  *       Revision:  none
  *       Compiler:  g++
  *
@@ -18,7 +18,7 @@
 #include <iostream>
 #include <random>
 
-#include "Tree.hpp"
+#include "Queue.hpp"
 
 /**
  * This is the main method.
@@ -27,20 +27,16 @@
  * @return int.
  */
 int main(int argc, char* argv[]) {
-    Tree<int> intTree;
+    Queue<int> q;
 
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    for (int i = 0; i < 10; ++i) {
-        intTree.insertNode(std::uniform_int_distribution<int>{0, 20}(gen));
+    for (int i = 0; i < 30; ++i) {
+        q.enqueue(std::uniform_int_distribution<int>{1, 100}(rd));
     }
 
-    std::cout << "\nPre Order Traversal:" << std::endl;
-    intTree.preOrderTraversal();
-
-    std::cout << "\nLevel Order Traversal:" << std::endl;
-    intTree.levelOrderTraversal();
+    q.printQueue();
 
     return 0;
 }  // end method main

@@ -18,6 +18,7 @@
 #pragma once
 
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <queue>
 
@@ -34,6 +35,7 @@ class Tree {
         void inOrderTraversal() const;
         void postOrderTraversal() const;
         void levelOrderTraversal() const;
+        void outputTree() const;
         // determine the depth of the given tree
         static size_t depth(Tree<NODETYPE> tree) { return tree.depthHelper(tree.rootPtr); }
 
@@ -48,6 +50,7 @@ class Tree {
         void inOrderHelper(TreeNode<NODETYPE> *) const;
         void postOrderHelper(TreeNode<NODETYPE> *) const;
         void levelOrderHelper(TreeNode<NODETYPE> *) const;
+        void outputTreeHelper(TreeNode<NODETYPE> *, unsigned int) const;
         size_t depthHelper(TreeNode<NODETYPE> *) const;
         TreeNode<NODETYPE>* searchHelper(TreeNode<NODETYPE> *, const NODETYPE &) const;
 };
@@ -153,12 +156,38 @@ void Tree<NODETYPE>::levelOrderHelper(TreeNode<NODETYPE> *ptr) const {
         TreeNode<NODETYPE>* temp = queue.front();
         queue.pop();
 
-        std::cout << temp->getData() << std::endl;
+        if (temp != nullptr) {
+            std::cout << temp->getData() << std::endl;
 
-        if (temp->leftPtr != nullptr) { queue.push(temp->leftPtr); }
-        if (temp->rightPtr != nullptr) { queue.push(temp->rightPtr); }
+            if (temp->leftPtr != nullptr) { queue.push(temp->leftPtr); }
+            if (temp->rightPtr != nullptr) { queue.push(temp->rightPtr); }
+        }
     }
 }  // end method levelOrderHelper
+
+/**
+ * Pretty print tree.
+ */
+template <typename NODETYPE>
+void Tree<NODETYPE>::outputTree() const {
+    outputTreeHelper(rootPtr, 0);
+}  // end method outputTree
+
+/**
+ * Utility function to perform output of the given tree.
+ * @param Tree<NODETYPE>*
+ * @param unsigned int
+ */
+template <typename NODETYPE>
+void Tree<NODETYPE>::outputTreeHelper(TreeNode<NODETYPE>* ptr, unsigned int totalSpaces) const {
+    if (ptr == nullptr) { return; }
+
+    if (ptr != nullptr) {
+        if (ptr->rightPtr) { outputTreeHelper(ptr->rightPtr, totalSpaces + 5); }
+        if (ptr->leftPtr) { outputTreeHelper(ptr->leftPtr, totalSpaces + 5); }
+        std::cout << std::setw(totalSpaces) << ' ' << ptr->getData() << std::endl;
+    }
+}  // end method outputTreeHelper
 
 // utility function to return the depth of the given node
 template <typename NODETYPE>

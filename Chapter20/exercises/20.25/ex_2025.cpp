@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  ex_2024.cpp
+ *       Filename:  ex_2025.cpp
  *
- *    Description:  Exercise 20.24 - Level-Order Binary Tree Traversal.
+ *    Description:  Exercise 20.25 - Printing Trees
  *
  *        Version:  1.0
- *        Created:  19/02/18 15:37:49
+ *        Created:  20/02/18 13:33:36
  *       Revision:  none
  *       Compiler:  g++
  *
@@ -33,14 +33,14 @@ int main(int argc, char* argv[]) {
     std::mt19937 gen(rd());
 
     for (int i = 0; i < 10; ++i) {
-        intTree.insertNode(std::uniform_int_distribution<int>{0, 20}(gen));
+        intTree.insertNode(std::uniform_int_distribution<int>{1, 100}(gen));
     }
 
-    std::cout << "\nPre Order Traversal:" << std::endl;
-    intTree.preOrderTraversal();
-
-    std::cout << "\nLevel Order Traversal:" << std::endl;
     intTree.levelOrderTraversal();
+
+    std::cout << std::endl;
+
+    intTree.outputTree();
 
     return 0;
 }  // end method main
