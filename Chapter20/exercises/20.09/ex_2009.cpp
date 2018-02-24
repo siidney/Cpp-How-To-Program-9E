@@ -31,13 +31,10 @@ int main(int argc, const char* argv[]) {
     // iterate over base insert at front on charListRev
     auto iter = charList.begin();
 
-    while (iter != charList.end()) {
+    while (iter != 0) {
         charListRev.insertAtFront(iter->getData());
 
         iter = iter->next();
-
-        // copy last element
-        if (iter == charList.end()) { charListRev.insertAtFront(iter->getData()); }
     }
 
     charList.print();
