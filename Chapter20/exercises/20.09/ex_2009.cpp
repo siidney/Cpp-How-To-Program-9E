@@ -36,7 +36,6 @@ int main(int argc, const char* argv[]) {
 
         iter = iter->next();
 
-        // copy last element
         if (iter == charList.end()) { charListRev.insertAtFront(iter->getData()); }
     }
 
