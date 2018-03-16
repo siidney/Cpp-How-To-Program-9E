@@ -20,18 +20,6 @@
 #include <bitset>
 #include <cctype>
 
-static const unsigned ISDIGIT = 0x001;
-static const unsigned ISALPHA = 0x002;
-static const unsigned ISALNUM = 0x004;
-static const unsigned ISXDIGIT = 0x008;
-static const unsigned ISLOWER = 0x010;
-static const unsigned ISUPPER = 0x020;
-static const unsigned ISSPACE = 0x040;
-static const unsigned ISCNTRL = 0;
-static const unsigned ISPUNCT = 0;
-static const unsigned ISPRINT = 0;
-static const unsigned ISGRAPH = 0;
-
 /**
  * Prints the results of the given boolean operator
  * @param bool
@@ -48,12 +36,6 @@ void printBool(bool b) {
  */
 int main(int argc, char* argv[]) {
     char c = ' ';
-
-    unsigned char test = 0;
-
-    std::cout << sizeof(unsigned short) << std::endl;
-
-    std::cout << std::bitset<16>(test) << std::endl;
 
     std::cout << "Enter a char: ";
     std::cin >> c;
