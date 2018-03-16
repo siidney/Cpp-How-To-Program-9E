@@ -3,3 +3,4 @@
 *If you have a solution feel free to contribute*
 
 - 21.12 - *Reversing Bits*
+- 21.28 - *Write Your Own String Conversion Functions*
