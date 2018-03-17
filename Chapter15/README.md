@@ -2,5 +2,5 @@
 
 *If you have a solution feel free to contribute*
 
-- 15.16 - *Complex Class*
-- 15.18 - *String-Terminating Null Character*
+- [15.16](https://github.com/siidney/Cpp-How-To-Program-9E/blob/master/Chapter15/exercises/15.16/) - *Complex Class*
+- [15.18](https://github.com/siidney/Cpp-How-To-Program-9E/blob/master/Chapter15/exercises/15.18/) - *String-Terminating Null Character*
