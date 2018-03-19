@@ -16,7 +16,22 @@
  * =============================================================================
  */
 #pragma once
-#include <cstring>
+#include <iostream>
+
+/**
+ * Returns the length of the given string.
+ * @param const char*
+ * @return size_t
+ */
+size_t strlen(const char* s) {
+    int i = 0;
+
+    if (!s) { return i; }
+
+    for (; *s; ++s, ++i);
+
+    return i;
+} // end method strlen
 
 /**
  * Locates the first occurance of char c in string s.
@@ -26,9 +41,13 @@
  * @return char*
  */
 char* strchr(const char* s, int c) {
-    while (*s && *s != c) { ++s; }
+    if (!s) { return nullptr; }
 
-    return (char*)(((*s == c) ? s : nullptr));
+    for (; *s; ++s) {
+        if (*s == c) { return (char*)s; }
+    }
+
+    return nullptr;
 }  // end method strchr
 
 /**
@@ -39,13 +58,15 @@ char* strchr(const char* s, int c) {
  * @return char*
  */
 char* strrchr(const char* s, int c) {
-    const char* base = s + strlen(s);
+    if (!s) { return nullptr; }
 
-    while (*base && base != s) { --base; }
+    s = s + (strlen(s) - 1);
 
-    s = base;
+    for (; *s; --s) {
+        if (*s == c) { return (char*)s; }
+    }
 
-    return (char*)((*s == c) ? s : nullptr);
+    return nullptr;
 
 }  // end method strrchr
 
@@ -57,7 +78,19 @@ char* strrchr(const char* s, int c) {
  * @return size_t
  */
 size_t strspn(const char* s1, const char* s2) {
-    
+    int i;
+    int j;
+
+    for (i = 0; s1[i]; ++i) {
+        for (j = 0; s2[j]; ++j) {
+            // match found check next char (outerloop)
+            if (s1[i] == s2[j]) { break; }
+        }
+        // iterated until end of s2 == no more comparisons
+        if (!s2[j]) { break; }
+    }
+
+    return i;
 }  // end method strspn
 
 /**
@@ -68,7 +101,13 @@ size_t strspn(const char* s1, const char* s2) {
  * @return char*
  */
 char* strpbrk(const char* s1, const char* s2) {
-    
+    if (!s1) { return nullptr; }
+
+    for (; *s1; ++s1) {
+        if (strchr(s2, *s1)) { return (char*)s1; }
+    }
+
+    return nullptr;
 }  // end method strpbrk
 
 /**
@@ -79,7 +118,17 @@ char* strpbrk(const char* s1, const char* s2) {
  * @return char*
  */
 size_t strcspn(const char* s1, const char* s2) {
-    
+    int i;
+    int j;
+
+    for (i = 0; s1[i]; ++i) {
+        for (j = 0; s2[j]; ++j) {
+            if (s1[i] == s2[j]) { break; }
+        }
+        if (s2[j]) { break; }
+    }
+
+    return i;
 }  // end method strpbrk
 
 /**
@@ -90,5 +139,22 @@ size_t strcspn(const char* s1, const char* s2) {
  * @return char*
  */
 char* strstr(const char* s1, const char* s2) {
-    
+    if (!s1 || !s2) { return nullptr; }
+
+    for (; *s1; ++s1) {
+        if (*s1 == *s2) {
+            const char* sa = s1;
+            const char* sb = s2;
+
+            // iterate over s2
+            for (; *sb; ++sa, ++sb) {
+                if (*sa != *sb) { break; }
+            }
+
+            // iterated until end of sb == match
+            if (!*sb) { return (char*)s1; }
+        }
+    }
+
+    return nullptr;
 }  // end method strstr

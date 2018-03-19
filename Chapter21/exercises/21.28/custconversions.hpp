@@ -36,20 +36,25 @@ double atof(const char* nPtr) {
  */
 int atoi(const char* nPtr) {
     int sign = 0;
+    int d = 0;
     int n = 0;
 
-    if (nPtr[0] == '-') { sign = -1; }
-
-    int i = ((sign == -1) ? 1 : 0);
-
-    // ensure nPtr is numeric
-    for (int j = i; nPtr[j] != '\0'; ++j) {
-        if (nPtr[j] < 48 || nPtr[j] > 57) { return n; }
+    // check if signed
+    if (nPtr[0] == '-') {
+        sign = 1;
+        nPtr++;
     }
 
     // perform the conversion
-    for (; nPtr[i] != '\0'; ++i) {
-        n = n * 10 + (nPtr[i] - '0');
+    for (; *nPtr; ++nPtr) {
+        // ensure nPtr is numeric and convert
+        if (*nPtr >= '0' && *nPtr <= '9') {
+            d = *nPtr - '0';
+        } else {
+            break;
+        }
+
+        n = n * 10 + d;
     }
 
     return ((sign == -1) ? -n : n);
