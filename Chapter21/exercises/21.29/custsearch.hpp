@@ -16,6 +16,7 @@
  * =============================================================================
  */
 #pragma once
+#include <cstring>
 
 /**
  * Locates the first occurance of char c in string s.
@@ -25,7 +26,9 @@
  * @return char*
  */
 char* strchr(const char* s, int c) {
-    
+    while (*s && *s != c) { ++s; }
+
+    return (char*)(((*s == c) ? s : nullptr));
 }  // end method strchr
 
 /**
@@ -36,7 +39,14 @@ char* strchr(const char* s, int c) {
  * @return char*
  */
 char* strrchr(const char* s, int c) {
-    
+    const char* base = s + strlen(s);
+
+    while (*base && base != s) { --base; }
+
+    s = base;
+
+    return (char*)((*s == c) ? s : nullptr);
+
 }  // end method strrchr
 
 /**
@@ -68,7 +78,7 @@ char* strpbrk(const char* s1, const char* s2) {
  * @param const char*
  * @return char*
  */
-char* strpbrk(const char* s1, const char* s2) {
+size_t strcspn(const char* s1, const char* s2) {
     
 }  // end method strpbrk
 

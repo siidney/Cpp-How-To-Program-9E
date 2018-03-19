@@ -26,7 +26,16 @@
  * @return int.
  */
 int main(int argc, char* argv[]) {
-    
+    const char str[] = "I'm a string. Look at me.";
+    const char ch = 'L';
+
+    char* res = strchr(str, ch);
+
+    printf("String after [%c] is - [%s]\n", ch, res);
+
+    res = strrchr(str, ch);
+
+    printf("Last occurence of [%c] - [%s]\n", ch, res);
 
     return 0;
 }  // end method main
