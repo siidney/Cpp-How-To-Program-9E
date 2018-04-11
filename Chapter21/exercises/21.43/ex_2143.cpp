@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  custcopycatptr.cpp
+ *       Filename:  ex_2143.cpp
  *
- *    Description:   
+ *    Description:  Exercise 21.43 - Text Analysis
  *
  *        Version:  1.0
- *        Created:  10/04/18 11:25:09
+ *        Created:  11/04/18 13:14:23
  *       Revision:  none
  *       Compiler:  g++
  *
