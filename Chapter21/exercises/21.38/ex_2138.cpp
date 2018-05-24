@@ -30,7 +30,7 @@ void reverseString(char* raw) {
     int BLOCK_SIZE = 3;
     int current_size = BLOCK_SIZE;
 
-    char** array = reinterpret_cast<char**>(calloc(current_size, sizeof(char)));
+    char** array = reinterpret_cast<char**>(calloc(current_size, sizeof(char*)));
 
     if (array == nullptr) { return; }
 

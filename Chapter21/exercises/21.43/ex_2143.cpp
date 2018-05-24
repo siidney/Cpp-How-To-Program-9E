@@ -54,12 +54,13 @@ void countLengths(char* str) {
 
     std::vector<int> frequency;
     size_t VEC_SZ = frequency.size();
+    size_t STR_LEN = strlen(str);
 
-    char* savePtr = reinterpret_cast<char*>(calloc(strlen(str) + 1, sizeof(char)));
-    strncpy(savePtr, str, strlen(str) + 1);
+    char* savePtr = reinterpret_cast<char*>(calloc(STR_LEN + 1, sizeof(char)));
+    strncpy(savePtr, str, STR_LEN + 1);
     char* token;
 
-    while ((token = strtok_r(savePtr, ",.;: ", &savePtr))) {
+    while (static_cast<bool>(token = strtok_r(savePtr, ",.;: ", &savePtr))) {
         size_t len = strlen(token);
 
         if (len > VEC_SZ) {
@@ -89,13 +90,15 @@ void countLengths(char* str) {
 void countWords(char* str) {
     if (str == nullptr) { return; }
 
-    char* savePtr = reinterpret_cast<char*>(calloc(strlen(str) + 1, sizeof(char)));
-    strncpy(savePtr, str, strlen(str) + 1);
+    size_t STR_LEN = strlen(str);
+
+    char* savePtr = reinterpret_cast<char*>(calloc(STR_LEN + 1, sizeof(char)));
+    strncpy(savePtr, str, STR_LEN + 1);
     char* token;
 
     std::map <std::string, int> frequencyMap;
 
-    while ((token = strtok_r(savePtr, ",.;: ", &savePtr))) {
+    while (static_cast<bool>(token = strtok_r(savePtr, ",.;: ", &savePtr))) {
         token[0] = tolower(token[0]);
 
         auto search = frequencyMap.find(token);
