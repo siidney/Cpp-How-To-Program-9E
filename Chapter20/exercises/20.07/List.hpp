@@ -167,7 +167,7 @@ List<NODETYPE> List<NODETYPE>::merge(List<NODETYPE>& list2){
             ptr2 = ptr2->nextPtr;
         }
         // second bigger
-        if (ptr1->getData() < ptr2->getData()) {
+        else if (ptr1->getData() < ptr2->getData()) {
             mergeList.insertAtBack(ptr1->getData());
             ptr1 = ptr1->nextPtr;
         // bigger
@@ -175,16 +175,18 @@ List<NODETYPE> List<NODETYPE>::merge(List<NODETYPE>& list2){
             mergeList.insertAtBack(ptr2->getData());
             ptr2 = ptr2->nextPtr;
         }
-
-        // end of lists
-        if (ptr1 == nullptr) {
-            mergeList.insertAtBack(ptr2->getData());
-            ptr2 = ptr2->nextPtr;
-        }
-        if (ptr2 == nullptr) {
-            mergeList.insertAtBack(ptr1->getData());
-            ptr1 = ptr1->nextPtr;
-        }
+    }
+    
+    //if list1 is larger than list2
+    while (ptr1 != nullptr) {
+    mergeList.insertAtBack(ptr1->getData());
+    ptr1 = ptr1->nextPtr;
+    }
+    
+    //if list2 is larger than list1
+    while (ptr2 != nullptr) {
+    mergeList.insertAtBack(ptr2->getData());
+    ptr2 = ptr2->nextPtr;
     }
 
     return mergeList;
